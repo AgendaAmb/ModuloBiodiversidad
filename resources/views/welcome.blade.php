@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <div class="container-fluid justify-content-between mt-5 ml-5">
+    <div class="container-fluid justify-content-between mt-5 p-5">
         <h2 class="text-center alert alert-dark">Hoja de campo</h2>
         <form method="POST" action="#">
             @csrf
@@ -226,7 +226,7 @@
                     </div>
 
                     <div class="form-group row g-3">
-                        <label for="Copa" class="col-md-4 col-form-label text-md-left">{{ __('Copa') }} </label>
+                        <label for="Copa" class="col-md-4 col-form-label text-md-left">{{ __('Copa(tipo)') }} </label>
 
                         <div class="col-md-6">
                             <input id="Copa" type="text" class="form-control @error('Copa') is-invalid @enderror"
@@ -255,6 +255,91 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
+                        </div>
+                    </div>
+                    <div class="form-group row g-3">
+                        <label for="Raices" class="col-md-4 col-form-label text-md-left">{{ __('Raíces') }}</label>
+                        <div class="col-md-6">
+                            <textarea aria-label="With textarea" id="Raices" type="text"
+                                class="form-control @error('Raices') is-invalid @enderror" name="Raices"
+                                value="{{ old('Raices') }}" required autocomplete="Raices" autofocus></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row g-3">
+                        <label for="TRaices"
+                            class="col-md-4 col-form-label text-md-left">{{ __('Tipo de Raíces') }}</label>
+                        <div class="col-md-6">
+                            <textarea aria-label="With textarea" id="Raices" type="text"
+                                class="form-control @error('Raices') is-invalid @enderror" name="Raices"
+                                value="{{ old('Raices') }}" required autocomplete="Raices" autofocus></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row g-3">
+                        <label for="Manejo" class="col-md-4 col-form-label text-md-left">{{ __('Manejo') }}</label>
+
+                        <div class="col-md-6">
+                            <select class="custom-select" id="Manejo" require>
+                                <option selected>Manejo</option>
+                                <option value="1">1 (Baja)</option>
+                                <option value="2">2 (Regular)</option>
+                                <option value="3">3 (Alta)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row g-3">
+                        <label for="DanosFisicos"
+                            class="col-md-4 col-form-label text-md-left">{{ __('Presencia de daños físicos') }}</label>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline1" name="customRadioInline"
+                                class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline1">Si</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline2" name="customRadioInline"
+                                class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline2">No</label>
+                        </div>
+                    </div>
+                    <div class="form-group row g-3">
+                        <div class="col-md-4 col-form-label text-md-left"></div>
+                        <div class="col-md-6">
+                            <textarea aria-label="With textarea" id="DanosFisicosText" type="text"
+                                class="form-control @error('DanosFisicosText') is-invalid @enderror"
+                                name="DanosFisicosText" value="{{ old('DanosFisicosText') }}" required
+                                autocomplete="DanosFisicosText" autofocus></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row g-3">
+                        <label for="EstadoFitosanitario"
+                            class="col-md-4 col-form-label text-md-left">{{ __('Estado fitosanitario aparente') }}</label>
+
+                        <div class="col-md-6">
+                            <select class="custom-select" id="EstadoFitosanitario" require>
+                                <option selected>Estado</option>
+                                <option value="1">1 (Favorable)</option>
+                                <option value="2">2 (Medio)</option>
+                                <option value="3">3 (Desfavorable)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row g-3">
+                        <label for="EnfermedadesA"
+                            class="col-md-4 col-form-label text-md-left">{{ __('Enfermedades Aparentes') }}</label>
+                        <div class="col-md-6">
+                            <textarea aria-label="With textarea" id="EnfermedadesA" type="text"
+                                class="form-control @error('EnfermedadesA') is-invalid @enderror" name="EnfermedadesA"
+                                value="{{ old('EnfermedadesA') }}" required autocomplete="EnfermedadesA"
+                                autofocus></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row g-3">
+                        <label for="EnfermedadesP"
+                            class="col-md-4 col-form-label text-md-left">{{ __('Enfermedades Probables') }}</label>
+                        <div class="col-md-6">
+                            <textarea aria-label="With textarea" id="EnfermedadesP" type="text"
+                                class="form-control @error('EnfermedadesP') is-invalid @enderror" name="EnfermedadesP"
+                                value="{{ old('EnfermedadesP') }}" required autocomplete="EnfermedadesP"
+                                autofocus></textarea>
                         </div>
                     </div>
                 </div>
@@ -327,10 +412,11 @@
                     <hr>
                 </div>
             </div>
-            
 
 
-            <button type="submit" class="btn btn-primary text-center">Confirmar</button>
+            <div class=" d-flex justify-content-xl-end mb-2">
+                <button type="submit" class="btn btn-primary btn-lg">Confirmar</button>
+            </div>
 
 
         </form>
