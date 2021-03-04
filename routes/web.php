@@ -14,9 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('HojaCampo');
 });
 
 Auth::routes();
+
+Route::get('/HojaCampo', 'PlantaController@index')->name('HojaCampo');
+Route::post('/GuardaHC', 'PlantaController@store')->name('GHC');
 
 Route::get('/home', 'HomeController@index')->name('home');
