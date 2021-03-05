@@ -6,25 +6,32 @@
 </head>
 
 <body>
-    <div class="container-fluid justify-content-between mt-5 p-5" id="appp">
+    <div class="container-fluid justify-content-between mt- p-5" id="appp">
         <h2 class="text-center alert alert-dark">Hoja de campo</h2>
-        
-        <form method="POST" action="{{route('GHC')}}" enctype="multipart/form-data">
+
+        <form method="POST" action="{{route('GHC')}}"  enctype="multipart/form-data">
             @csrf
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="card" v-for="(a, index) in archivos">
-                        <img class="card-img-top" v-if="a.imagen!=''" :id="a.nombre" :src="a.imagen" alt="Card image cap">
+            <div class="row row-cols-1 row-cols-md-4">
+                <div class="col mb-4" v-for="(a, index) in archivos">
+                    <div class="card">
+                        <h5 class="card-title text-center">@{{a.parteP}}</h5>
                         <div class="card-body">
-                            <input type="file" :id="'fileImg'+index" @change="cargarImagen($event,index)" />
+                            <img class="card-img-top" v-if="a.imagen!=''" :id="a.nombre" :src="a.imagen"
+                                alt="Card image cap">
+                        </div>
+
+                        <div class="card-footer">
+                            <small class="text-muted">
+                                <input type="file" accept="image/png,image/jpeg"  :id="'fileImg'+index" :name="'fileImg'+index" class="inp"
+                                    @change="cargarImagen($event,index)" />
+                            </small>
                         </div>
                     </div>
                 </div>
-                
             </div>
-            
-                
-            </div>
+
+
+
             @include('HojaCampo.DGenerales')
             @include('HojaCampo.ReconocimientoE')
 
@@ -49,13 +56,51 @@
     this.archivos = [
         {
             imagen:"",
-            nombre:"Archivo1"
+            nombre:"Archivo1",
+            parteP:"Planta completa"
             
         },
         {
             imagen:"",
-            nombre:"Archivo2"
-        }
+            nombre:"Archivo2",
+            parteP:"Follaje"
+        },
+        {
+            imagen:"",
+            nombre:"Archivo3",
+            parteP:"Hojas"
+            
+        },
+        {
+            imagen:"",
+            nombre:"Archivo4",
+            parteP:"Flores"
+            
+        },
+        {
+            imagen:"",
+            nombre:"Archivo5",
+            parteP:"Frutos"
+            
+        },
+        {
+            imagen:"",
+            nombre:"Archivo6",
+            parteP:"Semillas"
+            
+        },
+        {
+            imagen:"",
+            nombre:"Archivo7",
+            parteP:"Tronco"
+            
+        },
+        {
+            imagen:"",
+            nombre:"Archivo8",
+            parteP:"Raíces"
+            
+        },
     ]
   })
 }, 

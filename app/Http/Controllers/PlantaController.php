@@ -56,13 +56,12 @@ class PlantaController extends Controller
                         ->withInput();
         }else{
             
-
+       
             $NombreEjem = new NombreEjemplar();
             $NombreEjem->NombreComun=$request->NombreC;
             $NombreEjem->NombreCientifico=$request->NombreCientifico;
             $NombreEjem->save();
-            
-        
+
             $Planta = new Planta();
             $Planta->FechaRecoleccion=$request->FechaRecoleccion;
             $Planta->NombreRecolectorDatos=$request->NombreRecolectorD;
@@ -73,8 +72,12 @@ class PlantaController extends Controller
             $Nom=NombreEjemplar::find($NombreEjem->id);
             
             $Planta->NombreEjem()->associate($Nom);
+            
+            dd(count($request->file()));
+            
 
             $Planta->save();
+            
           
         }
        
