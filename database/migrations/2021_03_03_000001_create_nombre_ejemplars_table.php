@@ -16,7 +16,8 @@ class CreateNombreEjemplarsTable extends Migration
         Schema::create('nombre_ejemplars', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('NombreComun');
-            $table->string('NombreCientifico');
+            $table->string('NombreCientifico')->nullable();
+            $table->string('Clave');
             $table->timestamps();
         });
     }

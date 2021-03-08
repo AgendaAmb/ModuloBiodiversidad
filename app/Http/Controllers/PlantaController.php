@@ -16,7 +16,9 @@ class PlantaController extends Controller
      */
     public function index()
     {
-        return \view('HojaCampo.index');
+        $Ejemplar=NombreEjemplar::all();
+      
+        return \view('HojaCampo.index')->with("Ejemplar",$Ejemplar);
     }
 
     /**
@@ -37,14 +39,14 @@ class PlantaController extends Controller
      */
     public function store(Request $request)
     {
-      
+  
         $validatedData = Validator::make($request->all(),[
             'FechaRecoleccion' => ['required','max:15','bail'],
             'FechaFotografia' => ['required','max:15','bail'],
             'NombreRecolectorD' => ['required','max:40','bail'],
             'NombreRecolectorm' => ['required','max:40','bail'],
             'NombreAutorFoto' => ['required','max:40','bail'],
-            'NombreC' => ['required','max:40','bail'],
+            
             'NombreCientifico' => ['required','max:40','bail'],
             'NombreCientificoConf' => ['required','max:40','bail'],
             'RegistroIdentificacion' => ['required','max:40','bail'],
@@ -55,12 +57,6 @@ class PlantaController extends Controller
                         ->withErrors($validator)
                         ->withInput();
         }else{
-            
-       
-            $NombreEjem = new NombreEjemplar();
-            $NombreEjem->NombreComun=$request->NombreC;
-            $NombreEjem->NombreCientifico=$request->NombreCientifico;
-            $NombreEjem->save();
 
             $Planta = new Planta();
             $Planta->FechaRecoleccion=$request->FechaRecoleccion;
@@ -69,19 +65,14 @@ class PlantaController extends Controller
             $Planta->NombreRecolectorMuestra=$request->NombreRecolectorm;
             $Planta->Verificado=false;
 
-            $Nom=NombreEjemplar::find($NombreEjem->id);
-            
+            $Nom=NombreEjemplar::find($request->NombreC);
             $Planta->NombreEjem()->associate($Nom);
-            
-            dd(count($request->file()));
-            
-
             $Planta->save();
             
           
         }
        
-    
+        return \redirect()->back();
     }
 
     /**

@@ -16,11 +16,11 @@ class CreateFotoPlantasTable extends Migration
         Schema::create('foto_plantas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('urlImg');
-            $table->unsignedBigInteger('planta_id');
+            $table->unsignedBigInteger('foto_plantas_planta_id');
 
-            $table->foreign('planta_id')
+            $table->foreign('foto_plantas_planta_id')
             ->references('id')
-            ->on('Planta')
+            ->on('plantas')
             ->onDelete('cascade');
             $table->timestamps();
         });

@@ -4,23 +4,27 @@
         <label for="NombreC" class="col-md-4 col-form-label text-md-left">{{ __('Nombre Común') }}</label>
 
         <div class="col-md-6">
-            <input id="NombreC" type="text" class="form-control @error('NombreC') is-invalid @enderror" name="NombreC"
-                value="{{ old('NombreC') }}"maxlength="40" required autocomplete="NombreC" autofocus>
+            <select class="custom-select" id="NombreC" name="NombreC" require>
+                <option selected>Nombre Común</option>
 
-            @error('NombreC')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
+                @if (!is_null($Ejemplar))
+                @foreach ($Ejemplar as $E)
+                <option value="{{$E->id}}">{{$E->NombreComun}}</option>
+
+                @endforeach
+                @endif
+               
+            </select>
         </div>
     </div>
+
     <div class="form-group row g-3">
         <label for="NombreCientifico" class="col-md-4 col-form-label text-md-left">{{ __('Nombre Científico') }}</label>
 
         <div class="col-md-6">
             <input id="NombreCientifico" type="text"
                 class="form-control @error('NombreCientifico') is-invalid @enderror" name="NombreCientifico"
-                value="{{ old('NombreCientifico') }}" maxlength="40"required autocomplete="NombreCientifico" autofocus>
+                value="{{old('NombreCientifico') }}" maxlength="40" required autocomplete="NombreCientifico" autofocus>
 
             @error('NombreCientifico')
             <span class="invalid-feedback" role="alert">
@@ -37,7 +41,7 @@
             <input id="NombreCientificoConf" type="text"
                 class="form-control @error('NombreCientificoConf') is-invalid @enderror" name="NombreCientificoConf"
                 value="{{ old('NombreCientificoConf') }}" required autocomplete="NombreCientificoConf" autofocus
-                data-toggle="tooltip" data-placement="top"maxlength="40" title="(Identificación pendiente)">
+                data-toggle="tooltip" data-placement="top" maxlength="40" title="(Identificación pendiente)">
 
             @error('NombreCientificoConf')
             <span class="invalid-feedback" role="alert">
@@ -54,8 +58,9 @@
         <div class="col-md-6">
             <input id="RegistroIdentificacion" type="text"
                 class="form-control @error('RegistroIdentificacion') is-invalid @enderror" name="RegistroIdentificacion"
-                value="{{ old('RegistroIdentificacion') }}"maxlength="40" required autocomplete="RegistroIdentificacion" autofocus
-                data-toggle="tooltip" data-placement="top" title="(Institución/Nombre del identificador)">
+                value="{{ old('RegistroIdentificacion') }}" maxlength="40" required
+                autocomplete="RegistroIdentificacion" autofocus data-toggle="tooltip" data-placement="top"
+                title="(Institución/Nombre del identificador)">
 
             @error('RegistroIdentificacion')
             <span class="invalid-feedback" role="alert">
@@ -65,3 +70,11 @@
         </div>
     </div>
 </div>
+
+
+@if (!is_null($Ejemplar))
+@foreach ($Ejemplar as $E)
+
+
+@endforeach
+@endif

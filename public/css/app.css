@@ -81,7 +81,9 @@ body {
 #imagen5
 #imagen6{
   visibility: hidden;
-  
+}
+input[type="file"] {
+  color: transparent;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {

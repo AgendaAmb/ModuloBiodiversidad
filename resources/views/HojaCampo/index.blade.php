@@ -11,45 +11,32 @@
 
         <form method="POST" action="{{route('GHC')}}"  enctype="multipart/form-data">
             @csrf
-            <div class="row row-cols-1 row-cols-md-4">
-                <div class="col mb-4" v-for="(a, index) in archivos">
-                    <div class="card">
-                        <h5 class="card-title text-center">@{{a.parteP}}</h5>
-                        <div class="card-body">
-                            <img class="card-img-top" v-if="a.imagen!=''" :id="a.nombre" :src="a.imagen"
-                                alt="Card image cap">
-                        </div>
-
-                        <div class="card-footer">
-                            <small class="text-muted">
-                                <input type="file" accept="image/png,image/jpeg"  :id="'fileImg'+index" :name="'fileImg'+index" class="inp"
-                                    @change="cargarImagen($event,index)" />
-                            </small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
+            @include('HojaCampo.Imagenes')
             @include('HojaCampo.DGenerales')
             @include('HojaCampo.ReconocimientoE')
-
-            <div class=" d-flex justify-content-xl-end mb-2">
-                <button type="submit" class="btn btn-primary btn-lg">Confirmar</button>
+            <!--
+                @include('HojaCampo.Morfologia')
+                @include('HojaCampo.SituacionEntorno')
+            -->
+            <div class="container">
+                <div class="row justify-content-center">
+                    <button type="submit" class="btn btn-primary btn-lg">Confirmar</button>
+                </div>
             </div>
+            
         </form>
     </div>
 </body>
 
 </html>
-<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
 
 <script>
-    var app = new Vue({
+var img = new Vue({
   el: '#appp',
   data: {
-    archivos:[]
+    archivos:[],
+    datos:[]
   }, 
   mounted: function () {
   this.$nextTick(function () {
@@ -124,4 +111,8 @@ methods:{
 
     function readImage (e,input) {
   }
+</script>
+
+<script>
+
 </script>

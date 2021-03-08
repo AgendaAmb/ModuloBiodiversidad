@@ -8,7 +8,7 @@ class FotoPlanta extends Model
 {
     protected $table = 'foto_plantas';
 
-    protected $fillable=['FechaRecoleccion','NombreRecolectorDatos','NombreRecolectorMuestra','Verificado','NomVerificador'];
+    protected $fillable=['urlImg'];
 
     public function Planta()
     {
