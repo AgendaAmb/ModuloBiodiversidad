@@ -22,10 +22,18 @@ class CreatePlantasTable extends Migration
             $table->string('NomVerificador')->nullable();
 
             $table->unsignedBigInteger('Nombre_Ejem_id');
+            
 
             $table->foreign('Nombre_Ejem_id')
             ->references('id')
             ->on('nombre_ejemplars')
+            ->onDelete('cascade');
+
+            $table->unsignedBigInteger('Morfologia_id');
+           
+            $table->foreign('Morfologia_id')
+            ->references('id')
+            ->on('morfologias')
             ->onDelete('cascade');
           
             

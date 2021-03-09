@@ -14,8 +14,8 @@
             @include('HojaCampo.Imagenes')
             @include('HojaCampo.DGenerales')
             @include('HojaCampo.ReconocimientoE')
+            @include('HojaCampo.Morfologia')
             <!--
-                @include('HojaCampo.Morfologia')
                 @include('HojaCampo.SituacionEntorno')
             -->
             <div class="container">

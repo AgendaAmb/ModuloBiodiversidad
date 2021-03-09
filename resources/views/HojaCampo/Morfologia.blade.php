@@ -15,7 +15,7 @@
             class="col-md-4 col-form-label text-md-left">{{ __('Estado de Crecimiento') }}</label>
 
         <div class="col-md-6">
-            <select class="custom-select" id="EstadoCrecimiento" require>
+            <select class="custom-select" id="EstadoCrecimiento" name="Ecrecimiento" require>
                 <option selected>Estado de Crecimiento</option>
                 <option value="1">1 (Juvenil)</option>
                 <option value="2">2 (Adulto)</option>
@@ -102,16 +102,16 @@
         <label for="TRaices"
             class="col-md-4 col-form-label text-md-left">{{ __('Tipo de Raíces') }}</label>
         <div class="col-md-6">
-            <textarea aria-label="With textarea" id="Raices" type="text"
-                class="form-control @error('Raices') is-invalid @enderror" name="Raices"
-                value="{{ old('Raices') }}" required autocomplete="Raices" autofocus></textarea>
+            <textarea aria-label="With textarea" id="TRaices" type="text"
+                class="form-control @error('Raices') is-invalid @enderror" name="TRaices"
+                value="{{ old('TRaices') }}" required autocomplete="Raices" autofocus></textarea>
         </div>
     </div>
     <div class="form-group row g-3">
         <label for="Manejo" class="col-md-4 col-form-label text-md-left">{{ __('Manejo') }}</label>
 
         <div class="col-md-6">
-            <select class="custom-select" id="Manejo" require>
+            <select class="custom-select" id="Manejo" name="Manejo"require>
                 <option selected>Manejo</option>
                 <option value="1">1 (Baja)</option>
                 <option value="2">2 (Regular)</option>
@@ -147,7 +147,7 @@
             class="col-md-4 col-form-label text-md-left">{{ __('Estado fitosanitario aparente') }}</label>
 
         <div class="col-md-6">
-            <select class="custom-select" id="EstadoFitosanitario" require>
+            <select class="custom-select" id="EstadoFitosanitario" name ="EstadoFiso" require>
                 <option selected>Estado</option>
                 <option value="1">1 (Favorable)</option>
                 <option value="2">2 (Medio)</option>

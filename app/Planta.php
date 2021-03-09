@@ -18,4 +18,8 @@ class Planta extends Model
     {
         return $this->hasMany(FotoPlanta::class);
     }
+    public function Morfologia()
+    {
+        return $this->hasOne(Morfologia::class);
+    }
 }
