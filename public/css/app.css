@@ -82,6 +82,12 @@ body {
 #imagen6{
   visibility: hidden;
 }
+.card-img-top{
+  height: 100px;
+}
+#DanosFisicosText{
+  display: none;
+}
 input[type="file"] {
   color: transparent;
 }

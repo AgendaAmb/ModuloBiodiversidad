@@ -8,22 +8,27 @@
 <body>
     <div class="container-fluid justify-content-between mt- p-5" id="appp">
         <h2 class="text-center alert alert-dark">Hoja de campo</h2>
-
-        <form method="POST" action="{{route('GHC')}}"  enctype="multipart/form-data">
+        @if(session()->has('message'))
+        <div class="alert alert-success text-center">
+            <h2>
+                {{ session()->get('message') }}
+            </h2>
+        </div>
+        @endif
+        <form method="POST" action="{{route('GHC')}}" enctype="multipart/form-data">
             @csrf
             @include('HojaCampo.Imagenes')
             @include('HojaCampo.DGenerales')
+            
             @include('HojaCampo.ReconocimientoE')
             @include('HojaCampo.Morfologia')
-            <!--
-                @include('HojaCampo.SituacionEntorno')
-            -->
+            
             <div class="container">
                 <div class="row justify-content-center">
                     <button type="submit" class="btn btn-primary btn-lg">Confirmar</button>
                 </div>
             </div>
-            
+
         </form>
     </div>
 </body>
@@ -32,14 +37,16 @@
 
 
 <script>
-var img = new Vue({
+    var img = new Vue({
   el: '#appp',
   data: {
     archivos:[],
-    datos:[]
+    datos:[],
+    
   }, 
   mounted: function () {
   this.$nextTick(function () {
+      
     this.archivos = [
         {
             imagen:"",
@@ -95,7 +102,7 @@ methods:{
     cargarImagen: function(e,index){
         let t = this;
         var input = document.getElementById('fileImg' +index);
-        console.log(input.files);
+        
     if (input.files && input.files[0]) {
       var reader = new FileReader();
       reader.onload = function (e) {
@@ -111,6 +118,15 @@ methods:{
 
     function readImage (e,input) {
   }
+  function DFisicos(x){
+    if(x=="1"){
+        document.getElementById("DanosFisicosText").style.display='block';
+    }else{
+        document.getElementById("DanosFisicosText").style.display='none';
+
+    }
+    return;
+}
 </script>
 
 <script>

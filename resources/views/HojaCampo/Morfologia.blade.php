@@ -124,16 +124,16 @@
             class="col-md-4 col-form-label text-md-left">{{ __('Presencia de daños físicos') }}</label>
         <div class="custom-control custom-radio custom-control-inline">
             <input type="radio" id="customRadioInline1" name="customRadioInline"
-                class="custom-control-input">
-            <label class="custom-control-label" for="customRadioInline1">Si</label>
+                class="custom-control-input" onclick="DFisicos(1)">
+            <label class="custom-control-label" for="customRadioInline1" >Si</label>
         </div>
         <div class="custom-control custom-radio custom-control-inline">
             <input type="radio" id="customRadioInline2" name="customRadioInline"
-                class="custom-control-input">
-            <label class="custom-control-label" for="customRadioInline2">No</label>
+                class="custom-control-input" onclick="DFisicos(0)" >
+            <label class="custom-control-label" for="customRadioInline2" >No</label>
         </div>
     </div>
-    <div class="form-group row g-3">
+    <div class="form-group row g-3" >
         <div class="col-md-4 col-form-label text-md-left"></div>
         <div class="col-md-6">
             <textarea aria-label="With textarea" id="DanosFisicosText" type="text"

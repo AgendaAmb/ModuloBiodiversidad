@@ -72,9 +72,3 @@
 </div>
 
 
-@if (!is_null($Ejemplar))
-@foreach ($Ejemplar as $E)
-
-
-@endforeach
-@endif

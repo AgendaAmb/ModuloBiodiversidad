@@ -1,4 +1,4 @@
-<div class="form-row m-2">
+<div class="form-row">
     <div class="col-xl-6">
         <h2 class="alert alert-primary text-center">Datos Generales</h2>
         <div class="form-group row g-3">
@@ -21,12 +21,14 @@
         </div>
         <div class="form-group row g-3">
             <label for="NombreRecolectorD"
-            class="col-md-4 col-form-label text-md-left">{{ __('Nombre del Recolector de datos') }}</label>
-    
+                class="col-md-4 col-form-label text-md-left">{{ __('Nombre del Recolector de datos') }}</label>
+
             <div class="col-md-6">
-                <input id="NombreRecolectorD" type="text" class="form-control @error('NombreRecolectorD') is-invalid @enderror" name="NombreRecolectorD"
-                    value="{{ old('NombreRecolectorD') }}"maxlength="40" required autocomplete="NombreRecolectorD" autofocus>
-    
+                <input id="NombreRecolectorD" type="text"
+                    class="form-control @error('NombreRecolectorD') is-invalid @enderror" name="NombreRecolectorD"
+                    value="{{ old('NombreRecolectorD') }}" maxlength="40" required autocomplete="NombreRecolectorD"
+                    autofocus>
+
                 @error('NombreRecolectorD')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -36,11 +38,13 @@
         </div>
         <div class="form-group row g-3">
             <label for="NombreRecolectorm"
-            class="col-md-4 col-form-label text-md-left">{{ __('Nombre del Recolector de muestra') }}</label>
+                class="col-md-4 col-form-label text-md-left">{{ __('Nombre del Recolector de muestra') }}</label>
             <div class="col-md-6">
-                <input id="NombreRecolectorm" type="text" class="form-control @error('NombreRecolectorm') is-invalid @enderror" name="NombreRecolectorm"
-                    value="{{ old('NombreRecolectorm') }}"maxlength="40" required autocomplete="NombreRecolectorm" autofocus>
-    
+                <input id="NombreRecolectorm" type="text"
+                    class="form-control @error('NombreRecolectorm') is-invalid @enderror" name="NombreRecolectorm"
+                    value="{{ old('NombreRecolectorm') }}" maxlength="40" required autocomplete="NombreRecolectorm"
+                    autofocus>
+
                 @error('NombreRecolectorD')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -50,11 +54,13 @@
         </div>
         <div class="form-group row g-3">
             <label for="NombreAutorFoto"
-            class="col-md-4 col-form-label text-md-left">{{ __('Nombre de autor de fotografías') }}</label>
+                class="col-md-4 col-form-label text-md-left">{{ __('Nombre de autor de fotografías') }}</label>
             <div class="col-md-6">
-                <input id="NombreAutorFoto" type="text" class="form-control @error('NombreAutorFoto') is-invalid @enderror" name="NombreAutorFoto"
-                    value="{{ old('NombreAutorFoto') }}"maxlength="40" required autocomplete="NombreAutorFoto" autofocus>
-    
+                <input id="NombreAutorFoto" type="text"
+                    class="form-control @error('NombreAutorFoto') is-invalid @enderror" name="NombreAutorFoto"
+                    value="{{ old('NombreAutorFoto') }}" maxlength="40" required autocomplete="NombreAutorFoto"
+                    autofocus>
+
                 @error('NombreAutorFoto')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -62,8 +68,6 @@
                 @enderror
             </div>
         </div>
-       
-
-        
         <hr>
-    </div>
+
+</div>

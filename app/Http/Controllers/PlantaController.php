@@ -50,7 +50,18 @@ class PlantaController extends Controller
             'NombreCientifico' => ['required','max:40','bail'],
             'NombreCientificoConf' => ['required','max:40','bail'],
             'RegistroIdentificacion' => ['required','max:40','bail'],
-            
+            'CondicionG' => ['required','max:255','bail'],
+            'Ecrecimiento' => ['required','max:20','bail'],
+            'Altura' => ['required','bail'],
+            'AlturaLi' => ['required','bail'],
+            'Copa' => ['required','max:50','bail'],
+            'DiametroC' => ['required','bail'],
+            'Raices' => ['required','max:40','bail'],
+            'TRaices' => ['required','max:40','bail'],
+            'Manejo' => ['required','max:100','bail'],
+            'EstadoFiso' => ['required','max:40','bail'],
+            'EnfermedadesA' => ['required','max:255','bail'],
+            'EnfermedadesP' => ['required','max:255','bail'],
         ]);
         if ($validatedData->fails()) {
             return redirect(route('HojaCampo'))
@@ -58,27 +69,26 @@ class PlantaController extends Controller
                         ->withInput();
         }else{
            
-            $Morfologia = new Morfologia();
-            $Morfologia->CondicionGeneral=$request->CondicionG;
-            $Morfologia->EstadoCrecimiento=$request->Ecrecimiento;
-            $Morfologia->Altura=floatval($request->Altura);
-            $Morfologia->AlturaLiteratura=floatval($request->AlturaLi);
-            $Morfologia->Tcopa=$request->Copa;
-            $Morfologia->DiametroCopa=floatval($request->DiametroC);
+        $Morfologia = new Morfologia();
+        $Morfologia->CondicionGeneral=$request->CondicionG;
+        $Morfologia->EstadoCrecimiento=$request->Ecrecimiento;
+        $Morfologia->Altura=floatval($request->Altura);
+        $Morfologia->AlturaLiteratura=floatval($request->AlturaLi);
+        $Morfologia->Tcopa=$request->Copa;
+        $Morfologia->DiametroCopa=floatval($request->DiametroC);
 
-            $Morfologia->Raices=$request->Raices;
-            $Morfologia->TRaices=$request->TRaices;
-            $Morfologia->Manejo=$request->Manejo;
-            if($request->customRadioInline=="on"){
-           
-                $Morfologia->DanosF=$request->DanosFisicosText ;
-            }
-            $Morfologia->EstadoFiso=$request->EstadoFiso;
-            $Morfologia->EnfermeAparentes=$request->EnfermedadesA;
-            $Morfologia->EnfermeLitera=$request->EnfermedadesP;
+        $Morfologia->Raices=$request->Raices;
+        $Morfologia->TRaices=$request->TRaices;
+        $Morfologia->Manejo=$request->Manejo;
+        if($request->customRadioInline=="on"){
+       
+            $Morfologia->DanosF=$request->DanosFisicosText ;
+        }
+        $Morfologia->EstadoFiso=$request->EstadoFiso;
+        $Morfologia->EnfermeAparentes=$request->EnfermedadesA;
+        $Morfologia->EnfermeLitera=$request->EnfermedadesP;
+        $Morfologia->save();
 
-            $Morfologia->save();
-            dd("Guardado");
             $Planta = new Planta();
             $Planta->FechaRecoleccion=$request->FechaRecoleccion;
             $Planta->NombreRecolectorDatos=$request->NombreRecolectorD;
@@ -89,17 +99,17 @@ class PlantaController extends Controller
             $Nom=NombreEjemplar::find($request->NombreC);
             $Planta->NombreEjem()->associate($Nom);
 
-            $M=Morfologia::find($Morfologia);
-            $Planta->NombreEjem()->associate($M);
-
+            $M=Morfologia::find($Morfologia->id);
+           
+            $Planta->Morfologia_id=$Morfologia->id;
             $Planta->save();
-            
-          
         }
        
-        return \redirect()->back();
+        return \redirect()->back()->with('message', 'Hoja de campo registrada con exito');
     }
-
+    public function GuardaMorfologia(Request $request){
+       
+    }
     /**
      * Display the specified resource.
      *
