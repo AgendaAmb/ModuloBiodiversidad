@@ -18,8 +18,8 @@
 </div>
 <div class="alert alert-warning text-right" role="alert">
     <b>
-
         La previsualización de las imagenes no representa la calidad real de las mismas.*
     </b>
 </div>
+
 

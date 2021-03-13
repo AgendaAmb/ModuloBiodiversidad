@@ -19,16 +19,16 @@
             @csrf
             @include('HojaCampo.Imagenes')
             @include('HojaCampo.DGenerales')
-            
             @include('HojaCampo.ReconocimientoE')
             @include('HojaCampo.Morfologia')
-            
+           
+
             <div class="container">
                 <div class="row justify-content-center">
                     <button type="submit" class="btn btn-primary btn-lg">Confirmar</button>
                 </div>
             </div>
-
+        </div>
         </form>
     </div>
 </body>
@@ -42,11 +42,19 @@
   data: {
     archivos:[],
     datos:[],
-    
+    Nombres:[],
+    NombreC:'',
+    NCientifico:'',
   }, 
   mounted: function () {
   this.$nextTick(function () {
-      
+    @foreach($Ejemplar as $E)
+                this.Nombres.push({
+                    "id":'{{$E->id}}',
+                    "Nombre":'{{$E->NombreComun}}',
+                    "NombreC":'{{$E->NombreCientifico}}'
+                });
+    @endforeach
     this.archivos = [
         {
             imagen:"",
@@ -111,6 +119,23 @@ methods:{
      
       reader.readAsDataURL(input.files[0]);
     }
+    },
+    Ncientifico:function(){
+        this.Nombres.map((n) => {
+            if(document.getElementById('NombreC').value==n.id){
+                this.NCientifico=n.NombreC
+            }
+        })
+        /*
+        for(i in this.Nombres){
+            console.log(i);
+            if(document.getElementById('NombreC').value==this.Nombres[i].id){
+                document.getElementById('NombreCientifico').value= this.Nombres[i].NombreC;
+                break;
+            }
+        }
+        */
+        
     }
 }
 
@@ -118,6 +143,7 @@ methods:{
 
     function readImage (e,input) {
   }
+  
   function DFisicos(x){
     if(x=="1"){
         document.getElementById("DanosFisicosText").style.display='block';
@@ -127,8 +153,4 @@ methods:{
     }
     return;
 }
-</script>
-
-<script>
-
 </script>

@@ -40,7 +40,6 @@ class PlantaController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
         $validatedData = Validator::make($request->all(),[
             'FechaRecoleccion' => ['required','max:15','bail'],
             'FechaFotografia' => ['required','max:15','bail'],
@@ -65,8 +64,9 @@ class PlantaController extends Controller
         ]);
         if ($validatedData->fails()) {
             return redirect(route('HojaCampo'))
-                        ->withErrors($validator)
+                        ->withErrors($validatedData)
                         ->withInput();
+                       
         }else{
            
         $Morfologia = new Morfologia();
@@ -107,9 +107,7 @@ class PlantaController extends Controller
        
         return \redirect()->back()->with('message', 'Hoja de campo registrada con exito');
     }
-    public function GuardaMorfologia(Request $request){
-       
-    }
+    
     /**
      * Display the specified resource.
      *

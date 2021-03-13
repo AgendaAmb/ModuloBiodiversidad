@@ -1,0 +1,103 @@
+[
+    {
+        "Nombre":"Acacia amarilla",
+        "NombreCientifico":"CAESALPINIA PLUVIOSA L.",
+        "Clave":"AM"
+    },
+    {
+        "Nombre":"Acacia de tres espinas ",
+        "NombreCientifico":"GLEDITSIA TRIACANTHOS L.",
+        "Clave":"ATE"
+    },
+    {
+        "Nombre":"Acacia negra",
+        "NombreCientifico":"ACACIA MELANOXYLON L.",
+        "Clave":"AN"
+    },
+    {
+        "Nombre":"Aceituno",
+        "NombreCientifico":"OLEA EUROPAEA L.",
+        "Clave":"ACE"
+    },
+    {
+        "Nombre":"Acezintle",
+        "NombreCientifico":"ACER NEGUNDO L.",
+        "Clave":"AEZ"
+    },
+    {
+        "Nombre":"Aguacate",
+        "NombreCientifico":"PERSEA AMERICANA L.",
+        "Clave":"AG"
+    },
+    {
+        "Nombre":"Ahuehuete",
+        "NombreCientifico":"TAXODIUM HUEGELII L.",
+        "Clave":"AH "
+    },
+    {
+        "Nombre":"Aile",
+        "NombreCientifico":"ALNUS JORULLENSIS L.",
+        "Clave":"AILE"
+    },
+    {
+        "Nombre":"Álamo blanco",
+        "NombreCientifico":"POPULUS ALBA L.",
+        "Clave":"AB"
+    },
+    {
+        "Nombre":"Álamo canadiense",
+        "NombreCientifico":"POPULUS L.",
+        "Clave":"AC"
+    },
+    {
+        "Nombre":"Algarrobo",
+        "NombreCientifico":"HYMENAEA COURBARIL L.",
+        "Clave":"ABO"
+    },
+    {
+        "Nombre":"Aligustre",
+        "NombreCientifico":"LIGUSTRUM VULGARE L.",
+        "Clave":"AL"
+    }, 
+    {
+        "Nombre":"Almendro de la India",
+        "NombreCientifico":"TERMINALIA CATAPPA L.",
+        "Clave":"AI"
+    },
+    {
+        "Nombre":"Anacahuita",
+        "NombreCientifico":"CORDIA BOISSIERI L.",
+        "Clave":"AHA"
+    },
+    {
+        "Nombre":"Aralia",
+        "NombreCientifico":"Fatsia japonica",
+        "Clave":"ARA"
+    },    
+    {
+        "Nombre":"Araucaria",
+        "NombreCientifico":"Pendiente",
+        "Clave":"AR"
+    },     
+    {
+        "Nombre":"Árbol de cebo",
+        "NombreCientifico":"Triadica sebifera",
+        "Clave":"ACEB"
+    }, 
+    {
+        "Nombre":"Árbol de Jupiter",
+        "NombreCientifico":"LAGERSTROEMIA INDICA",
+        "Clave":"ACEB"
+    }, 
+    {
+        "Nombre":"Árbol lápiz",
+        "NombreCientifico":"EUPHORBIA TIRUCALLI L.",
+        "Clave":"ALZ"
+    },
+    {
+        "Nombre":"Árbol sombrilla ",
+        "NombreCientifico":"MELIA AZEDARACH L.",
+        "Clave":"AS"
+    }
+
+]

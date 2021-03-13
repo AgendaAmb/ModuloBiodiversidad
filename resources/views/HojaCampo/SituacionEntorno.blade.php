@@ -1,6 +1,5 @@
 <div class="col-xl-6">
     <h2 class="alert alert-primary text-center">Situación y entorno</h2>
-
     <div class="form-group row">
         <label for="NombreRecolectorD"
             class="col-md-4 col-form-label text-md-left">{{ __('Coordenada geográfica') }}</label>

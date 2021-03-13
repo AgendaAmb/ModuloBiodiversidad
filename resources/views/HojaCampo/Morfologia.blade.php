@@ -138,7 +138,7 @@
         <div class="col-md-6">
             <textarea aria-label="With textarea" id="DanosFisicosText" type="text"
                 class="form-control @error('DanosFisicosText') is-invalid @enderror"
-                name="DanosFisicosText" value="{{ old('DanosFisicosText') }}" required
+                name="DanosFisicosText" value="{{ old('DanosFisicosText') }}"
                 autocomplete="DanosFisicosText" autofocus></textarea>
         </div>
     </div>

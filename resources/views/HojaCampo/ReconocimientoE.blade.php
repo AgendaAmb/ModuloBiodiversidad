@@ -4,25 +4,17 @@
         <label for="NombreC" class="col-md-4 col-form-label text-md-left">{{ __('Nombre Común') }}</label>
 
         <div class="col-md-6">
-            <select class="custom-select" id="NombreC" name="NombreC" require>
+            <select class="custom-select" id="NombreC" name="NombreC" v-model="NombreC" require @change="Ncientifico()">
                 <option selected>Nombre Común</option>
-
-                @if (!is_null($Ejemplar))
-                @foreach ($Ejemplar as $E)
-                <option value="{{$E->id}}">{{$E->NombreComun}}</option>
-
-                @endforeach
-                @endif
-               
+                <option v-for="(N,index) in Nombres" :value="N.id">@{{N.Nombre}}</option>
             </select>
         </div>
     </div>
-
     <div class="form-group row g-3">
         <label for="NombreCientifico" class="col-md-4 col-form-label text-md-left">{{ __('Nombre Científico') }}</label>
-
         <div class="col-md-6">
-            <input id="NombreCientifico" type="text"
+          
+            <input id="NombreCientifico" v-model="NCientifico" readonly type="text"
                 class="form-control @error('NombreCientifico') is-invalid @enderror" name="NombreCientifico"
                 value="{{old('NombreCientifico') }}" maxlength="40" required autocomplete="NombreCientifico" autofocus>
 
@@ -32,6 +24,7 @@
             </span>
             @enderror
         </div>
+    
     </div>
     <div class="form-group row g-3">
         <label for="NombreCientificoConf"
