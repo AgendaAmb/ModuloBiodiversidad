@@ -21,7 +21,7 @@
             @include('HojaCampo.DGenerales')
             @include('HojaCampo.ReconocimientoE')
             @include('HojaCampo.Morfologia')
-           
+            @include('HojaCampo.SituacionEntorno')
 
             <div class="container">
                 <div class="row justify-content-center">
@@ -43,7 +43,6 @@
     archivos:[],
     datos:[],
     Nombres:[],
-    NombreC:'',
     NCientifico:'',
   }, 
   mounted: function () {
@@ -126,16 +125,6 @@ methods:{
                 this.NCientifico=n.NombreC
             }
         })
-        /*
-        for(i in this.Nombres){
-            console.log(i);
-            if(document.getElementById('NombreC').value==this.Nombres[i].id){
-                document.getElementById('NombreCientifico').value= this.Nombres[i].NombreC;
-                break;
-            }
-        }
-        */
-        
     }
 }
 

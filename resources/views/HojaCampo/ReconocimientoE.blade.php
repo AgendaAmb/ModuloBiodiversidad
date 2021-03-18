@@ -26,23 +26,7 @@
         </div>
     
     </div>
-    <div class="form-group row g-3">
-        <label for="NombreCientificoConf"
-            class="col-md-4 col-form-label text-md-left">{{ __('Nombre Científico ') }}</label>
-
-        <div class="col-md-6">
-            <input id="NombreCientificoConf" type="text"
-                class="form-control @error('NombreCientificoConf') is-invalid @enderror" name="NombreCientificoConf"
-                value="{{ old('NombreCientificoConf') }}" required autocomplete="NombreCientificoConf" autofocus
-                data-toggle="tooltip" data-placement="top" maxlength="40" title="(Identificación pendiente)">
-
-            @error('NombreCientificoConf')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
-        </div>
-    </div>
+   
     <div class="form-group row g-3">
         <label for="RegistroIdentificacion"
             class="col-md-4 col-form-label text-md-left">{{ __('Registro del proceso de identificación') }}

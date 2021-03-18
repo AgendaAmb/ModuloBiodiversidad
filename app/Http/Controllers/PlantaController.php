@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Planta;
 use App\NombreEjemplar;
 use App\Morfologia;
+use App\SituacionEntorno;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -40,6 +41,7 @@ class PlantaController extends Controller
      */
     public function store(Request $request)
     {
+       
         $validatedData = Validator::make($request->all(),[
             'FechaRecoleccion' => ['required','max:15','bail'],
             'FechaFotografia' => ['required','max:15','bail'],
@@ -47,7 +49,6 @@ class PlantaController extends Controller
             'NombreRecolectorm' => ['required','max:40','bail'],
             'NombreAutorFoto' => ['required','max:40','bail'],
             'NombreCientifico' => ['required','max:40','bail'],
-            'NombreCientificoConf' => ['required','max:40','bail'],
             'RegistroIdentificacion' => ['required','max:40','bail'],
             'CondicionG' => ['required','max:255','bail'],
             'Ecrecimiento' => ['required','max:20','bail'],
@@ -89,6 +90,16 @@ class PlantaController extends Controller
         $Morfologia->EnfermeLitera=$request->EnfermedadesP;
         $Morfologia->save();
 
+        $SituacionEnt= new SituacionEntorno();
+        $SituacionEnt->Latitud=$request->Latitud;
+        $SituacionEnt->Altitud=$request->Altitud;
+        $SituacionEnt->TArea=$request->TAreaVerde;
+        $SituacionEnt->Aspecto=$request->AspectoEspacio;
+        
+        $SituacionEnt->Interfencia=$request->Interferecia;
+
+        $SituacionEnt->save();
+
             $Planta = new Planta();
             $Planta->FechaRecoleccion=$request->FechaRecoleccion;
             $Planta->NombreRecolectorDatos=$request->NombreRecolectorD;
@@ -102,6 +113,10 @@ class PlantaController extends Controller
             $M=Morfologia::find($Morfologia->id);
            
             $Planta->Morfologia_id=$Morfologia->id;
+
+            
+            $Planta->situacion_entornos_id=$SituacionEnt->id;
+
             $Planta->save();
         }
        

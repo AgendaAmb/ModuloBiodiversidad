@@ -30,47 +30,52 @@
             @enderror
         </div>
     </div>
+    <div class="form-group row g-3">
+        <label for="TAreaVerde" class="col-md-4 col-form-label text-md-left">{{ __('Tipo de área verde o lugar de plantación') }} </label>
 
-    <div class="form-group row">
-        <label for="NombreRecolectorm"
-            class="col-md-4 col-form-label text-md-left">{{ __('Tipo de área verde o lugar de plantación') }}</label>
         <div class="col-md-6">
-            <input id="NombreRecolectorD" type="text"
-                class="form-control @error('NombreRecolectorM') is-invalid @enderror"
-                name="{{old('NombreRecolectorM')}}" required autocomplete="NombreRecolectorD">
-            @error('NombreRecolectorM')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
-        </div>
-    </div>
+            <input id="TAreaVerde" type="text" class="form-control @error('TAreaVerde') is-invalid @enderror"
+                name="TAreaVerde" value="{{ old('TAreaVerde') }}" required autocomplete="TAreaVerde" autofocus
+                data-toggle="tooltip" data-placement="top" title="">
 
-    <div class="form-group row">
-        <label for="NombreAutorFoto"
-            class="col-md-4 col-form-label text-md-left">{{ __('Aspectos de espacio') }}</label>
-        <div class="col-md-6">
-            <input id="NombreAutorFoto" type="text" class="form-control @error('NombreAutorFoto') is-invalid @enderror"
-                name="{{old('NombreAutorFoto')}}" required autocomplete="NombreAutorFoto">
-            @error('NombreAutorFoto')
+            @error('TAreaVerde')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
         </div>
     </div>
-    <div class="form-group row">
-        <label for="NombreAutorFoto"
-            class="col-md-4 col-form-label text-md-left">{{ __('Interferencia aparente con instalaciones inmediatas') }}</label>
+    <div class="form-group row g-3">
+        <label for="AspectoEspacio" class="col-md-4 col-form-label text-md-left">{{ __('Aspectos de espacio') }}</label>
+
         <div class="col-md-6">
-            <input id="NombreAutorFoto" type="text" class="form-control @error('NombreAutorFoto') is-invalid @enderror"
-                name="{{old('NombreAutorFoto')}}" required autocomplete="NombreAutorFoto">
-            @error('NombreAutorFoto')
+            <input id="AspectoEspacio" type="text" class="form-control @error('AspectoEspacio') is-invalid @enderror"
+                name="AspectoEspacio" value="{{ old('AspectoEspacio') }}" required autocomplete="AspectoEspacio" autofocus
+                data-toggle="tooltip" data-placement="top" title="">
+
+            @error('AspectoEspacio')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
         </div>
     </div>
+    <div class="form-group row g-3">
+        <label for="Interferecia" class="col-md-4 col-form-label text-md-left">{{ __('Interferencia aparente con instalaciones inmediatas') }}</label>
+
+        <div class="col-md-6">
+            <input id="Interferecia" type="text" class="form-control @error('Interferecia') is-invalid @enderror"
+                name="Interferecia" value="{{ old('Interferecia') }}" required autocomplete="Interferecia" autofocus
+                data-toggle="tooltip" data-placement="top" title="">
+
+            @error('Interferecia')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
+    </div>
+    
+    
     <hr>
 </div>

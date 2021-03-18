@@ -35,6 +35,13 @@ class CreatePlantasTable extends Migration
             ->references('id')
             ->on('morfologias')
             ->onDelete('cascade');
+
+            $table->unsignedBigInteger('situacion_entornos_id');
+           
+            $table->foreign('situacion_entornos_id')
+            ->references('id')
+            ->on('situacion_entornos')
+            ->onDelete('cascade');
           
             
 
