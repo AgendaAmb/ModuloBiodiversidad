@@ -91,7 +91,13 @@ body {
 input[type="file"] {
   color: transparent;
 }
-
+.contImagen{
+padding: 0%;
+}
+#LogoUaslpAgenda{
+  height: 100%;
+  width: 90%;
+}
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
 }

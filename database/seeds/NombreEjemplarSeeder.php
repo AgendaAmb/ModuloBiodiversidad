@@ -22,5 +22,8 @@ class NombreEjemplarSeeder extends Seeder
                     'Clave'=>$obj->Clave
                 ));
             }
-    }
+
+           
+            
+            }
 }

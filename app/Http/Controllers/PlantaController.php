@@ -8,7 +8,8 @@ use App\Morfologia;
 use App\SituacionEntorno;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\Storage;
+use File;
 class PlantaController extends Controller
 {
     /**
@@ -19,7 +20,8 @@ class PlantaController extends Controller
     public function index()
     {
         $Ejemplar=NombreEjemplar::all();
-      
+
+        
         return \view('HojaCampo.index')->with("Ejemplar",$Ejemplar);
     }
 
