@@ -10,7 +10,6 @@
                     value="{{ old('FechaRecoleccion')}}" required autocomplete="FechaRecoleccion" autofocus>
             </div>
         </div>
-
         <div class="form-group row g-3">
             <label for="FechaFotografia"
                 class="col-md-4 col-form-label text-md-left">{{ __('Fecha de fotografía') }}</label>

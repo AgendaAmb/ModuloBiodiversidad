@@ -1,0 +1,1297 @@
+[
+  {
+    "IdSubUnidad": 1,
+    "IdUnidad": 225,
+    "SubUnidad": "INSTITUTO DE METALURGIA"
+  },
+  {
+    "IdSubUnidad": 2,
+    "IdUnidad": 215,
+    "SubUnidad": "INSTITUTO DE GEOLOGIA"
+  },
+  {
+    "IdSubUnidad": 3,
+    "IdUnidad": 230,
+    "SubUnidad": "INSTITUTO DE INVESTIGACION DE ZONAS DESEAS"
+  },
+  {
+    "IdSubUnidad": 4,
+    "IdUnidad": 210,
+    "SubUnidad": "INSTITUTO DE FISICA"
+  },
+  {
+    "IdSubUnidad": 5,
+    "IdUnidad": 200,
+    "SubUnidad": "INSTITUTO DE CIENCIAS EDUCATIVAS"
+  },
+  {
+    "IdSubUnidad": 6,
+    "IdUnidad": 170,
+    "SubUnidad": "DIVISION DE ESTUDIOS DE POSGRADO"
+  },
+  {
+    "IdSubUnidad": 7,
+    "IdUnidad": 220,
+    "SubUnidad": "INSTITUTO DE INVESTIGACIONES HUMANISTICAS"
+  },
+  {
+    "IdSubUnidad": 8,
+    "IdUnidad": 180,
+    "SubUnidad": "INSTITUTO DE INVESTIGACIONES ECONOMICAS Y SOCIALES"
+  },
+  {
+    "IdSubUnidad": 9,
+    "IdUnidad": 130,
+    "SubUnidad": "FACULTAD DE MEDICINA"
+  },
+  {
+    "IdSubUnidad": 10,
+    "IdUnidad": 120,
+    "SubUnidad": "FACULTAD DE ENFERMERIA Y NUTRICION"
+  },
+  {
+    "IdSubUnidad": 11,
+    "IdUnidad": 125,
+    "SubUnidad": "FACULTAD DE ESTOMATOLOGIA"
+  },
+  {
+    "IdSubUnidad": 12,
+    "IdUnidad": 115,
+    "SubUnidad": "FACULTAD DE CIENCIAS QUIMICAS"
+  },
+  {
+    "IdSubUnidad": 13,
+    "IdUnidad": 150,
+    "SubUnidad": "FACULTAD DE INGENIERIA"
+  },
+  {
+    "IdSubUnidad": 14,
+    "IdUnidad": 110,
+    "SubUnidad": "FACULTAD DE AGRONOMIA Y VETERINARIA"
+  },
+  {
+    "IdSubUnidad": 15,
+    "IdUnidad": 145,
+    "SubUnidad": "FACULTAD DEL HABITAT"
+  },
+  {
+    "IdSubUnidad": 16,
+    "IdUnidad": 140,
+    "SubUnidad": "FACULTAD DE CIENCIAS"
+  },
+  {
+    "IdSubUnidad": 17,
+    "IdUnidad": 155,
+    "SubUnidad": "DEPARTAMENTO DE FISICO-MATEMATICAS"
+  },
+  {
+    "IdSubUnidad": 18,
+    "IdUnidad": 170,
+    "SubUnidad": "FACULTAD DE CONTADURIA Y ADMINISTRACION"
+  },
+  {
+    "IdSubUnidad": 19,
+    "IdUnidad": 180,
+    "SubUnidad": "FACULTAD DE ECONOMIA"
+  },
+  {
+    "IdSubUnidad": 20,
+    "IdUnidad": 175,
+    "SubUnidad": "FACULTAD DE DERECHO PONCIANO ARRIAGA LEIJA"
+  },
+  {
+    "IdSubUnidad": 21,
+    "IdUnidad": 135,
+    "SubUnidad": "FACULTAD DE PSICOLOGIA"
+  },
+  {
+    "IdSubUnidad": 23,
+    "IdUnidad": 500,
+    "SubUnidad": "ESCUELA PREPARATORIA 1"
+  },
+  {
+    "IdSubUnidad": 24,
+    "IdUnidad": 500,
+    "SubUnidad": "ESCUELA PREPARATORIA 3"
+  },
+  {
+    "IdSubUnidad": 25,
+    "IdUnidad": 100,
+    "SubUnidad": "ESCUELA PREPARATORIA DE MATEHUALA"
+  },
+  {
+    "IdSubUnidad": 26,
+    "IdUnidad": 500,
+    "SubUnidad": "RECTORIA"
+  },
+  {
+    "IdSubUnidad": 27,
+    "IdUnidad": 500,
+    "SubUnidad": "SECRETARIA PAULAR"
+  },
+  {
+    "IdSubUnidad": 28,
+    "IdUnidad": 500,
+    "SubUnidad": "DIRECCION DE RELACIONES PUBLICAS"
+  },
+  {
+    "IdSubUnidad": 30,
+    "IdUnidad": 505,
+    "SubUnidad": "SECRETARIA GENERAL"
+  },
+  {
+    "IdSubUnidad": 31,
+    "IdUnidad": 500,
+    "SubUnidad": "DEPARTAMENTO JURIDICO"
+  },
+  {
+    "IdSubUnidad": 32,
+    "IdUnidad": 400,
+    "SubUnidad": "SECRETARIA ACADEMICA"
+  },
+  {
+    "IdSubUnidad": 35,
+    "IdUnidad": 510,
+    "SubUnidad": "SECRETARIA ADMINISTRATIVA"
+  },
+  {
+    "IdSubUnidad": 36,
+    "IdUnidad": 510,
+    "SubUnidad": "DEPARTAMENTO DE PROVEEDURIA"
+  },
+  {
+    "IdSubUnidad": 38,
+    "IdUnidad": 510,
+    "SubUnidad": "DEPTO DE SERVICIOS GENERALES DE MANTENIMIENTO"
+  },
+  {
+    "IdSubUnidad": 39,
+    "IdUnidad": 510,
+    "SubUnidad": "DEPARTAMENTO DE FONDOS EXTRAORDINARIOS"
+  },
+  {
+    "IdSubUnidad": 40,
+    "IdUnidad": 520,
+    "SubUnidad": "DEPARTAMENTO DE PERSONAL ADMINISTRATIVO E INTENDENCIA"
+  },
+  {
+    "IdSubUnidad": 43,
+    "IdUnidad": 510,
+    "SubUnidad": "DEPTO DE SERVICIOS UNIVERSITARIOS"
+  },
+  {
+    "IdSubUnidad": 44,
+    "IdUnidad": 410,
+    "SubUnidad": "DEPARTAMENTO DE PLANEACION DE ESPACIOS E INSTALACION"
+  },
+  {
+    "IdSubUnidad": 45,
+    "IdUnidad": 405,
+    "SubUnidad": "DEPARTAMENTO DE ESTADISTICA"
+  },
+  {
+    "IdSubUnidad": 46,
+    "IdUnidad": 515,
+    "SubUnidad": "SECRETARIA DE FINANZAS"
+  },
+  {
+    "IdSubUnidad": 50,
+    "IdUnidad": 515,
+    "SubUnidad": "DEPARTAMENTO DE SISTEMAS Y PROCESAMIENTO DE DATOS"
+  },
+  {
+    "IdSubUnidad": 51,
+    "IdUnidad": 405,
+    "SubUnidad": "DIVISION DE SERVICIOS ESCOLARES"
+  },
+  {
+    "IdSubUnidad": 52,
+    "IdUnidad": 405,
+    "SubUnidad": "DEPTO DE ADMISIONES"
+  },
+  {
+    "IdSubUnidad": 53,
+    "IdUnidad": 405,
+    "SubUnidad": "DEPARTAMENTO DE CERTIFICACION"
+  },
+  {
+    "IdSubUnidad": 54,
+    "IdUnidad": 405,
+    "SubUnidad": "DEPARTAMENTO DE PREPARATORIAS INCORPORADAS"
+  },
+  {
+    "IdSubUnidad": 55,
+    "IdUnidad": 305,
+    "SubUnidad": "DEPARTAMENTO DE SERVICIO SOCIAL Y PRACTICAS PROFESIONALES"
+  },
+  {
+    "IdSubUnidad": 56,
+    "IdUnidad": 405,
+    "SubUnidad": "DEPARTAMENTO DE ARCHIVO"
+  },
+  {
+    "IdSubUnidad": 57,
+    "IdUnidad": 300,
+    "SubUnidad": "DIFUSION CULTURAL Y COMUNICACION"
+  },
+  {
+    "IdSubUnidad": 58,
+    "IdUnidad": 300,
+    "SubUnidad": "DEPTO. DE DIFUSION CULTURAL"
+  },
+  {
+    "IdSubUnidad": 62,
+    "IdUnidad": 400,
+    "SubUnidad": "CENTRO DE IDIOMAS"
+  },
+  {
+    "IdSubUnidad": 64,
+    "IdUnidad": 415,
+    "SubUnidad": "SISTEMAS DE BIBLIOTECAS"
+  },
+  {
+    "IdSubUnidad": 66,
+    "IdUnidad": 406,
+    "SubUnidad": "DEPARTAMENTO DE ACTIVIDADES DEPORTIVAS Y RECREATIVAS"
+  },
+  {
+    "IdSubUnidad": 67,
+    "IdUnidad": 406,
+    "SubUnidad": "CENTRO DE SALUD UNIVERSITARIO"
+  },
+  {
+    "IdSubUnidad": 68,
+    "IdUnidad": 501,
+    "SubUnidad": "LIBRERIA UNIVERSITARIA MATRIZ"
+  },
+  {
+    "IdSubUnidad": 71,
+    "IdUnidad": 510,
+    "SubUnidad": "EDIFICIO CENTRAL"
+  },
+  {
+    "IdSubUnidad": 72,
+    "IdUnidad": 520,
+    "SubUnidad": "DEPTO DE RECURSOS HUMANOS"
+  },
+  {
+    "IdSubUnidad": 73,
+    "IdUnidad": 515,
+    "SubUnidad": "DEPARTAMENTO DE PLANEACION FINANCIERA"
+  },
+  {
+    "IdSubUnidad": 74,
+    "IdUnidad": 515,
+    "SubUnidad": "DEPARTAMENTO DE CUOTAS Y COLEGIATURAS"
+  },
+  {
+    "IdSubUnidad": 75,
+    "IdUnidad": 515,
+    "SubUnidad": "DEPARTAMENTO DE NOMINA"
+  },
+  {
+    "IdSubUnidad": 76,
+    "IdUnidad": 515,
+    "SubUnidad": "DEPARTAMENTO DE CONTABILIDAD"
+  },
+  {
+    "IdSubUnidad": 77,
+    "IdUnidad": 515,
+    "SubUnidad": "DEPARTAMENTO DE PRESUPUESTOS"
+  },
+  {
+    "IdSubUnidad": 78,
+    "IdUnidad": 510,
+    "SubUnidad": "DEPARTAMENTO DE INVENTARIOS"
+  },
+  {
+    "IdSubUnidad": 80,
+    "IdUnidad": 510,
+    "SubUnidad": "UNITIENDA"
+  },
+  {
+    "IdSubUnidad": 81,
+    "IdUnidad": 160,
+    "SubUnidad": "FACULTAD DE CIENCIAS DE LA INFORMACION"
+  },
+  {
+    "IdSubUnidad": 82,
+    "IdUnidad": 982,
+    "SubUnidad": "PENSIONES Y JUBILACIONES"
+  },
+  {
+    "IdSubUnidad": 85,
+    "IdUnidad": 505,
+    "SubUnidad": "FEDERACION UNIVERSITARIA"
+  },
+  {
+    "IdSubUnidad": 87,
+    "IdUnidad": 510,
+    "SubUnidad": "DEPARTAMENTO DE ADQUISICIONES"
+  },
+  {
+    "IdSubUnidad": 90,
+    "IdUnidad": 306,
+    "SubUnidad": "CENTRO DE BIENESTAR FAMILIAR"
+  },
+  {
+    "IdSubUnidad": 91,
+    "IdUnidad": 190,
+    "SubUnidad": "UNIDAD ACADEMICA MULTIDISCIPLINARIA ZONA MEDIA"
+  },
+  {
+    "IdSubUnidad": 92,
+    "IdUnidad": 185,
+    "SubUnidad": "FACULTAD DE ESTUDIOS PROFESIONALES ZONA HUASTECA"
+  },
+  {
+    "IdSubUnidad": 93,
+    "IdUnidad": 510,
+    "SubUnidad": "PAPELERIA DE LA UNIVERSIDAD"
+  },
+  {
+    "IdSubUnidad": 97,
+    "IdUnidad": 165,
+    "SubUnidad": "FACULTAD DE CIENCIAS DE LA COMUNICACION"
+  },
+  {
+    "IdSubUnidad": 98,
+    "IdUnidad": 501,
+    "SubUnidad": "LIBRERIA DE MATEHUALA"
+  },
+  {
+    "IdSubUnidad": 99,
+    "IdUnidad": 500,
+    "SubUnidad": "CONTRALORIA GENERAL"
+  },
+  {
+    "IdSubUnidad": 100,
+    "IdUnidad": 500,
+    "SubUnidad": "ABOGADO GENERAL"
+  },
+  {
+    "IdSubUnidad": 102,
+    "IdUnidad": 205,
+    "SubUnidad": "INSTITUTO DE INVESTIGACIONES EN COMUNICACION OPTICA"
+  },
+  {
+    "IdSubUnidad": 103,
+    "IdUnidad": 410,
+    "SubUnidad": "DIVISION DE INFORMATICA"
+  },
+  {
+    "IdSubUnidad": 104,
+    "IdUnidad": 415,
+    "SubUnidad": "BIBLIOTECA BIOMEDICA"
+  },
+  {
+    "IdSubUnidad": 105,
+    "IdUnidad": 125,
+    "SubUnidad": "DIVISION DE ESTUDIOS DE POSGRADO",
+    "": 13790
+  },
+  {
+    "IdSubUnidad": 107,
+    "IdUnidad": 115,
+    "SubUnidad": "CENTRO DE INVESTIGACION Y ESTUDIOS DE POSGRADO",
+    "": 26506
+  },
+  {
+    "IdSubUnidad": 108,
+    "IdUnidad": 140,
+    "SubUnidad": "POSGRADO DE FISICA"
+  },
+  {
+    "IdSubUnidad": 109,
+    "IdUnidad": 510,
+    "SubUnidad": "TIENDA DE AUTOSERVICIO - ARISTA"
+  },
+  {
+    "IdSubUnidad": 111,
+    "IdUnidad": 415,
+    "SubUnidad": "SISTEMAS DE BIBLIOTECAS"
+  },
+  {
+    "IdSubUnidad": 113,
+    "IdUnidad": 305,
+    "SubUnidad": "DIVISION DE VINCULACION UNIVERSITARIA"
+  },
+  {
+    "IdSubUnidad": 114,
+    "IdUnidad": 305,
+    "SubUnidad": "DEPARTAMENTO DE PROYECTOS EMPRENDEDORES"
+  },
+  {
+    "IdSubUnidad": 115,
+    "IdUnidad": 305,
+    "SubUnidad": "DEPTO DE COOPERACION ACADEMICA"
+  },
+  {
+    "IdSubUnidad": 116,
+    "IdUnidad": 305,
+    "SubUnidad": "DEPARTAMENTO DE EGRESADOS"
+  },
+  {
+    "IdSubUnidad": 117,
+    "IdUnidad": 400,
+    "SubUnidad": "DIRECCION DE PROGRAMA DE FORMACION DE PROFESORES"
+  },
+  {
+    "IdSubUnidad": 128,
+    "IdUnidad": 515,
+    "SubUnidad": "DEPARTAMENTO DE ATENCION A PROCESOS DE FISCALIZACION"
+  },
+  {
+    "IdSubUnidad": 155,
+    "IdUnidad": 130,
+    "SubUnidad": "DIVISION DE POSGRADO"
+  },
+  {
+    "IdSubUnidad": 158,
+    "IdUnidad": 130,
+    "SubUnidad": "DEPARTAMENTO DE ANATOMIA PATOLOGICA"
+  },
+  {
+    "IdSubUnidad": 165,
+    "IdUnidad": 130,
+    "SubUnidad": "DEPARTAMENTO DE FISIOLOGIA Y FARMACOLOGIA"
+  },
+  {
+    "IdSubUnidad": 167,
+    "IdUnidad": 130,
+    "SubUnidad": "DEPARTAMENTO DE INFORMATICA Y BIOESTADISTICA"
+  },
+  {
+    "IdSubUnidad": 177,
+    "IdUnidad": 130,
+    "SubUnidad": "DEPARTAMENTO DE FOTOCOPIADO"
+  },
+  {
+    "IdSubUnidad": 178,
+    "IdUnidad": 130,
+    "SubUnidad": "BIOTERIO GENERAL"
+  },
+  {
+    "IdSubUnidad": 179,
+    "IdUnidad": 130,
+    "SubUnidad": "LABORATORIO DE INMUNOLOGIA"
+  },
+  {
+    "IdSubUnidad": 192,
+    "IdUnidad": 130,
+    "SubUnidad": "LABORATORIO DE RENAL"
+  },
+  {
+    "IdSubUnidad": 193,
+    "IdUnidad": 130,
+    "SubUnidad": "LABORATORIO DE MEDICINA NUCLEAR"
+  },
+  {
+    "IdSubUnidad": 196,
+    "IdUnidad": 130,
+    "SubUnidad": "LABORATORIO DE GENETICA"
+  },
+  {
+    "IdSubUnidad": 203,
+    "IdUnidad": 120,
+    "SubUnidad": "DIVISION DE POSGRADO"
+  },
+  {
+    "IdSubUnidad": 226,
+    "IdUnidad": 125,
+    "SubUnidad": "UNIDAD DE DISEÑO Y DIBUJO"
+  },
+  {
+    "IdSubUnidad": 236,
+    "IdUnidad": 125,
+    "SubUnidad": "DEPARTAMENTO DE PERIODONCIA"
+  },
+  {
+    "IdSubUnidad": 237,
+    "IdUnidad": 125,
+    "SubUnidad": "DEPARTAMENTO DE ENDODONCIA"
+  },
+  {
+    "IdSubUnidad": 238,
+    "IdUnidad": 125,
+    "SubUnidad": "DEPARTAMENTO DE RADIOLOGIA"
+  },
+  {
+    "IdSubUnidad": 239,
+    "IdUnidad": 125,
+    "SubUnidad": "DEPARTAMENTO DE ORTODONCIA"
+  },
+  {
+    "IdSubUnidad": 242,
+    "IdUnidad": 125,
+    "SubUnidad": "DEPARTAMENTO DE CIRUJIA"
+  },
+  {
+    "IdSubUnidad": 243,
+    "IdUnidad": 125,
+    "SubUnidad": "DEPARTAMENTO DE PROSTODONCIA"
+  },
+  {
+    "IdSubUnidad": 299,
+    "IdUnidad": 150,
+    "SubUnidad": "DEPARTAMENTO DE ADMINISTRACION"
+  },
+  {
+    "IdSubUnidad": 300,
+    "IdUnidad": 150,
+    "SubUnidad": "SECRETARIA ESCOLAR"
+  },
+  {
+    "IdSubUnidad": 304,
+    "IdUnidad": 150,
+    "SubUnidad": "SECRETARIA ACADEMICA"
+  },
+  {
+    "IdSubUnidad": 305,
+    "IdUnidad": 150,
+    "SubUnidad": "DEPARTAMENTO DE EDUCACION CONTINUA"
+  },
+  {
+    "IdSubUnidad": 308,
+    "IdUnidad": 150,
+    "SubUnidad": "SECRETARIA GENERAL"
+  },
+  {
+    "IdSubUnidad": 309,
+    "IdUnidad": 150,
+    "SubUnidad": "CENTRO DE INFORMATICA"
+  },
+  {
+    "IdSubUnidad": 313,
+    "IdUnidad": 150,
+    "SubUnidad": "AREA AGROGEODESICA"
+  },
+  {
+    "IdSubUnidad": 315,
+    "IdUnidad": 150,
+    "SubUnidad": "AREA DE CIENCIA DE LA TIERRA"
+  },
+  {
+    "IdSubUnidad": 317,
+    "IdUnidad": 150,
+    "SubUnidad": "AREA CIVIL"
+  },
+  {
+    "IdSubUnidad": 319,
+    "IdUnidad": 150,
+    "SubUnidad": "AREA COMPUTACION E INFORMATICA"
+  },
+  {
+    "IdSubUnidad": 321,
+    "IdUnidad": 150,
+    "SubUnidad": "AREA MECANICA ELECTRICA"
+  },
+  {
+    "IdSubUnidad": 326,
+    "IdUnidad": 150,
+    "SubUnidad": "AREA METALURGIA"
+  },
+  {
+    "IdSubUnidad": 329,
+    "IdUnidad": 150,
+    "SubUnidad": "MATERIAS COMUNES"
+  },
+  {
+    "IdSubUnidad": 331,
+    "IdUnidad": 150,
+    "SubUnidad": "CENTRO DE INVESTIGACION Y  ESTUDIOS DE POSGRADO"
+  },
+  {
+    "IdSubUnidad": 364,
+    "IdUnidad": 110,
+    "SubUnidad": "DEPARTAMENTO DE PRODUCCION AGRICOLA"
+  },
+  {
+    "IdSubUnidad": 365,
+    "IdUnidad": 110,
+    "SubUnidad": "DEPARTAMENTO DE COMERCIALIZACION"
+  },
+  {
+    "IdSubUnidad": 366,
+    "IdUnidad": 110,
+    "SubUnidad": "DEPARTAMENTO DE PRODUCCION PECUARIA"
+  },
+  {
+    "IdSubUnidad": 370,
+    "IdUnidad": 110,
+    "SubUnidad": "DIVISION DE POSGRADO"
+  },
+  {
+    "IdSubUnidad": 402,
+    "IdUnidad": 145,
+    "SubUnidad": "INSTITUTO DE INVESTIGACION"
+  },
+  {
+    "IdSubUnidad": 430,
+    "IdUnidad": 140,
+    "SubUnidad": "CURSO DE EDUACION CONTINUA"
+  },
+  {
+    "IdSubUnidad": 440,
+    "IdUnidad": 170,
+    "SubUnidad": "CENTRO DE DESARROLLO EMPRESARIAL",
+    "": 4622
+  },
+  {
+    "IdSubUnidad": 468,
+    "IdUnidad": 180,
+    "SubUnidad": "DIVISION DE POSGRADO",
+    "": 13777
+  },
+  {
+    "IdSubUnidad": 477,
+    "IdUnidad": 175,
+    "SubUnidad": "DEPARTAMENTO DE EDUCACION CONTINUA",
+    "": 11954
+  },
+  {
+    "IdSubUnidad": 481,
+    "IdUnidad": 175,
+    "SubUnidad": "INSTITUTO DE INVESTIGACIONES JURIDICAS",
+    "": 11954
+  },
+  {
+    "IdSubUnidad": 484,
+    "IdUnidad": 175,
+    "SubUnidad": "DIVISION DE ESTUDIOS DE POSGRADO",
+    "": 11954
+  },
+  {
+    "IdSubUnidad": 487,
+    "IdUnidad": 135,
+    "SubUnidad": "DIRECCION DE INVESTIGACION Y POSGRADO",
+    "Extensiones": "2434 2436 2438 2456 2458 2460",
+    "": 13276
+  },
+  {
+    "IdSubUnidad": 506,
+    "IdUnidad": 135,
+    "SubUnidad": "BIOTERIOS",
+    "": 13276
+  },
+  {
+    "IdSubUnidad": 514,
+    "IdUnidad": 505,
+    "SubUnidad": "DEPARTAMENTO DE NORMATIVA UNIVERSITARIA"
+  },
+  {
+    "IdSubUnidad": 515,
+    "IdUnidad": 505,
+    "SubUnidad": "DEPARTAMENTO DE PROYECTOS"
+  },
+  {
+    "IdSubUnidad": 516,
+    "IdUnidad": 505,
+    "SubUnidad": "DEPARTAMENTO DE SEGURIDAD Y RESGUARDO PATRIMONIAL"
+  },
+  {
+    "IdSubUnidad": 527,
+    "IdUnidad": 505,
+    "SubUnidad": "DEPARTAMENTO DE CONTROL DE ASISTENCIA DEL PERSONAL"
+  },
+  {
+    "IdSubUnidad": 534,
+    "IdUnidad": 415,
+    "SubUnidad": "CENTRO DE INFORMACION CIENCIA Y TECNOLOGIA"
+  },
+  {
+    "IdSubUnidad": 539,
+    "IdUnidad": 415,
+    "SubUnidad": "CENTRO DE INFORMACION EN CIENCIAS BIOMEDICAS"
+  },
+  {
+    "IdSubUnidad": 559,
+    "IdUnidad": 400,
+    "SubUnidad": "DEPTO DE INOVACION EDUCATIVA"
+  },
+  {
+    "IdSubUnidad": 560,
+    "IdUnidad": 401,
+    "SubUnidad": "DEPARTAMENTO DE DESARROLLO CIENTIFICO Y TECNOLOGICO"
+  },
+  {
+    "IdSubUnidad": 561,
+    "IdUnidad": 400,
+    "SubUnidad": "DEPTO. DE INGRESO Y PROMOCION  DEL PERSONAL ACADEMICO"
+  },
+  {
+    "IdSubUnidad": 562,
+    "IdUnidad": 400,
+    "SubUnidad": "NO USAR. EN PROCESO DE BAJA. VER SUO 117"
+  },
+  {
+    "IdSubUnidad": 573,
+    "IdUnidad": 515,
+    "SubUnidad": "DEPARTAMENTO DE ADMINISTRACION DE CONVENIOS"
+  },
+  {
+    "IdSubUnidad": 574,
+    "IdUnidad": 406,
+    "SubUnidad": "DEPARTAMENTO DE ORIENTACION EDUCATIVA"
+  },
+  {
+    "IdSubUnidad": 640,
+    "IdUnidad": 300,
+    "SubUnidad": "DEPTO DE PUBLICACIONES INSTITUCIONALES"
+  },
+  {
+    "IdSubUnidad": 641,
+    "IdUnidad": 300,
+    "SubUnidad": "DEPARTAMENTO DE PROYECTOS ESPECIALES"
+  },
+  {
+    "IdSubUnidad": 642,
+    "IdUnidad": 500,
+    "SubUnidad": "DIRECCION DE RADIO Y TELEVISION UNIVERSITARIA"
+  },
+  {
+    "IdSubUnidad": 643,
+    "IdUnidad": 300,
+    "SubUnidad": "DEPTO DE TELEVISION"
+  },
+  {
+    "IdSubUnidad": 644,
+    "IdUnidad": 300,
+    "SubUnidad": "DEPARTAMENTO DE ARTE Y CULTURA"
+  },
+  {
+    "IdSubUnidad": 645,
+    "IdUnidad": 501,
+    "SubUnidad": "DEPARTAMENTO DE TALLERES GRAFICOS"
+  },
+  {
+    "IdSubUnidad": 646,
+    "IdUnidad": 300,
+    "SubUnidad": "DEPARTAMENTO DE DISEÑO ESCENOGRAFICO"
+  },
+  {
+    "IdSubUnidad": 734,
+    "IdUnidad": 406,
+    "SubUnidad": "DEPARTAMENTO DE PROGRAMACION Y EVALUACION"
+  },
+  {
+    "IdSubUnidad": 735,
+    "IdUnidad": 410,
+    "SubUnidad": "SERVICIOS DE INTERNET"
+  },
+  {
+    "IdSubUnidad": 737,
+    "IdUnidad": 410,
+    "SubUnidad": "ADMINISTRACION DE TECNOLOGIA DE INFORMACION"
+  },
+  {
+    "IdSubUnidad": 738,
+    "IdUnidad": 410,
+    "SubUnidad": "DEPARTAMENTO DE TELECOMUNICACIONES"
+  },
+  {
+    "IdSubUnidad": 739,
+    "IdUnidad": 305,
+    "SubUnidad": "DEPARTAMENTO DE EDUCACION CONTINUA"
+  },
+  {
+    "IdSubUnidad": 740,
+    "IdUnidad": 305,
+    "SubUnidad": "DEPARTAMENTO DE SISTEMAS DE INFORMACION  DIV VINCULACION"
+  },
+  {
+    "IdSubUnidad": 753,
+    "IdUnidad": 500,
+    "SubUnidad": "DEPARTAMENTO DE DISEÑO Y CONSTRUCCION"
+  },
+  {
+    "IdSubUnidad": 754,
+    "IdUnidad": 400,
+    "SubUnidad": "CENTRO DE IDIOMAS INFANTIL"
+  },
+  {
+    "IdSubUnidad": 755,
+    "IdUnidad": 400,
+    "SubUnidad": "DEPARTAMENTO UNIVERSITARIO DE INGLES"
+  },
+  {
+    "IdSubUnidad": 756,
+    "IdUnidad": 401,
+    "SubUnidad": "SECRETARIA DE INVESTIGACION Y POSGRADO"
+  },
+  {
+    "IdSubUnidad": 758,
+    "IdUnidad": 150,
+    "SubUnidad": "DEPARTAMENTO DE APOYO ACADEMICO"
+  },
+  {
+    "IdSubUnidad": 759,
+    "IdUnidad": 150,
+    "SubUnidad": "DEPARTAMENTO DE AUDIOVISUAL"
+  },
+  {
+    "IdSubUnidad": 760,
+    "IdUnidad": 150,
+    "SubUnidad": "DEPARTAMENTO DE DIFUSION CULTURAL"
+  },
+  {
+    "IdSubUnidad": 761,
+    "IdUnidad": 150,
+    "SubUnidad": "DEPARTAMENTO DE DEPORTES"
+  },
+  {
+    "IdSubUnidad": 762,
+    "IdUnidad": 150,
+    "SubUnidad": "DEPARTAMENTO DE EDUCACION CONTINUA"
+  },
+  {
+    "IdSubUnidad": 763,
+    "IdUnidad": 150,
+    "SubUnidad": "DEPARTAMENTO DE FOTOCOPIADO"
+  },
+  {
+    "IdSubUnidad": 764,
+    "IdUnidad": 150,
+    "SubUnidad": "DEPARTAMENTO DE PRACTICAS ESCOLARES Y SERVICIO SOCIAL"
+  },
+  {
+    "IdSubUnidad": 765,
+    "IdUnidad": 150,
+    "SubUnidad": "DEPARTAMENTO DE PRACTICAS ESCOLARES Y VEHICULOS"
+  },
+  {
+    "IdSubUnidad": 766,
+    "IdUnidad": 150,
+    "SubUnidad": "CENTRO DE CAPACITACION EN INGENIERIA DE MATERIALES"
+  },
+  {
+    "IdSubUnidad": 767,
+    "IdUnidad": 150,
+    "SubUnidad": "DEPARTAMENTO DE APOYO A DIRECCION"
+  },
+  {
+    "IdSubUnidad": 768,
+    "IdUnidad": 150,
+    "SubUnidad": "DEPARTAMENTO DE VINCULACION"
+  },
+  {
+    "IdSubUnidad": 769,
+    "IdUnidad": 182,
+    "SubUnidad": "AGENDA AMBIENTAL DE LA UASLP"
+  },
+  {
+    "IdSubUnidad": 770,
+    "IdUnidad": 520,
+    "SubUnidad": "DIVISION DE DESARROLLO HUMANO"
+  },
+  {
+    "IdSubUnidad": 771,
+    "IdUnidad": 125,
+    "SubUnidad": "POSGRADO EN PEDIATRIA"
+  },
+  {
+    "IdSubUnidad": 772,
+    "IdUnidad": 125,
+    "SubUnidad": "POSGRADO EN ENDODONCIA"
+  },
+  {
+    "IdSubUnidad": 773,
+    "IdUnidad": 125,
+    "SubUnidad": "POSGRADO EN CIENCIAS ODONTOLOGICAS"
+  },
+  {
+    "IdSubUnidad": 774,
+    "IdUnidad": 125,
+    "SubUnidad": "POSGRADO EN CIRUGIA MAXILOFACIAL"
+  },
+  {
+    "IdSubUnidad": 775,
+    "IdUnidad": 181,
+    "SubUnidad": "FACULTAD DE CIENCIAS SOCIALES Y HUMANIDADES"
+  },
+  {
+    "IdSubUnidad": 776,
+    "IdUnidad": 188,
+    "SubUnidad": "COORDINACION ACADEMICA REGION ALTIPLANO OESTE CAMPUS SALINAS"
+  },
+  {
+    "IdSubUnidad": 777,
+    "IdUnidad": 189,
+    "SubUnidad": "COORDINACION ACADEMICA EN ARTE"
+  },
+  {
+    "IdSubUnidad": 778,
+    "IdUnidad": 181,
+    "SubUnidad": "LICENCIATURA EN GEOGRAFIA"
+  },
+  {
+    "IdSubUnidad": 779,
+    "IdUnidad": 125,
+    "SubUnidad": "POSGRADO EN ODONTOLOGIA ESTETICA, COSMETICA, RESTAURADORA E"
+  },
+  {
+    "IdSubUnidad": 780,
+    "IdUnidad": 305,
+    "SubUnidad": "DIRECCION DE INTERNACIONALIZACION"
+  },
+  {
+    "IdSubUnidad": 781,
+    "IdUnidad": 400,
+    "SubUnidad": "CENTRO DE IDIOMAS UNIDAD MATEHUALA"
+  },
+  {
+    "IdSubUnidad": 782,
+    "IdUnidad": 401,
+    "SubUnidad": "DEPARTAMENTO DE EVALUACION Y SEGUIMIENTO DEL POSGRADO"
+  },
+  {
+    "IdSubUnidad": 783,
+    "IdUnidad": 520,
+    "SubUnidad": "DEPARTAMENTO DE CAPACITACION, EVALUACION Y DESARROLLO"
+  },
+  {
+    "IdSubUnidad": 784,
+    "IdUnidad": 520,
+    "SubUnidad": "UNIDAD DE APOYO A POSGRADOS"
+  },
+  {
+    "IdSubUnidad": 785,
+    "IdUnidad": 306,
+    "SubUnidad": "CENTRO UNIVERSITARIO DE APOYO TECNOLOGICO EMPRESARIAL \"CUATE"
+  },
+  {
+    "IdSubUnidad": 786,
+    "IdUnidad": 520,
+    "SubUnidad": "DEPARTAMENTO DE RELACIONES LABORALES"
+  },
+  {
+    "IdSubUnidad": 787,
+    "IdUnidad": 500,
+    "SubUnidad": "DIRECCIÓN DE COMUNICACIÓN E IMAGEN DE LA UASLP"
+  },
+  {
+    "IdSubUnidad": 788,
+    "IdUnidad": 505,
+    "SubUnidad": "DIRECCION DE ENLACE, TRANSPARENCIA E INFORMACION"
+  },
+  {
+    "IdSubUnidad": 789,
+    "IdUnidad": 400,
+    "SubUnidad": "CENTRO DE IDIOMAS UNIDAD RIOVERDE"
+  },
+  {
+    "IdSubUnidad": 790,
+    "IdUnidad": 415,
+    "SubUnidad": "CENTRO DE INFORMACION DE CIENCIAS SOCIO-ADMINISTRATIVAS"
+  },
+  {
+    "IdSubUnidad": 791,
+    "IdUnidad": 415,
+    "SubUnidad": "BIBLIOTECA CENTRAL"
+  },
+  {
+    "IdSubUnidad": 792,
+    "IdUnidad": 415,
+    "SubUnidad": "CENTRO DE INFORMACION EN BIBLIOTECOLOGIA Y PSICOLOGIA"
+  },
+  {
+    "IdSubUnidad": 793,
+    "IdUnidad": 500,
+    "SubUnidad": "DIRECCION DE PROMOCION Y DIFUSION INTERNACIONAL"
+  },
+  {
+    "IdSubUnidad": 794,
+    "IdUnidad": 120,
+    "SubUnidad": "UCIIS (UNIDAD DE CUIDADOS INTEGRALES E INVESTIGACION EN SALU"
+  },
+  {
+    "IdSubUnidad": 795,
+    "IdUnidad": 186,
+    "SubUnidad": "COORDINACION ACADEMICA REGION ALTIPLANO DE LA UASLP"
+  },
+  {
+    "IdSubUnidad": 796,
+    "IdUnidad": 110,
+    "SubUnidad": "CAMPO EXPERIMENTAL RANCHO LAS DELICIAS"
+  },
+  {
+    "IdSubUnidad": 797,
+    "IdUnidad": 415,
+    "SubUnidad": "CENTRO INTEGRAL DE APRENDIZAJE ZH"
+  },
+  {
+    "IdSubUnidad": 798,
+    "IdUnidad": 510,
+    "SubUnidad": "ESTACIONAMIENTO ZONA UNIVERSITARIA"
+  },
+  {
+    "IdSubUnidad": 799,
+    "IdUnidad": 500,
+    "SubUnidad": "DEPTO INSTITUCIONAL DE GESTION DE CALIDAD"
+  },
+  {
+    "IdSubUnidad": 800,
+    "IdUnidad": 406,
+    "SubUnidad": "DIVISION DE SERVICIOS ESTUDIANTILES"
+  },
+  {
+    "IdSubUnidad": 806,
+    "IdUnidad": 306,
+    "SubUnidad": "CENTRO DE DOCUMENTACION HISTORICA \"RAFAEL MONTEJANO Y AGUINA"
+  },
+  {
+    "IdSubUnidad": 808,
+    "IdUnidad": 500,
+    "SubUnidad": "COORDINACION PARA LA INNOVACION DE LA CIENCIA Y LA TECNOLOGI"
+  },
+  {
+    "IdSubUnidad": 809,
+    "IdUnidad": 300,
+    "SubUnidad": "CENTRO CULTURAL UNIVERSITARIO"
+  },
+  {
+    "IdSubUnidad": 810,
+    "IdUnidad": 305,
+    "SubUnidad": "DEPARTAMENTO DE PROYECTOS EMPRENDEDORES"
+  },
+  {
+    "IdSubUnidad": 811,
+    "IdUnidad": 305,
+    "SubUnidad": "DEPARTAMENTO DE ADMINISTRACION DE LA INFORMACION"
+  },
+  {
+    "IdSubUnidad": 815,
+    "IdUnidad": 400,
+    "SubUnidad": "DEPTO DE EVALUACION Y SEGUIMIENTO"
+  },
+  {
+    "IdSubUnidad": 816,
+    "IdUnidad": 401,
+    "SubUnidad": "DEPTO. DE APOYO A LA GESTION CIENTIFICA"
+  },
+  {
+    "IdSubUnidad": 817,
+    "IdUnidad": 401,
+    "SubUnidad": "DEPTO. DE DIFUSION Y DIVULGACION"
+  },
+  {
+    "IdSubUnidad": 818,
+    "IdUnidad": 406,
+    "SubUnidad": "DEPTO DE PROYECTOS ESPECIALES"
+  },
+  {
+    "IdSubUnidad": 819,
+    "IdUnidad": 415,
+    "SubUnidad": "CENTRO INTEGRAL DE APRENDIZAJE ZM"
+  },
+  {
+    "IdSubUnidad": 820,
+    "IdUnidad": 415,
+    "SubUnidad": "CENTRO INTEGRAL DE APRENDIZAJE MATEHUALA"
+  },
+  {
+    "IdSubUnidad": 821,
+    "IdUnidad": 415,
+    "SubUnidad": "BIBLIOTECA PMA"
+  },
+  {
+    "IdSubUnidad": 822,
+    "IdUnidad": 500,
+    "SubUnidad": "CENTRO DE BIOCIENCIAS DE LA UASLP"
+  },
+  {
+    "IdSubUnidad": 823,
+    "IdUnidad": 505,
+    "SubUnidad": "UNIDAD DE PROTECCION CIVIL DE LA UASLP"
+  },
+  {
+    "IdSubUnidad": 824,
+    "IdUnidad": 187,
+    "SubUnidad": "COORDINACION ACADEMICA REGION HUASTECA SUR (CAMPUS TAMAZUNCH"
+  },
+  {
+    "IdSubUnidad": 825,
+    "IdUnidad": 125,
+    "SubUnidad": "DOCTORADO EN CIENCIAS ODONTOLOGICAS"
+  },
+  {
+    "IdSubUnidad": 826,
+    "IdUnidad": 125,
+    "SubUnidad": "ESPECIALIDAD EN ORTODONCIA Y ORTOPEDIA DENTOMAXILOFACIAL"
+  },
+  {
+    "IdSubUnidad": 827,
+    "IdUnidad": 525,
+    "SubUnidad": "SECRETARIA DE PLANEACION"
+  },
+  {
+    "IdSubUnidad": 828,
+    "IdUnidad": 500,
+    "SubUnidad": "SECRETARIA DE EFICIENCIA DE SERVICIOS UNIVERSITARIOS"
+  },
+  {
+    "IdSubUnidad": 829,
+    "IdUnidad": 500,
+    "SubUnidad": "DIRECCION DE FORTALECIMIENTO HUMANO"
+  },
+  {
+    "IdSubUnidad": 830,
+    "IdUnidad": 500,
+    "SubUnidad": "DIRECCION DE COMUNICACION E IMAGEN"
+  },
+  {
+    "IdSubUnidad": 831,
+    "IdUnidad": 500,
+    "SubUnidad": "CENTRO AGROINDUSTRIAL DE LA UASLP"
+  },
+  {
+    "IdSubUnidad": 832,
+    "IdUnidad": 189,
+    "SubUnidad": "CENTRO MULTIDISCIPLINARIO DE LAS ARTES"
+  },
+  {
+    "IdSubUnidad": 833,
+    "IdUnidad": 500,
+    "SubUnidad": "DIRECCION DE PLANEACION Y DISEÑO DE NUEVOS CAMPUS"
+  },
+  {
+    "IdSubUnidad": 834,
+    "IdUnidad": 500,
+    "SubUnidad": "DEPARTAMENTO DE UNISALUD"
+  },
+  {
+    "IdSubUnidad": 835,
+    "IdUnidad": 231,
+    "SubUnidad": "CENTRO DE INVESTIGACION EN BIOMEDICINA Y SALUD"
+  },
+  {
+    "IdSubUnidad": 836,
+    "IdUnidad": 500,
+    "SubUnidad": "DEFENSORIA DE LOS DERECHOS UNIVERSITARIOS"
+  },
+  {
+    "IdSubUnidad": 837,
+    "IdUnidad": 500,
+    "SubUnidad": "SECRETARIA DE GESTION Y TRANSFERENCIA"
+  },
+  {
+    "IdSubUnidad": 838,
+    "IdUnidad": 500,
+    "SubUnidad": "CENTRO DE INVESTIGACION Y EXTENSION ZONA MEDIA"
+  },
+  {
+    "IdSubUnidad": 839,
+    "IdUnidad": 500,
+    "SubUnidad": "DIRECCION DE EDUCACION EN LINEA"
+  },
+  {
+    "IdSubUnidad": 840,
+    "IdUnidad": 501,
+    "SubUnidad": "DIRECCION DE FOMENTO EDITORIAL Y PUBLICACIONES"
+  },
+  {
+    "IdSubUnidad": 899,
+    "IdUnidad": 510,
+    "SubUnidad": "ALMACEN DE BIENES MUEBLES"
+  },
+  {
+    "IdSubUnidad": 901,
+    "IdUnidad": 901,
+    "SubUnidad": "EDIFICIO PILAR"
+  },
+  {
+    "IdSubUnidad": 904,
+    "IdUnidad": 904,
+    "SubUnidad": "DEPTO.CONSTRUCCION U.Z.M."
+  },
+  {
+    "IdSubUnidad": 907,
+    "IdUnidad": 406,
+    "SubUnidad": "UNIDAD DEPORTIVA"
+  },
+  {
+    "IdSubUnidad": 908,
+    "IdUnidad": 908,
+    "SubUnidad": "DIVISION DE VINCULACION UNIVERSITARIA"
+  },
+  {
+    "IdSubUnidad": 909,
+    "IdUnidad": 909,
+    "SubUnidad": "DEPARTAMENTO DE AUDITORIA EXTERNA"
+  },
+  {
+    "IdSubUnidad": 910,
+    "IdUnidad": 520,
+    "SubUnidad": "APORTACIONES INDIRECTAS ACADÉMICOS UASLP"
+  },
+  {
+    "IdSubUnidad": 911,
+    "IdUnidad": 520,
+    "SubUnidad": "APORTACIONES INDIRECTAS ADMINISTRATIVOS UASLP"
+  },
+  {
+    "IdSubUnidad": 917,
+    "IdUnidad": 415,
+    "SubUnidad": "CENTRO DE INFROMACION DE CIENCIAS SOCIO-ADMINISTRATIVAS"
+  },
+  {
+    "IdSubUnidad": 919,
+    "IdUnidad": 919,
+    "SubUnidad": "CONSTRUCCION PROYECTOS IECE 2000"
+  },
+  {
+    "IdSubUnidad": 921,
+    "IdUnidad": 415,
+    "SubUnidad": "BIBLIOTECA CENTRAL"
+  },
+  {
+    "IdSubUnidad": 923,
+    "IdUnidad": 415,
+    "SubUnidad": "CENTRO INF. EN BIBLIOTECOLOGIA Y PSICOLOGIA"
+  },
+  {
+    "IdSubUnidad": 925,
+    "IdUnidad": 925,
+    "SubUnidad": "CAMPUS NORPONIENTE 925"
+  },
+  {
+    "IdSubUnidad": 971,
+    "IdUnidad": 510,
+    "SubUnidad": "EDIFICIO CENTRAL"
+  },
+  {
+    "IdSubUnidad": 984,
+    "IdUnidad": 984,
+    "SubUnidad": "UNIDAD DE APOYO A POSGRADOS"
+  },
+  {
+    "IdSubUnidad": 8999,
+    "IdUnidad": 9001,
+    "SubUnidad": "CENTRALIZADO TRASPASO PRESUPUESTAL"
+  },
+  {
+    "IdSubUnidad": 9000,
+    "IdUnidad": 9000,
+    "SubUnidad": "GASTOS EROGADOS CENTRALIZADOS"
+  },
+  {
+    "IdSubUnidad": 9001,
+    "IdUnidad": 9001,
+    "SubUnidad": "CENTRALIZADO"
+  },
+  {
+    "IdSubUnidad": 9002,
+    "IdUnidad": 9002,
+    "SubUnidad": "CENTRALIZADO ESPECIFICO"
+  },
+  {
+    "IdSubUnidad": 9003,
+    "IdUnidad": 9003,
+    "SubUnidad": "CENTRALIZADO DE ACTIVO FIJO"
+  },
+  {
+    "IdSubUnidad": 9004,
+    "IdUnidad": 9004,
+    "SubUnidad": "CENTRALIZADO VALORES EN CUSTODIA"
+  }
+]

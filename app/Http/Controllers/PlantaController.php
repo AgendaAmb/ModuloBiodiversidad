@@ -21,8 +21,18 @@ class PlantaController extends Controller
     {
         $Ejemplar=NombreEjemplar::all();
 
+        $json = File::get("storage/TSubUnidades.json");
+        $SubUnidad = json_decode($json);
+        $SubUnidades = Array();
+        for ($i=0; $i < count($SubUnidad); $i++) { 
+            $SubUnidades[]=array(
+                "IdSubUnidad"=>$SubUnidad[$i]->IdSubUnidad,
+                "IdUnidad"=>$SubUnidad[$i]->IdUnidad,
+                "SubUnidad"=>$SubUnidad[$i]->SubUnidad,
+            );
+        }
         
-        return \view('HojaCampo.index')->with("Ejemplar",$Ejemplar);
+        return \view('HojaCampo.index')->with("Ejemplar",$Ejemplar)->with("SubUnidades", $SubUnidades);
     }
 
     /**

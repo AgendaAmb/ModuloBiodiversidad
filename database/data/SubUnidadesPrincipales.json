@@ -1,0 +1,172 @@
+[
+  {
+  "IdUnidad" : 110,
+  "NombreUnidad":"Facultad de Agronomía y Veterinaria",
+  "Abreviatura":"FAyVU"
+  },
+  {
+  "IdUnidad" : 140,
+  "NombreUnidad":"Facultad de Ciencias",
+  "Abreviatura":"FC"
+  },
+  {
+  "IdUnidad" : 115,
+  "NombreUnidad":"Facultad de Ciencias Químicas",
+  "Abreviatura":"FCQ"
+  },
+  {
+  "IdUnidad" : 165,
+  "NombreUnidad":"Facultad de Ciencias de la Comunicación",
+  "Abreviatura":"FCC"
+  },
+  {
+  "IdUnidad" : 160,
+  "NombreUnidad":"Facultad de Ciencias de la Información",
+  "Abreviatura":"FCI"
+  },
+  {
+  "IdUnidad" : 181,
+  "NombreUnidad":"Facultad de Ciencias Sociales y Humanidades",
+  "Abreviatura":"CSyH"
+  },
+  {
+    "IdUnidad" : 170,
+    "NombreUnidad":"Facultad de ContadurÍa y Administración",
+    "Abreviatura":"FCA"
+  },
+  {
+    "IdUnidad" : 175,
+    "NombreUnidad":"Facultad de Derecho",
+    "Abreviatura":"FD"
+  },
+  {
+    "IdUnidad" : 180,
+    "NombreUnidad":"Facultad de Economía",
+    "Abreviatura":"FECO"
+  },
+  {
+    "IdUnidad" : 120,
+    "NombreUnidad":"Facultad de Enfermería y Nutrición",
+    "Abreviatura":"FEyN"
+  },
+  {
+    "IdUnidad" : 125,
+    "NombreUnidad":"Facultad de Estomatología",
+    "Abreviatura":"ESTOMA"
+  },
+  {
+    "IdUnidad" : 145,
+    "NombreUnidad":"Facultad del Hábitat",
+    "Abreviatura":"FH"
+  },
+  {
+    "IdUnidad" : 150,
+    "NombreUnidad":"Facultad de Ingeniería",
+    "Abreviatura":"FING"
+  },
+  {
+    "IdUnidad" : 130,
+    "NombreUnidad":"Facultad de Medicina",
+    "Abreviatura":"FMED"
+  },
+  {
+    "IdUnidad" : 135,
+    "NombreUnidad":"Facultad de Psicología",
+    "Abreviatura":"FPSICOL"
+  },
+  {
+    "IdUnidad" : 100,
+    "NombreUnidad":"Escuela Preparatoria De Matehuala",
+    "Abreviatura":"EPDM"
+  },
+  {
+    "IdUnidad" : 155,
+    "NombreUnidad":"Departamento De Físico-Matemáticas",
+    "Abreviatura":"DFM"
+  },
+  {
+    "IdUnidad" : 186,
+    "NombreUnidad":"Coordinación Académica Región Altiplano",
+    "Abreviatura":"COARA"
+  },
+  {
+    "IdUnidad" : 187,
+    "NombreUnidad":"Coordinación Académica Región Huasteca Sur",
+    "Abreviatura":"CARHS"
+  },
+  {
+    "IdUnidad" : 188,
+    "NombreUnidad":"Coordinación Académica Región Altiplano Oeste",
+    "Abreviatura":"CARAO"
+  },
+  {
+    "IdUnidad" : 189,
+    "NombreUnidad":"Coordinación Académica en Arte",
+    "Abreviatura":"CUART"
+  },
+  {
+    "IdUnidad" : 185,
+    "NombreUnidad":"Facultad de Estudios Profesionales Zona Huasteca",
+    "Abreviatura":"FEPZH"
+  },
+  {
+    "IdUnidad" : 190,
+    "NombreUnidad":"Unidad Académica Multidisciplinaria Zona Media",
+    "Abreviatura":"UAMZM"
+  },
+  {
+    "IdUnidad" : 200,
+    "NombreUnidad":"Instituto de Ciencias Educativas",
+    "Abreviatura":"ICE"
+  },
+  {
+    "IdUnidad" : 210,
+    "NombreUnidad":"Instituto de Física",
+    "Abreviatura":"IFI"
+  },
+  {
+    "IdUnidad" : 215,
+    "NombreUnidad":"Instituto de Geología",
+    "Abreviatura":"IGEO"
+  },
+  {
+    "IdUnidad" : 205,
+    "NombreUnidad":"Instituto de Investicación en Comunicación Óptica",
+    "Abreviatura":"ICO"
+  },
+  {
+    "IdUnidad" : 220,
+    "NombreUnidad":"Instituto de Investicación Humanísticas",
+    "Abreviatura":"IIH"
+  },
+  {
+    "IdUnidad" : 230,
+    "NombreUnidad":"Instituto de Investicación de Zonas Desérticas",
+    "Abreviatura":"IIZD"
+  },
+  {
+    "IdUnidad" : 225,
+    "NombreUnidad":"Instituto de Metalurgia",
+    "Abreviatura":"IM"
+  },
+  {
+    "IdUnidad" : 231,
+    "NombreUnidad":"Centro de Investigación en Ciencias de la Salud y Biomedicina",
+    "Abreviatura":"CCSAB"
+  },
+  {
+    "IdUnidad" : 990,
+    "NombreUnidad":"Centro de Investigación y Extensión",
+    "Abreviatura":"CIyE"
+  },
+  {
+    "IdUnidad" : 500,
+    "NombreUnidad":"Centro de Biociencias de la UASLP",
+    "Abreviatura":"CRB"
+  },
+  {
+    "IdUnidad" : 500,
+    "NombreUnidad":"Coordinación para la Innovación y Aplicación de la Ciencia y la Tecnología",
+    "Abreviatura":"CIACYT"
+  }
+]

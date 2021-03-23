@@ -1,5 +1,42 @@
 <div class="col-xl-6">
     <h2 class="alert alert-primary text-center">Situación y entorno</h2>
+    <div class="form-group row g-3">
+        <label for="NoEjemplar" class="col-md-4 col-form-label text-md-left">{{ __('No. de ejemplar') }}</label>
+        <div class="col-md-6">
+          
+            <input id="NoEjemplar" v-model="NCientifico" readonly type="text"
+                class="form-control @error('NombreCientifico') is-invalid @enderror" name="NoEjemplar"
+                value="{{old('NoEjemplar') }}" maxlength="40" required autocomplete="NoEjemplar" autofocus>
+
+            @error('NoEjemplar')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
+    
+    </div>
+     <div class="form-group row g-3">
+        <label for="EntidadA" class="col-md-4 col-form-label text-md-left">{{ __('Entidad Académica') }}</label>
+
+        <div class="col-md-6">
+            <select class="custom-select" id="NombreC" name="NombreC" v-model="NombreC" require @change="">
+                <option selected disabled>Entidad Académica</option>
+                <option v-for="(N,index) in EntidadAcademica" :value="N.IdUnidad">@{{N.NombreUnidad}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row g-3">
+        <label for="EntidadA" class="col-md-4 col-form-label text-md-left">{{ __('Entidad Académica') }}</label>
+
+        <div class="col-md-6">
+            <select class="custom-select" id="NombreC" name="NombreC" require @change="">
+                <option selected disabled>Entidad Académica</option>
+                <option v-for="(N,index) in EntidadAcademica" :value="N.IdUnidad">@{{N.NombreUnidad}}</option>
+            </select>
+        </div>
+    </div>
+
     <div class="form-group row">
         <label for="NombreRecolectorD"
             class="col-md-4 col-form-label text-md-left">{{ __('Coordenada geográfica') }}</label>

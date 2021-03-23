@@ -9,39 +9,40 @@
     <div class="container-fluid justify-content-between mt- p-5" id="appp">
         <div class="container mb-4">
             <div class="row">
-              <div class="col-xl-6 col-lg-6 col-md-6 contImagen">
-              <img src="{{asset('storage/Logos/horizontal_azulR.png')}}"id="LogoUaslpAgenda" alt="Logo uaslp-Agenda Ambiental" srcset="">
-              </div>
-              <div class="col-xl-6 col-lg-6 col-md-6 ">
-                <div class="align-self-center">
-                    <h4 class="pt-5">HOJA DE CAMPO DE PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD</h4>
-                    <span>  </span>
+                <div class="col-xl-6 col-lg-6 col-md-6 contImagen">
+                    <img src="{{asset('storage/Logos/horizontal_azulR.png')}}" id="LogoUaslpAgenda"
+                        alt="Logo uaslp-Agenda Ambiental" srcset="">
                 </div>
-              
-              </div>
-            </div>
-          </div>
-       
-        @if(session()->has('message'))
-        <div class="alert alert-success text-center">
-            <h2>
-                {{ session()->get('message') }}
-            </h2>
-        </div>
-        @endif
-        <form method="POST" action="{{route('GHC')}}" enctype="multipart/form-data">
-            @csrf
-            @include('HojaCampo.Imagenes')
-            @include('HojaCampo.DGenerales')
-            @include('HojaCampo.ReconocimientoE')
-            @include('HojaCampo.Morfologia')
-            @include('HojaCampo.SituacionEntorno')
+                <div class="col-xl-6 col-lg-6 col-md-6 ">
+                    <div class="align-self-center">
+                        <h4 class="pt-5">HOJA DE CAMPO DE PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD</h4>
+                        <span> </span>
+                    </div>
 
-            <div class="container">
-                <div class="row justify-content-center">
-                    <button type="submit" class="btn btn-primary btn-lg">Confirmar</button>
                 </div>
             </div>
+        </div>
+        <div id="nosotros">
+            @if(session()->has('message'))
+            <div class="alert alert-success text-center">
+                <h2>
+                    {{ session()->get('message') }}
+                </h2>
+            </div>
+            @endif
+            <form method="POST" action="{{route('GHC')}}" enctype="multipart/form-data">
+                @csrf
+                @include('HojaCampo.Imagenes')
+                @include('HojaCampo.DGenerales')
+                @include('HojaCampo.ReconocimientoE')
+                @include('HojaCampo.Morfologia')
+                @include('HojaCampo.SituacionEntorno')
+
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <button type="submit" class="btn btn-primary btn-lg">Confirmar</button>
+                    </div>
+                </div>
         </div>
         </form>
     </div>
@@ -58,9 +59,12 @@
     datos:[],
     Nombres:[],
     NCientifico:'',
+    EntidadAcademica:[],
   }, 
-  mounted: function () {
-  this.$nextTick(function () {
+  mounted: 
+  function () {
+  this.$nextTick(
+    function () {
     @foreach($Ejemplar as $E)
                 this.Nombres.push({
                     "id":'{{$E->id}}',
@@ -68,6 +72,14 @@
                     "NombreC":'{{$E->NombreCientifico}}'
                 });
     @endforeach
+    @foreach($SubUnidades as $Unidad)
+                this.EntidadAcademica.push({
+                    "IdUnidad":'{{$Unidad['IdUnidad']}}',
+                    "NombreUnidad":'{{$Unidad['SubUnidad']}}',
+                });
+    @endforeach
+    
+   
     this.archivos = [
         {
             imagen:"",
@@ -117,6 +129,7 @@
             
         },
     ]
+    
   })
 }, 
 methods:{

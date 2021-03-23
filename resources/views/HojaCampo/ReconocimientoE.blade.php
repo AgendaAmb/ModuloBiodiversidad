@@ -5,7 +5,7 @@
 
         <div class="col-md-6">
             <select class="custom-select" id="NombreC" name="NombreC" v-model="NombreC" require @change="Ncientifico()">
-                <option selected>Nombre Común</option>
+                <option selected="true" disabled>Nombre Común</option>
                 <option v-for="(N,index) in Nombres" :value="N.id">@{{N.Nombre}}</option>
             </select>
         </div>
