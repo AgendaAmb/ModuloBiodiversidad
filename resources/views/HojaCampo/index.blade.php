@@ -6,6 +6,8 @@
 </head>
 
 <body>
+   
+    
     <div class="container-fluid justify-content-between mt- p-5" id="appp">
         <div class="container mb-4">
             <div class="row">
@@ -15,7 +17,7 @@
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 ">
                     <div class="align-self-center">
-                        <h4 class="pt-5">HOJA DE CAMPO DE PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD</h4>
+                        <h4 class="pt-5">HOJA DE CAMPO DE PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD </h4>
                         <span> </span>
                     </div>
 
@@ -44,6 +46,7 @@
                     </div>
                 </div>
         </div>
+          </div>
         </form>
     </div>
 </body>
@@ -60,6 +63,10 @@
     Nombres:[],
     NCientifico:'',
     EntidadAcademica:[],
+    SubUnidadesP:[],
+    SubUnidadesFiltrada:[],
+    NombreC:'',
+    Entidad_id:'',
   }, 
   mounted: 
   function () {
@@ -76,6 +83,13 @@
                 this.EntidadAcademica.push({
                     "IdUnidad":'{{$Unidad['IdUnidad']}}',
                     "NombreUnidad":'{{$Unidad['SubUnidad']}}',
+                });
+    @endforeach
+    @foreach($SubUnidadTP as $UnidadP)
+                this.SubUnidadesP.push({
+                    "IdUnidad":'{{$UnidadP->IdUnidad}}',
+                    "NombreUnidad":'{{$UnidadP->NombreUnidad}}',
+                    "Abreviatura":'{{$UnidadP->Abreviatura}}'
                 });
     @endforeach
     
@@ -152,13 +166,18 @@ methods:{
                 this.NCientifico=n.NombreC
             }
         })
-    }
+    },
+    //checar esta funcion con wicho, no se selecciona la subunidad academica 
+    FiltroSubUnidades:function(){
+        this.SubUnidadesFiltrada=this.EntidadAcademica.filter(E=>E.IdUnidad==this.Entidad_id);
+    },
+   
 }
-
+    
 })
 
     function readImage (e,input) {
-  }
+    }
   
   function DFisicos(x){
     if(x=="1"){

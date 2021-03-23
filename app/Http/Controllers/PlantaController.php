@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use File;
+use DB;
 use App\Planta;
 use App\NombreEjemplar;
+use App\SubUnidades;
 use App\Morfologia;
 use App\SituacionEntorno;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
-use File;
 class PlantaController extends Controller
 {
     /**
@@ -20,7 +22,10 @@ class PlantaController extends Controller
     public function index()
     {
         $Ejemplar=NombreEjemplar::all();
-
+        $SubUnidadTP=DB::table('sub_unidades')
+                ->orderBy('NombreUnidad', 'asc')
+                ->get();
+                
         $json = File::get("storage/TSubUnidades.json");
         $SubUnidad = json_decode($json);
         $SubUnidades = Array();
@@ -31,10 +36,15 @@ class PlantaController extends Controller
                 "SubUnidad"=>$SubUnidad[$i]->SubUnidad,
             );
         }
-        
-        return \view('HojaCampo.index')->with("Ejemplar",$Ejemplar)->with("SubUnidades", $SubUnidades);
+        foreach ($SubUnidades as $key => $row) {
+            $aux[$key] = $row['SubUnidad'];
+        }
+        array_multisort($aux, SORT_ASC, $SubUnidades);
+        return \view('HojaCampo.index')->with("Ejemplar",$Ejemplar)
+        ->with("SubUnidades", $SubUnidades)
+        ->with("SubUnidadTP",$SubUnidadTP);
     }
-
+  
     /**
      * Show the form for creating a new resource.
      *
@@ -53,7 +63,7 @@ class PlantaController extends Controller
      */
     public function store(Request $request)
     {
-       
+       dd($request);
         $validatedData = Validator::make($request->all(),[
             'FechaRecoleccion' => ['required','max:15','bail'],
             'FechaFotografia' => ['required','max:15','bail'],

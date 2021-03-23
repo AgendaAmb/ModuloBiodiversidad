@@ -4,8 +4,8 @@
         <label for="NoEjemplar" class="col-md-4 col-form-label text-md-left">{{ __('No. de ejemplar') }}</label>
         <div class="col-md-6">
           
-            <input id="NoEjemplar" v-model="NCientifico" readonly type="text"
-                class="form-control @error('NombreCientifico') is-invalid @enderror" name="NoEjemplar"
+            <input id="NoEjemplar"  readonly type="text"
+                class="form-control @error('NoEjemplar') is-invalid @enderror" name="NoEjemplar"
                 value="{{old('NoEjemplar') }}" maxlength="40" required autocomplete="NoEjemplar" autofocus>
 
             @error('NoEjemplar')
@@ -16,26 +16,27 @@
         </div>
     
     </div>
-     <div class="form-group row g-3">
-        <label for="EntidadA" class="col-md-4 col-form-label text-md-left">{{ __('Entidad Académica') }}</label>
-
-        <div class="col-md-6">
-            <select class="custom-select" id="NombreC" name="NombreC" v-model="NombreC" require @change="">
-                <option selected disabled>Entidad Académica</option>
-                <option v-for="(N,index) in EntidadAcademica" :value="N.IdUnidad">@{{N.NombreUnidad}}</option>
-            </select>
-        </div>
-    </div>
     <div class="form-group row g-3">
         <label for="EntidadA" class="col-md-4 col-form-label text-md-left">{{ __('Entidad Académica') }}</label>
 
         <div class="col-md-6">
-            <select class="custom-select" id="NombreC" name="NombreC" require @change="">
+            <select class="custom-select" id="EntidadA" name="EntidadA" v-model="Entidad_id" require @change="FiltroSubUnidades()">
                 <option selected disabled>Entidad Académica</option>
-                <option v-for="(N,index) in EntidadAcademica" :value="N.IdUnidad">@{{N.NombreUnidad}}</option>
+                <option v-for="(N,index) in SubUnidadesP" :value="N.IdUnidad">@{{N.NombreUnidad}}</option>
             </select>
         </div>
     </div>
+     <div class="form-group row g-3">
+        <label for="SubUnidadesFiltrada" class="col-md-4 col-form-label text-md-left">{{ __('SubUnidad Academica') }}</label>
+
+        <div class="col-md-6">
+            <select class="custom-select" id="SubUnidadesFiltrada" name="SubUnidadesFiltrada"  require>
+                <option selected disabled>SubUnidadAcademica</option>
+                <option v-for="(A,index) in SubUnidadesFiltrada" :value="A.IdUnidad">@{{A.NombreUnidad}}</option>
+            </select>
+        </div>
+    </div>
+    
 
     <div class="form-group row">
         <label for="NombreRecolectorD"
@@ -116,3 +117,5 @@
     
     <hr>
 </div>
+
+
