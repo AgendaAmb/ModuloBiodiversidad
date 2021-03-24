@@ -8,7 +8,7 @@
 <body>
    
     
-    <div class="container-fluid justify-content-between mt- p-5" id="appp">
+    <div class="container-fluid justify-content-between mt- p-5 " id="appp">
         <div class="container mb-4">
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-6 contImagen">

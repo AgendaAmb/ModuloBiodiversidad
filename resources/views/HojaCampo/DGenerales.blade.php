@@ -1,16 +1,18 @@
-<div class="form-row">
+<div class="form-row ">
     <div class="col-xl-6">
         <h2 class="alert alert-primary text-center">Datos Generales</h2>
-        <div class="form-group row g-3">
+        <div class="form-group row g-3 was-validated">
             <label for="FechaRecoleccion"
-                class="col-md-4 col-form-label text-md-right">{{ __('Fecha de recoleccion de datos') }}
+                class="col-md-4 col-form-label text-md-left">{{ __('Fecha de recoleccion de datos') }}
             </label>
             <div class="col-md-6">
                 <input id="FechaRecoleccion" type="date" class="form-control" name="FechaRecoleccion"
                     value="{{ old('FechaRecoleccion')}}" required autocomplete="FechaRecoleccion" autofocus>
+                    <div class="invalid-feedback">Dato Obligatorio</div>
             </div>
+            
         </div>
-        <div class="form-group row g-3">
+        <div class="form-group row g-3 was-validated">
             <label for="FechaFotografia"
                 class="col-md-4 col-form-label text-md-left">{{ __('Fecha de fotografía') }}</label>
             <div class="col-md-6">
@@ -18,7 +20,7 @@
                     value="{{ old('FechaFotografia') }}" required autocomplete="FechaFotografia">
             </div>
         </div>
-        <div class="form-group row g-3">
+        <div class="form-group row g-3 was-validated">
             <label for="NombreRecolectorD"
                 class="col-md-4 col-form-label text-md-left">{{ __('Nombre del Recolector de datos') }}</label>
 
@@ -35,7 +37,7 @@
                 @enderror
             </div>
         </div>
-        <div class="form-group row g-3">
+        <div class="form-group row g-3 was-validated">
             <label for="NombreRecolectorm"
                 class="col-md-4 col-form-label text-md-left">{{ __('Nombre del Recolector de muestra') }}</label>
             <div class="col-md-6">
@@ -51,7 +53,7 @@
                 @enderror
             </div>
         </div>
-        <div class="form-group row g-3">
+        <div class="form-group row g-3 was-validated">
             <label for="NombreAutorFoto"
                 class="col-md-4 col-form-label text-md-left">{{ __('Nombre de autor de fotografías') }}</label>
             <div class="col-md-6">

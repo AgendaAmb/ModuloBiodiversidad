@@ -25,7 +25,7 @@ class PlantaController extends Controller
         $SubUnidadTP=DB::table('sub_unidades')
                 ->orderBy('NombreUnidad', 'asc')
                 ->get();
-                
+
         $json = File::get("storage/TSubUnidades.json");
         $SubUnidad = json_decode($json);
         $SubUnidades = Array();
@@ -71,6 +71,9 @@ class PlantaController extends Controller
             'NombreRecolectorm' => ['required','max:40','bail'],
             'NombreAutorFoto' => ['required','max:40','bail'],
             'NombreCientifico' => ['required','max:40','bail'],
+            "EntidadA"=>['required'],
+            "NombreC"=>['required'],
+            /*
             'RegistroIdentificacion' => ['required','max:40','bail'],
             'CondicionG' => ['required','max:255','bail'],
             'Ecrecimiento' => ['required','max:20','bail'],
@@ -84,6 +87,8 @@ class PlantaController extends Controller
             'EstadoFiso' => ['required','max:40','bail'],
             'EnfermedadesA' => ['required','max:255','bail'],
             'EnfermedadesP' => ['required','max:255','bail'],
+            */
+            
         ]);
         if ($validatedData->fails()) {
             return redirect(route('HojaCampo'))
