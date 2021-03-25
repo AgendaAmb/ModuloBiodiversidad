@@ -146,7 +146,7 @@
 
         <div class="col-md-6">
             <input id="AspectoEspacio" type="text" class="form-control @error('AspectoEspacio') is-invalid @enderror"
-                name="AspectoEspacio" value="{{ old('AspectoEspacio') }}" required autocomplete="AspectoEspacio"
+                name="AspectoEspacio" value="{{ old('AspectoEspacio') }}" autocomplete="AspectoEspacio"
                 autofocus data-toggle="tooltip" data-placement="top" title="">
 
             @error('AspectoEspacio')
@@ -157,22 +157,7 @@
         </div>
     </div>
 
-    <div class="form-group row g-3">
-        <label for="Interferecia"
-            class="col-md-4 col-form-label text-md-left">{{ __('Interferencia aparente con instalaciones inmediatas') }}</label>
-
-        <div class="col-md-6">
-            <input id="Interferecia" type="text" class="form-control @error('Interferecia') is-invalid @enderror"
-                name="Interferecia" value="{{ old('Interferecia') }}" required autocomplete="Interferecia" autofocus
-                data-toggle="tooltip" data-placement="top" title="">
-
-            @error('Interferecia')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
-        </div>
-    </div>
+    
     <div class="form-group row g-3">
         <label for="Interferecia"
             class="col-md-4 col-form-label text-md-left">{{ __('Interferencia aparente con instalaciones inmediatas') }}</label>

@@ -155,18 +155,14 @@
     "Abreviatura":"CCSAB"
   },
   {
-    "IdUnidad" : 990,
-    "NombreUnidad":"Centro de Investigación y Extensión",
-    "Abreviatura":"CIyE"
-  },
-  {
     "IdUnidad" : 500,
-    "NombreUnidad":"Centro de Biociencias de la UASLP",
-    "Abreviatura":"CRB"
+    "NombreUnidad":"Rectoría",
+    "Abreviatura":"Rectpria"
   },
+  
   {
-    "IdUnidad" : 500,
-    "NombreUnidad":"Coordinación para la Innovación y Aplicación de la Ciencia y la Tecnología",
+    "IdUnidad" : 400,
+    "NombreUnidad":"Centro de Idiomas Universitario",
     "Abreviatura":"CIACYT"
   }
 ]

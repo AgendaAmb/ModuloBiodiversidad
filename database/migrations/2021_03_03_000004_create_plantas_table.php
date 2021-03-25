@@ -18,10 +18,10 @@ class CreatePlantasTable extends Migration
             $table->string('FechaRecoleccion');
             $table->string('NombreRecolectorDatos');
             $table->string('NombreRecolectorMuestra');
-            $table->boolean('Verificado');
+            $table->boolean('Verificado')->nullable();;
             $table->string('NomVerificador')->nullable();
 
-            $table->unsignedBigInteger('Nombre_Ejem_id');
+            $table->unsignedBigInteger('Nombre_Ejem_id')->nullable();;
             
 
             $table->foreign('Nombre_Ejem_id')
@@ -29,14 +29,14 @@ class CreatePlantasTable extends Migration
             ->on('nombre_ejemplars')
             ->onDelete('cascade');
 
-            $table->unsignedBigInteger('Morfologia_id');
+            $table->unsignedBigInteger('Morfologia_id')->nullable();;
            
             $table->foreign('Morfologia_id')
             ->references('id')
             ->on('morfologias')
             ->onDelete('cascade');
 
-            $table->unsignedBigInteger('situacion_entornos_id');
+            $table->unsignedBigInteger('situacion_entornos_id')->nullable();;
            
             $table->foreign('situacion_entornos_id')
             ->references('id')

@@ -161,7 +161,7 @@
         <div class="col-md-6">
             <textarea aria-label="With textarea" id="EnfermedadesA" type="text"
                 class="form-control @error('EnfermedadesA') is-invalid @enderror" name="EnfermedadesA"
-                value="{{ old('EnfermedadesA') }}"  autocomplete="EnfermedadesA"
+                value="{{ old('EnfermedadesA') }}"  autocomplete="EnfermedadesA" maxlength="400"
                 autofocus></textarea>
         </div>
     </div>
@@ -169,7 +169,7 @@
         <label for="EnfermedadesP"
             class="col-md-4 col-form-label text-md-left">{{ __('Enfermedades Probables') }}</label>
         <div class="col-md-6">
-            <textarea aria-label="With textarea" id="EnfermedadesP" type="text"
+            <textarea aria-label="With textarea" id="EnfermedadesP" type="text" maxlength="400"
                 class="form-control @error('EnfermedadesP') is-invalid @enderror" name="EnfermedadesP"
                 value="{{ old('EnfermedadesP') }}" autocomplete="EnfermedadesP"
                 autofocus></textarea>

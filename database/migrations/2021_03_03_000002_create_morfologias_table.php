@@ -15,19 +15,19 @@ class CreateMorfologiasTable extends Migration
     {
         Schema::create('morfologias', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('CondicionGeneral');
-            $table->string('EstadoCrecimiento');
-            $table->double('Altura');
-            $table->double('AlturaLiteratura');
-            $table->string('Tcopa');
-            $table->double('DiametroCopa');
-            $table->string('Raices');
-            $table->string('TRaices');
-            $table->string('Manejo');
+            $table->string('CondicionGeneral')->nullable();;
+            $table->string('EstadoCrecimiento')->nullable();;
+            $table->double('Altura')->nullable();;
+            $table->double('AlturaLiteratura')->nullable();;
+            $table->string('Tcopa')->nullable();;
+            $table->double('DiametroCopa')->nullable();;
+            $table->string('Raices')->nullable();;
+            $table->string('TRaices')->nullable();;
+            $table->string('Manejo')->nullable();;
             $table->string('DanosF')->nullable();
-            $table->string('EstadoFiso');
-            $table->string('EnfermeAparentes');
-            $table->string('EnfermeLitera');
+            $table->string('EstadoFiso')->nullable();;
+            $table->string('EnfermeAparentes')->nullable();;
+            $table->string('EnfermeLitera')->nullable();;
             $table->timestamps();
         });
     }
