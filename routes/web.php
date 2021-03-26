@@ -21,5 +21,11 @@ Auth::routes();
 
 Route::get('/HojaCampo', 'PlantaController@index')->name('HojaCampo');
 Route::post('/GuardaHC', 'PlantaController@store')->name('GHC');
-
+Route::get('/Ejemplares', 'NombreEjemplarController@index')->name('Ejemplares');
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/Panel', function () {
+    return view("Panel");
+});
+

@@ -21,6 +21,13 @@ class CreatePlantasTable extends Migration
             $table->boolean('Verificado')->nullable();;
             $table->string('NomVerificador')->nullable();
 
+            $table->unsignedBigInteger('nombre_ejemplar_id')->nullable();;
+            
+
+            $table->foreign('nombre_ejemplar_id')
+            ->references('id')
+            ->on('nombre_ejemplars')
+            ->onDelete('cascade');
             $table->unsignedBigInteger('Nombre_Ejem_id')->nullable();;
             
 

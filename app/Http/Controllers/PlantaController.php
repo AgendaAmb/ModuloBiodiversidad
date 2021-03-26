@@ -132,8 +132,9 @@ class PlantaController extends Controller
             $Planta->Verificado = false;
             $Nom = NombreEjemplar::find($request->NombreC);
 
-            $Planta->NombreEjem()->associate($Nom);
-
+            $Planta->Nombre_Ejem_id=$Nom->id;
+            $Planta->nombre_ejemplar_id=$Nom->id;
+            
 
             $M = Morfologia::find($Morfologia->id);
             $Planta->Morfologia_id = $Morfologia->id;

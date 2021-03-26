@@ -14,7 +14,9 @@ class NombreEjemplarController extends Controller
      */
     public function index()
     {
-        //
+        $Ejemplares=NombreEjemplar::all();
+       
+        return \view('Ejemplares.index')->with("Ejemplares", $Ejemplares);
     }
 
     /**
