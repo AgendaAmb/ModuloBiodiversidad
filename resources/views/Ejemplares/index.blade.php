@@ -10,10 +10,13 @@
     @foreach ($Ejemplares as $Ejemplar)
     <div class="col mb-4">
       <div class="card w-100 ">
-          <span class="badge badge-danger navbar-badge">{{count($Ejemplar->plantaNom)}}</span>
+          <span class="badge badge-success navbar-badge">{{count($Ejemplar->plantaNom)}}</span>
             <h5 class="card-title text-center">{{$Ejemplar->NombreComun}}</h5>
             <div class="card-body">
+              <a href="{{route('PlantasEjemplares',['id'=>$Ejemplar->id])}}">
+
                 <img class="card-img-top " id="{{$Ejemplar->id}}" src="#" alt="Card image cap">
+              </a>
             </div>
 
             <div class="card-footer pl-5">

@@ -15,11 +15,16 @@ class CreateSituacionEntornosTable extends Migration
     {
         Schema::create('situacion_entornos', function (Blueprint $table) {
             $table->id();
-            $table->string('Latitud')->nullable();;
-            $table->string('Altitud')->nullable();;
-            $table->string('TArea')->nullable();;
-            $table->string('Aspecto')->nullable();;
-            $table->string('Interfencia')->nullable();;
+            $table->string('Latitud')->nullable();
+            $table->string('Altitud')->nullable();
+            $table->string('TArea')->nullable();
+            $table->string('Aspecto')->nullable();
+            $table->json('Interfencia')->nullable();
+            $table->string('No_Ejemplar')->nullable();
+            $table->integer('EntidadAcademica')->nullable();
+            $table->string('SubEntidadAcademica')->nullable();
+           
+
             $table->timestamps();
         });
     }

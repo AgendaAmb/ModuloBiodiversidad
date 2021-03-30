@@ -63,7 +63,7 @@ class PlantaController extends Controller
      */
     public function store(Request $request)
     {
-
+        
         $validatedData = Validator::make($request->all(), [
             'FechaRecoleccion' => ['required', 'max:15', 'bail'],
             'FechaFotografia' => ['required', 'max:15', 'bail'],
@@ -119,9 +119,18 @@ class PlantaController extends Controller
             $SituacionEnt->Altitud = $request->Altitud;
             $SituacionEnt->TArea = $request->TAreaVerde;
             $SituacionEnt->Aspecto = $request->AspectoEspacio;
+            $inter = array(
+                'Cableado' => $request->CBCableado,
+                'Infra' => $request->CBInfra,
+                'Mobili' => $request->CBMobili,
+                'Sena' => $request->CBSena,
+                'Edifi' => $request->CBEdifi,
+            );
 
-            $SituacionEnt->Interfencia = $request->Interferecia;
-
+            $SituacionEnt->Interfencia = json_encode($inter);
+            $SituacionEnt->No_Ejemplar = $request->NoEjemplar;
+            $SituacionEnt->EntidadAcademica = $request->EntidadA;
+            $SituacionEnt->SubEntidadAcademica = $request->SubUnidadesFiltrada;
             $SituacionEnt->save();
 
             $Planta = new Planta();
@@ -130,15 +139,17 @@ class PlantaController extends Controller
             $Planta->FechaRecoleccion = $request->FechaFotografia;
             $Planta->NombreRecolectorMuestra = $request->NombreRecolectorm;
             $Planta->Verificado = false;
-            $Nom = NombreEjemplar::find($request->NombreC);
 
-            $Planta->Nombre_Ejem_id=$Nom->id;
-            $Planta->nombre_ejemplar_id=$Nom->id;
-            
+            $Nom = NombreEjemplar::find($request->NombreC);
+         
+            $Planta->nombre_ejemplar_id = ($Nom!=null)?$Nom->id:null;
 
             $M = Morfologia::find($Morfologia->id);
+
             $Planta->Morfologia_id = $Morfologia->id;
+
             $Planta->situacion_entornos_id = $SituacionEnt->id;
+
             $Planta->save();
         }
 
@@ -151,9 +162,11 @@ class PlantaController extends Controller
      * @param  \App\Planta  $planta
      * @return \Illuminate\Http\Response
      */
-    public function show(Planta $planta)
+    public function show(Planta $planta, $id)
     {
-        //
+        dd($id);
+        $planta = Planta::findorFail($id);
+
     }
 
     /**

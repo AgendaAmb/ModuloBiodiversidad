@@ -19,7 +19,7 @@ class CreateFotoPlantasTable extends Migration
             $table->unsignedBigInteger('foto_plantas_planta_id');
 
             $table->foreign('foto_plantas_planta_id')
-            ->references('id')
+            ->references('planta_id')
             ->on('plantas')
             ->onDelete('cascade');
             $table->timestamps();

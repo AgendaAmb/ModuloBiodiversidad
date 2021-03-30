@@ -14,7 +14,7 @@ class CreatePlantasTable extends Migration
     public function up()
     {
         Schema::create('plantas', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('planta_id');
             $table->string('FechaRecoleccion');
             $table->string('NombreRecolectorDatos');
             $table->string('NombreRecolectorMuestra');
@@ -28,13 +28,7 @@ class CreatePlantasTable extends Migration
             ->references('id')
             ->on('nombre_ejemplars')
             ->onDelete('cascade');
-            $table->unsignedBigInteger('Nombre_Ejem_id')->nullable();;
             
-
-            $table->foreign('Nombre_Ejem_id')
-            ->references('id')
-            ->on('nombre_ejemplars')
-            ->onDelete('cascade');
 
             $table->unsignedBigInteger('Morfologia_id')->nullable();;
            

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\NombreEjemplar;
 use Illuminate\Http\Request;
+use App\Morfologia;
+use App\Planta;
 
 class NombreEjemplarController extends Controller
 {
@@ -46,9 +48,12 @@ class NombreEjemplarController extends Controller
      * @param  \App\NombreEjemplar  $nombreEjemplar
      * @return \Illuminate\Http\Response
      */
-    public function show(NombreEjemplar $nombreEjemplar)
+    public function show(NombreEjemplar $nombreEjemplar,$id)
     {
-        //
+        
+        $nombreEjemplar=NombreEjemplar::findorFail($id);
+        $n=Morfologia::findorFail($nombreEjemplar->plantaNom[0]->Morfologia_id);
+        return \view('Ejemplares.showPxE')->with("nombreEjemplar", $nombreEjemplar);
     }
 
     /**
