@@ -49,12 +49,12 @@ class User extends Authenticatable
     {
         if (is_array($roles)) {
             foreach ($roles as $role) {
-                if ($this->hasRole($role)) {
+                if ($this->hasRole($role)&&$role!="Ninguno") {
                     return true;
                 }
             }
         } else {
-            if ($this->hasRole($roles)) {
+            if ($this->hasRole($roles)&&$role!="Ninguno") {
                  return true; 
             }   
         }

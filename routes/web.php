@@ -14,20 +14,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->route('HojaCampo');
+    return redirect()->route('login');
+});
+Route::get('/usuario', function () {
+    return("usuario por verificar");
 });
 
+Route::group(['prefix'=>'Biodiversidad','middleware' => 'auth'], function () {
+
+    Route::get('/', 'HomeController@index')->name('dashbord');
+    Route::get('/HojaCampo', 'PlantaController@index')->name('HojaCampo');
+    Route::post('/GuardaHC', 'PlantaController@store')->name('GHC');
+    Route::get('/home', 'HomeController@index')->name('home');
+    
+    
+    
+    Route::get('/Ejemplares', 'NombreEjemplarController@index')->name('Ejemplares');
+    Route::get('/PlantasEjemplares/{id}', 'NombreEjemplarController@show')->name('PlantasEjemplares');
+    Route::get('/Planta/{id}', 'PlantaController@show')->name('ShowPlanta');
+});
 Auth::routes();
 
-Route::get('/HojaCampo', 'PlantaController@index')->name('HojaCampo');
-Route::post('/GuardaHC', 'PlantaController@store')->name('GHC');
-Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/Ejemplares', 'NombreEjemplarController@index')->name('Ejemplares');
-Route::get('/PlantasEjemplares/{id}', 'NombreEjemplarController@show')->name('PlantasEjemplares');
-Route::get('/Planta/{id}', 'PlantaController@show')->name('ShowPlanta');
 
-Route::get('/Panel', function () {
-    return view("Panel");
-});
 
