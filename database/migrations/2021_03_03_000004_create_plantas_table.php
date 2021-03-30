@@ -22,29 +22,25 @@ class CreatePlantasTable extends Migration
             $table->string('NomVerificador')->nullable();
 
             $table->unsignedBigInteger('nombre_ejemplar_id')->nullable();;
-            
 
             $table->foreign('nombre_ejemplar_id')
-            ->references('id')
-            ->on('nombre_ejemplars')
-            ->onDelete('cascade');
-            
+                ->references('id')
+                ->on('nombre_ejemplars')
+                ->onDelete('cascade');
 
             $table->unsignedBigInteger('Morfologia_id')->nullable();;
-           
+
             $table->foreign('Morfologia_id')
-            ->references('id')
-            ->on('morfologias')
-            ->onDelete('cascade');
+                ->references('id')
+                ->on('morfologias')
+                ->onDelete('cascade');
 
             $table->unsignedBigInteger('situacion_entornos_id')->nullable();;
-           
+
             $table->foreign('situacion_entornos_id')
-            ->references('id')
-            ->on('situacion_entornos')
-            ->onDelete('cascade');
-          
-            
+                ->references('id')
+                ->on('situacion_entornos')
+                ->onDelete('cascade');
 
             $table->timestamps();
         });

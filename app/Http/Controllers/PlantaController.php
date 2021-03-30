@@ -63,7 +63,7 @@ class PlantaController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $validatedData = Validator::make($request->all(), [
             'FechaRecoleccion' => ['required', 'max:15', 'bail'],
             'FechaFotografia' => ['required', 'max:15', 'bail'],
@@ -141,8 +141,8 @@ class PlantaController extends Controller
             $Planta->Verificado = false;
 
             $Nom = NombreEjemplar::find($request->NombreC);
-         
-            $Planta->nombre_ejemplar_id = ($Nom!=null)?$Nom->id:null;
+
+            $Planta->nombre_ejemplar_id = ($Nom != null) ? $Nom->id : null;
 
             $M = Morfologia::find($Morfologia->id);
 

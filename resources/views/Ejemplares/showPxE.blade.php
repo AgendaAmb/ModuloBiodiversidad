@@ -1,11 +1,23 @@
-@foreach ($nombreEjemplar->plantaNom as $Plantas)
+@extends('dashboard.main')
+<head>
+    @include('head')
+</head>
+@section('contenido')
+<body>
+    @if(count($nombreEjemplar->plantaNom)!=0)
+    @foreach ($nombreEjemplar->plantaNom as $Plantas)
     <h1>
         {{
-          
-               $Plantas
+            $Plantas
         
         }}
-        
+    
     </h1>
     
-@endforeach
+    @endforeach
+    @else
+    No exite aun ninguna planta de esta especie registrada.
+    @endif
+    @endsection
+    
+</body>

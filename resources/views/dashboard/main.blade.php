@@ -217,7 +217,7 @@
                       <li class="nav-item">
                         <a href="{{route('Ejemplares')}}" class="nav-link">
                           <i class="far fa-dot-circle nav-icon"></i>
-                          <p>Ver Especies</p>
+                          <p>Especies</p>
                         </a>
                       </li>
                       <li class="nav-item">

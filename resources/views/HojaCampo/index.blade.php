@@ -27,7 +27,7 @@
             @if(session()->has('message'))
             <div class="alert alert-success text-center">
                 <h2>
-                    {{ session()->get('message') }}
+                    {{session()->get('message') }}
                 </h2>
             </div>
             @endif
@@ -39,7 +39,7 @@
                 @include('HojaCampo.Morfologia')
                 @include('HojaCampo.SituacionEntorno')
 
-                <div class="container">
+                <div class="container mb-3">
                     <div class="row justify-content-center">
                         <button type="submit" class="btn btn-primary btn-lg">Confirmar</button>
                     </div>
