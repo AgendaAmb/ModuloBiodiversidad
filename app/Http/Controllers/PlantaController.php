@@ -19,8 +19,9 @@ class PlantaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $request->user()->authorizeRoles(['administrador','Gestor']);
         $Ejemplar = NombreEjemplar::all();
         $SubUnidadTP = DB::table('sub_unidades')
             ->orderBy('NombreUnidad', 'asc')
@@ -63,7 +64,7 @@ class PlantaController extends Controller
      */
     public function store(Request $request)
     {
-
+        $request->user()->authorizeRoles(['administrador']);
         $validatedData = Validator::make($request->all(), [
             'FechaRecoleccion' => ['required', 'max:15', 'bail'],
             'FechaFotografia' => ['required', 'max:15', 'bail'],

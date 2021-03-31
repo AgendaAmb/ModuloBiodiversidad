@@ -54,7 +54,7 @@ class User extends Authenticatable
                 }
             }
         } else {
-            if ($this->hasRole($roles)&&$role!="Ninguno") {
+            if ($this->hasRole($roles)&&$roles!="Ninguno") {
                  return true; 
             }   
         }
