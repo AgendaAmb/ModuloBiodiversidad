@@ -31,6 +31,8 @@ Route::group(['prefix' => 'Biodiversidad', 'middleware' => 'auth'], function () 
         Route::get('/Planta/{id}', 'PlantaController@show')->name('ShowPlanta');
         Route::get('/Ejemplares', 'NombreEjemplarController@index')->name('Ejemplares');
         Route::get('/PlantasEjemplares/{id}', 'NombreEjemplarController@show')->name('PlantasEjemplares');
+
+        Route::get('/UsuariosAdmin', 'HomeController@getUsers')->name('UserAdmin');
     });
 
     Route::group(['middleware' => 'TRol:ConsultorT'], function () {

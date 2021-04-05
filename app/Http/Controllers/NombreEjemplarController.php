@@ -15,7 +15,7 @@ class NombreEjemplarController extends Controller
     public function index()
     {
         $Ejemplares = NombreEjemplar::all();
-
+       
         return \view('Ejemplares.index')->with("Ejemplares", $Ejemplares);
     }
 
@@ -48,7 +48,6 @@ class NombreEjemplarController extends Controller
      */
     public function show(NombreEjemplar $nombreEjemplar, $id)
     {
-
         $nombreEjemplar = NombreEjemplar::findorFail($id);
 
         if (count($nombreEjemplar->plantaNom) == 0) {

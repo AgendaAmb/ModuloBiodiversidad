@@ -14,7 +14,7 @@ class CreateSituacionEntornosTable extends Migration
     public function up()
     {
         Schema::create('situacion_entornos', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('Latitud')->nullable();
             $table->string('Altitud')->nullable();
             $table->string('TArea')->nullable();

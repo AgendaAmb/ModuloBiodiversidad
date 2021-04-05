@@ -26,6 +26,7 @@
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('Dash/plugins/summernote/summernote-bs4.min.css')}}">
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  @stack('styles')
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -80,7 +81,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Brad Diesel
@@ -96,7 +97,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   John Pierce
@@ -112,7 +113,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Nora Silvester
@@ -264,27 +265,27 @@
             <a href="#" class="nav-link">
                 <i class="fas fa-seedling"></i>
               <p>
-                Biodiversidad
+                Administración
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="" class="nav-link active">
+                <a href="{{route('UserAdmin')}}" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Plantas</p>
+                  <p>Usuarios</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="./index2.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
+                  <p></p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
+                  <p></p>
                 </a>
               </li>
             </ul>
@@ -357,24 +358,11 @@
 <script src="{{asset('Dash/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('Dash/dist/js/adminlte.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('Dash/dist/js/demo.js')}}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('Dash/dist/js/pages/dashboard.js')}}"></script>
-
-
-<script src="{{asset('Dash/plugins/datatables/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('Dash/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-<script src="{{asset('Dash/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
-<script src="{{asset('Dash/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
-<script src="{{asset('Dash/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
-<script src="{{asset('Dash/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
 <script src="{{asset('Dash/plugins/jszip/jszip.min.js')}}"></script>
 <script src="{{asset('Dash/plugins/pdfmake/pdfmake.min.js')}}"></script>
 <script src="{{asset('Dash/plugins/pdfmake/vfs_fonts.js')}}"></script>
-<script src="{{asset('Dash/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
-<script src="{{asset('Dash/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
-<script src="{{asset('Dash/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
 
+
+@stack('scripts')
 </body>
 </html>

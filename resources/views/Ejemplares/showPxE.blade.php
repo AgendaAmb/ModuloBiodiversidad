@@ -5,10 +5,11 @@
 @section('contenido')
 <body>
     @if(count($nombreEjemplar->plantaNom)!=0)
-    @foreach ($nombreEjemplar->plantaNom as $Plantas)
+    @foreach($nombreEjemplar->plantaNom as $Plantas)
     <h1>
         {{
-            $Plantas
+           $Plantas
+            
         
         }}
     

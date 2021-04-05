@@ -74,6 +74,7 @@ body {
   text-align: left;
   background-color: #f8fafc;
 }
+/*Estilos que hay que separar*/
 #imagen1,
 #imagen2,
 #imagen3,
@@ -109,6 +110,19 @@ padding: 0%;
   margin-left: 5px;
   box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.25);
 }
+a.edit{
+  color: #ffc107;
+}
+a.edit:hover{
+  color: #d4a71f;
+}
+a.delete{
+  color: red;
+}
+a.delete:hover{
+  color: #dc3545;
+}
+/* hasta aqui*/
 hr {
   box-sizing: content-box;
   height: 0;
