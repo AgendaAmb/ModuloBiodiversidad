@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Rol;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -27,7 +29,23 @@ class HomeController extends Controller
     }
     public function getUsers()
     {
-        ;
-        return view('Administrador.Usuarios')->with('usuarios',User::all());
+        return view('Administrador.Usuarios')->with('usuarios', User::all())->with('roles', Rol::all());
     }
+    public function verificar()
+    {
+        return view('UsuarioXVerificar');
+    }
+    public function editRol(Request $request)
+    {
+        $user = user::findorFail($request->idUser);
+        $user->roles()->detach();
+        foreach ($request->roles as $rol) {
+           
+            if (!$user->hasRoleid($rol)) {
+                $user->roles()->attach(Rol::where('id', $rol)->first());
+            }
+        }
+        return back();
+    }
+
 }

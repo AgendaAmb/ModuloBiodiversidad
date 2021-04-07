@@ -45,7 +45,23 @@ class User extends Authenticatable
         abort_unless($this->hasAnyRole($roles), 401);
         return true;
     }
+    
     public function hasAnyRole($roles)
+    {
+        if (is_array($roles)) {
+            foreach ($roles as $role) {
+                if ($this->hasRole($role)&&$role!="Ninguno") {
+                    return true;
+                }
+            }
+        } else {
+            if ($this->hasRole($roles)&&$roles!="Ninguno") {
+                 return true; 
+            }   
+        }
+        return false;
+    }
+    public function hasARole($roles)
     {
         if (is_array($roles)) {
             foreach ($roles as $role) {
@@ -68,4 +84,14 @@ class User extends Authenticatable
         }
         return false;
     }
+    public function hasRoleid($roleid)
+    {
+      
+        if ($this->roles()->where('rol_id', $roleid)->first()) {
+            return true;
+        }
+        return false;
+    }
+
+    
 }

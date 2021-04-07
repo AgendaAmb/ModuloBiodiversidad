@@ -17,8 +17,7 @@
   <link rel="stylesheet" href="{{asset('Dash/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
   <!-- JQVMap -->
   <link rel="stylesheet" href="{{asset('Dash/plugins/jqvmap/jqvmap.min.css')}}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('Dash/dist/css/adminlte.min.css')}}">
+ 
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{{asset('Dash/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
   <!-- Daterange picker -->
@@ -27,6 +26,8 @@
   <link rel="stylesheet" href="{{asset('Dash/plugins/summernote/summernote-bs4.min.css')}}">
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   @stack('styles')
+   <!-- Theme style -->
+  <link rel="stylesheet" href="{{asset('Dash/dist/css/adminlte.min.css')}}">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -182,7 +183,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{route('home')}}" class="brand-link">
       <img src="{{asset('storage/Logos/Logo_AgendaA.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Biodiversidad</span>
     </a>
@@ -239,7 +240,7 @@
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a href="{{Route('HojaCampo')}}" class="nav-link">
+                        <a href="{{route('HojaCampo')}}" class="nav-link">
                           <i class="far fa-dot-circle nav-icon"></i>
                           <p>Hoja de campo</p>
                         </a>

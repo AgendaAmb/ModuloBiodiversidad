@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect()->route('login');
 });
-Route::get('/usuario', function () {
-    return ("usuario por verificar");
-});
+Route::get('/usuario', 'HomeController@verificar')->name('UXV');
 
 Route::group(['prefix' => 'Biodiversidad', 'middleware' => 'auth'], function () {
     Route::group(['middleware' => 'TRol:Administrador'], function () {
@@ -33,8 +31,9 @@ Route::group(['prefix' => 'Biodiversidad', 'middleware' => 'auth'], function () 
         Route::get('/PlantasEjemplares/{id}', 'NombreEjemplarController@show')->name('PlantasEjemplares');
 
         Route::get('/UsuariosAdmin', 'HomeController@getUsers')->name('UserAdmin');
+        Route::post('/CambiaRoles', 'HomeController@editRol')->name('CambiaRol');
     });
-
+    
     Route::group(['middleware' => 'TRol:ConsultorT'], function () {
        
     });

@@ -13,12 +13,12 @@ class TRoles
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next,string $roles)
+    public function handle($request, Closure $next, $roles)
     {
-        
-        if (!auth()->user()->hasRole($roles)) {
+        if (!auth()->user()->hasARole(explode('|', $roles))) {
             abort(401);
         }
+
         return $next($request);
     }
 }

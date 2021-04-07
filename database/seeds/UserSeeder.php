@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
         $user->email = 'yeicob_loredo@hotmail.com';
         $user->password=Hash::make('12345678');
         $user->save();
-        $user->roles()->attach([1]);
+        $user->roles()->attach([1,3]);
+      
     }
 }

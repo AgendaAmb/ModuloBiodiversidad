@@ -55,6 +55,8 @@
 </html>
 
 
+@endsection
+@push('scripts')
 <script>
     var img = new Vue({
   el: '#appp',
@@ -93,7 +95,6 @@
                     "Abreviatura":'{{$UnidadP->Abreviatura}}'
                 });
     @endforeach
-    
    
     this.archivos = [
         {
@@ -190,4 +191,4 @@ methods:{
     return;
 }
 </script>
-@endsection
+@endpush
