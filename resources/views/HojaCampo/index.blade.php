@@ -31,8 +31,9 @@
                 </h2>
             </div>
             @endif
-            <form method="POST" action="{{route('GHC')}}" enctype="multipart/form-data">
+            <form method="POST" action= "{{route('GHC')}}" enctype="multipart/form-data">
                 @csrf
+               
                 @include('HojaCampo.Imagenes')
                 @include('HojaCampo.DGenerales')
                 @include('HojaCampo.ReconocimientoE')
@@ -70,6 +71,7 @@
     SubUnidadesFiltrada:[],
     NombreC:'',
     Entidad_id:'',
+    NoEjem:'',
   }, 
   mounted: 
   function () {
@@ -79,7 +81,8 @@
                 this.Nombres.push({
                     "id":'{{$E->id}}',
                     "Nombre":'{{$E->NombreComun}}',
-                    "NombreC":'{{$E->NombreCientifico}}'
+                    "NombreC":'{{$E->NombreCientifico}}',
+                    "Clave":'{{$E->Clave}}'
                 });
     @endforeach
     @foreach($SubUnidades as $Unidad)
@@ -90,6 +93,7 @@
     @endforeach
     @foreach($SubUnidadTP as $UnidadP)
                 this.SubUnidadesP.push({
+                    "id":'{{$UnidadP->id}}',
                     "IdUnidad":'{{$UnidadP->IdUnidad}}',
                     "NombreUnidad":'{{$UnidadP->NombreUnidad}}',
                     "Abreviatura":'{{$UnidadP->Abreviatura}}'
@@ -166,12 +170,15 @@ methods:{
         this.Nombres.map((n) => {
             if(document.getElementById('NombreC').value==n.id){
                 this.NCientifico=n.NombreC
+                this.NoEjem=n.Clave+"UASLP"
+
             }
         })
     },
     //checar esta funcion con wicho, no se selecciona la subunidad academica 
     FiltroSubUnidades:function(){
         this.SubUnidadesFiltrada=this.EntidadAcademica.filter(E=>E.IdUnidad==this.Entidad_id);
+       
     },
    
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\NombreEjemplar;
 use Illuminate\Http\Request;
+use App\FotoPlanta;
 
 class NombreEjemplarController extends Controller
 {
@@ -53,6 +54,8 @@ class NombreEjemplarController extends Controller
         if (count($nombreEjemplar->plantaNom) == 0) {
             return \redirect()->back();
         } else {
+           
+           
             return \view('Ejemplares.showPxE')->with("nombreEjemplar", $nombreEjemplar);
         }
     }

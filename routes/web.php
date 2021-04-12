@@ -23,15 +23,17 @@ Route::group(['prefix' => 'Biodiversidad', 'middleware' => 'auth'], function () 
 
         Route::get('/', 'HomeController@index')->name('dashbord');
         Route::get('/home', 'HomeController@index')->name('home');
+        Route::get('/UsuariosAdmin', 'HomeController@getUsers')->name('UserAdmin');
+        Route::post('/CambiaRoles', 'HomeController@editRol')->name('CambiaRol');
+        Route::post('/EliminarUser', 'HomeController@deleteUser')->name('EliminarUser');
 
+        
         Route::get('/HojaCampo', 'PlantaController@index')->name('HojaCampo');
         Route::post('/GuardaHC', 'PlantaController@store')->name('GHC');
         Route::get('/Planta/{id}', 'PlantaController@show')->name('ShowPlanta');
         Route::get('/Ejemplares', 'NombreEjemplarController@index')->name('Ejemplares');
         Route::get('/PlantasEjemplares/{id}', 'NombreEjemplarController@show')->name('PlantasEjemplares');
 
-        Route::get('/UsuariosAdmin', 'HomeController@getUsers')->name('UserAdmin');
-        Route::post('/CambiaRoles', 'HomeController@editRol')->name('CambiaRol');
     });
     
     Route::group(['middleware' => 'TRol:ConsultorT'], function () {

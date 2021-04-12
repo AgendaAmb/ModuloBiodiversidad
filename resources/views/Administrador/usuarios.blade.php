@@ -17,8 +17,11 @@
 <body>
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Lista de usuarios</h3>
+           <strong>
+               <h2 class="text-center">Lista de usuarios</h2>
+           </strong> 
         </div>
+
         <div class="card-body">
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
@@ -30,7 +33,24 @@
                     </tr>
                 </thead>
                 <tbody>
-
+                    @if (session()->has('message'))
+                   
+                    <div class="alert alert-success text-center">
+                        <span>
+                            {{session()->get('message') }}
+                        </span>
+                    
+                    </div>
+                    @else
+                    @if(session()->has('errors'))
+                    <div class="alert alert-danger text-center">
+                       <span>
+                           {{session()->get('errors')->first()}}
+                       </span>
+                    
+                    </div>
+                    @endif
+                    @endif
                     @foreach ($usuarios as $usuario)
                     <tr>
                         <td>{{$usuario->name}}</td>
@@ -41,8 +61,8 @@
                         <td>
                             <a class="edit" data-toggle="modal" id={{$usuario->id}} data-target="#exampleModal"
                                 onclick="pasarIdUser({{$usuario->id}});"><i class="fas fa-edit"></i></a>
-                            <a class="delete" data-toggle="modal" id={{$usuario->id}} data-target="#exampleModal"><i
-                                    class="far fa-trash-alt"></i></a>
+                            <a class="delete" data-toggle="modal" id={{$usuario->id}} data-target="#modalEliminarU"  
+                                onclick="pasarIdUser({{$usuario->id}});"><i class="far fa-trash-alt"></i></a>
                         </td>
 
                     </tr>
@@ -65,6 +85,35 @@
 
 
     <!-- Modal -->
+    <div class="modal fade" id="modalEliminarU" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog">
+            <form action="{{route('EliminarUser')}}" method="POST">
+                @csrf
+                <input id="idUser" name="idUser" type="hidden" value="">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Eliminar Usuario</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                               <span>¿Estas seguro de eliminar a este usuario?</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" value="Cancel">Cerrar</button>
+                        <button type="submit" class="btn btn-success" value="Submit">Aceptar</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
         <div class="modal-dialog">
@@ -146,8 +195,7 @@
   })
 </script>
 <script>
-    function pasarIdUser(id) {
-        console.log(id);
+    function pasarIdUser(id){
         document.getElementById("idUser").value = id;
     }
 </script>

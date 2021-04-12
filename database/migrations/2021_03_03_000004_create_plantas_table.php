@@ -14,10 +14,12 @@ class CreatePlantasTable extends Migration
     public function up()
     {
         Schema::create('plantas', function (Blueprint $table) {
-            $table->bigIncrements('planta_id');
+            $table->bigIncrements('id');
             $table->string('FechaRecoleccion');
             $table->string('NombreRecolectorDatos');
             $table->string('NombreRecolectorMuestra');
+            $table->string('urlImg');
+            $table->unsignedBigInteger('imagenes')->nullable();
             $table->boolean('Verificado')->nullable();;
             $table->string('NomVerificador')->nullable();
 

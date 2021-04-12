@@ -4,7 +4,7 @@
         <label for="NoEjemplar" class="col-md-4 col-form-label text-md-left">{{ __('No. de ejemplar') }}</label>
         <div class="col-md-6">
 
-            <input id="NoEjemplar" readonly type="text" class="form-control @error('NoEjemplar') is-invalid @enderror"
+            <input id="NoEjemplar"  v-model="NoEjem" readonly type="text" class="form-control @error('NoEjemplar') is-invalid @enderror"
                 name="NoEjemplar" value="{{old('NoEjemplar') }}" maxlength="40" required autocomplete="NoEjemplar"
                 autofocus>
 

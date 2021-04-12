@@ -8,7 +8,10 @@ class Planta extends Model
 {
     protected $table = 'plantas';
 
-    protected $fillable=['FechaRecoleccion','NombreRecolectorDatos','NombreRecolectorMuestra','Verificado','NomVerificador','imagenes','Morfologia_id','Nombre_Ejem_id','situacion_entornos_id'];
+    protected $fillable=['FechaRecoleccion','NombreRecolectorDatos',
+    'NombreRecolectorMuestra','Verificado','NomVerificador','urlImg',
+    'imagenes','Morfologia_id','Nombre_Ejem_id','situacion_entornos_id'
+    ];
 
     public function NombreEjem()
     {

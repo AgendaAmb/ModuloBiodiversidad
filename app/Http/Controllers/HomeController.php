@@ -38,14 +38,26 @@ class HomeController extends Controller
     public function editRol(Request $request)
     {
         $user = user::findorFail($request->idUser);
-        $user->roles()->detach();
-        foreach ($request->roles as $rol) {
-           
-            if (!$user->hasRoleid($rol)) {
-                $user->roles()->attach(Rol::where('id', $rol)->first());
+        
+        if($request->roles!=null){
+            $user->roles()->detach();
+            foreach ($request->roles as $rol) {
+                
+                if (!$user->hasRoleid($rol)) {
+                    $user->roles()->attach(Rol::where('id', $rol)->first());
+                }
             }
+            return back()->with('message', 'Cambio de roles con exito');
+        }else{
+            return back()->withErrors("Debes de seleccionar al menos 1 rol");
         }
-        return back();
+    }
+    public function deleteUser(Request $request )
+    {
+       $user= user::findorFail( $request->idUser);
+       $user->delete();
+       
+        return back()->with('message', 'El usuario fue eliminado con exito');
     }
 
 }

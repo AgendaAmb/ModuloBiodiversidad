@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\FotoPlanta;
 use App\Morfologia;
 use App\NombreEjemplar;
 use App\Planta;
@@ -11,6 +12,7 @@ use File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class PlantaController extends Controller
 {
@@ -21,7 +23,7 @@ class PlantaController extends Controller
      */
     public function index(Request $request)
     {
-        $request->user()->authorizeRoles(['administrador','Gestor']);
+        $request->user()->authorizeRoles(['administrador', 'Gestor']);
         $Ejemplar = NombreEjemplar::all();
         $SubUnidadTP = DB::table('sub_unidades')
             ->orderBy('NombreUnidad', 'asc')
@@ -41,6 +43,7 @@ class PlantaController extends Controller
             $aux[$key] = $row['SubUnidad'];
         }
         array_multisort($aux, SORT_ASC, $SubUnidades);
+
         return \view('HojaCampo.index')->with("Ejemplar", $Ejemplar)
             ->with("SubUnidades", $SubUnidades)
             ->with("SubUnidadTP", $SubUnidadTP);
@@ -64,7 +67,9 @@ class PlantaController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->user()->authorizeRoles(['administrador']);
+
         $validatedData = Validator::make($request->all(), [
             'FechaRecoleccion' => ['required', 'max:15', 'bail'],
             'FechaFotografia' => ['required', 'max:15', 'bail'],
@@ -90,7 +95,6 @@ class PlantaController extends Controller
             'EnfermedadesP' => ['max:400', 'bail'],
 
         ]);
-
         if ($validatedData->fails()) {
             return redirect(route('HojaCampo'))
                 ->withErrors($validatedData)
@@ -144,17 +148,28 @@ class PlantaController extends Controller
             $Nom = NombreEjemplar::find($request->NombreC);
 
             $Planta->nombre_ejemplar_id = ($Nom != null) ? $Nom->id : null;
-
             $M = Morfologia::find($Morfologia->id);
-
             $Planta->Morfologia_id = $Morfologia->id;
-
             $Planta->situacion_entornos_id = $SituacionEnt->id;
-
+            $Planta->imagenes = date('dmyHi');
+            $Planta->urlImg = Str::slug("fotos", '-');
             $Planta->save();
-        }
 
-        return \redirect()->back()->with('message', '¡¡¡Hoja de campo registrada con exito!!!');
+            foreach ($request->file() as $image) {
+
+                $imagen = $image->getClientOriginalName();
+                $formato = $image->getClientOriginalExtension();
+                \Storage::disk('public')->put('/plantas/' . $imagen, \File::get($image));
+                // Guardamos el nombre de la imagen en la tabla 'img_bicicletas'
+                $foto = new FotoPlanta();
+                $foto->nombre = $imagen;
+                $foto->planta_id = $Planta->id;
+                $foto->save();
+
+            }
+
+        }
+        return back()->with('message', '¡¡¡Hoja de campo registrada con exito!!!');
     }
 
     /**
