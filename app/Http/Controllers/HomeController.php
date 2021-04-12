@@ -29,7 +29,7 @@ class HomeController extends Controller
     }
     public function getUsers()
     {
-        return view('Administrador.Usuarios')->with('usuarios', User::all())->with('roles', Rol::all());
+        return view('Administrador.usuarios')->with('usuarios', User::all())->with('roles', Rol::all());
     }
     public function verificar()
     {
