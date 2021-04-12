@@ -4,6 +4,7 @@
 </head>
 @section('contenido')
 <body>
+    <h1>Vista para mostrar informacion de ficha tecnica y poder descargarla</h1>
     @if(count($nombreEjemplar->plantaNom)!=0)
     @foreach($nombreEjemplar->plantaNom as $Plantas)
     <h1>
