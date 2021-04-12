@@ -54,7 +54,7 @@ class HomeController extends Controller
     }
     public function deleteUser(Request $request )
     {
-       $user= user::findorFail( $request->idUser);
+       $user= user::findorFail( $request->idUserR);
        $user->delete();
        
         return back()->with('message', 'El usuario fue eliminado con exito');

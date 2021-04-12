@@ -20,11 +20,11 @@ Route::get('/usuario', 'HomeController@verificar')->name('UXV');
 
 Route::group(['prefix' => 'Biodiversidad', 'middleware' => 'auth'], function () {
     Route::group(['middleware' => 'TRol:Administrador'], function () {
+        Route::post('/CambiaRoles', 'HomeController@editRol')->name('CambiaRol');
 
         Route::get('/', 'HomeController@index')->name('dashbord');
         Route::get('/home', 'HomeController@index')->name('home');
         Route::get('/UsuariosAdmin', 'HomeController@getUsers')->name('UserAdmin');
-        Route::post('/CambiaRoles', 'HomeController@editRol')->name('CambiaRol');
         Route::post('/EliminarUser', 'HomeController@deleteUser')->name('EliminarUser');
 
         

@@ -90,7 +90,7 @@
         <div class="modal-dialog">
             <form action="{{route('EliminarUser')}}" method="POST">
                 @csrf
-                <input id="idUser" name="idUser" type="hidden" value="">
+                <input id="idUserR" name="idUser" type="hidden" value="">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Eliminar Usuario</h5>

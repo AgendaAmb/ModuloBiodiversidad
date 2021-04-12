@@ -15,7 +15,8 @@
             <div class="card-body">
               <a href="{{route('PlantasEjemplares',['id'=>$Ejemplar->id])}}">
 
-                <img class="card-img-top " id="{{$Ejemplar->id}}" src="#" alt="Card image cap">
+                <img class="card-img-top " id="{{$Ejemplar->id}}" src="{{asset('storage\Logos\ac.jpg')}}" alt="Card image cap">
+              
               </a>
             </div>
 
