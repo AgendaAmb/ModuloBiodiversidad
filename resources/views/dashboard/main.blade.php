@@ -360,8 +360,8 @@
 <!-- AdminLTE App -->
 <script src="{{asset('Dash/dist/js/adminlte.js')}}"></script>
 <script src="{{asset('Dash/plugins/jszip/jszip.min.js')}}"></script>
-<script src="{{asset('Dash/plugins/pdfmake/pdfmake.min.js')}}"></script>
-<script src="{{asset('Dash/plugins/pdfmake/vfs_fonts.js')}}"></script>
+
+
 
 
 @stack('scripts')

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{asset('Dash/plugins/select2/css/select2.min.css')}}">
     <link rel="stylesheet" href="{{asset('Dash/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
     @endpush
+    
 </head>
 @section('contenido')
 
@@ -155,6 +156,8 @@
 @endsection
 
 @push('scripts')
+<script src="{{asset('Dash/plugins/pdfmake/pdfmake.min.js')}}"></script>
+<script src="{{asset('Dash/plugins/pdfmake/vfs_fonts.js')}}"></script>
 <script src="{{asset('Dash/plugins/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('Dash/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{asset('Dash/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>

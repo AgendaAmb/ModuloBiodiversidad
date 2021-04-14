@@ -164,5 +164,10 @@
     "IdUnidad" : 400,
     "NombreUnidad":"Centro de Idiomas Universitario",
     "Abreviatura":"CIACYT"
+  },
+  {
+    "IdUnidad" : 182,
+    "NombreUnidad":"Agenda Ambiental De La UASLP",
+    "Abreviatura":"AMBIENTAL"
   }
 ]

@@ -95,9 +95,186 @@
         "Clave":"ALZ"
     },
     {
-        "Nombre":"Árbol sombrilla ",
+        "Nombre":"Árbol sombrilla",
         "NombreCientifico":"MELIA AZEDARACH L.",
         "Clave":"AS"
+    },
+    {
+        "Nombre":"Azuceno",
+        "NombreCientifico":"TABERNAEMONTANA LITORALIS L.",
+        "Clave":"AZ"
+    },
+    {
+        "Nombre":"Bambú",
+        "NombreCientifico":"CHAMAEDOREA SEIFRIZII L.",
+        "Clave":"BM"
+    },
+    {
+        "Nombre":"Boj",
+        "NombreCientifico":"BUXUS SEMPERVIRENS",
+        "Clave":"BOJ"
+    },
+    {
+        "Nombre":"Botón de oro",
+        "NombreCientifico":"RANUNCULUS ACRIS L.",
+        "Clave":"BOT"
+    },
+    {
+        "Nombre":"Buganvilia ",
+        "NombreCientifico":"BOUGAINVILLEA SPECTABILIS L.",
+        "Clave":"BG"
+    },
+    {
+        "Nombre":"Calaverita",
+        "NombreCientifico":"Pendiente",
+        "Clave":"CA"
+    },
+    {
+        "Nombre":"Caliandra",
+        "NombreCientifico":"CALLIANDRA L.",
+        "Clave":"CN"
+    },
+    {
+        "Nombre":"Cardón",
+        "NombreCientifico":"EUPHORBIA CANARIENSIS L.",
+        "Clave":"CAR"
+    },
+    {
+        "Nombre":"Casuarina",
+        "NombreCientifico":"CASUARINA EQUISETIFOLIA L.",
+        "Clave":"CAR"
+    },
+    {
+        "Nombre":"Cazahuate",
+        "NombreCientifico":"IPOMOEA ARBORESCENS L.",
+        "Clave":"CZ"
+    },
+    {
+        "Nombre":"Cedro blanco",
+        "NombreCientifico":"CUPRESSUS LUSITANICA L",
+        "Clave":"CB"
+    },
+    {
+        "Nombre":"Cedro limón",
+        "NombreCientifico":"CUPRESSUS MACROCARPA VAR. GOLDCREST",
+        "Clave":"CL"
+    },
+    {
+        "Nombre":"Ceiba",
+        "NombreCientifico":"CEIBA PENTANDRA L.",
+        "Clave":"CEIBO"
+    },
+    {
+        "Nombre":"Chabacano",
+        "NombreCientifico":"PRUNUS ARMENIACA L.",
+        "Clave":"CHABA"
+    },
+    {
+        "Nombre":"Chaya",
+        "NombreCientifico":"CNIDOSCOLUS ACONITIFOLIUS L.",
+        "Clave":"CHY"
+    },
+    {
+        "Nombre":"Chopo americano ",
+        "NombreCientifico":"POPULUS GRANDIDENTATA L.",
+        "Clave":"CHO"
+    },
+    {
+        "Nombre":"Ciprés",
+        "NombreCientifico":"CUPRESSUS LUSITANICA L.",
+        "Clave":"CP"
+    },
+    {
+        "Nombre":"Ciruelo",
+        "NombreCientifico":"PRUNUS DOMESTICA L.",
+        "Clave":"CI"
+    },
+    {
+        "Nombre":"Cojoba",
+        "NombreCientifico":"COJOBA ARBOREA L.",
+        "Clave":"COJ"
+    },
+    {
+        "Nombre":"Colorín",
+        "NombreCientifico":"ERYTHRINA CORALLOIDES L.",
+        "Clave":"CR"
+    },
+    {
+        "Nombre":"Coquito",
+        "NombreCientifico":"LYTOCARYUM WEDDELLIANUM L.",
+        "Clave":"CQ"
+    },
+    {
+        "Nombre":"Cuajilote",
+        "NombreCientifico":"PARMENTIERA ACULEATA L.",
+        "Clave":"CJ"
+    },
+    {
+        "Nombre":"Dombeya",
+        "NombreCientifico":"DOMBEYA WALLICHII L.",
+        "Clave":"DB"
+    },
+    {
+        "Nombre":"Dracaena",
+        "NombreCientifico":"DRACAENA L.",
+        "Clave":"DR"
+    },
+    {
+        "Nombre":"Durazno",
+        "NombreCientifico":"PRONUS PERSICA L.",
+        "Clave":"DZ"
+    },
+    {
+        "Nombre":"Escobillón",
+        "NombreCientifico":"CALLISTEMON SPECIOSUS L.",
+        "Clave":"ES"
+    },
+    {
+        "Nombre":"Eucalipto cinerea",
+        "NombreCientifico":"EUCALYPTUS CINEREA L.",
+        "Clave":"EC"
+    },
+    {
+        "Nombre":"Eucalipto rojo",
+        "NombreCientifico":"EUCALYPTUS CAMALDULENSIS L.",
+        "Clave":"ER"
+    },
+    {
+        "Nombre":"Ficus benjamina",
+        "NombreCientifico":"Pendiente",
+        "Clave":"FI"
+    },
+    {
+        "Nombre":"Ficus lira",
+        "NombreCientifico":"Pendiente",
+        "Clave":"FL"
+    },
+    {
+        "Nombre":"Flama china ",
+        "NombreCientifico":"Pendiente",
+        "Clave":"FC"
+    },
+    {
+        "Nombre":"Flamboyán",
+        "NombreCientifico":"DELONIX REGIA L",
+        "Clave":"FY"
+    },
+    {
+        "Nombre":"Flor de jamaica",
+        "NombreCientifico":"HIBISCUS ROSA-SINENSIS L.",
+        "Clave":"FJ"
+    },
+    {
+        "Nombre":"Flor de mayo",
+        "NombreCientifico":"PLUMERIA RUBRA L.",
+        "Clave":"FM"
+    },
+    {
+        "Nombre":"Floripondio",
+        "NombreCientifico":"BRUGMANSIA ARBOREA L",
+        "Clave":"FLP"
     }
+
+
 
 ]
