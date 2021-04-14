@@ -16,7 +16,7 @@ class NombreEjemplarController extends Controller
     public function index()
     {
         
-        $Ejemplares = NombreEjemplar::orderBy('NombreComun','desc')->Paginate(12);
+        $Ejemplares = NombreEjemplar::orderBy('NombreComun','asc')->Paginate(12);
        
         return \view('Ejemplares.index')->with("Ejemplares", $Ejemplares);
     }
