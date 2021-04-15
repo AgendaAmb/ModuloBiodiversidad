@@ -9,6 +9,7 @@ use App\Planta;
 use App\SituacionEntorno;
 use DB;
 use File;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -146,13 +147,14 @@ class PlantaController extends Controller
             $Planta->Verificado = false;
 
             $Nom = NombreEjemplar::find($request->NombreC);
-
-            $Planta->nombre_ejemplar_id = ($Nom != null) ? $Nom->id : null;
+            
+            $Planta->NombreEjem()->associate($Nom) ;
             $M = Morfologia::find($Morfologia->id);
-            $Planta->Morfologia_id = $Morfologia->id;
-            $Planta->situacion_entornos_id = $SituacionEnt->id;
+            $Planta->Morfologia()->create(array($Morfologia));
+            $Planta->SituacionEntorno()->create(array($SituacionEnt));
             $Planta->imagenes = date('dmyHi');
             $Planta->urlImg = Str::slug("fotos", '-');
+            $Planta->user_id=Auth::id();
             $Planta->save();
 
             foreach ($request->file() as $image) {

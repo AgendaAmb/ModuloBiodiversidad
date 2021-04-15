@@ -26,7 +26,7 @@ Route::group(['prefix' => 'Biodiversidad', 'middleware' => 'auth'], function () 
         Route::get('/home', 'HomeController@index')->name('home');
         Route::get('/UsuariosAdmin', 'HomeController@getUsers')->name('UserAdmin');
         Route::post('/EliminarUser', 'HomeController@deleteUser')->name('EliminarUser');
-
+        Route::get('/MisHojasCampo', 'HomeController@getHCByUser')->name('UserHC');
         
         Route::get('/HojaCampo', 'PlantaController@index')->name('HojaCampo');
         Route::post('/GuardaHC', 'PlantaController@store')->name('GHC');

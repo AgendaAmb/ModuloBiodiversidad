@@ -14,14 +14,19 @@
     @if(count($nombreEjemplar->plantaNom)!=0)
     @foreach($nombreEjemplar->plantaNom as $Plantas)
     <h1>
+      
+        <br>
         {{
-           $Plantas->imagenesPlanta
-               
-            
-         
-            
-        
+           $Plantas->Morfologia
         }}
+        <br>
+        {{$Plantas->NombreEjem}}
+        <br>
+        {{ $Plantas->User}}
+        <br>
+        {{$Plantas->imagenesPlanta}}
+        <br>
+        {{$Plantas->SituacionEntorno}}
     
     </h1>
     

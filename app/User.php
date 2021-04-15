@@ -92,6 +92,10 @@ class User extends Authenticatable
         }
         return false;
     }
-
+    
+    public function Plantas()
+    {
+        return $this->hasMany(Planta::class);
+    }
     
 }

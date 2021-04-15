@@ -10,12 +10,16 @@ class Planta extends Model
 
     protected $fillable=['FechaRecoleccion','NombreRecolectorDatos',
     'NombreRecolectorMuestra','Verificado','NomVerificador','urlImg',
-    'imagenes','Morfologia_id','Nombre_Ejem_id','situacion_entornos_id'
+    'imagenes','Morfologia_id','nombre_ejem_id','situacion_entornos_id'
     ];
 
     public function NombreEjem()
     {
         return $this->belongsTo(NombreEjemplar::class);
+    }
+    public function User()
+    {
+        return $this->belongsTo(User::class);
     }
     public function imagenesPlanta()
     {
@@ -23,10 +27,10 @@ class Planta extends Model
     }
     public function Morfologia()
     {
-        return $this->hasOne(Morfologia::class);
+        return $this->hasOne(Morfologia::class,'id');
     }
     public function SituacionEntorno()
     {
-        return $this->hasOne(SituacionEntorno::class);
+        return $this->hasOne(SituacionEntorno::class,'id');
     }
 }

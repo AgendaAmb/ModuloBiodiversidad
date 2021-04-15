@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Rol;
 use App\User;
 use Illuminate\Http\Request;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -58,6 +59,12 @@ class HomeController extends Controller
        $user->delete();
        
         return back()->with('message', 'El usuario fue eliminado con exito');
+    }
+    public function getHCByUser()
+    {
+        $user = user::findorFail(Auth::id());
+      
+        return view('HojaCampo.User.index')->with('MisHojasCampo', $user->Plantas);
     }
 
 }

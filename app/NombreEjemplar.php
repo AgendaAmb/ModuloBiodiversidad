@@ -12,6 +12,6 @@ class NombreEjemplar extends Model
 
     public function plantaNom()
     {
-        return $this->hasMany(Planta::class);
+        return $this->hasMany(Planta::class,'nombre_ejem_id');
     }
 }
