@@ -27,7 +27,7 @@
     
     </div>
    
-    <div class="form-group row g-3 ">
+    <div class="form-group row g-3 was-validated">
         <label for="RegistroIdentificacion"
             class="col-md-4 col-form-label text-md-left">{{ __('Registro del proceso de identificación') }}
         </label>

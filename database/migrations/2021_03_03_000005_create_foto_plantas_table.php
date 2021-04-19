@@ -15,7 +15,7 @@ class CreateFotoPlantasTable extends Migration
     {
         Schema::create('foto_plantas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre');
+            $table->string('nombre')->nullable();
             $table->string('url')->nullable();
             $table->unsignedBigInteger('planta_id');
 

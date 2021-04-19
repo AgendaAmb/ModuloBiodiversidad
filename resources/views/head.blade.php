@@ -13,7 +13,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<!-- Styles -->
-<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-
+<!-- Styles 
+    3.53seg
+    3.31seg
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+-->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<link href="{{ asset('css/styles.css') }}" rel="stylesheet">

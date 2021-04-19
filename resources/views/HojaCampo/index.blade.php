@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     @include('head')
 </head>
 @extends('dashboard.main')
 
 @section('contenido')
+
 <body>
     <div class="container-fluid justify-content-between" id="appp">
         <div class="container mb-4">
@@ -31,9 +33,9 @@
                 </h2>
             </div>
             @endif
-            <form method="POST" action= "{{route('GHC')}}" enctype="multipart/form-data">
+            <form method="POST" action="{{route('GHC')}}" enctype="multipart/form-data">
                 @csrf
-               
+
                 @include('HojaCampo.Imagenes')
                 @include('HojaCampo.DGenerales')
                 @include('HojaCampo.ReconocimientoE')
@@ -46,8 +48,8 @@
                     </div>
                 </div>
         </div>
-          </div>
-        </form>
+    </div>
+    </form>
     </div>
 </body>
 
@@ -72,6 +74,8 @@
     NombreC:'',
     Entidad_id:'',
     NoEjem:'',
+    
+      info: null
   }, 
   mounted: 
   function () {
@@ -151,6 +155,7 @@
     ]
     
   })
+  
 }, 
 methods:{
     cargarImagen: function(e,index){
@@ -170,8 +175,8 @@ methods:{
         this.Nombres.map((n) => {
             if(document.getElementById('NombreC').value==n.id){
                 this.NCientifico=n.NombreC
-                this.NoEjem=n.Clave+"UASLP"
-
+                this.NoEjem=n.Clave+"UASLP";
+                
             }
         })
     },

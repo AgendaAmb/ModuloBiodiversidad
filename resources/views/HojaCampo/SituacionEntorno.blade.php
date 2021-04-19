@@ -59,12 +59,12 @@
             @enderror
             <div class="col-md-12 p-0 pt-1">
 
-                <input id="Latitud" type="text" class="form-control  @error('Latitud') is-invalid @enderror"
-                    name="Latitud" value="{{ old('Latitud') }}" autocomplete="Latitud" autofocus data-toggle="tooltip"
+                <input id="longitud" type="text" class="form-control  @error('longitud') is-invalid @enderror"
+                    name="longitud" value="{{ old('longitud') }}" autocomplete="longitud" autofocus data-toggle="tooltip"
                     data-placement="top" placeholder="Longuitud">
 
 
-                @error('Latitud')
+                @error('longitud')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -76,52 +76,7 @@
 
 
     </div>
-    <!--
-        <div class="form-group row">
-            <label for="Coordenadageográfica"
-            class="col-md-4 col-form-label text-md-left">{{ __('Coordenada geográfica') }}<br>(Grados,Minutos,Segundos)</label>
-            
-            
-            
-            <div class="col-md-2 pr-0">
-                
-                <input id="Latitud" type="number" step="0.01" maxlength="10"
-                class="form-control  @error('Latitud') is-invalid @enderror" name="Latitud" value="{{ old('Latitud') }}"
-                autocomplete="Latitud" autofocus data-toggle="tooltip" data-placement="top">
-                
-                
-                @error('Latitud')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-                
-            </div>
-            <div class="col-md-2 pr-0 pl-1">
-                <input id="Altitud" type="number"step="0.01" maxlength="10"
-                class="form-control @error('Altitud') is-invalid @enderror" name="Altitud" value="{{ old('Altitud') }}"
-                autocomplete="Altitud" autofocus data-toggle="tooltip" data-placement="top">
-                
-                @error('Altitud')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-            </div>
-            <div class="col-md-2 pl-1">
-                <input id="Altitud" type="number" step="0.01" maxlength="10"
-                class="form-control @error('Altitud') is-invalid @enderror" name="Altitud" value="{{ old('Altitud') }}"
-                autocomplete="Altitud" autofocus data-toggle="tooltip" data-placement="top">
-                
-                @error('Altitud')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-            </div>
-            
-        </div>
-    -->
+    
 
     <div class="form-group row g-3">
         <label for="TAreaVerde"

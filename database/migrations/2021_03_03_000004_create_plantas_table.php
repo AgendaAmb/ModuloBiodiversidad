@@ -18,6 +18,7 @@ class CreatePlantasTable extends Migration
             $table->string('FechaRecoleccion');
             $table->string('NombreRecolectorDatos');
             $table->string('NombreRecolectorMuestra');
+            $table->string('NombreAutorFoto');
             $table->string('urlImg');
             $table->unsignedBigInteger('imagenes')->nullable();
             $table->boolean('Verificado')->nullable();

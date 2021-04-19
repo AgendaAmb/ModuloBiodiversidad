@@ -7,9 +7,10 @@ use App\Morfologia;
 use App\NombreEjemplar;
 use App\Planta;
 use App\SituacionEntorno;
+use App\SubUnidades;
+use Auth;
 use DB;
 use File;
-use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -101,79 +102,127 @@ class PlantaController extends Controller
                 ->withErrors($validatedData)
                 ->withInput();
         } else {
-            $Morfologia = new Morfologia();
-            $Morfologia->CondicionGeneral = $request->CondicionG;
-            $Morfologia->EstadoCrecimiento = $request->Ecrecimiento;
-            $Morfologia->Altura = floatval($request->Altura);
-            $Morfologia->AlturaLiteratura = floatval($request->AlturaLi);
-            $Morfologia->Tcopa = $request->Copa;
-            $Morfologia->DiametroCopa = floatval($request->DiametroC);
-
-            $Morfologia->Raices = $request->Raices;
-            $Morfologia->TRaices = $request->TRaices;
-            $Morfologia->Manejo = $request->Manejo;
-            if ($request->customRadioInline == "on") {
-                $Morfologia->DanosF = $request->DanosFisicosText;
-            }
-            $Morfologia->EstadoFiso = $request->EstadoFiso;
-            $Morfologia->EnfermeAparentes = $request->EnfermedadesA;
-            $Morfologia->EnfermeLitera = $request->EnfermedadesP;
-            $Morfologia->save();
-
-            $SituacionEnt = new SituacionEntorno();
-            $SituacionEnt->Latitud = $request->Latitud;
-            $SituacionEnt->Altitud = $request->Altitud;
-            $SituacionEnt->TArea = $request->TAreaVerde;
-            $SituacionEnt->Aspecto = $request->AspectoEspacio;
-            $inter = array(
-                'Cableado' => $request->CBCableado,
-                'Infra' => $request->CBInfra,
-                'Mobili' => $request->CBMobili,
-                'Sena' => $request->CBSena,
-                'Edifi' => $request->CBEdifi,
-            );
-
-            $SituacionEnt->Interfencia = json_encode($inter);
-            $SituacionEnt->No_Ejemplar = $request->NoEjemplar;
-            $SituacionEnt->EntidadAcademica = $request->EntidadA;
-            $SituacionEnt->SubEntidadAcademica = $request->SubUnidadesFiltrada;
-            $SituacionEnt->save();
-
+            
             $Planta = new Planta();
+            $this->saveMorfo($request, $Planta);
+            $this->saveSitEnt($request, $Planta);
+            
             $Planta->FechaRecoleccion = $request->FechaRecoleccion;
             $Planta->NombreRecolectorDatos = $request->NombreRecolectorD;
             $Planta->FechaRecoleccion = $request->FechaFotografia;
             $Planta->NombreRecolectorMuestra = $request->NombreRecolectorm;
+            $Planta->NombreAutorFoto=$request->NombreAutorFoto;
             $Planta->Verificado = false;
 
             $Nom = NombreEjemplar::find($request->NombreC);
-            
-            $Planta->NombreEjem()->associate($Nom) ;
-            $M = Morfologia::find($Morfologia->id);
-            $Planta->Morfologia()->create(array($Morfologia));
-            $Planta->SituacionEntorno()->create(array($SituacionEnt));
+            $Planta->NombreEjem()->associate($Nom);
+
             $Planta->imagenes = date('dmyHi');
             $Planta->urlImg = Str::slug("fotos", '-');
-            $Planta->user_id=Auth::id();
+            $Planta->user_id = Auth::id();
             $Planta->save();
+            //**Obtener Iniciales del nombre del fotografo */
+            $string = Str::of($Planta->NombreAutorFoto)->studly()->split('/([a-z]+)/')->implode('');
+            //*-----------------------------------------------* */
+            $sr = Str::of($Nom->NombreCientifico)->slug('_');
+            $directoryEspecie = '/plantas/EspeciesPorIdentificar/' . $sr;
 
+            $SU = SubUnidades::where('IdUnidad', $request->EntidadA)->firstOrFail();
+            $directoryPersona = $directoryEspecie . '/' . $SU->Abreviatura . '_' . $string;
+
+            $NF = $Nom->Clave;
             foreach ($request->file() as $image) {
-
-                $imagen = $image->getClientOriginalName();
-                $formato = $image->getClientOriginalExtension();
-                \Storage::disk('public')->put('/plantas/' . $imagen, \File::get($image));
-                // Guardamos el nombre de la imagen en la tabla 'img_bicicletas'
-                $foto = new FotoPlanta();
-                $foto->nombre = $imagen;
-                $foto->planta_id = $Planta->id;
-                $foto->save();
-
+                if ($request->fileImg0 == $image) {
+                    $this->guardarImagen($directoryPersona, $NF, $image, 'PC', $Planta);
+                } else
+                if ($request->fileImg1 == $image) {
+                    $this->guardarImagen($directoryPersona, $NF, $image, 'F', $Planta);
+                } else
+                if ($request->fileImg2 == $image) {
+                    $this->guardarImagen($directoryPersona, $NF, $image, 'H', $Planta);
+                } else
+                if ($request->fileImg3 == $image) {
+                    $this->guardarImagen($directoryPersona, $NF, $image, 'FL', $Planta);
+                } else
+                if ($request->fileImg4 == $image) {
+                    $this->guardarImagen($directoryPersona, $NF, $image, 'FR', $Planta);
+                } else
+                if ($request->fileImg5 == $image) {
+                    $this->guardarImagen($directoryPersona, $NF, $image, 'S', $Planta);
+                } else
+                if ($request->fileImg6 == $image) {
+                    $this->guardarImagen($directoryPersona, $NF, $image, 'T', $Planta);
+                } else
+                if ($request->fileImg7 == $image) {
+                    $this->guardarImagen($directoryPersona, $NF, $image, 'R', $Planta);
+                }
             }
-
         }
+       
         return back()->with('message', '¡¡¡Hoja de campo registrada con exito!!!');
     }
+    public function saveMorfo(Request $request, $Planta)
+    {
+        $Morfologia = new Morfologia();
+        $Morfologia->CondicionGeneral = $request->CondicionG;
+        $Morfologia->EstadoCrecimiento = $request->Ecrecimiento;
+        $Morfologia->Altura = floatval($request->Altura);
+        $Morfologia->AlturaLiteratura = floatval($request->AlturaLi);
+        $Morfologia->Tcopa = $request->Copa;
+        $Morfologia->DiametroCopa = floatval($request->DiametroC);
 
+        $Morfologia->Raices = $request->Raices;
+        $Morfologia->TRaices = $request->TRaices;
+        $Morfologia->Manejo = $request->Manejo;
+        if ($request->customRadioInline == "on") {
+            $Morfologia->DanosF = $request->DanosFisicosText;
+        }
+        $Morfologia->EstadoFiso = $request->EstadoFiso;
+        $Morfologia->EnfermeAparentes = $request->EnfermedadesA;
+        $Morfologia->EnfermeLitera = $request->EnfermedadesP;
+        $Morfologia->save();
+
+        $Planta->Morfologia()->create(array($Morfologia));
+    }
+    private function saveSitEnt(Request $request, $Planta)
+    {
+        $SituacionEnt = new SituacionEntorno();
+        $SituacionEnt->Latitud = $request->Latitud;
+        $SituacionEnt->Altitud = $request->longitud;
+        $SituacionEnt->TArea = $request->TAreaVerde;
+        $SituacionEnt->Aspecto = $request->AspectoEspacio;
+        $inter = array(
+            'Cableado' => $request->CBCableado,
+            'Infra' => $request->CBInfra,
+            'Mobili' => $request->CBMobili,
+            'Sena' => $request->CBSena,
+            'Edifi' => $request->CBEdifi,
+        );
+
+        $SituacionEnt->Interfencia = json_encode($inter);
+        $SituacionEnt->No_Ejemplar = $request->NoEjemplar;
+
+        $SituacionEnt->EntidadAcademica = $request->EntidadA;
+        $SituacionEnt->SubEntidadAcademica = $request->SubUnidadesFiltrada;
+        $SituacionEnt->save();
+        $Planta->SituacionEntorno()->create(array($SituacionEnt));
+    }
+
+    private function guardarImagen($directoryPersona, $NF, $image, $ClaveF, $Planta)
+    {
+        
+        $index = count($Planta->imagenesPlanta);
+        
+        $urlFoto = $directoryPersona . '/' . $index . $NF . $ClaveF . '.' . $image->getClientOriginalExtension();
+        \Storage::disk('public')->put($urlFoto, \File::get($image));
+        // Guardamos el nombre de la imagen en la tabla 'img_bicicletas'
+
+        $foto = new FotoPlanta();
+        $foto->planta_id = $Planta->id;
+        $foto->url = $urlFoto;
+        $foto->nombre = $index . $NF . $ClaveF;
+        $foto->save();
+    }
     /**
      * Display the specified resource.
      *
