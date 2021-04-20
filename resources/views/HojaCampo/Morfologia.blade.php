@@ -6,7 +6,7 @@
         <div class="col-md-6">
             <textarea aria-label="With textarea" id="CondicionG" type="text"
                 class="form-control @error('CondicionG') is-invalid @enderror" name="CondicionG"
-                value="{{ old('CondicionG') }}" autocomplete="CondicionG" autofocus></textarea>
+                value="{{ old('CondicionG') }}"  autofocus></textarea>
         </div>
     </div>
  
@@ -29,7 +29,7 @@
         <div class="col-md-6">
             <input id="Altura" type="number" step="0.0001" min="0.0001"
                 class="form-control @error('Altura') is-invalid @enderror" name="Altura"
-                value="{{ old('Altura') }}"  autocomplete="Altura" autofocus
+                value="{{ old('Altura') }}"  autocomplete autofocus
                 data-toggle="tooltip" data-placement="top" title="Altura en metros">
 
             @error('Altura')
@@ -95,7 +95,7 @@
         <div class="col-md-6">
             <textarea aria-label="With textarea" id="Raices" type="text"
                 class="form-control @error('Raices') is-invalid @enderror" name="Raices"
-                value="{{ old('Raices') }}"  autocomplete="Raices" autofocus></textarea>
+                value="{{ old('Raices') }}"  autocomplete autofocus></textarea>
         </div>
     </div>
     <div class="form-group row g-3">
@@ -104,7 +104,7 @@
         <div class="col-md-6">
             <textarea aria-label="With textarea" id="TRaices" type="text"
                 class="form-control @error('Raices') is-invalid @enderror" name="TRaices"
-                value="{{ old('TRaices') }}"  autocomplete="Raices" autofocus></textarea>
+                value="{{ old('TRaices') }}"  autocomplete autofocus></textarea>
         </div>
     </div>
     <div class="form-group row g-3" >

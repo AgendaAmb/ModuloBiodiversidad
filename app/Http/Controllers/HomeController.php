@@ -63,8 +63,7 @@ class HomeController extends Controller
     public function getHCByUser()
     {
         $user = user::findorFail(Auth::id());
-      
-        return view('HojaCampo.User.index')->with('MisHojasCampo', $user->Plantas);
+        return view('HojaCampo.User.index')->with('MisHojasCampo', $user->Plantas()->paginate(12));
     }
 
 }

@@ -17,7 +17,7 @@
                 class="col-md-4 col-form-label text-md-left">{{ __('Fecha de fotografía') }}</label>
             <div class="col-md-6">
                 <input id="FechaFotografia" type="date" class="form-control" name="FechaFotografia"
-                    value="{{ old('FechaFotografia') }}" required autocomplete="FechaFotografia">
+                    value="{{ old('FechaFotografia') }}" required autocomplete>
             </div>
         </div>
         <div class="form-group row g-3 was-validated">
@@ -27,7 +27,7 @@
             <div class="col-md-6">
                 <input id="NombreRecolectorD" type="text"
                     class="form-control @error('NombreRecolectorD') is-invalid @enderror" name="NombreRecolectorD"
-                    value="{{ old('NombreRecolectorD') }}" maxlength="40" required autocomplete="NombreRecolectorD"
+                    value="{{ old('NombreRecolectorD') }}" maxlength="40" required autocomplete
                     autofocus>
 
                 @error('NombreRecolectorD')
@@ -43,7 +43,7 @@
             <div class="col-md-6">
                 <input id="NombreRecolectorm" type="text"
                     class="form-control @error('NombreRecolectorm') is-invalid @enderror" name="NombreRecolectorm"
-                    value="{{ old('NombreRecolectorm') }}" maxlength="40" required autocomplete="NombreRecolectorm"
+                    value="{{ old('NombreRecolectorm') }}" maxlength="40" required autocomplete
                     autofocus>
 
                 @error('NombreRecolectorD')
@@ -53,13 +53,19 @@
                 @enderror
             </div>
         </div>
+        <x-typeInput  :labelFor="'NombreAutorFoto'" :isRequiered="true" :label="'Nombre de autor de fotografías'" >
+           
+            
+        </x-typeInput>
+        <!--
+        
         <div class="form-group row g-3 was-validated">
             <label for="NombreAutorFoto"
                 class="col-md-4 col-form-label text-md-left">{{ __('Nombre de autor de fotografías') }}</label>
             <div class="col-md-6">
                 <input id="NombreAutorFoto" type="text"
                     class="form-control @error('NombreAutorFoto') is-invalid @enderror" name="NombreAutorFoto"
-                    value="{{ old('NombreAutorFoto') }}" maxlength="40" required autocomplete="NombreAutorFoto"
+                    value="{{ old('NombreAutorFoto') }}" maxlength="40" required autocomplete
                     autofocus>
 
                 @error('NombreAutorFoto')
@@ -69,5 +75,7 @@
                 @enderror
             </div>
         </div>
+        -->
+        
         <hr>
 </div>

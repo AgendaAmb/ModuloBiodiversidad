@@ -14,7 +14,7 @@
         <label for="NombreCientifico" class="col-md-4 col-form-label text-md-left">{{ __('Nombre Científico') }}</label>
         <div class="col-md-6">
           
-            <input id="NombreCientifico" v-model="NCientifico" readonly type="text"
+            <input id="NombreCientifico" v-model="NCientifico"  {{auth()->user()->hasAnyRole(['Administrador']) ? 'readonly':''}}  type="text"
                 class="form-control @error('NombreCientifico') is-invalid @enderror" name="NombreCientifico"
                 value="{{old('NombreCientifico') }}" maxlength="40" required autocomplete="NombreCientifico" autofocus>
 

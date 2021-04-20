@@ -17,18 +17,23 @@
         <div class="col mb-4">
             <div class="card w-100 ">
                 <h5 class="card-title text-center">{{$Hoja->NombreEjem->NombreComun}}</h5>
-               
                 @if($Hoja->Verificado)
-                <span class="badge badge-success navbar-badge"><i class="fas fa-check-square"></i></span>    
+                <span class="badge badge-success navbar-badge"><i class="fas fa-check-square"></i></span>
                 @elseif ($Hoja->NomVerificador==null&&!$Hoja->Verificado)
                 <span class="badge badge-info navbar-badge"><i class="far fa-clock"></i></span>
                 @else
                 <span class="badge badge-warning navbar-badge"><i class="fas fa-exclamation-circle"></i></span>
                 @endif
-                
+
 
                 <div class="card-body">
-
+                    <a href="#">
+                        <img class="card-img-top " id="{{$Hoja->id}}" @if (count($Hoja->imagenesPlanta)==0)
+                        src="{{asset('storage/Logos/NoDisponible.png')}}"
+                        @else
+                        src="{{asset('storage/'.$Hoja->imagenesPlanta[0]->url)}}"
+                        @endif
+                        alt="Card image cap">
 
                     </a>
                 </div>
@@ -41,11 +46,17 @@
                     @else
 
                     @endif
+
                 </div>
             </div>
         </div>
         @endforeach
     </div>
+    <div class="container">
+        <div class="row justify-content-md-center">
+          {{$MisHojasCampo->links()}}
+        </div>
+      </div>
 
     @endsection
 

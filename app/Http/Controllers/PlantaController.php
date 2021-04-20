@@ -131,32 +131,35 @@ class PlantaController extends Controller
             $directoryPersona = $directoryEspecie . '/' . $SU->Abreviatura . '_' . $string;
 
             $NF = $Nom->Clave;
+            $No_Ejemplar = count(Planta::where('nombre_ejem_id','=',$Planta->nombre_ejem_id)->get());
+            
             foreach ($request->file() as $image) {
                 if ($request->fileImg0 == $image) {
-                    $this->guardarImagen($directoryPersona, $NF, $image, 'PC', $Planta);
+                    $this->guardarImagen($directoryPersona, $NF, $image, 'PC', $Planta, $No_Ejemplar);
                 } else
                 if ($request->fileImg1 == $image) {
-                    $this->guardarImagen($directoryPersona, $NF, $image, 'F', $Planta);
+                    $this->guardarImagen($directoryPersona, $NF, $image, 'F', $Planta, $No_Ejemplar);
                 } else
                 if ($request->fileImg2 == $image) {
-                    $this->guardarImagen($directoryPersona, $NF, $image, 'H', $Planta);
+                    $this->guardarImagen($directoryPersona, $NF, $image, 'H', $Planta, $No_Ejemplar);
                 } else
                 if ($request->fileImg3 == $image) {
-                    $this->guardarImagen($directoryPersona, $NF, $image, 'FL', $Planta);
+                    $this->guardarImagen($directoryPersona, $NF, $image, 'FL', $Planta, $No_Ejemplar);
                 } else
                 if ($request->fileImg4 == $image) {
-                    $this->guardarImagen($directoryPersona, $NF, $image, 'FR', $Planta);
+                    $this->guardarImagen($directoryPersona, $NF, $image, 'FR', $Planta, $No_Ejemplar);
                 } else
                 if ($request->fileImg5 == $image) {
-                    $this->guardarImagen($directoryPersona, $NF, $image, 'S', $Planta);
+                    $this->guardarImagen($directoryPersona, $NF, $image, 'S', $Planta, $No_Ejemplar);
                 } else
                 if ($request->fileImg6 == $image) {
-                    $this->guardarImagen($directoryPersona, $NF, $image, 'T', $Planta);
+                    $this->guardarImagen($directoryPersona, $NF, $image, 'T', $Planta, $No_Ejemplar);
                 } else
                 if ($request->fileImg7 == $image) {
-                    $this->guardarImagen($directoryPersona, $NF, $image, 'R', $Planta);
+                    $this->guardarImagen($directoryPersona, $NF, $image, 'R', $Planta, $No_Ejemplar);
                 }
             }
+           
         }
        
         return back()->with('message', '¡¡¡Hoja de campo registrada con exito!!!');
@@ -208,19 +211,15 @@ class PlantaController extends Controller
         $Planta->SituacionEntorno()->create(array($SituacionEnt));
     }
 
-    private function guardarImagen($directoryPersona, $NF, $image, $ClaveF, $Planta)
+    private function guardarImagen(String $directoryPersona, String $NF, $image, String $ClaveF, Planta $Planta,int  $No_Ejemplar)
     {
-        
-        $index = count($Planta->imagenesPlanta);
-        
-        $urlFoto = $directoryPersona . '/' . $index . $NF . $ClaveF . '.' . $image->getClientOriginalExtension();
+        $urlFoto = $directoryPersona . '/' .  $No_Ejemplar . $NF . $ClaveF . '.' . $image->getClientOriginalExtension();
         \Storage::disk('public')->put($urlFoto, \File::get($image));
-        // Guardamos el nombre de la imagen en la tabla 'img_bicicletas'
-
+        
         $foto = new FotoPlanta();
         $foto->planta_id = $Planta->id;
         $foto->url = $urlFoto;
-        $foto->nombre = $index . $NF . $ClaveF;
+        $foto->nombre =  $No_Ejemplar . $NF . $ClaveF;
         $foto->save();
     }
     /**
