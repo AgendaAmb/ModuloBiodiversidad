@@ -1,5 +1,6 @@
 <div class="col-xl-6">
     <h2 class="alert alert-primary text-center">Morfología y estado de fitosanitarios básicos</h2>
+
     <div class="form-group row g-3">
         <label for="CondicionG"
             class="col-md-4 col-form-label text-md-left">{{ __('Condición General') }}</label>
@@ -23,7 +24,14 @@
             </select>
         </div>
     </div>
-    <div class="form-group row g-3">
+    <x-typeInput  
+    :labelFor="'Altura'" 
+    :typeInput="'number'"
+    :label="'Altura (m) '" 
+    >
+    </x-typeInput>
+    <!--
+         <div class="form-group row g-3">
         <label for="Altura" class="col-md-4 col-form-label text-md-left">{{ __('Altura (m) ') }}</label>
 
         <div class="col-md-6">
@@ -39,26 +47,41 @@
             @enderror
         </div>
     </div>
-    <div class="form-group row g-3">
-        <label for="AlturaLi"
+    -->
+    <x-typeInput  
+    :labelFor="'AlturaLi'" 
+    :typeInput="'number'"
+    :label="'Altura (m) (reportada por literatura)'" 
+    >
+    </x-typeInput>
+    <!--
+        <div class="form-group row g-3">
+            <label for="AlturaLi"
             class="col-md-4 col-form-label text-md-left">{{ __('Altura (m) (reportada por literatura) ') }}</label>
-
-        <div class="col-md-6">
-            <input id="AlturaLi" type="number" step="0.0001" min="0.0001"
+            
+            <div class="col-md-6">
+                <input id="AlturaLi" type="number" step="0.0001" min="0.0001"
                 class="form-control @error('AlturaLi') is-invalid @enderror" name="AlturaLi"
                 value="{{ old('AlturaLi') }}" autocomplete="AlturaLi" autofocus
                 data-toggle="tooltip" data-placement="top"
                 title="Altura en metros reportada por literatura">
-
-            @error('AlturaLi')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
+                
+                @error('AlturaLi')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
         </div>
-    </div>
-
-    <div class="form-group row g-3">
+    -->
+    <x-typeInput  
+        :labelFor="'Copa'" 
+        :isRequiered="false" 
+        :isReadOnly="false"
+        :label="'Copa(tipo)'" >
+    </x-typeInput>
+    <!--
+        <div class="form-group row g-3">
         <label for="Copa" class="col-md-4 col-form-label text-md-left">{{ __('Copa(tipo)') }} </label>
 
         <div class="col-md-6">
@@ -73,7 +96,15 @@
             @enderror
         </div>
     </div>
-    <div class="form-group row g-3">
+     -->
+     <x-typeInput  
+     :labelFor="'DiametroC'" 
+     :typeInput="'number'"
+     :label="'Diametro de copa (m)'" 
+     >
+     </x-typeInput>
+     <!--
+         <div class="form-group row g-3">
         <label for="DiametroC"
             class="col-md-4 col-form-label text-md-left">{{ __('Diametro de copa (m)') }}</label>
 
@@ -90,6 +121,9 @@
             @enderror
         </div>
     </div>
+    -->
+
+   
     <div class="form-group row g-3">
         <label for="Raices" class="col-md-4 col-form-label text-md-left">{{ __('Raíces') }}</label>
         <div class="col-md-6">
@@ -119,6 +153,7 @@
             </select>
         </div>
     </div>
+    
     <div class="form-group row g-3">
         <label for="DanosFisicos"
             class="col-md-4 col-form-label text-md-left">{{ __('Presencia de daños físicos') }}</label>

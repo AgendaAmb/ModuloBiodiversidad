@@ -1,8 +1,8 @@
 <div class="col-xl-6">
     <h2 class="alert alert-primary text-center">Reconocimiento de ejemplar</h2>
+    
     <div class="form-group row g-3 was-validated" >
         <label for="NombreC" class="col-md-4 col-form-label text-md-left">{{ __('Nombre Común') }}</label>
-
         <div class="col-md-6">
             <select class="custom-select" id="NombreC" name="NombreC" v-model="NombreC"  @change="Ncientifico()" required>
                 <option selected="true" disabled>Nombre Común</option>
@@ -14,7 +14,7 @@
         <label for="NombreCientifico" class="col-md-4 col-form-label text-md-left">{{ __('Nombre Científico') }}</label>
         <div class="col-md-6">
           
-            <input id="NombreCientifico" v-model="NCientifico"  {{auth()->user()->hasAnyRole(['Administrador']) ? 'readonly':''}}  type="text"
+            <input id="NombreCientifico" v-model="NCientifico"   readonly type="text"
                 class="form-control @error('NombreCientifico') is-invalid @enderror" name="NombreCientifico"
                 value="{{old('NombreCientifico') }}" maxlength="40" required autocomplete="NombreCientifico" autofocus>
 
@@ -26,7 +26,13 @@
         </div>
     
     </div>
-   
+    <x-typeInput  
+    :labelFor="'RegistroIdentificacion'" 
+    :isRequiered="true"
+    :label="'Registro del proceso de identificación'" 
+    >
+    </x-typeInput>
+    <!--
     <div class="form-group row g-3 was-validated">
         <label for="RegistroIdentificacion"
             class="col-md-4 col-form-label text-md-left">{{ __('Registro del proceso de identificación') }}
@@ -46,6 +52,8 @@
             @enderror
         </div>
     </div>
+    -->
+    
 </div>
 
 

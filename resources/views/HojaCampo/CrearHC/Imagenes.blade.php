@@ -11,6 +11,7 @@
                     <input type="file" accept="image/png,image/jpeg"  :id="'fileImg'+index" :name="'fileImg'+index" class="inp"
                         @change="cargarImagen($event,index)" />
                 </small>
+           
             </div>
         </div>
     </div>

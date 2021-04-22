@@ -12,11 +12,11 @@
     <div class="container-fluid justify-content-between" id="appp">
         <div class="container mb-4">
             <div class="row">
-                <div class="col-xl-6 col-lg-6 col-md-6 contImagen">
+                <div class="col-xl-6 col-lg-6 col-md-12 contImagen">
                     <img src="{{asset('storage/Logos/horizontal_azulR.png')}}" id="LogoUaslpAgenda"
                         alt="Logo uaslp-Agenda Ambiental" srcset="">
                 </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 ">
+                <div class="col-xl-6 col-lg-6 col-md-12 ">
                     <div class="align-self-center">
                         <h4 class="pt-5">HOJA DE CAMPO DE PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD </h4>
                         <span> </span>
@@ -36,11 +36,11 @@
             <form method="POST" action="{{route('GHC')}}" enctype="multipart/form-data">
                 @csrf
 
-                @include('HojaCampo.Imagenes')
-                @include('HojaCampo.DGenerales')
-                @include('HojaCampo.ReconocimientoE')
-                @include('HojaCampo.Morfologia')
-                @include('HojaCampo.SituacionEntorno')
+                @include('HojaCampo.CrearHC.Imagenes')
+                @include('HojaCampo.CrearHC.DGenerales')
+                @include('HojaCampo.CrearHC.ReconocimientoE')
+                @include('HojaCampo.CrearHC.Morfologia')
+                @include('HojaCampo.CrearHC.SituacionEntorno')
 
                 <div class="container mb-3">
                     <div class="row justify-content-center">
@@ -180,7 +180,7 @@ methods:{
             }
         })
     },
-    //checar esta funcion con wicho, no se selecciona la subunidad academica 
+    
     FiltroSubUnidades:function(){
         this.SubUnidadesFiltrada=this.EntidadAcademica.filter(E=>E.IdUnidad==this.Entidad_id);
        
@@ -198,7 +198,6 @@ methods:{
         document.getElementById("DanosFisicosText").style.display='block';
     }else{
         document.getElementById("DanosFisicosText").style.display='none';
-
     }
     return;
 }

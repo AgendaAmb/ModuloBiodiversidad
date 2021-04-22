@@ -1,7 +1,16 @@
 <div class="form-row ">
     <div class="col-xl-6">
         <h2 class="alert alert-primary text-center">Datos Generales</h2>
-        <div class="form-group row g-3 was-validated">
+        <x-typeInput  
+        :labelFor="'FechaRecoleccion'" 
+        :isRequiered="true" 
+        :typeInput="'date'"
+        :isOnly="false"
+        :label="'Fecha de recoleccion de datos'" 
+        >
+        </x-typeInput>
+        <!--
+             <div class="form-group row g-3 was-validated">
             <label for="FechaRecoleccion"
                 class="col-md-4 col-form-label text-md-left">{{ __('Fecha de recoleccion de datos') }}
             </label>
@@ -12,7 +21,17 @@
             </div>
             
         </div>
-        <div class="form-group row g-3 was-validated">
+        -->
+        <x-typeInput  
+        :labelFor="'FechaFotografia'" 
+        :isRequiered="true" 
+        :typeInput="'date'"
+        :isOnly="false"
+        :label="'Fecha de fotografía'" 
+        >
+        </x-typeInput>
+        <!--
+            <div class="form-group row g-3 was-validated">
             <label for="FechaFotografia"
                 class="col-md-4 col-form-label text-md-left">{{ __('Fecha de fotografía') }}</label>
             <div class="col-md-6">
@@ -20,7 +39,16 @@
                     value="{{ old('FechaFotografia') }}" required autocomplete>
             </div>
         </div>
-        <div class="form-group row g-3 was-validated">
+        -->
+        <x-typeInput  
+        :labelFor="'NombreRecolectorD'" 
+        :isRequiered="true"
+        :isOnly="false"
+        :label="'Nombre del Recolector de datos'" 
+        >
+        </x-typeInput>
+        <!--
+            <div class="form-group row g-3 was-validated">
             <label for="NombreRecolectorD"
                 class="col-md-4 col-form-label text-md-left">{{ __('Nombre del Recolector de datos') }}</label>
 
@@ -37,7 +65,16 @@
                 @enderror
             </div>
         </div>
-        <div class="form-group row g-3 was-validated">
+        -->
+        <x-typeInput  
+        :labelFor="'NombreRecolectorm'" 
+        :isRequiered="true"
+        :isOnly="false"
+        :label="'Nombre del Recolector de muestra'" 
+        >
+        </x-typeInput>
+        <!--
+            <div class="form-group row g-3 was-validated">
             <label for="NombreRecolectorm"
                 class="col-md-4 col-form-label text-md-left">{{ __('Nombre del Recolector de muestra') }}</label>
             <div class="col-md-6">
@@ -53,12 +90,15 @@
                 @enderror
             </div>
         </div>
-        <x-typeInput  :labelFor="'NombreAutorFoto'" :isRequiered="true" :label="'Nombre de autor de fotografías'" >
-           
-            
+        -->
+        
+        <x-typeInput  
+        :labelFor="'NombreAutorFoto'" 
+        :isRequiered="true" 
+        :isReadOnly="false"
+        :label="'Nombre de autor de fotografías'" >
         </x-typeInput>
         <!--
-        
         <div class="form-group row g-3 was-validated">
             <label for="NombreAutorFoto"
                 class="col-md-4 col-form-label text-md-left">{{ __('Nombre de autor de fotografías') }}</label>

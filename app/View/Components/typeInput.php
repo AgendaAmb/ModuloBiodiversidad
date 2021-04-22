@@ -11,18 +11,32 @@ class typeInput extends Component
     public $isRequiered;
     public $label;
     public $typeInput;
+    public $isReadOnly;
+    public $haveValue;
+    public $value;
+    
     /**
      * Create a new component instance.
      *
-     * @return void
+     * @param [type] $divClass =Agregar elementos a la clase del div principal
+     * @param [type] $labelFor =Label que indica a que campo va, el name y el id
+     * @param boolean $isRequiered = difinir si es un campo requerido o no 
+     * @param [type] $label = texto que se muestra al usuario 
+     * @param string $typeInput = tipo de input "numbre","date" y text es por default
+     * @param boolean $isReadOnly = si es solo de lectura o no
+     * @param boolean $haveValue = si contiene o no un value
+     * @param [type] $value = el value si es que lo contienen 
      */
-    public function __construct($divClass=null, $labelFor,$isRequiered=false,$label,$typeInput="text")
+    public function __construct($divClass=null, $labelFor, $isRequiered=false,$label,$typeInput="text",$isReadOnly=false,$haveValue=false,$value=null)
     {
         $this->divClass = $divClass;
         $this->labelFor = $labelFor;
         $this->isRequiered=$isRequiered;
         $this->label=$label;
         $this->typeInput=$typeInput;
+        $this->isReadOnly=$isReadOnly;
+        $this->haveValue=$haveValue;
+        $this->value=$value;
     }
 
     /**

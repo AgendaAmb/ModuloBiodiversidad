@@ -18,6 +18,7 @@ use Illuminate\Support\Str;
 
 class PlantaController extends Controller
 {
+    private $Nom;
     /**
      * Display a listing of the resource.
      *
@@ -46,7 +47,7 @@ class PlantaController extends Controller
         }
         array_multisort($aux, SORT_ASC, $SubUnidades);
 
-        return \view('HojaCampo.index')->with("Ejemplar", $Ejemplar)
+        return \view('HojaCampo.CrearHC.index')->with("Ejemplar", $Ejemplar)
             ->with("SubUnidades", $SubUnidades)
             ->with("SubUnidadTP", $SubUnidadTP);
     }
@@ -73,6 +74,15 @@ class PlantaController extends Controller
         $request->user()->authorizeRoles(['administrador']);
 
         $validatedData = Validator::make($request->all(), [
+            'fileImg0'=>'image|mimes:png,jpeg',
+            'fileImg1'=>'image|mimes:png,jpeg',
+            'fileImg2'=>'image|mimes:png,jpeg',
+            'fileImg3'=>'image|mimes:png,jpeg',
+            'fileImg4'=>'image|mimes:png,jpeg',
+            'fileImg5'=>'image|mimes:png,jpeg',
+            'fileImg6'=>'image|mimes:png,jpeg',
+            'fileImg7'=>'image|mimes:png,jpeg',
+
             'FechaRecoleccion' => ['required', 'max:15', 'bail'],
             'FechaFotografia' => ['required', 'max:15', 'bail'],
             'NombreRecolectorD' => ['required', 'max:40', 'bail'],
@@ -96,6 +106,7 @@ class PlantaController extends Controller
             'EnfermedadesA' => ['max:300', 'bail'],
             'EnfermedadesP' => ['max:400', 'bail'],
 
+
         ]);
         if ($validatedData->fails()) {
             return redirect(route('HojaCampo'))
@@ -103,60 +114,44 @@ class PlantaController extends Controller
                 ->withInput();
         } else {
             
-            $Planta = new Planta();
-            $this->saveMorfo($request, $Planta);
-            $this->saveSitEnt($request, $Planta);
-            
-            $Planta->FechaRecoleccion = $request->FechaRecoleccion;
-            $Planta->NombreRecolectorDatos = $request->NombreRecolectorD;
-            $Planta->FechaRecoleccion = $request->FechaFotografia;
-            $Planta->NombreRecolectorMuestra = $request->NombreRecolectorm;
-            $Planta->NombreAutorFoto=$request->NombreAutorFoto;
-            $Planta->Verificado = false;
-
-            $Nom = NombreEjemplar::find($request->NombreC);
-            $Planta->NombreEjem()->associate($Nom);
-
-            $Planta->imagenes = date('dmyHi');
-            $Planta->urlImg = Str::slug("fotos", '-');
-            $Planta->user_id = Auth::id();
-            $Planta->save();
+            $Planta=$this->savePlanta($request);
+           
             //**Obtener Iniciales del nombre del fotografo */
-            $string = Str::of($Planta->NombreAutorFoto)->studly()->split('/([a-z]+)/')->implode('');
+            $fotoIniciales = Str::of($Planta->NombreAutorFoto)->studly()->split('/([a-z]+)/')->implode('');
             //*-----------------------------------------------* */
-            $sr = Str::of($Nom->NombreCientifico)->slug('_');
+            $sr = Str::of( $this->Nom->NombreCientifico)->slug('_');
             $directoryEspecie = '/plantas/EspeciesPorIdentificar/' . $sr;
-
             $SU = SubUnidades::where('IdUnidad', $request->EntidadA)->firstOrFail();
-            $directoryPersona = $directoryEspecie . '/' . $SU->Abreviatura . '_' . $string;
+            $directoryPersona = $directoryEspecie . '/' . $SU->Abreviatura . '_' . $fotoIniciales;
 
-            $NF = $Nom->Clave;
+            $NF =  $this->Nom->Clave;
             $No_Ejemplar = count(Planta::where('nombre_ejem_id','=',$Planta->nombre_ejem_id)->get());
             
             foreach ($request->file() as $image) {
+
                 if ($request->fileImg0 == $image) {
-                    $this->guardarImagen($directoryPersona, $NF, $image, 'PC', $Planta, $No_Ejemplar);
+                    $this->saveImagen($directoryPersona, $NF, $image, 'PC', $Planta, $No_Ejemplar);
                 } else
                 if ($request->fileImg1 == $image) {
-                    $this->guardarImagen($directoryPersona, $NF, $image, 'F', $Planta, $No_Ejemplar);
+                    $this->saveImagen($directoryPersona, $NF, $image, 'F', $Planta, $No_Ejemplar);
                 } else
                 if ($request->fileImg2 == $image) {
-                    $this->guardarImagen($directoryPersona, $NF, $image, 'H', $Planta, $No_Ejemplar);
+                    $this->saveImagen($directoryPersona, $NF, $image, 'H', $Planta, $No_Ejemplar);
                 } else
                 if ($request->fileImg3 == $image) {
-                    $this->guardarImagen($directoryPersona, $NF, $image, 'FL', $Planta, $No_Ejemplar);
+                    $this->saveImagen($directoryPersona, $NF, $image, 'FL', $Planta, $No_Ejemplar);
                 } else
                 if ($request->fileImg4 == $image) {
-                    $this->guardarImagen($directoryPersona, $NF, $image, 'FR', $Planta, $No_Ejemplar);
+                    $this->saveImagen($directoryPersona, $NF, $image, 'FR', $Planta, $No_Ejemplar);
                 } else
                 if ($request->fileImg5 == $image) {
-                    $this->guardarImagen($directoryPersona, $NF, $image, 'S', $Planta, $No_Ejemplar);
+                    $this->saveImagen($directoryPersona, $NF, $image, 'S', $Planta, $No_Ejemplar);
                 } else
                 if ($request->fileImg6 == $image) {
-                    $this->guardarImagen($directoryPersona, $NF, $image, 'T', $Planta, $No_Ejemplar);
+                    $this->saveImagen($directoryPersona, $NF, $image, 'T', $Planta, $No_Ejemplar);
                 } else
                 if ($request->fileImg7 == $image) {
-                    $this->guardarImagen($directoryPersona, $NF, $image, 'R', $Planta, $No_Ejemplar);
+                    $this->saveImagen($directoryPersona, $NF, $image, 'R', $Planta, $No_Ejemplar);
                 }
             }
            
@@ -211,7 +206,7 @@ class PlantaController extends Controller
         $Planta->SituacionEntorno()->create(array($SituacionEnt));
     }
 
-    private function guardarImagen(String $directoryPersona, String $NF, $image, String $ClaveF, Planta $Planta,int  $No_Ejemplar)
+    private function saveImagen(String $directoryPersona, String $NF, $image, String $ClaveF, Planta $Planta,int  $No_Ejemplar)
     {
         $urlFoto = $directoryPersona . '/' .  $No_Ejemplar . $NF . $ClaveF . '.' . $image->getClientOriginalExtension();
         \Storage::disk('public')->put($urlFoto, \File::get($image));
@@ -221,6 +216,28 @@ class PlantaController extends Controller
         $foto->url = $urlFoto;
         $foto->nombre =  $No_Ejemplar . $NF . $ClaveF;
         $foto->save();
+    }
+
+    private function savePlanta(Request $request){
+        $Planta = new Planta();
+        $this->saveMorfo($request, $Planta);
+        $this->saveSitEnt($request, $Planta);
+        
+        $Planta->FechaRecoleccion = $request->FechaRecoleccion;
+        $Planta->NombreRecolectorDatos = $request->NombreRecolectorD;
+        $Planta->FechaRecoleccion = $request->FechaFotografia;
+        $Planta->NombreRecolectorMuestra = $request->NombreRecolectorm;
+        $Planta->NombreAutorFoto=$request->NombreAutorFoto;
+        $Planta->Verificado = false;
+
+        $this->Nom = NombreEjemplar::find($request->NombreC);
+        $Planta->NombreEjem()->associate( $this->Nom);
+
+        $Planta->imagenes = date('dmyHi');
+        $Planta->urlImg = Str::slug("fotos", '-');
+        $Planta->user_id = Auth::id();
+        $Planta->save();
+       return $Planta;
     }
     /**
      * Display the specified resource.
