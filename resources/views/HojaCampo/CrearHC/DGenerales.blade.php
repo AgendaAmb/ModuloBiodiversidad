@@ -2,11 +2,11 @@
     <div class="col-xl-6">
         <h2 class="alert alert-primary text-center">Datos Generales</h2>
         <x-typeInput  
-        :labelFor="'FechaRecoleccion'" 
-        :isRequiered="true" 
-        :typeInput="'date'"
-        :isOnly="false"
-        :label="'Fecha de recoleccion de datos'" 
+        labelFor="FechaRecoleccion" 
+        isRequiered="true" 
+        typeInput="date"
+        isReadOnly="{{boolval($isReO)}}"
+        label="Fecha de recoleccion de datos" 
         >
         </x-typeInput>
         <!--
@@ -23,11 +23,11 @@
         </div>
         -->
         <x-typeInput  
-        :labelFor="'FechaFotografia'" 
-        :isRequiered="true" 
-        :typeInput="'date'"
-        :isOnly="false"
-        :label="'Fecha de fotografía'" 
+        labelFor="FechaFotografia" 
+        isRequiered="true" 
+        typeInput="date"
+        isReadOnly="{{boolval($isReO)}}"
+        label="Fecha de fotografía" 
         >
         </x-typeInput>
         <!--
@@ -41,10 +41,10 @@
         </div>
         -->
         <x-typeInput  
-        :labelFor="'NombreRecolectorD'" 
-        :isRequiered="true"
-        :isOnly="false"
-        :label="'Nombre del Recolector de datos'" 
+        labelFor="NombreRecolectorD" 
+        isRequiered="true"
+        isReadOnly="{{boolval($isReO)}}"
+        label="Nombre del Recolector de datos" 
         >
         </x-typeInput>
         <!--
@@ -67,10 +67,12 @@
         </div>
         -->
         <x-typeInput  
-        :labelFor="'NombreRecolectorm'" 
-        :isRequiered="true"
-        :isOnly="false"
-        :label="'Nombre del Recolector de muestra'" 
+        labelFor="NombreRecolectorm" 
+        isRequiered="true"
+        isReadOnly="{{boolval($isReO)}}"
+        label="Nombre del Recolector de muestra" 
+        haveValue="true"
+        value="{{$nuevo?null:$Planta->NombreRecolecatorM}}"
         >
         </x-typeInput>
         <!--
@@ -93,10 +95,14 @@
         -->
         
         <x-typeInput  
-        :labelFor="'NombreAutorFoto'" 
-        :isRequiered="true" 
-        :isReadOnly="false"
-        :label="'Nombre de autor de fotografías'" >
+        labelFor="NombreAutorFoto" 
+        isRequiered="true" 
+        isReadOnly="{{boolval($isReO)}}"
+        label="Nombre de autor de fotografías" 
+        haveValue="false"
+        value="{{$nuevo?null:$Planta->NombreRecolecatorM}}"
+        >
+        
         </x-typeInput>
         <!--
         <div class="form-group row g-3 was-validated">

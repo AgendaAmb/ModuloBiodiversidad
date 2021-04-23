@@ -14,6 +14,7 @@ class typeInput extends Component
     public $isReadOnly;
     public $haveValue;
     public $value;
+    public $isTextArea;
     
     /**
      * Create a new component instance.
@@ -27,7 +28,7 @@ class typeInput extends Component
      * @param boolean $haveValue = si contiene o no un value
      * @param [type] $value = el value si es que lo contienen 
      */
-    public function __construct($divClass=null, $labelFor, $isRequiered=false,$label,$typeInput="text",$isReadOnly=false,$haveValue=false,$value=null)
+    public function __construct($divClass=null, $labelFor, $isRequiered=false,$label,$typeInput="text",$isReadOnly=false,$haveValue=false,$value=null,$isTextArea=false)
     {
         $this->divClass = $divClass;
         $this->labelFor = $labelFor;
@@ -37,6 +38,7 @@ class typeInput extends Component
         $this->isReadOnly=$isReadOnly;
         $this->haveValue=$haveValue;
         $this->value=$value;
+        $this->isTextArea=$isTextArea;
     }
 
     /**

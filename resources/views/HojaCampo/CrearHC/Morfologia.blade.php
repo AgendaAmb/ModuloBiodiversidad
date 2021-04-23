@@ -122,9 +122,9 @@
         </div>
     </div>
     -->
-
-   
-    <div class="form-group row g-3">
+    
+    <!--
+     <div class="form-group row g-3">
         <label for="Raices" class="col-md-4 col-form-label text-md-left">{{ __('Raíces') }}</label>
         <div class="col-md-6">
             <textarea aria-label="With textarea" id="Raices" type="text"
@@ -132,6 +132,19 @@
                 value="{{ old('Raices') }}"  autocomplete autofocus></textarea>
         </div>
     </div>
+    -->
+
+    <x-typeInput  
+    labelFor="Raices" 
+    typeInput="text"
+    label="Raíces" 
+    isTextArea="true"
+    haveValue="true"
+    value="{{$nuevo}}"
+    >
+    
+    </x-typeInput>
+
     <div class="form-group row g-3">
         <label for="TRaices"
             class="col-md-4 col-form-label text-md-left">{{ __('Tipo de Raíces') }}</label>
@@ -141,6 +154,8 @@
                 value="{{ old('TRaices') }}"  autocomplete autofocus></textarea>
         </div>
     </div>
+
+    
     <div class="form-group row g-3" >
         <label for="Manejo" class="col-md-4 col-form-label text-md-left">{{ __('Manejo') }}</label>
 

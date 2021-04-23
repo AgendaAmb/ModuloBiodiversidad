@@ -38,7 +38,7 @@
                     </a>
                 </div>
 
-                <div class="card-footer pl-5">
+                <div class="card-footer p-1">
                     @if ($Hoja->Verificado)
                     <span>
                         {{$Hoja->NomVerificador}}
@@ -46,7 +46,19 @@
                     @else
 
                     @endif
-
+                    <div>
+                        <div class="container">
+                            <div class="row">
+                              <div class="col-sm p-1">
+                                <span>
+                                    Fecha de recoleccion
+                                </span>
+                              </div>
+                              <div class="col-sm p-1">
+                                {{$Hoja->FechaRecoleccion}}
+                              </div>
+                            </div>
+                    </div>
                 </div>
             </div>
         </div>

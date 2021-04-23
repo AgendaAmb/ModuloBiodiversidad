@@ -8,7 +8,7 @@
 
             <div class="card-footer pl-5">
                 <small class="text-muted">
-                    <input type="file" accept="image/png,image/jpeg"  :id="'fileImg'+index" :name="'fileImg'+index" class="inp"
+                    <input type="file" accept="image/png,image/jpeg" :id="'fileImg'+index" :name="'fileImg'+index" class="inp"
                         @change="cargarImagen($event,index)" />
                 </small>
            

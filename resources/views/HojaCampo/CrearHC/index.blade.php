@@ -7,6 +7,11 @@
 @extends('dashboard.main')
 
 @section('contenido')
+@if (isset($Planta))
+{{$nuevo=false}}
+@else
+{{$nuevo=true}}
+@endif
 
 <body>
     <div class="container-fluid justify-content-between" id="appp">

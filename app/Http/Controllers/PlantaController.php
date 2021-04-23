@@ -19,6 +19,9 @@ use Illuminate\Support\Str;
 class PlantaController extends Controller
 {
     private $Nom;
+    private $Ejemplar;
+    private $SubUnidades;
+    private $SubUnidadTP;
     /**
      * Display a listing of the resource.
      *
@@ -27,31 +30,37 @@ class PlantaController extends Controller
     public function index(Request $request)
     {
         $request->user()->authorizeRoles(['administrador', 'Gestor']);
-        $Ejemplar = NombreEjemplar::all();
-        $SubUnidadTP = DB::table('sub_unidades')
+        $this->loadEjemplares();
+        $this->loadSubUnidades();
+        $Planta = new Planta();
+        return \view('HojaCampo.CrearHC.index')
+            ->with("Ejemplar", $this->Ejemplar)
+            ->with("SubUnidades", $this->SubUnidades)
+            ->with("SubUnidadTP", $this->SubUnidadTP)
+            ->with("isReO",false);
+    }
+    private function loadEjemplares(){
+        $this->Ejemplar = NombreEjemplar::all();
+        $this->SubUnidadTP = DB::table('sub_unidades')
             ->orderBy('NombreUnidad', 'asc')
             ->get();
-
+    }
+    private function loadSubUnidades(){
         $json = File::get("storage/TSubUnidades.json");
         $SubUnidad = json_decode($json);
-        $SubUnidades = array();
+        $this->SubUnidades = array();
         for ($i = 0; $i < count($SubUnidad); $i++) {
-            $SubUnidades[] = array(
+            $this->SubUnidades[] = array(
                 "IdSubUnidad" => $SubUnidad[$i]->IdSubUnidad,
                 "IdUnidad" => $SubUnidad[$i]->IdUnidad,
                 "SubUnidad" => $SubUnidad[$i]->SubUnidad,
             );
         }
-        foreach ($SubUnidades as $key => $row) {
+        foreach ($this->SubUnidades as $key => $row) {
             $aux[$key] = $row['SubUnidad'];
         }
-        array_multisort($aux, SORT_ASC, $SubUnidades);
-
-        return \view('HojaCampo.CrearHC.index')->with("Ejemplar", $Ejemplar)
-            ->with("SubUnidades", $SubUnidades)
-            ->with("SubUnidadTP", $SubUnidadTP);
+        array_multisort($aux, SORT_ASC, $this->SubUnidades);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -159,6 +168,53 @@ class PlantaController extends Controller
        
         return back()->with('message', '¡¡¡Hoja de campo registrada con exito!!!');
     }
+   
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Planta  $planta
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Planta $planta, $id)
+    {
+        dd($id);
+        $planta = Planta::findorFail($id);
+
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Planta  $planta
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Planta $planta)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Planta  $planta
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Planta $planta)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Planta  $planta
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Planta $planta)
+    {
+        //
+    }
     public function saveMorfo(Request $request, $Planta)
     {
         $Morfologia = new Morfologia();
@@ -238,51 +294,5 @@ class PlantaController extends Controller
         $Planta->user_id = Auth::id();
         $Planta->save();
        return $Planta;
-    }
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Planta  $planta
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Planta $planta, $id)
-    {
-        dd($id);
-        $planta = Planta::findorFail($id);
-
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Planta  $planta
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Planta $planta)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Planta  $planta
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Planta $planta)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Planta  $planta
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Planta $planta)
-    {
-        //
     }
 }
