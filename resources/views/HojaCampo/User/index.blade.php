@@ -62,6 +62,7 @@
                 </div>
             </div>
         </div>
+    </div>
         @endforeach
     </div>
     <div class="container">
