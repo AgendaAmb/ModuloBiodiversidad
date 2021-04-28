@@ -5,7 +5,7 @@
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="{{asset('storage/Fondos/Fondo_Biodiversidad.jpg')}}" class="w-100"   alt="...">
+          <img src="{{asset('storage/Fondos/Fondo_Biodiversidad.webp')}}" class="w-100"   alt="...">
           <div class="carousel-caption ">
             <div class="container">
               <div class="row justify-content-between">

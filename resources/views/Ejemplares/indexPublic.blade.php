@@ -12,7 +12,7 @@
             <div class="card w-100 ">
                 <div class="card-body">
                     <a href="{{route('PlantasEjemplares',['id'=>$Ejemplar->id])}}">
-                        <img class="card-img-top " id="{{$Ejemplar->id}}" src="{{asset('storage\Fondos\Fondo_Biodiversidad.jpg')}}"
+                        <img class="card-img-top " id="{{$Ejemplar->id}}" src="{{asset('storage\Fondos\Fondo_Biodiversidad.webp')}}"
                             alt="Card image cap">
                     </a>
                 </div>
