@@ -7,7 +7,7 @@
         <a class="btn btn-light btn-lg mr-2 mb-2 btnBio" href="#" role="button">Contacto</a>
     </div>
     <div class="row justify-content-center">
-        <div class="col-md-8 m-5">
+        <div class="col-md-4 m-lg-5 m-sm-1">
             <div class="card "id="loginCard">
                 <div class="form-group row mt-4">
                     <label for="Entrar" class="col-md-12 col-form-label text-center" id="LStyle">{{ __('REGISTRO') }}</label>
