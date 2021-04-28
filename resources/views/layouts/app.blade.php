@@ -20,8 +20,13 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
 </head>
-<body>
-    <div id="app">
+<body  >
+    <div id="app" >
+        <header>
+            @include('Parciales.header')
+        </header>
+        
+        <!--
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -32,14 +37,14 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
+                   
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
+                   
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
+                       
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -72,8 +77,8 @@
                 </div>
             </div>
         </nav>
-
-        <main class="py-4">
+        -->
+        <main class="">
             @yield('content')
         </main>
     </div>

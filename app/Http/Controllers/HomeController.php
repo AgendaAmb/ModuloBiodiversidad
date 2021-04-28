@@ -28,6 +28,10 @@ class HomeController extends Controller
     {
         return view('dashboard.index');
     }
+    public function Bio()
+    {
+        return view('index');
+    }
     public function getUsers()
     {
         return view('Administrador.usuarios')->with('usuarios', User::all())->with('roles', Rol::all());

@@ -27,6 +27,15 @@ padding: 0%;
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
 }
+.especies .card-body{
+padding: 0%;
+}
+.especies .card-footer{
+  padding: 0%;
+  background-color: white;
+  border-top: 0px;
+  color: gray;
+  }
 .especies .card:hover{
   width: 40px;
   height: auto;
@@ -52,7 +61,7 @@ a.delete:hover{
 #loginCard{
   background-color:#5c903e;
   height: auto;
- opacity: 0.93;
+ opacity: 0.9;
   
 }
 #email,#password,#name,#password-confirm{
@@ -63,6 +72,165 @@ a.delete:hover{
   font-weight: bold;
 }
 #fondo{
-  background-color: #cccccc;
-  background-image: url("https://cdn.pixabay.com/photo/2016/07/05/16/53/leaves-1498985_960_720.jpg");
+  /* Center and scale the image nicely */
+  background:url('Fondo_BiodiversidadC.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  width: auto;
+  max-width: 2500px;
+ 
+}
+.card{
+  border:0px solid;
+  background-color: transparent;
+  
+}
+.carousel-caption{
+  bottom: 15.5rem;
+}
+#mainP{
+max-height: 1250px;
+}
+.btn-link{
+  text-align: end;
+  color: white;
+  font-size: 18px;
+}
+.btn-link:hover{
+  color: white;
+}
+.btnBio{
+width: 135px;
+height: 2.0rem;
+border-radius: 1.0rem;
+padding: 0%;
+color: #5c903e;
+font-weight: bold;
+}
+#header{
+  background-color:#115089;
+  height: 148px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.imagenUASLP{
+ margin-right: 3vw;
+ width: auto;
+}
+.imagenAgenda{
+  margin-left: 3vw;
+  width: auto;
+}
+
+.navbar{
+  background-color: gray;
+  padding: 0%; 
+}
+#navP  .nav-item:hover{
+background-color: #96A834;
+height: 34px;
+}
+
+.navbar .nav-item .dropdown-menu{ 
+  display: none; 
+  flex-direction: column;
+}
+.navbar .nav-item:hover .nav-link{ 
+  color: white;  
+  font-weight: bolder;
+  
+}
+.navbar .nav-item .nav-link{ 
+  color: white;  
+  font-weight: bolder;
+  padding-left: 0.2rem;
+  padding-bottom: 0%;
+  padding-right: 0.2rem;
+  padding-top: 0.5rem;
+}
+.navbar .nav-item:hover .dropdown-menu{ 
+  display: block; 
+  background-color: white;
+}
+.dropdown-item:hover, .dropdown-item:focus{
+  color: white;
+  background-color: #97a83480;
+  font-weight: bold;
+}
+.dropdown-item, .dropdown-item{
+  color: gray;
+}
+#navP .navbar .nav-item .dropdown-menu{
+  margin-top:0; 
+}
+#navP .navbar-brand{
+  color: white;
+}
+#navP.navbar-brand:hover{
+  background-color: #96A834;
+  color: white;
+}
+.btn img{
+  height: auto;
+  width:20%;
+  
+}
+.con-btn{
+  margin-right: 20px;
+  font-size: 1.0rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: transparent;
+ 
+}
+ul.dropdown-menu 
+{
+    margin-right:0px;
+}
+
+ul.dropdown-menu > li 
+{
+    display: block;
+}
+.MiPortal{
+  width: 150px;
+  
+}
+@media only screen and (max-width: 2000px) and (min-width: 992px)
+{
+    .navbar-brand{
+        display: none;
+    }
+    ul.dropdown-menu {
+        margin-right: -2000px;
+        padding: 0%;
+        border-color: transparent;
+        border-style: none;
+        background-color: transparent;
+        font-size: 12px;
+        height: auto;
+    }
+    #navP  .dropdown-menu .dropdown-item{
+       padding: 0.1rem 0.5rem;
+      
+    }
+    #navP ul.dropdown-menu > li {
+        display: inline-block;
+    }
+    .EjesTrabajo{
+        display: none;
+    }
+    .Ejes{
+        display: flex;
+    }
+    
+    #navP{
+       height: 40px;
+    }
 }

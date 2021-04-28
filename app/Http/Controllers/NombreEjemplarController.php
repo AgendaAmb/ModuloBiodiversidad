@@ -20,6 +20,13 @@ class NombreEjemplarController extends Controller
        
         return \view('Ejemplares.index')->with("Ejemplares", $Ejemplares);
     }
+    public function indexPublic()
+    {
+        
+        $Ejemplares = NombreEjemplar::orderBy('NombreComun','asc')->Paginate(15);
+       
+        return \view('Ejemplares.indexPublic')->with("Ejemplares", $Ejemplares);
+    }
 
     /**
      * Show the form for creating a new resource.

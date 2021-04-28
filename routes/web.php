@@ -12,11 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
  */
-
 Route::get('/', function () {
-    return redirect()->route('login');
+    return view('index');
 });
+
 Route::get('/usuario', 'HomeController@verificar')->name('UXV');
+Route::get('/Ejemplares', 'NombreEjemplarController@indexPublic')->name('EjemplaresP');
+
 
 Route::group(['prefix' => 'Biodiversidad', 'middleware' => 'auth'], function () {
     Route::group(['middleware' => 'TRol:Administrador'], function () {
