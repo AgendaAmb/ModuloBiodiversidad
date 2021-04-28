@@ -73,7 +73,7 @@ a.delete:hover{
 }
 #fondo{
   /* Center and scale the image nicely */
-  background:url('Fondo_BiodiversidadC.jpg');
+  background:url('Fondo_BiodiversidadC.webp');
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
