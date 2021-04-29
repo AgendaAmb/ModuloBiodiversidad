@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
  */
+ 
 Route::get('/', function () {
     return view('index');
 });
@@ -29,7 +30,7 @@ Route::group(['prefix' => 'Biodiversidad', 'middleware' => 'auth'], function () 
         Route::get('/UsuariosAdmin', 'HomeController@getUsers')->name('UserAdmin');
         Route::post('/EliminarUser', 'HomeController@deleteUser')->name('EliminarUser');
         Route::get('/MisHojasCampo', 'HomeController@getHCByUser')->name('UserHC');
-        
+        Route::get('/MisHojasCampo/{id}', 'PlantaController@show')->name('UserHCEdit');
         Route::get('/HojaCampo', 'PlantaController@index')->name('HojaCampo');
         Route::post('/GuardaHC', 'PlantaController@store')->name('GHC');
         Route::get('/Planta/{id}', 'PlantaController@show')->name('ShowPlanta');

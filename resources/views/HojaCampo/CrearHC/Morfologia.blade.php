@@ -1,22 +1,31 @@
 <div class="col-xl-6">
     <h2 class="alert alert-primary text-center">Morfología y estado de fitosanitarios básicos</h2>
-
+<!--
     <div class="form-group row g-3">
-        <label for="CondicionG"
-            class="col-md-4 col-form-label text-md-left">{{ __('Condición General') }}</label>
+        <label for="CondicionG" class="col-md-4 col-form-label text-md-left">{{ __('Condición General') }}</label>
         <div class="col-md-6">
             <textarea aria-label="With textarea" id="CondicionG" type="text"
                 class="form-control @error('CondicionG') is-invalid @enderror" name="CondicionG"
-                value="{{ old('CondicionG') }}"  autofocus></textarea>
+                value="{{ old('CondicionG') }}" autofocus></textarea>
         </div>
     </div>
- 
+-->
+    <x-typeInput
+    labelFor="CondicionG"
+    typeInput="text" 
+    label="Condición General" 
+    isTextArea="true"
+    haveValue="true"
+    isReadOnly="{{boolval($isReO)}}"
+    value="{{$nuevo?null:$Planta->Morfologia->CondicionGeneral}}">
+</x-typeInput>
+
     <div class="form-group row g-3">
         <label for="EstadoCrecimiento"
             class="col-md-4 col-form-label text-md-left">{{ __('Estado de Crecimiento') }}</label>
 
         <div class="col-md-6">
-            <select class="custom-select" id="EstadoCrecimiento" name="Ecrecimiento" >
+            <select class="custom-select" id="EstadoCrecimiento" name="Ecrecimiento">
                 <option selected disabled value="">Estado de Crecimiento</option>
                 <option value="1">1 (Juvenil)</option>
                 <option value="2">2 (Adulto)</option>
@@ -24,10 +33,9 @@
             </select>
         </div>
     </div>
-    <x-typeInput  
-    :labelFor="'Altura'" 
-    :typeInput="'number'"
-    :label="'Altura (m) '" 
+    <x-typeInput labelFor="Altura" typeInput="number"  isReadOnly="{{boolval($isReO)}}" label="Altura (m)"
+    haveValue="true" 
+    value="{{$nuevo?null:$Planta->Morfologia->Altura}}">
     >
     </x-typeInput>
     <!--
@@ -48,10 +56,13 @@
         </div>
     </div>
     -->
-    <x-typeInput  
-    :labelFor="'AlturaLi'" 
-    :typeInput="'number'"
-    :label="'Altura (m) (reportada por literatura)'" 
+    <x-typeInput 
+    labelFor="AlturaLi" 
+    typeInput="number" 
+    label="Altura (m) (reportada por literatura)"
+    isReadOnly="{{boolval($isReO)}}"
+    haveValue="true" 
+    value="{{$nuevo?null:$Planta->Morfologia->AlturaLiteratura}}"
     >
     </x-typeInput>
     <!--
@@ -74,11 +85,11 @@
             </div>
         </div>
     -->
-    <x-typeInput  
-        :labelFor="'Copa'" 
-        :isRequiered="false" 
-        :isReadOnly="false"
-        :label="'Copa(tipo)'" >
+    <x-typeInput :labelFor="'Copa'" :isRequiered="false" :isReadOnly="false" :label="'Copa(tipo)'"
+    isReadOnly="{{boolval($isReO)}}"
+    haveValue="true" 
+    value="{{$nuevo?null:$Planta->Morfologia->Tcopa}}"
+    >
     </x-typeInput>
     <!--
         <div class="form-group row g-3">
@@ -97,13 +108,13 @@
         </div>
     </div>
      -->
-     <x-typeInput  
-     :labelFor="'DiametroC'" 
-     :typeInput="'number'"
-     :label="'Diametro de copa (m)'" 
-     >
-     </x-typeInput>
-     <!--
+    <x-typeInput labelFor="DiametroC" typeInput="number" label="Diametro de copa (m)"
+    isReadOnly="{{boolval($isReO)}}"
+    haveValue="true" 
+    value="{{$nuevo?null:$Planta->Morfologia->DiametroCopa}}"
+    >
+    </x-typeInput>
+    <!--
          <div class="form-group row g-3">
         <label for="DiametroC"
             class="col-md-4 col-form-label text-md-left">{{ __('Diametro de copa (m)') }}</label>
@@ -122,7 +133,7 @@
         </div>
     </div>
     -->
-    
+
     <!--
      <div class="form-group row g-3">
         <label for="Raices" class="col-md-4 col-form-label text-md-left">{{ __('Raíces') }}</label>
@@ -134,17 +145,11 @@
     </div>
     -->
 
-    <x-typeInput  
-    labelFor="Raices" 
-    typeInput="text"
-    label="Raíces" 
-    isTextArea="true"
-    haveValue="true"
-    value="{{$nuevo}}"
-    >
-    
-    </x-typeInput>
+    <x-typeInput labelFor="Raices" typeInput="text" label="Raíces" isTextArea="true" haveValue="true"
+        isReadOnly="{{boolval($isReO)}}" value="{{$nuevo?null:$Planta->Morfologia->Raices}}">
 
+    </x-typeInput>
+    <!--
     <div class="form-group row g-3">
         <label for="TRaices"
             class="col-md-4 col-form-label text-md-left">{{ __('Tipo de Raíces') }}</label>
@@ -154,13 +159,16 @@
                 value="{{ old('TRaices') }}"  autocomplete autofocus></textarea>
         </div>
     </div>
-
-    
-    <div class="form-group row g-3" >
+-->
+    <x-typeInput labelFor="TRaices" typeInput="text" label="Tipo de Raíces" isTextArea="true" haveValue="true"
+        isReadOnly="{{boolval($isReO)}}" value="{{$nuevo?null:$Planta->Morfologia->TRaices}}">
+    </x-typeInput>
+    @if ($nuevo)
+    <div class="form-group row g-3">
         <label for="Manejo" class="col-md-4 col-form-label text-md-left">{{ __('Manejo') }}</label>
 
         <div class="col-md-6">
-            <select class="custom-select" id="Manejo" name="Manejo" >
+            <select class="custom-select" id="Manejo" name="Manejo">
                 <option selected disabled>Manejo</option>
                 <option value="1">1 (Baja)</option>
                 <option value="2">2 (Regular)</option>
@@ -168,28 +176,47 @@
             </select>
         </div>
     </div>
-    
+    @else
+    <div class="form-group row g-3">
+        <label for="Manejo" class="col-md-4 col-form-label text-md-left">{{ __('Manejo') }}</label>
+
+        <div class="col-md-6">
+            <select class="custom-select" id="Manejo" name="Manejo">
+                @if ($Planta->Morfologia->Manejo=="1")
+                <option selected disabled value="1">1 (Baja)</option>
+                @else
+                @if ($Planta->Morfologia->Manejo=="2")
+                <option selected disabled value="2">2 (Regular)</option>
+                @else
+                <option selected disabled value="3">3 (Alta)</option>
+                @endif
+                @endif
+            </select>
+        </div>
+    </div>
+    @endif
+
+
     <div class="form-group row g-3">
         <label for="DanosFisicos"
             class="col-md-4 col-form-label text-md-left">{{ __('Presencia de daños físicos') }}</label>
         <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customRadioInline1" name="customRadioInline"
-                class="custom-control-input" onclick="DFisicos(1)" >
-            <label class="custom-control-label" for="customRadioInline1" >Si</label>
+            <input type="radio" id="customRadioInline1" name="customRadioInline" class="custom-control-input"
+                onclick="DFisicos(1)">
+            <label class="custom-control-label" for="customRadioInline1">Si</label>
         </div>
         <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customRadioInline2" name="customRadioInline"
-                class="custom-control-input" onclick="DFisicos(0)" >
+            <input type="radio" id="customRadioInline2" name="customRadioInline" class="custom-control-input"
+                onclick="DFisicos(0)">
             <label class="custom-control-label" for="customRadioInline2">No</label>
         </div>
     </div>
-    <div class="form-group row g-3" >
+    <div class="form-group row g-3">
         <div class="col-md-4 col-form-label text-md-left"></div>
         <div class="col-md-6">
             <textarea aria-label="With textarea" id="DanosFisicosText" type="text"
-                class="form-control @error('DanosFisicosText') is-invalid @enderror"
-                name="DanosFisicosText" value="{{ old('DanosFisicosText') }}"
-                autocomplete="DanosFisicosText" autofocus></textarea>
+                class="form-control @error('DanosFisicosText') is-invalid @enderror" name="DanosFisicosText"
+                value="{{ old('DanosFisicosText') }}" autocomplete="DanosFisicosText" autofocus></textarea>
         </div>
     </div>
     <div class="form-group row g-3">
@@ -197,7 +224,7 @@
             class="col-md-4 col-form-label text-md-left">{{ __('Estado fitosanitario aparente') }}</label>
 
         <div class="col-md-6">
-            <select class="custom-select" id="EstadoFitosanitario" name ="EstadoFiso" >
+            <select class="custom-select" id="EstadoFitosanitario" name="EstadoFiso">
                 <option selected disabled>Estado</option>
                 <option value="1">1 (Favorable)</option>
                 <option value="2">2 (Medio)</option>
@@ -211,8 +238,7 @@
         <div class="col-md-6">
             <textarea aria-label="With textarea" id="EnfermedadesA" type="text"
                 class="form-control @error('EnfermedadesA') is-invalid @enderror" name="EnfermedadesA"
-                value="{{ old('EnfermedadesA') }}"  autocomplete="EnfermedadesA" maxlength="400"
-                autofocus></textarea>
+                value="{{ old('EnfermedadesA') }}" autocomplete="EnfermedadesA" maxlength="400" autofocus></textarea>
         </div>
     </div>
     <div class="form-group row g-3">
@@ -221,8 +247,7 @@
         <div class="col-md-6">
             <textarea aria-label="With textarea" id="EnfermedadesP" type="text" maxlength="400"
                 class="form-control @error('EnfermedadesP') is-invalid @enderror" name="EnfermedadesP"
-                value="{{ old('EnfermedadesP') }}" autocomplete="EnfermedadesP"
-                autofocus></textarea>
+                value="{{ old('EnfermedadesP') }}" autocomplete="EnfermedadesP" autofocus></textarea>
         </div>
     </div>
 </div>

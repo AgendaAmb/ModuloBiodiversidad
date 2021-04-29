@@ -17,7 +17,7 @@
       
         <br>
         {{
-           $Plantas->Morfologia->Raices
+           $Plantas->Morfologia
         }}
         <br>
         {{$Plantas->NombreEjem}}

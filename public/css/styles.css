@@ -35,6 +35,12 @@ padding: 0%;
   background-color: white;
   border-top: 0px;
   color: gray;
+ 
+  
+  }
+  .especies .card-footer h4{
+    font-weight: 600;
+    text-align: center;
   }
 .especies .card:hover{
   width: 40px;

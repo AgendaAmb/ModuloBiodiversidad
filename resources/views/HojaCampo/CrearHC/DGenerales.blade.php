@@ -7,6 +7,8 @@
         typeInput="date"
         isReadOnly="{{boolval($isReO)}}"
         label="Fecha de recoleccion de datos" 
+        haveValue="true"
+        value="{{$nuevo?null:$Planta->FechaRecoleccion}}"
         >
         </x-typeInput>
         <!--
@@ -28,6 +30,8 @@
         typeInput="date"
         isReadOnly="{{boolval($isReO)}}"
         label="Fecha de fotografía" 
+        haveValue="true"
+        value="{{$nuevo?null:$Planta->FechaRecoleccion}}"
         >
         </x-typeInput>
         <!--
@@ -45,6 +49,8 @@
         isRequiered="true"
         isReadOnly="{{boolval($isReO)}}"
         label="Nombre del Recolector de datos" 
+        haveValue="true"
+        value="{{$nuevo?null:$Planta->NombreRecolectorDatos}}"
         >
         </x-typeInput>
         <!--
@@ -72,7 +78,7 @@
         isReadOnly="{{boolval($isReO)}}"
         label="Nombre del Recolector de muestra" 
         haveValue="true"
-        value="{{$nuevo?null:$Planta->NombreRecolecatorM}}"
+        value="{{$nuevo?null:$Planta->NombreRecolectorMuestra}}"
         >
         </x-typeInput>
         <!--
@@ -99,8 +105,8 @@
         isRequiered="true" 
         isReadOnly="{{boolval($isReO)}}"
         label="Nombre de autor de fotografías" 
-        haveValue="false"
-        value="{{$nuevo?null:$Planta->NombreRecolecatorM}}"
+        haveValue="true"
+        value="{{$nuevo?null:$Planta->NombreAutorFoto}}"
         >
         
         </x-typeInput>

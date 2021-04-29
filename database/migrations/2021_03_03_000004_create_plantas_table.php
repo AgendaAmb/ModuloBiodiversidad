@@ -16,6 +16,7 @@ class CreatePlantasTable extends Migration
         Schema::create('plantas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('FechaRecoleccion');
+            $table->string('FechaFotografia');
             $table->string('NombreRecolectorDatos');
             $table->string('NombreRecolectorMuestra');
             $table->string('NombreAutorFoto');

@@ -27,7 +27,7 @@
 
 
                 <div class="card-body">
-                    <a href="#">
+                    <a href="{{route('UserHCEdit',['id'=>$Hoja->id])}}">
                         <img class="card-img-top " id="{{$Hoja->id}}" @if (count($Hoja->imagenesPlanta)==0)
                         src="{{asset('storage/Logos/NoDisponible.png')}}"
                         @else

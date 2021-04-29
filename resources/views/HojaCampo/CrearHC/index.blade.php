@@ -7,6 +7,7 @@
 @extends('dashboard.main')
 
 @section('contenido')
+
 @if (isset($Planta))
 {{$nuevo=false}}
 @else

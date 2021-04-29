@@ -16,14 +16,14 @@ class NombreEjemplarController extends Controller
     public function index()
     {
         
-        $Ejemplares = NombreEjemplar::orderBy('NombreComun','asc')->Paginate(12);
+        $Ejemplares = NombreEjemplar::orderBy('NombreComun','asc')->Paginate(15);
        
         return \view('Ejemplares.index')->with("Ejemplares", $Ejemplares);
     }
     public function indexPublic()
     {
         
-        $Ejemplares = NombreEjemplar::orderBy('NombreComun','asc')->Paginate(15);
+        $Ejemplares = NombreEjemplar::orderBy('NombreComun','asc')->Paginate(12);
        
         return \view('Ejemplares.indexPublic')->with("Ejemplares", $Ejemplares);
     }

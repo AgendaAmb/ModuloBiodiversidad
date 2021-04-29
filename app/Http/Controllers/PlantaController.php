@@ -175,10 +175,22 @@ class PlantaController extends Controller
      * @param  \App\Planta  $planta
      * @return \Illuminate\Http\Response
      */
-    public function show(Planta $planta, $id)
+    public function show(Planta $planta, $id,Request $request)
     {
-        dd($id);
-        $planta = Planta::findorFail($id);
+       
+        $request->user()->authorizeRoles(['administrador', 'Gestor']);
+        
+        $Planta = Planta::findorFail($id);
+        $this->loadEjemplares();
+        $this->loadSubUnidades();
+        
+       
+        return \view('HojaCampo.CrearHC.index')
+            ->with("Ejemplar", $this->Ejemplar)
+            ->with("SubUnidades", $this->SubUnidades)
+            ->with("SubUnidadTP", $this->SubUnidadTP)
+            ->with("isReO",true)
+            ->with("Planta",$Planta);
 
     }
 
@@ -234,9 +246,9 @@ class PlantaController extends Controller
         $Morfologia->EstadoFiso = $request->EstadoFiso;
         $Morfologia->EnfermeAparentes = $request->EnfermedadesA;
         $Morfologia->EnfermeLitera = $request->EnfermedadesP;
-        $Morfologia->save();
+        //$Morfologia->save();
 
-        $Planta->Morfologia()->create(array($Morfologia));
+        $Planta->Morfologia()->save($Morfologia);
     }
     private function saveSitEnt(Request $request, $Planta)
     {
@@ -258,8 +270,8 @@ class PlantaController extends Controller
 
         $SituacionEnt->EntidadAcademica = $request->EntidadA;
         $SituacionEnt->SubEntidadAcademica = $request->SubUnidadesFiltrada;
-        $SituacionEnt->save();
-        $Planta->SituacionEntorno()->create(array($SituacionEnt));
+        //$SituacionEnt->save();
+        $Planta->SituacionEntorno()->save($SituacionEnt);
     }
 
     private function saveImagen(String $directoryPersona, String $NF, $image, String $ClaveF, Planta $Planta,int  $No_Ejemplar)
@@ -278,10 +290,10 @@ class PlantaController extends Controller
         $Planta = new Planta();
         $this->saveMorfo($request, $Planta);
         $this->saveSitEnt($request, $Planta);
-        
+        $Planta->FechaFotografia=$request->FechaFotografia;
         $Planta->FechaRecoleccion = $request->FechaRecoleccion;
         $Planta->NombreRecolectorDatos = $request->NombreRecolectorD;
-        $Planta->FechaRecoleccion = $request->FechaFotografia;
+       
         $Planta->NombreRecolectorMuestra = $request->NombreRecolectorm;
         $Planta->NombreAutorFoto=$request->NombreAutorFoto;
         $Planta->Verificado = false;

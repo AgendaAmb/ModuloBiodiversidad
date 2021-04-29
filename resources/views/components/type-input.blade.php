@@ -5,7 +5,7 @@
 
     @if ($isTextArea)
     <div class="col-md-6">
-        <textarea aria-label="With textarea" id="{{$labelFor}}" type="text"
+        <textarea {{$isReadOnly ? 'readonly':''}}  aria-label="With textarea" id="{{$labelFor}}" type="text"
             class="form-control @error($labelFor) is-invalid @enderror" name="{{$labelFor}}"
             value="{{$haveValue ? $value:old($labelFor)}}"  autocomplete autofocus>{{$value}}</textarea>
     </div>
