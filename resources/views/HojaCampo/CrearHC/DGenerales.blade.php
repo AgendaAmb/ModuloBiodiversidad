@@ -99,7 +99,7 @@
             </div>
         </div>
         -->
-        
+       
         <x-typeInput  
         labelFor="NombreAutorFoto" 
         isRequiered="true" 

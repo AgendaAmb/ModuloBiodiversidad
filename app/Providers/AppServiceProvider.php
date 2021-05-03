@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Blade::component('menuBio',\App\View\Components\menuBio::class);
         Blade::component('typeInput',\App\View\Components\typeInput::class);
     }
 }

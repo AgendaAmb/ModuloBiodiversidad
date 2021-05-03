@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid ml-1 mr-1 " id="fondo">
+<div class="container-fluid ml-1 mr-1" id="fondo">
     <div class="row justify-content-center mt-5">
         <a class="btn btn-light btn-lg mr-2 mb-2 btnBio" href="{{route('EjemplaresP')}}" role="button">Especies</a>
         <a class="btn btn-light btn-lg mr-2 mb-2 btnBio" href="#" role="button">Contacto</a>

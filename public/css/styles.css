@@ -79,14 +79,14 @@ a.delete:hover{
 }
 #fondo{
   /* Center and scale the image nicely */
-  background:url('Fondo_BiodiversidadC.webp');
+  background:url('Fondo_BiodiversidadHojas.webp');
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
   overflow: hidden;
   height: auto;
   width: auto;
-  max-width: 2500px;
+  max-width: 100%;
  
 }
 .card{
@@ -95,7 +95,7 @@ a.delete:hover{
   
 }
 .carousel-caption{
-  bottom: 15.5rem;
+  bottom: 30%;
 }
 #mainP{
 max-height: 1250px;
@@ -132,7 +132,11 @@ font-weight: bold;
   margin-left: 3vw;
   width: auto;
 }
-
+.imagenAgenda_uaslp{
+  height: auto;
+  width: auto;
+  display: none;
+}
 .navbar{
   background-color: gray;
   padding: 0%; 
@@ -240,3 +244,36 @@ ul.dropdown-menu > li
        height: 40px;
     }
 }
+
+@media only screen and (max-width: 768px) and (min-width: 10px)
+{
+  .imagenAgenda_uaslp{
+    display: flex;
+  }
+  .imagenUASLP{
+display: none;
+  }
+  .imagenAgenda{
+display: none;
+  }
+  .carousel-caption{
+    bottom: 25%;
+  }
+  
+  
+}
+@media only screen and (max-width: 1042px) and (min-width: 768px)
+{
+  .carousel-caption{
+    bottom: 25%;
+  } 
+  
+}
+
+@media (min-width: 1290px) { 
+  .img-flores{
+    height: 75px;
+    width: 75px;
+  }
+ }
+

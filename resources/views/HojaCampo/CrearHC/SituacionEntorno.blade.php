@@ -4,9 +4,9 @@
         <label for="NoEjemplar" class="col-md-4 col-form-label text-md-left">{{ __('No. de ejemplar') }}</label>
         <div class="col-md-6">
 
-            <input id="NoEjemplar"  v-model="NoEjem" readonly type="text" class="form-control @error('NoEjemplar') is-invalid @enderror"
-                name="NoEjemplar" value="{{old('NoEjemplar') }}" maxlength="40" required autocomplete="NoEjemplar"
-                autofocus>
+            <input id="NoEjemplar" v-model="NoEjem" readonly type="text"
+                class="form-control @error('NoEjemplar') is-invalid @enderror" name="NoEjemplar"
+                value="{{old('NoEjemplar') }}" maxlength="40" required autocomplete="NoEjemplar" autofocus>
 
             @error('NoEjemplar')
             <span class="invalid-feedback" role="alert">
@@ -41,17 +41,12 @@
     </div>
     <div class="form-group row">
         <label for="Coordenadageográfica"
-            class="col-md-4 col-form-label text-md-left">{{ __('Coordenada geográfica') }}<br>(Grados,Minutos,Segundos)</label>
-
-
-
+            class="col-md-4 col-form-label text-md-left">{{ __('Coordenada geográfica') }}<br></label>
         <div class="col-md-6">
 
             <input id="Latitud" type="text" class="form-control  @error('Latitud') is-invalid @enderror" name="Latitud"
-                value="{{ old('Latitud') }}" autocomplete="Latitud" autofocus data-toggle="tooltip" data-placement="top"
-                placeholder="Latitud">
-
-
+                value="{{$nuevo?old('Latitud'):$Planta->SituacionEntorno->Latitud}}" {{$isReO? "readonly":""}}
+                autocomplete="Latitud" autofocus data-toggle="tooltip" data-placement="top" placeholder="Latitud">
             @error('Latitud')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
@@ -60,10 +55,9 @@
             <div class="col-md-12 p-0 pt-1">
 
                 <input id="longitud" type="text" class="form-control  @error('longitud') is-invalid @enderror"
-                    name="longitud" value="{{ old('longitud') }}" autocomplete="longitud" autofocus data-toggle="tooltip"
+                    name="longitud" value="{{$nuevo?old('longitud'):$Planta->SituacionEntorno->Altitud}}"
+                    {{$isReO? "readonly":""}} autocomplete="longitud" autofocus data-toggle="tooltip"
                     data-placement="top" placeholder="Longuitud">
-
-
                 @error('longitud')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -72,12 +66,9 @@
 
             </div>
         </div>
-
-
-
     </div>
-    
 
+    @if ($nuevo)
     <div class="form-group row g-3">
         <label for="TAreaVerde"
             class="col-md-4 col-form-label text-md-left">{{ __('Tipo de área verde o lugar de plantación') }}</label>
@@ -94,15 +85,54 @@
             </select>
         </div>
     </div>
+    @else
+    <div class="form-group row g-3">
+        <label for="TAreaVerde"
+            class="col-md-4 col-form-label text-md-left">{{ __('Tipo de área verde o lugar de plantación') }}</label>
 
+        <div class="col-md-6">
+            <select class="custom-select" id="TAreaVerde" name="TAreaVerde">
+                @if (is_null($Planta->SituacionEntorno->TArea))
+                <option selected disabled>Sin Estado Tipo de Área Verde Registrado</option>
+                @else
+                @if ($Planta->SituacionEntorno->TArea=="1")
+                <option selected disabled value="1">1 (Jardín)</option>
+                @else
+                @if ($Planta->SituacionEntorno->TArea=="2")
+                <option selected disabled value="2">2 (Andador)</option>
+                @else
+                @if ($Planta->SituacionEntorno->TArea=="3")
+                <option selected disabled value="3">3 (Jardinera)</option>
+                @else
+                @if ($Planta->SituacionEntorno->TArea=="4")
+                <option selected disabled value="4">4 (Camellón)</option>
+                @else
+                @if ($Planta->SituacionEntorno->TArea=="5")
+                <option selected disabled value="5"> 5 (reja)</option>
+                @else
+                <option selected disabled value="6">6 (Muro)</option>
+                @endif
+                @endif
+                @endif
+                @endif
+                @endif
+                @endif
+            </select>
+        </div>
+    </div>
+    @endif
 
+    <x-typeInput labelFor="AspectoEspacio" isRequiered="true" isReadOnly="{{boolval($isReO)}}"
+        label="Aspectos de espacio" haveValue="true" value="{{$nuevo?null:$Planta->SituacionEntorno->Aspecto}}">
+    </x-typeInput>
+    <!--
     <div class="form-group row g-3">
         <label for="AspectoEspacio" class="col-md-4 col-form-label text-md-left">{{ __('Aspectos de espacio') }}</label>
 
         <div class="col-md-6">
             <input id="AspectoEspacio" type="text" class="form-control @error('AspectoEspacio') is-invalid @enderror"
-                name="AspectoEspacio" value="{{ old('AspectoEspacio') }}" autocomplete="AspectoEspacio"
-                autofocus data-toggle="tooltip" data-placement="top" title="">
+                name="AspectoEspacio" value="{{ old('AspectoEspacio') }}" autocomplete="AspectoEspacio" autofocus
+                data-toggle="tooltip" data-placement="top" title="">
 
             @error('AspectoEspacio')
             <span class="invalid-feedback" role="alert">
@@ -111,13 +141,15 @@
             @enderror
         </div>
     </div>
-
-    
+-->
+{{$nuevo?null:json_decode($Planta->SituacionEntorno->Interfencia)->Sena}}
     <div class="form-group row g-3">
         <label for="Interferecia"
             class="col-md-4 col-form-label text-md-left">{{ __('Interferencia aparente con instalaciones inmediatas') }}</label>
+        
         <div class="col-md-6">
             <div class="form-check form-check-inline">
+                <!--checked-->
                 <input class="form-check-input" type="checkbox" id="CBCableado" value="CBCableado" name="CBCableado">
                 <label class="form-check-label" for="CBCableado">Cableado aéreo</label>
             </div>
