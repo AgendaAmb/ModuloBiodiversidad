@@ -13,7 +13,7 @@
 @else
 {{$nuevo=true}}
 @endif
-
+<a href="{{ URL::previous() }}">Go Back</a>
 <body>
     <div class="container-fluid justify-content-between" id="appp">
         <div class="container mb-4">
@@ -109,7 +109,10 @@
                     "Abreviatura":'{{$UnidadP->Abreviatura}}'
                 });
     @endforeach
-   
+   @if (!$nuevo) {
+  
+   }
+   @else{
     this.archivos = [
         {
             imagen:"",
@@ -159,11 +162,15 @@
             
         },
     ]
+   }
+   @endif
+   
     
   })
   
 }, 
 methods:{
+    
     cargarImagen: function(e,index){
         let t = this;
         var input = document.getElementById('fileImg' +index);

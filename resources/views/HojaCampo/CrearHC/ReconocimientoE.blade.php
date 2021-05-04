@@ -1,6 +1,6 @@
 <div class="col-xl-6">
     <h2 class="alert alert-primary text-center">Reconocimiento de ejemplar</h2>
-    @if ($isReO)
+    @if (!$nuevo)
     <div class="form-group row g-3 was-validated">
         <label for="NombreC" class="col-md-4 col-form-label text-md-left">{{ __('Nombre Común') }}</label>
         <div class="col-md-6">
@@ -25,11 +25,11 @@
         </div>
     </div>
     @endif
-    @if ($isReO)
+    @if (!$nuevo)
     <div class="form-group row g-3 was-validated">
         <label for="NombreCientifico" class="col-md-4 col-form-label text-md-left">{{ __('Nombre Científico') }}</label>
         <div class="col-md-6">
-            <input id="NombreCientifico"    readonly type="text"
+            <input id="NombreCientifico" readonly type="text"
                 class="form-control @error('NombreCientifico') is-invalid @enderror" name="NombreCientifico"
                 value="{{$Planta->NombreEjem->NombreCientifico}}" maxlength="40" required autocomplete="NombreCientifico" autofocus>
             @error('NombreCientifico')
@@ -43,7 +43,7 @@
     <div class="form-group row g-3 was-validated">
         <label for="NombreCientifico" class="col-md-4 col-form-label text-md-left">{{ __('Nombre Científico') }}</label>
         <div class="col-md-6">
-            <input id="NombreCientifico" v-model="NCientifico"   type="text"
+            <input id="NombreCientifico" v-model="NCientifico"  readonly type="text"
                 class="form-control @error('NombreCientifico') is-invalid @enderror" name="NombreCientifico"
                 value="{{old('NombreCientifico') }}" maxlength="40" required autocomplete="NombreCientifico" autofocus>
 

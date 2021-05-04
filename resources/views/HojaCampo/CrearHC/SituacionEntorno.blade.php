@@ -3,7 +3,7 @@
     <div class="form-group row g-3">
         <label for="NoEjemplar" class="col-md-4 col-form-label text-md-left">{{ __('No. de ejemplar') }}</label>
         <div class="col-md-6">
-
+            @if ($nuevo)
             <input id="NoEjemplar" v-model="NoEjem" readonly type="text"
                 class="form-control @error('NoEjemplar') is-invalid @enderror" name="NoEjemplar"
                 value="{{old('NoEjemplar') }}" maxlength="40" required autocomplete="NoEjemplar" autofocus>
@@ -13,12 +13,18 @@
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
+            @else
+            <input id="NoEjemplar" readonly type="text" class="form-control @error('NoEjemplar') is-invalid @enderror"
+                name="NoEjemplar" value="{{$Planta->SituacionEntorno->No_Ejemplar}}" maxlength="40" required
+                autocomplete="NoEjemplar" autofocus>
+            @endif
+
         </div>
 
     </div>
     <div class="form-group row g-3 was-validated">
         <label for="EntidadA" class="col-md-4 col-form-label text-md-left">{{ __('Entidad Académica') }}</label>
-
+        @if ($nuevo)
         <div class="col-md-6">
             <select class="custom-select" id="EntidadA" name="EntidadA" v-model="Entidad_id" required
                 @change="FiltroSubUnidades()">
@@ -26,18 +32,46 @@
                 <option v-for="(N,index) in SubUnidadesP" :value="N.IdUnidad">@{{N.NombreUnidad}}</option>
             </select>
         </div>
+        @else
+
+        <div class="col-md-6">
+            <select class="custom-select" id="EntidadA" name="EntidadA">
+                <option selected disabled value="">
+
+                    @foreach ($SubUnidades as $unidad)
+
+                    @if ($unidad["IdUnidad"]==$Planta->SituacionEntorno->EntidadAcademica)
+                    {{$unidad["SubUnidad"]}}
+                    @break
+                    @endif
+                    @endforeach
+
+                </option>
+
+            </select>
+        </div>
+        @endif
+
 
     </div>
     <div class="form-group row g-3 was-validated">
         <label for="SubUnidadesFiltrada"
             class="col-md-4 col-form-label text-md-left">{{ __('SubUnidad Academica') }}</label>
-
+        @if ($nuevo)
         <div class="col-md-6">
             <select class="custom-select" id="SubUnidadesFiltrada" name="SubUnidadesFiltrada" required>
                 <option selected disabled value="">SubUnidadAcademica</option>
                 <option v-for="(A,index) in SubUnidadesFiltrada" :value="A.NombreUnidad">@{{A.NombreUnidad}}</option>
             </select>
         </div>
+        @else
+        <div class="col-md-6">
+            <select class="custom-select" id="SubUnidadesFiltrada" name="SubUnidadesFiltrada">
+                <option selected disabled value="">{{$Planta->SituacionEntorno->SubEntidadAcademica}}</option>
+            </select>
+        </div>
+        @endif
+
     </div>
     <div class="form-group row">
         <label for="Coordenadageográfica"
@@ -142,31 +176,41 @@
         </div>
     </div>
 -->
-{{$nuevo?null:json_decode($Planta->SituacionEntorno->Interfencia)->Sena}}
+
     <div class="form-group row g-3">
         <label for="Interferecia"
             class="col-md-4 col-form-label text-md-left">{{ __('Interferencia aparente con instalaciones inmediatas') }}</label>
-        
+
         <div class="col-md-6">
             <div class="form-check form-check-inline">
                 <!--checked-->
-                <input class="form-check-input" type="checkbox" id="CBCableado" value="CBCableado" name="CBCableado">
+                <input class="form-check-input" type="checkbox" id="CBCableado"
+                    {{$nuevo?null:json_decode($Planta->SituacionEntorno->Interfencia)->Sena!=null?'checked':''}}
+                    value="CBCableado" name="CBCableado" {{$nuevo?null:'disabled'}}>
                 <label class="form-check-label" for="CBCableado">Cableado aéreo</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="CBInfra" value="CBInfra" name="CBInfra">
+                <input class="form-check-input" type="checkbox" id="CBInfra" value="CBInfra"
+                    {{$nuevo?null:json_decode($Planta->SituacionEntorno->Interfencia)->Edifi!=null?'checked':''}}
+                    {{$nuevo?null:'disabled'}} name="CBInfra">
                 <label class="form-check-label" for="CBInfra">Infraestructura</label>
             </div>
             <div class="form-check form-check-inline ">
-                <input class="form-check-input" type="checkbox" id="CBMobili" value="CBMobili" name="CBMobili">
+                <input class="form-check-input" type="checkbox" id="CBMobili" value="CBMobili"
+                    {{$nuevo?null:json_decode($Planta->SituacionEntorno->Interfencia)->Infra!=null?'checked':''}}
+                    {{$nuevo?null:'disabled'}} name="CBMobili">
                 <label class="form-check-label" for="CBMobili">Mobiliario urbano</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="CBSena" value="CBSena" name="CBSena">
+                <input class="form-check-input" type="checkbox" id="CBSena" value="CBSena"
+                    {{$nuevo?null:json_decode($Planta->SituacionEntorno->Interfencia)->Mobili!=null?'checked':''}}
+                    name="CBSena" {{$nuevo?null:'disabled'}}>
                 <label class="form-check-label" for="CBSena">Señalamientos</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="CBEdifi" value="CBEdifi" name="CBEdifi">
+                <input class="form-check-input" type="checkbox" id="CBEdifi" value="CBEdifi"
+                    {{$nuevo?null:json_decode($Planta->SituacionEntorno->Interfencia)->Cableado!=null?'checked':''}}
+                    name="CBEdifi" {{$nuevo?null:'disabled'}}>
                 <label class="form-check-label" for="CBEdifi">Edificación</label>
             </div>
         </div>
