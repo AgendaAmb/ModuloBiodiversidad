@@ -7,7 +7,7 @@
         <a class="btn btn-light btn-lg mr-2 mb-2 btnBio" href="#" role="button">Contacto</a>
     </div>
     <div class="row justify-content-center mt-1">
-        <div class="col-md-4 m-lg-5 m-sm-1" >
+        <div class="col-md-5 m-lg-5 m-sm-1" >
             <div class="card" id="loginCard">
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

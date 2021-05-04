@@ -245,7 +245,7 @@ ul.dropdown-menu > li
     }
 }
 
-@media only screen and (max-width: 768px) and (min-width: 10px)
+@media only screen and (max-width: 540px) and (min-width: 10px)
 {
   .imagenAgenda_uaslp{
     display: flex;
@@ -257,7 +257,42 @@ display: none;
 display: none;
   }
   .carousel-caption{
-    bottom: 25%;
+    bottom: 0%;
+    right: 0%;
+    left: 0%;
+  }
+  .btnBio{
+    width: 60px;
+    height: 1.2rem;
+    font-size: 0.7rem;
+  }
+  .img-flores{
+    height: 30px;
+    width: 30px;
+  }
+}
+@media only screen and (max-width: 768px) and (min-width: 540px)
+{
+  .imagenAgenda_uaslp{
+    display: flex;
+  }
+  .imagenUASLP{
+display: none;
+  }
+  .imagenAgenda{
+display: none;
+  }
+  .carousel-caption{
+    bottom: 18%;
+  }
+  .btnBio{
+    width: 80px;
+    height: 1.8rem;
+    font-size: 1.0rem;
+  }
+  .img-flores{
+    height: 40px;
+    width: 40px;
   }
   
   
