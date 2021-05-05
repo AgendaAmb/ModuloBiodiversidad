@@ -109,8 +109,17 @@
                     "Abreviatura":'{{$UnidadP->Abreviatura}}'
                 });
     @endforeach
+
+    //*Guardar en la base de datos la parte de la planta**/
    @if (!$nuevo) {
-  
+    @foreach($Planta->imagenesPlanta as $Foto)
+                this.archivos.push({
+                    "imagen":'{{$Foto->url}}',
+                    "nombre":'{{$Foto->nombre}}',
+                    "parteP":'planta',
+                    
+                });
+    @endforeach
    }
    @else{
     this.archivos = [

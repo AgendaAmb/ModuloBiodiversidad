@@ -1,9 +1,9 @@
 <div class="row row-cols-1 row-cols-xl-4 row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
     <div class="col mb-4" v-for="(a, index) in archivos">
         <div class="card w-100 ">
-            <h5 class="card-title text-center">@{{a.parteP}}</h5>
+            <h5 class="card-title text-center">@{{a.nombre}} </h5>
             <div class="card-body">
-                <img class="card-img-top " v-if="a.imagen!=''" :id="a.nombre" :src="a.imagen" alt="Card image cap">
+                <img class="card-img-top " v-if="a.imagen!=''" :id="a.nombre" :src="'/storage'+a.imagen" alt="Card image cap">
             </div>
 
             <div class="card-footer pl-5">
