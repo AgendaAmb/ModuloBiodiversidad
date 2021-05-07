@@ -25,10 +25,10 @@
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('Dash/plugins/summernote/summernote-bs4.min.css')}}">
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-  @stack('styles')
-   <!-- Theme style -->
+  <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('Dash/dist/css/adminlte.min.css')}}">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  @stack('styles')
  
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -221,44 +221,53 @@
                 <a href="#" class="nav-link active">
                     <i class="fas fa-seedling"></i>
                   <p>
-                    Biodiversidad
+                    Plantas
                     <i class="right fas fa-angle-left"></i>
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="#" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
+                      <i class="fab fa-envira"></i>
                       <p>
-                        Plantas
+                        Hojas de campo
                         <i class="right fas fa-angle-left"></i>
                       </p>
                     </a>
                     <ul class="nav nav-treeview">
                       <li class="nav-item">
-                        <a href="{{route('Ejemplares')}}" class="nav-link">
-                          <i class="far fa-dot-circle nav-icon"></i>
-                          <p>Especies</p>
-                        </a>
-                      </li>
-                      <li class="nav-item">
                         <a href="{{route('HojaCampo')}}" class="nav-link">
                           <i class="far fa-dot-circle nav-icon"></i>
-                          <p>Hoja de campo</p>
+                          <p>Registrar</p>
                         </a>
                       </li>
                       <li class="nav-item">
                         <a href="#" class="nav-link">
-                          <i class="far fa-dot-circle nav-icon"></i>
-                          <p>Level 3</p>
+                          <i class="fas fa-user-check"></i>
+                          <p>Verificadas</p>
+                        </a>
+                      </li>
+                     
+                      <!--Mostrar todas las hojas de campo-->
+                      <li class="nav-item">
+                        <a href="{{route('UserHC')}}" class="nav-link">
+                        
+                          <i class="far fa-file-alt"></i>
+                          <p>Mis hojas</p>
                         </a>
                       </li>
                     </ul>
                   </li>
                   <li class="nav-item">
+                    <a href="{{route('Ejemplares')}}" class="nav-link">
+                      <i class="fas fa-file-alt"></i>
+                      <p>Fichas Tecnicas</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
                     <a href="#" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Level 2</p>
+                      <p></p>
                     </a>
                   </li>
                 </ul>
@@ -302,11 +311,12 @@
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
+             <!--Mostrar las las hojas de campo de un usuario-->
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('UserHC')}}" class="nav-link active">
+                <a href="{{route('ShowHC')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Mis hojas de campo</p>
+                  <p>Mostrar todas las hojas de campp</p>
                 </a>
               </li>
             </ul>

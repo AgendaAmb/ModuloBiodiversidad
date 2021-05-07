@@ -179,7 +179,7 @@ class PlantaController extends Controller
     public function show(Planta $planta, $id, Request $request)
     {
 
-        $request->user()->authorizeRoles(['administrador', 'Gestor']);
+        //$request->user()->authorizeRoles(['administrador', 'Gestor']);
 
         $Planta = Planta::findorFail($id);
         if ($Planta->User->id == Auth::id()) {
@@ -199,7 +199,12 @@ class PlantaController extends Controller
         }
 
     }
-
+    public function showAllPlantas(Request $request){
+       // $request->user()->authorizeRoles(['administrador','Coordinador']);
+        $Planta = Planta::orderBy('created_at','asc')->Paginate(15);
+        
+        return view('HojaCampo.User.index')->with('MisHojasCampo', $Planta);
+    }
     /**
      * Show the form for editing the specified resource.
      *

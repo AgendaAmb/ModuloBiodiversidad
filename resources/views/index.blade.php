@@ -11,8 +11,10 @@
             <div class="row">
 
               <x-menuBio btnText="Especies" btnUrl="EjemplaresP" />
-
+             
               <x-menuBio btnText="Entrar" btnUrl="login" />
+          
+             
 
               <x-menuBio btnText="Contacto" btnUrl="#" />
             </div>

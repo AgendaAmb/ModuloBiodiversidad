@@ -4,22 +4,21 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class menuBio extends Component
+class Modal extends Component
 {
-  
-    public $btnUrl;
-    public $btnText;
-
+    public $idModal;
+    public $modalTitle;
+    public $isRechazada;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($btnText, $btnUrl)
+    public function __construct($idModal, $modalTitle, $isRechazada)
     {
-     
-        $this->btnText = $btnText;
-        $this->btnUrl = $btnUrl;
+        $this->idModal = $idModal;
+        $this->modalTitle = $modalTitle;
+        $this->isRechazada = $isRechazada;
     }
 
     /**
@@ -29,6 +28,6 @@ class menuBio extends Component
      */
     public function render()
     {
-        return view('components.menu-bio');
+        return view('components.modal');
     }
 }

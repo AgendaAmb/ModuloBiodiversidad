@@ -15,10 +15,11 @@ use Illuminate\Support\Facades\Route;
  Route::get('/', function () {
     return redirect('/Biodiversidad');
 });
+
 Route::group(['prefix' => 'Biodiversidad'], function () {
-    Route::get('/', function () {
-        return view('index');
-    });
+    Route::get('/usuario', 'HomeController@verificar')->name('UXV');
+    Route::view('/','index')->name('Bio');
+   
     Auth::routes();
     Route::get('/usuario', 'HomeController@verificar')->name('UXV');
     Route::get('/Ejemplares', 'NombreEjemplarController@indexPublic')->name('EjemplaresP');
@@ -32,13 +33,18 @@ Route::group(['prefix' => 'Biodiversidad'], function () {
             Route::get('/UsuariosAdmin', 'HomeController@getUsers')->name('UserAdmin');
             Route::post('/EliminarUser', 'HomeController@deleteUser')->name('EliminarUser');
             Route::get('/MisHojasCampo', 'HomeController@getHCByUser')->name('UserHC');
-            Route::get('/MisHojasCampo/{id}', 'PlantaController@show')->name('UserHCEdit');
+            
+        //Route::get('/MisHojasCampo/{id}', 'PlantaController@show')->name('UserHCEdit');
+            Route::get('/HojasCampo', 'PlantaController@showAllPlantas')->name('ShowHC');
             Route::get('/HojaCampo', 'PlantaController@index')->name('HojaCampo');
             Route::post('/GuardaHC', 'PlantaController@store')->name('GHC');
             Route::get('/Planta/{id}', 'PlantaController@show')->name('ShowPlanta');
             Route::get('/Ejemplares', 'NombreEjemplarController@index')->name('Ejemplares');
             Route::get('/PlantasEjemplares/{id}', 'NombreEjemplarController@show')->name('PlantasEjemplares');
-
+            Route::get('/MisHojasCampo', 'HomeController@getHCByUser')->name('UserHC');
+            Route::get('MisHojasCampo/{id}', 'PlantaController@show')->name('UserHCEdit');
+            Route::post('MisHojasCampo/{id}/verificar', 'PlantaController@deleteUser')->name('VerificarHC');
+           
         });
 
         Route::group(['middleware' => 'TRol:ConsultorT'], function () {

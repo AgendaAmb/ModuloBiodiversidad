@@ -31,7 +31,7 @@
             <button type="button" class="btn">ESPAÑOL/INGLES</button>
           </div>
           
-          <a class="btn btn btn-link btn-sm MiPortal" href={{route('login')}} role="button">
+          <a class="btn btn btn-link btn-sm MiPortal text-decoration-none" href={{route('login')}} role="button">
             <img src="storage/Logos/UBICACION-1.png" alt="" srcset="">
             MI PORTAL
           </a>

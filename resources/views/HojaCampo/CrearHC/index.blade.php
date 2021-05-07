@@ -10,10 +10,12 @@
 
 @if (isset($Planta))
 {{$nuevo=false}}
+<a href="{{ URL::previous() }}"><i class="fas fa-arrow-left"></i></a>
 @else
 {{$nuevo=true}}
 @endif
-<a href="{{ URL::previous() }}">Go Back</a>
+
+
 <body>
     <div class="container-fluid justify-content-between" id="appp">
         <div class="container mb-4">
@@ -47,18 +49,53 @@
                 @include('HojaCampo.CrearHC.ReconocimientoE')
                 @include('HojaCampo.CrearHC.Morfologia')
                 @include('HojaCampo.CrearHC.SituacionEntorno')
-
+                @if ($nuevo)
                 <div class="container mb-3">
                     <div class="row justify-content-center">
                         <button type="submit" class="btn btn-primary btn-lg">Confirmar</button>
                     </div>
                 </div>
+                @else
+                <div class="container mb-3 mt-5">
+                    <div class="row justify-content-between ">
+                        <div class="colum ">
+                            <button type="button" class="btn btn-success btn-lg" data-toggle="modal"
+                                data-target="#verificar">Verificar</button>
+                        </div>
+                        <div class="colum ">
+                            <button type="button" class="btn btn-danger btn-lg" data-toggle="modal"
+                                data-target="#Rechazar">Rechazar</button>
+                        </div>
+                    </div>
+
+                </div>
+                @endif
+
         </div>
     </div>
     </form>
     </div>
 </body>
 
+@if ($nuevo)
+    
+@else
+@if (Auth::user()->hasAnyRole(['administrador','Coordinador']))
+<x-Modal 
+idModal="verificar"
+modalTitle="Confirmar Hoja de campo"
+isRechazada="false"
+> 
+</x-Modal>
+<x-Modal 
+idModal="Rechazar"
+modalTitle="Rechazar Hoja de campo"
+isRechazada="true"
+> 
+</x-Modal>
+@endif
+
+@endif
 
 
 </html>

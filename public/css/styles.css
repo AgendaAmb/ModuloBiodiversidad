@@ -137,54 +137,7 @@ font-weight: bold;
   width: auto;
   display: none;
 }
-.navbar{
-  background-color: gray;
-  padding: 0%; 
-}
-#navP  .nav-item:hover{
-background-color: #96A834;
-height: 34px;
-}
 
-.navbar .nav-item .dropdown-menu{ 
-  display: none; 
-  flex-direction: column;
-}
-.navbar .nav-item:hover .nav-link{ 
-  color: white;  
-  font-weight: bolder;
-  
-}
-.navbar .nav-item .nav-link{ 
-  color: white;  
-  font-weight: bolder;
-  padding-left: 0.2rem;
-  padding-bottom: 0%;
-  padding-right: 0.2rem;
-  padding-top: 0.5rem;
-}
-.navbar .nav-item:hover .dropdown-menu{ 
-  display: block; 
-  background-color: white;
-}
-.dropdown-item:hover, .dropdown-item:focus{
-  color: white;
-  background-color: #97a83480;
-  font-weight: bold;
-}
-.dropdown-item, .dropdown-item{
-  color: gray;
-}
-#navP .navbar .nav-item .dropdown-menu{
-  margin-top:0; 
-}
-#navP .navbar-brand{
-  color: white;
-}
-#navP.navbar-brand:hover{
-  background-color: #96A834;
-  color: white;
-}
 .btn img{
   height: auto;
   width:20%;
@@ -212,6 +165,13 @@ ul.dropdown-menu > li
   width: 150px;
   
 }
+
+  #txtBio{
+    letter-spacing: 1.0rem;
+    font-weight: 900;
+    font-size: 50px;
+  }
+
 @media only screen and (max-width: 2000px) and (min-width: 992px)
 {
     .navbar-brand{
@@ -270,6 +230,16 @@ display: none;
     height: 30px;
     width: 30px;
   }
+  #btnEsp{
+    width: 140px;
+    height: 1.8rem;
+    font-size: 1.2rem;
+  }
+  #txtBio{
+    letter-spacing: 0.0rem;
+    font-size: 30px;
+    justify-self: center;
+  }
 }
 @media only screen and (max-width: 768px) and (min-width: 540px)
 {
@@ -294,7 +264,11 @@ display: none;
     height: 40px;
     width: 40px;
   }
-  
+  #btnEsp{
+    width: 140px;
+    height: 1.8rem;
+    font-size: 1.2rem;
+  }
   
 }
 @media only screen and (max-width: 1042px) and (min-width: 768px)
@@ -307,8 +281,10 @@ display: none;
 
 @media (min-width: 1290px) { 
   .img-flores{
-    height: 75px;
-    width: 75px;
+    height: 40px;
+    width: 40px;
   }
  }
+ 
+
 
