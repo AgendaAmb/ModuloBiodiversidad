@@ -21,7 +21,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = 'Biodiversidad/SistemaBiodiversidad';
+    public const HOME = 'Biodiversidad/Sistema';
     public const VERIFICAR = 'Biodiversidad/usuario';
 
     /**

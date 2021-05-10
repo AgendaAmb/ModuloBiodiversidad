@@ -81,9 +81,8 @@ class PlantaController extends Controller
      */
     public function store(Request $request)
     {
-
-        $request->user()->authorizeRoles(['administrador']);
-
+        $request->user()->authorizeRoles(['administrador', 'Gestor']);
+       
         $validatedData = Validator::make($request->all(), [
             'fileImg0' => 'image|mimes:png,jpeg',
             'fileImg1' => 'image|mimes:png,jpeg',

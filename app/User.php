@@ -48,6 +48,7 @@ class User extends Authenticatable
     
     public function hasAnyRole($roles)
     {
+        //dd(is_array($roles));
         if (is_array($roles)) {
             foreach ($roles as $role) {
                 if ($this->hasRole($role)&&$role!="Ninguno") {

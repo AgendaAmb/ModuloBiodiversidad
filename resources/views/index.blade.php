@@ -8,14 +8,14 @@
         <img src="{{asset('storage/Fondos/Fondo_Biodiversidad.webp')}}" class="img-fluid" alt="...">
         <div class="carousel-caption ">
           <div class="container-fluid">
-            <div class="row">
+            <div class="row justify-content-center">
 
               <x-menuBio btnText="Especies" btnUrl="EjemplaresP" />
              
               <x-menuBio btnText="Entrar" btnUrl="login" />
           
              
-
+              <x-menuBio btnText="Mapa" btnUrl="#" />
               <x-menuBio btnText="Contacto" btnUrl="#" />
             </div>
           </div>

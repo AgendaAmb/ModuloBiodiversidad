@@ -165,7 +165,10 @@ ul.dropdown-menu > li
   width: 150px;
   
 }
-
+.nav-treeview{
+  margin-left: 5%;
+  margin-right: 5%;
+}
   #txtBio{
     letter-spacing: 1.0rem;
     font-weight: 900;
