@@ -6,6 +6,8 @@ use App\Rol;
 use App\User;
 use Illuminate\Http\Request;
 use Auth;
+use DB;
+use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
 {
@@ -16,7 +18,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        
+        
     }
 
     /**
@@ -69,6 +72,48 @@ class HomeController extends Controller
         $user = user::findorFail(Auth::id());
         
         return view('HojaCampo.User.index')->with('MisHojasCampo', $user->Plantas()->paginate(12));
+    }
+    public function loginInstitucional(Request $request){
+
+        $response = Http::post('148.224.134.161/loginUASLP', [
+            'email' => 'A260651@alumnos.uaslp.mx',
+            'password' => '#f15L27j27I13',
+        ]);
+        
+        if ($response->ok()) {
+            //dd($request);
+           //$existeInBD=DB::table('users')->where('email', 'yeicob_loredo@hotmail.com')->first();
+            $existeInBD=User::where('email', 'yeicob_loredo@hotmail.com')->first();
+            dd($response->json()['data']);
+            if ($existeInBD) {
+                Auth::login($existeInBD);
+                return redirect()->route('dashbord');
+            } else {
+                if($response->json()['data']['CuentaActiva']){
+                    $user=User::create([
+                        'id'=>$response->json()['data']['ClaveUASLP'],
+                        'name' => $response->json()['data']['Nombres'].$response->json()['data']['Apellidos'],
+                        'email' => $response->json()['data']['Correo'],
+                        'password' => Hash::make($request->contraseña),
+                    ]);
+                    $user->roles()->attach(Rol::where('nombre', 'Ninguno')->first());
+                    $user->save();
+                    Auth::login($user);
+                    return redirect()->route('dashbord');
+                }else{
+                    echo "error no tienes una cuenta activa";
+                }
+               
+            }
+            
+            
+          
+
+        } else {
+            echo "error en credenciales";
+        }
+        
+       
     }
 
 }

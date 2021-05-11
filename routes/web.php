@@ -19,11 +19,13 @@ Route::get('/', function () {
 Route::group(['prefix' => 'Biodiversidad'], function () {
     Route::get('/usuario', 'HomeController@verificar')->name('UXV');
     Route::view('/', 'index')->name('Bio');
-
+    Route::view('/LoginInstitucional', 'Institucional.vista')->name('LInstitucional');
     Auth::routes();
     Route::get('/usuario', 'HomeController@verificar')->name('UXV');
     Route::get('/Ejemplares', 'NombreEjemplarController@indexPublic')->name('EjemplaresP');
 
+    Route::post('/LoginInstitucional', 'HomeController@loginInstitucional')->name('LInstitucionalP');
+    
     Route::group(['prefix' => 'Sistema', 'middleware' => 'auth'], function () {
         Route::get('/', 'HomeController@index')->name('dashbord');
         Route::group(['middleware' => 'TRol:administrador'], function () {

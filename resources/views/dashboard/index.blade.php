@@ -5,6 +5,7 @@
 @push('styles')
 <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
 @endpush
+
 @section('contenido')
 <body>
     <main class="container-fluid mt-1 p-0" id="mainP">

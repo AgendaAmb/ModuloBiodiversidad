@@ -1,4 +1,4 @@
-<nav " id="header">
+<nav  id="header">
     <div>
         <a href="#"><img src={{ asset('storage/Logos/INICIO-AGENDA-300x127.png')}} class="imagenAgenda"></a>        
     </div>
