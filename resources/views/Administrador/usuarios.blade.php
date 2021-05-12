@@ -63,7 +63,7 @@
                             <a class="edit" data-toggle="modal" id={{$usuario->id}} data-target="#exampleModal"
                                 onclick="pasarIdUser({{$usuario->id}});"><i class="fas fa-edit"></i></a>
                             <a class="delete" data-toggle="modal" id={{$usuario->id}} data-target="#modalEliminarU"  
-                                onclick="pasarIdUser({{$usuario->id}});"><i class="far fa-trash-alt"></i></a>
+                                onclick="pasarIdUserE({{$usuario->id}});"><i class="far fa-trash-alt"></i></a>
                         </td>
 
                     </tr>
@@ -200,6 +200,11 @@
 <script>
     function pasarIdUser(id){
         document.getElementById("idUser").value = id;
+    }
+</script>
+<script>
+    function pasarIdUserE(id){
+        document.getElementById("idUserR").value = id;
     }
 </script>
 

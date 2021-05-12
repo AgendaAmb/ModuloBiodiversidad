@@ -16,7 +16,6 @@
         <div class="carousel-caption ">
           <div class="container-fluid">
             <div class="row justify-content-center">
-
               <x-menuBio btnText="Especies" btnUrl="EjemplaresP" />
               <x-menuBio btnText="Mapa" btnUrl="#" />
               <x-menuBio btnText="Contacto" btnUrl="#" />

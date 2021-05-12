@@ -56,11 +56,13 @@
                     </div>
                 </div>
                 @else
+                @if (Auth::user()->hasAnyRole(['administrador','Coordinador']))
+                @if (!$Planta->Verificado)
                 <div class="container mb-3 mt-5">
                     <div class="row justify-content-between ">
                         <div class="colum ">
                             <button type="button" class="btn btn-success btn-lg" data-toggle="modal"
-                                data-target="#verificar">Verificar</button>
+                                data-target="#verificar" onclick="pasarIdPlanta({{$Planta->id}});">Verificar</button>
                         </div>
                         <div class="colum ">
                             <button type="button" class="btn btn-danger btn-lg" data-toggle="modal"
@@ -70,6 +72,8 @@
 
                 </div>
                 @endif
+                @endif
+                @endif
 
         </div>
     </div>
@@ -78,21 +82,17 @@
 </body>
 
 @if ($nuevo)
-    
+
 @else
 @if (Auth::user()->hasAnyRole(['administrador','Coordinador']))
-<x-Modal 
-idModal="verificar"
-modalTitle="Confirmar Hoja de campo"
-isRechazada="false"
-> 
+@if (!$Planta->Verificado)
+<x-Modal idModal="verificar" modalTitle="Confirmar Hoja de campo" isRechazada="false">
 </x-Modal>
-<x-Modal 
-idModal="Rechazar"
-modalTitle="Rechazar Hoja de campo"
-isRechazada="true"
-> 
+
+<x-Modal idModal="Rechazar" modalTitle="Rechazar Hoja de campo" isRechazada="true">
 </x-Modal>
+@endif
+
 @endif
 
 @endif
@@ -260,5 +260,10 @@ methods:{
     }
     return;
 }
+</script>
+<script>
+    function pasarIdPlanta(id){
+        document.getElementById("idPlanta").value = id;
+    }
 </script>
 @endpush

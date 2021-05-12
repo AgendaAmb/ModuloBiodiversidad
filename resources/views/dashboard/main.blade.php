@@ -35,7 +35,7 @@
 
 </head>
 
-@include('Parciales.header')
+
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
     <!-- Preloader
@@ -44,7 +44,10 @@
       <img class="animation__shake" src="{{asset('storage/Logos/Logo_Agenda_Azul.png')}}" alt="Logo Agenda Ambiental"
         height="100" width="80">
     </div>
+    <div class="main-header ">
+      @include('Parciales.header')
 
+    </div>
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
       <!-- Left navbar links -->
@@ -54,7 +57,7 @@
         </li>
 
       </ul>
-
+     
       <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
         <!-- Navbar Search -->

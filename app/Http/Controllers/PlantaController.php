@@ -82,7 +82,7 @@ class PlantaController extends Controller
     public function store(Request $request)
     {
         $request->user()->authorizeRoles(['administrador', 'Gestor']);
-       
+
         $validatedData = Validator::make($request->all(), [
             'fileImg0' => 'image|mimes:png,jpeg',
             'fileImg1' => 'image|mimes:png,jpeg',
@@ -194,14 +194,15 @@ class PlantaController extends Controller
                 ->with("Planta", $Planta);
         } else {
             return \redirect()->back();
-           
+
         }
 
     }
-    public function showAllPlantas(Request $request){
-       // $request->user()->authorizeRoles(['administrador','Coordinador']);
-        $Planta = Planta::orderBy('created_at','asc')->Paginate(15);
-        
+    public function showAllPlantas(Request $request)
+    {
+        // $request->user()->authorizeRoles(['administrador','Coordinador']);
+        $Planta = Planta::orderBy('created_at', 'asc')->Paginate(15);
+
         return view('HojaCampo.User.index')->with('MisHojasCampo', $Planta);
     }
     /**
@@ -317,5 +318,12 @@ class PlantaController extends Controller
         $Planta->user_id = Auth::id();
         $Planta->save();
         return $Planta;
+    }
+    public function verificar(Request $request)
+    {
+        dd($request);
+        $Planta = Planta::findorFail($request->idPlanta);
+        $Planta->Verificado=true;
+        
     }
 }

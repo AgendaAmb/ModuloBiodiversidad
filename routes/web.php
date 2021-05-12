@@ -48,13 +48,17 @@ Route::group(['prefix' => 'Biodiversidad'], function () {
             Route::get('/PlantasEjemplares/{id}', 'NombreEjemplarController@show')->name('PlantasEjemplares');
            
            
-            Route::post('MisHojasCampo/{id}/verificar', 'PlantaController@deleteUser')->name('VerificarHC');
+           // Route::post('MisHojasCampo/{id}/verificar', 'PlantaController@deleteUser')->name('VerificarHC');
         });
+
         Route::group(['middleware' => 'TRol:Gestor|administrador'], function () {
             Route::get('/HojaCampo', 'PlantaController@index')->name('HojaCampo');
             Route::post('/GuardaHC', 'PlantaController@store')->name('GHC');
             Route::get('/MisHojasCampo', 'HomeController@getHCByUser')->name('UserHC');
             Route::get('MisHojasCampo/{id}', 'PlantaController@show')->name('UserHCEdit');
+            Route::post('/MisHojasCampo/verificar', 'PlantaController@verificar')->name('VerificarHC');
+            Route::post('/MisHojasCampo/rechazar', 'PlantaController@rechazar')->name('RechazarHC');
+           
         });
         Route::group(['middleware' => 'TRol:ConsultorT'], function () {
 
