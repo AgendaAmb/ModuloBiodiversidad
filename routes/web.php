@@ -25,9 +25,12 @@ Route::group(['prefix' => 'Biodiversidad'], function () {
     Route::get('/Ejemplares', 'NombreEjemplarController@indexPublic')->name('EjemplaresP');
 
     Route::post('/LoginInstitucional', 'HomeController@loginInstitucional')->name('LInstitucionalP');
-    
+    Route::get('/HojaCampo/Verificadas', 'PlantaController@showVerificadas')->name('showVerificados');
+
     Route::group(['prefix' => 'Sistema', 'middleware' => 'auth'], function () {
         Route::get('/', 'HomeController@index')->name('dashbord');
+        Route::get('/Ejemplares', 'NombreEjemplarController@index')->name('Ejemplares');
+        Route::get('/PlantasEjemplares/{id}', 'NombreEjemplarController@show')->name('PlantasEjemplares');
         Route::group(['middleware' => 'TRol:administrador'], function () {
             Route::post('/CambiaRoles', 'HomeController@editRol')->name('CambiaRol');
 
@@ -38,14 +41,14 @@ Route::group(['prefix' => 'Biodiversidad'], function () {
             Route::get('/MisHojasCampo', 'HomeController@getHCByUser')->name('UserHC');
 
             //Route::get('/MisHojasCampo/{id}', 'PlantaController@show')->name('UserHCEdit');
-            Route::get('/HojasCampo', 'PlantaController@showAllPlantas')->name('ShowHC');
+           // Route::get('/HojasCampo', 'PlantaController@showAllPlantas')->name('ShowHC');
             /*
             Route::get('/HojaCampo', 'PlantaController@index')->name('HojaCampo');
             Route::post('/GuardaHC', 'PlantaController@store')->name('GHC');
             */
             Route::get('/Planta/{id}', 'PlantaController@show')->name('ShowPlanta');
-            Route::get('/Ejemplares', 'NombreEjemplarController@index')->name('Ejemplares');
-            Route::get('/PlantasEjemplares/{id}', 'NombreEjemplarController@show')->name('PlantasEjemplares');
+          
+           
            
            
            // Route::post('MisHojasCampo/{id}/verificar', 'PlantaController@deleteUser')->name('VerificarHC');
@@ -56,12 +59,16 @@ Route::group(['prefix' => 'Biodiversidad'], function () {
             Route::post('/GuardaHC', 'PlantaController@store')->name('GHC');
             Route::get('/MisHojasCampo', 'HomeController@getHCByUser')->name('UserHC');
             Route::get('MisHojasCampo/{id}', 'PlantaController@show')->name('UserHCEdit');
-            Route::post('/MisHojasCampo/verificar', 'PlantaController@verificar')->name('VerificarHC');
-            Route::post('/MisHojasCampo/rechazar', 'PlantaController@rechazar')->name('RechazarHC');
+           
            
         });
-        Route::group(['middleware' => 'TRol:ConsultorT'], function () {
+        
 
+        Route::group(['middleware' => 'TRol:administrador|Coordinador|Gestor'], function () {
+            Route::post('/MisHojasCampo/verificar', 'PlantaController@verificar')->name('VerificarHC');
+            Route::post('/MisHojasCampo/rechazar', 'PlantaController@rechazar')->name('RechazarHC');
+            Route::get('/HojasCampo', 'PlantaController@showAllPlantas')->name('ShowHC');
+            Route::get('MisHojasCampo/{id}', 'PlantaController@show')->name('UserHCEdit');
         });
     });
 });

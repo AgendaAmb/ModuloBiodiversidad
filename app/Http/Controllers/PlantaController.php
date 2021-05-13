@@ -177,12 +177,26 @@ class PlantaController extends Controller
      */
     public function show(Planta $planta, $id, Request $request)
     {
-
-        //$request->user()->authorizeRoles(['administrador', 'Gestor']);
+        
+        $request->user()->authorizeRoles(['administrador', 'Gestor', 'Coordinador']);
 
         $Planta = Planta::findorFail($id);
-        if ($Planta->User->id == Auth::id()) {
+        if ($request->user()->hasRole('Gestor')) {
+            if ($Planta->User->id == Auth::id()) {
+                $this->loadEjemplares();
+                $this->loadSubUnidades();
 
+                return \view('HojaCampo.CrearHC.index')
+                    ->with("Ejemplar", $this->Ejemplar)
+                    ->with("SubUnidades", $this->SubUnidades)
+                    ->with("SubUnidadTP", $this->SubUnidadTP)
+                    ->with("isReO", true)
+                    ->with("Planta", $Planta);
+            } else {
+                return \redirect()->back();
+
+            }
+        } else {
             $this->loadEjemplares();
             $this->loadSubUnidades();
 
@@ -192,15 +206,11 @@ class PlantaController extends Controller
                 ->with("SubUnidadTP", $this->SubUnidadTP)
                 ->with("isReO", true)
                 ->with("Planta", $Planta);
-        } else {
-            return \redirect()->back();
-
         }
-
     }
     public function showAllPlantas(Request $request)
     {
-        // $request->user()->authorizeRoles(['administrador','Coordinador']);
+        $request->user()->authorizeRoles(['administrador', 'Coordinador']);
         $Planta = Planta::orderBy('created_at', 'asc')->Paginate(15);
 
         return view('HojaCampo.User.index')->with('MisHojasCampo', $Planta);
@@ -322,8 +332,36 @@ class PlantaController extends Controller
     public function verificar(Request $request)
     {
         dd($request);
+        $request->user()->authorizeRoles(['administrador', 'Coordinador']);
         $Planta = Planta::findorFail($request->idPlanta);
-        $Planta->Verificado=true;
+
+        $Planta->Verificado = true;
+        $Planta->NomVerificador = Auth::user()->name;
+        $Planta->save();
+        return back()->with('message', 'Se ha verificado la hoja de campo con exito');
+
+    }
+    public function rechazar(Request $request){
         
+       
+        $request->user()->authorizeRoles(['administrador', 'Coordinador']);
+        $Planta = Planta::findorFail($request->idPlanta);
+
+        $Planta->Verificado = false;
+        $Planta->NomVerificador = Auth::user()->name;
+        $Planta->MotivoRechazo=$request->MRechazo;
+        $Planta->save();
+        return back()->with('message', 'La hoja de campo ha sido RECHAZADA');
+    }
+    public function showVerificadas(Request $request){
+
+        //$request->user()->authorizeRoles(['administrador', 'Coordinador']);
+        $Planta=Planta::select("*")
+        ->where("Verificado", true)
+        ->orderBy('created_at', 'asc')->Paginate(15);
+        
+       
+
+        return view('HojaCampo.User.index')->with('MisHojasCampo', $Planta);
     }
 }

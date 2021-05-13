@@ -66,7 +66,7 @@
                         </div>
                         <div class="colum ">
                             <button type="button" class="btn btn-danger btn-lg" data-toggle="modal"
-                                data-target="#Rechazar">Rechazar</button>
+                                data-target="#Rechazar" onclick="pasarIdPlantaR({{$Planta->id}});">Rechazar</button>
                         </div>
                     </div>
 
@@ -265,5 +265,9 @@ methods:{
     function pasarIdPlanta(id){
         document.getElementById("idPlanta").value = id;
     }
+    function pasarIdPlantaR(id){
+        document.getElementById("idPlantaR").value = id;
+    }
 </script>
+
 @endpush

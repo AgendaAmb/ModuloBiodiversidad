@@ -57,7 +57,7 @@
         </li>
 
       </ul>
-     
+
       <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
         <!-- Navbar Search -->
@@ -206,7 +206,7 @@
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
 
           <div class="info">
-            <a href="#" class="d-block">{{Auth::user()->name}}</a>
+            <a href="#" class="d-block"></a>
           </div>
         </div>
 
@@ -260,16 +260,14 @@
                       </a>
                     </li>
                     @endif
-
-
-
+                    @if (Auth::user()->hasAnyRole(array('administrador','Coordinador')))
                     <li class="nav-item">
-                      <a href="#" class="nav-link">
+                      <a href="{{route('showVerificados')}}" class="nav-link">
                         <i class="fas fa-user-check"></i>
                         <p>Verificadas</p>
                       </a>
                     </li>
-
+                    @endif
                     <!--Mostrar todas las hojas de campo-->
 
                   </ul>
@@ -288,8 +286,8 @@
                 </li>
               </ul>
             </li>
+            @if (Auth::user()->hasRole('administrador'))
             <li class="nav-item ">
-
               <a href="#" class="nav-link">
                 <i class="fas fa-seedling"></i>
                 <p>
@@ -318,6 +316,8 @@
                 </li>
               </ul>
             </li>
+            @endif
+
             <li class="nav-item ">
 
               <a href="#" class="nav-link">

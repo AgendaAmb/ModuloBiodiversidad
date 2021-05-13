@@ -10,7 +10,7 @@ class Planta extends Model
 
     protected $fillable=['FechaRecoleccion','NombreRecolectorDatos',
     'NombreRecolectorMuestra','Verificado','NomVerificador','urlImg',
-    'imagenes','Morfologia_id','nombre_ejem_id','situacion_entornos_id'
+    'imagenes','Morfologia_id','nombre_ejem_id','situacion_entornos_id','MotivoRechazo'
     ];
 
     public function NombreEjem()
