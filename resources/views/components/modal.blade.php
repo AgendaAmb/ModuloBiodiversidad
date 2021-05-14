@@ -23,7 +23,6 @@
                         <label for="recipient-name" class="col-form-label">Motivos de rechazo</label>
                         <input type="text" class="form-control" name="MRechazo" id="Rechazo">
                     </div>
-                    
                     @else
                     <span>¿Estas seguro de verificar esta hoja de campo? recuerda que al verificar otras personas podran visualizarla </span>
                     @endif
@@ -32,7 +31,6 @@
     
                 <div class="modal-footer">
                     <a class="btn btn-danger" role="button" data-dismiss="modal">Cerrar</a>
-                   
                     <button type="submit" class="btn btn-success">Confirmar</button>
                    
                     

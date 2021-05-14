@@ -8,7 +8,7 @@ class FotoPlanta extends Model
 {
     protected $table = 'foto_plantas';
 
-    protected $fillable=['nombre','planta_id'];
+    protected $fillable=['nombre','planta_id','PartePlanta'];
 
     public function Planta()
     {

@@ -10,12 +10,40 @@
 
 @if (isset($Planta))
 {{$nuevo=false}}
-<a href="{{ URL::previous() }}"><i class="fas fa-arrow-left"></i></a>
+<div class="container-xl-6">
+    <a href="{{ URL::previous() }}"><i class="fas fa-arrow-left"></i></a>
+</div>
 @else
 {{$nuevo=true}}
 @endif
 
-
+@if (!$nuevo&&!$Planta->Verificado&&$Planta->NomVerificador!=null)
+<div class="container-xl-6">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Ver retroalimentación
+      </button>
+    </div> 
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            
+          <h5 class="modal-title" id="exampleModalLabel">Motivio de Rechazo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          {{$Planta->MotivoRechazo}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+@endif
 <body>
     <div class="container-fluid justify-content-between" id="appp">
         <div class="container mb-4">
@@ -57,7 +85,8 @@
                 </div>
                 @else
                 @if (Auth::user()->hasAnyRole(['administrador','Coordinador']))
-                @if (!$Planta->Verificado)
+               
+                @if (!$Planta->Verificado && $Planta->MotivoRechazo==null)
                 <div class="container mb-3 mt-5">
                     <div class="row justify-content-between ">
                         <div class="colum ">
@@ -153,7 +182,7 @@
                 this.archivos.push({
                     "imagen":'{{$Foto->url}}',
                     "nombre":'{{$Foto->nombre}}',
-                    "parteP":'planta',
+                    "parteP":'{{$Foto->PartePlanta}}',
                     
                 });
     @endforeach
@@ -269,5 +298,9 @@ methods:{
         document.getElementById("idPlantaR").value = id;
     }
 </script>
-
+<script>
+    $( document ).ready(function() {
+    $('#exampleModal').modal('toggle')
+});
+</script>
 @endpush

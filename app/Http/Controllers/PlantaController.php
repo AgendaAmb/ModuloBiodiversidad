@@ -139,28 +139,28 @@ class PlantaController extends Controller
             foreach ($request->file() as $image) {
 
                 if ($request->fileImg0 == $image) {
-                    $this->saveImagen($directoryPersona, $NF, $image, 'PC', $Planta, $No_Ejemplar);
+                    $this->saveImagen($directoryPersona, $NF, $image, 'PC', $Planta, $No_Ejemplar,"Planta Completa");
                 } else
                 if ($request->fileImg1 == $image) {
-                    $this->saveImagen($directoryPersona, $NF, $image, 'F', $Planta, $No_Ejemplar);
+                    $this->saveImagen($directoryPersona, $NF, $image, 'F', $Planta, $No_Ejemplar,"Follaje");
                 } else
                 if ($request->fileImg2 == $image) {
-                    $this->saveImagen($directoryPersona, $NF, $image, 'H', $Planta, $No_Ejemplar);
+                    $this->saveImagen($directoryPersona, $NF, $image, 'H', $Planta, $No_Ejemplar,"Hojas");
                 } else
                 if ($request->fileImg3 == $image) {
-                    $this->saveImagen($directoryPersona, $NF, $image, 'FL', $Planta, $No_Ejemplar);
+                    $this->saveImagen($directoryPersona, $NF, $image, 'FL', $Planta, $No_Ejemplar,"Flores");
                 } else
                 if ($request->fileImg4 == $image) {
-                    $this->saveImagen($directoryPersona, $NF, $image, 'FR', $Planta, $No_Ejemplar);
+                    $this->saveImagen($directoryPersona, $NF, $image, 'FR', $Planta, $No_Ejemplar,"Furtos");
                 } else
                 if ($request->fileImg5 == $image) {
-                    $this->saveImagen($directoryPersona, $NF, $image, 'S', $Planta, $No_Ejemplar);
+                    $this->saveImagen($directoryPersona, $NF, $image, 'S', $Planta, $No_Ejemplar,"Semillas");
                 } else
                 if ($request->fileImg6 == $image) {
-                    $this->saveImagen($directoryPersona, $NF, $image, 'T', $Planta, $No_Ejemplar);
+                    $this->saveImagen($directoryPersona, $NF, $image, 'T', $Planta, $No_Ejemplar,"Tronco");
                 } else
                 if ($request->fileImg7 == $image) {
-                    $this->saveImagen($directoryPersona, $NF, $image, 'R', $Planta, $No_Ejemplar);
+                    $this->saveImagen($directoryPersona, $NF, $image, 'R', $Planta, $No_Ejemplar,"Raíces");
                 }
             }
 
@@ -295,7 +295,7 @@ class PlantaController extends Controller
         $Planta->SituacionEntorno()->save($SituacionEnt);
     }
 
-    private function saveImagen(String $directoryPersona, String $NF, $image, String $ClaveF, Planta $Planta, int $No_Ejemplar)
+    private function saveImagen(String $directoryPersona, String $NF, $image, String $ClaveF, Planta $Planta, int $No_Ejemplar,String $Tipo)
     {
         $urlFoto = $directoryPersona . '/' . $No_Ejemplar . $NF . $ClaveF . '.' . $image->getClientOriginalExtension();
         \Storage::disk('public')->put($urlFoto, \File::get($image));
@@ -303,6 +303,7 @@ class PlantaController extends Controller
         $foto = new FotoPlanta();
         $foto->planta_id = $Planta->id;
         $foto->url = $urlFoto;
+        $foto->PartePlanta=$Tipo;
         $foto->nombre = $No_Ejemplar . $NF . $ClaveF;
         $foto->save();
     }
@@ -331,7 +332,7 @@ class PlantaController extends Controller
     }
     public function verificar(Request $request)
     {
-        dd($request);
+        //dd($request);
         $request->user()->authorizeRoles(['administrador', 'Coordinador']);
         $Planta = Planta::findorFail($request->idPlanta);
 

@@ -174,7 +174,23 @@ ul.dropdown-menu > li
     font-weight: 900;
     font-size: 50px;
   }
-
+#siderbarMain{
+  background-color: #5c903e;
+}
+#navColor{
+  background-color: black;
+}
+#navColors{
+color: black;
+}
+.sidebar-form input[type="text"]{
+  color: black;
+ 
+}
+#brandLink{
+  
+  border-bottom: 0px solid #4b545c;
+}
 @media only screen and (max-width: 2000px) and (min-width: 992px)
 {
     .navbar-brand{

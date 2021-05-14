@@ -35,8 +35,10 @@
 
 </head>
 
-
-<body class="hold-transition sidebar-mini layout-fixed">
+<div class="main-header ">
+  @include('Parciales.header')
+</div>
+<body class="hold-transition sidebar-mini layout-fixed ">
   <div class="wrapper">
     <!-- Preloader
     -->
@@ -44,10 +46,7 @@
       <img class="animation__shake" src="{{asset('storage/Logos/Logo_Agenda_Azul.png')}}" alt="Logo Agenda Ambiental"
         height="100" width="80">
     </div>
-    <div class="main-header ">
-      @include('Parciales.header')
-
-    </div>
+    
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
       <!-- Left navbar links -->
@@ -191,14 +190,9 @@
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar elevation-4 sidebar-dark-primary" id="siderbarMain">
       <!-- Brand Logo -->
-      <a href="{{route('home')}}" class="brand-link">
-
-        <img src="{{asset('storage/Logos/Logo_AgendaA.png')}}" alt="AdminLTE Logo"
-          class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Biodiversidad</span>
-      </a>
+     
 
       <!-- Sidebar -->
       <div class="sidebar">
@@ -206,7 +200,9 @@
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
 
           <div class="info">
-            <a href="#" class="d-block"></a>
+            <a href="{{route('home')}}" class="brand-link text-center pr-5" id="brandLink">
+              <span class="brand-text font-weight-bold text-white">Biodiversidad</span>
+            </a>
           </div>
         </div>
 
@@ -228,7 +224,7 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item  menu-open ">
-              <a href="#" class="nav-link active">
+              <a href="#" class="nav-link active" id="navColor">
                 <i class="fas fa-seedling"></i>
                 <p>
                   Plantas
@@ -237,8 +233,8 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="fab fa-envira"></i>
+                  <a href="#" class="nav-link" id="navColor">
+                    <i class="fas fa-address-card"></i>
                     <p>
                       Hojas de campo
                       <i class="right fas fa-angle-left"></i>
@@ -247,14 +243,14 @@
                   <ul class="nav nav-treeview">
 
                     @if (Auth::user()->hasAnyRole(array('administrador','Gestor')))
-                    <li class="nav-item">
-                      <a href="{{route('HojaCampo')}}" class="nav-link">
+                    <li class="nav-item"  >
+                      <a href="{{route('HojaCampo')}}" class="nav-link" id="navColors">
                         <i class="fas fa-plus-circle"></i>
                         <p>Registrar</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="{{route('UserHC')}}" class="nav-link">
+                      <a href="{{route('UserHC')}}" class="nav-link" id="navColors">
                         <i class="far fa-file-alt"></i>
                         <p>Mis hojas</p>
                       </a>
@@ -262,7 +258,7 @@
                     @endif
                     @if (Auth::user()->hasAnyRole(array('administrador','Coordinador')))
                     <li class="nav-item">
-                      <a href="{{route('showVerificados')}}" class="nav-link">
+                      <a href="{{route('showVerificados')}}" class="nav-link" id="navColors">
                         <i class="fas fa-user-check"></i>
                         <p>Verificadas</p>
                       </a>
@@ -273,13 +269,13 @@
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a href="{{route('Ejemplares')}}" class="nav-link">
+                  <a href="{{route('Ejemplares')}}" class="nav-link" id="navColor">
                     <i class="fas fa-file-alt"></i>
                     <p>Fichas Tecnicas</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="#" class="nav-link" id="navColors">
                     <i class="far fa-circle nav-icon"></i>
                     <p></p>
                   </a>
@@ -288,7 +284,7 @@
             </li>
             @if (Auth::user()->hasRole('administrador'))
             <li class="nav-item ">
-              <a href="#" class="nav-link">
+              <a href="#" class="nav-link active" id="navColor">
                 <i class="fas fa-seedling"></i>
                 <p>
                   Administración
@@ -297,19 +293,19 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{route('UserAdmin')}}" class="nav-link active">
+                  <a href="{{route('UserAdmin')}}" class="nav-link " id="navColors">
                     <i class="fas fa-users"></i>
                     <p>Usuarios</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="#" class="nav-link" id="navColors">
                     <i class="far fa-circle nav-icon"></i>
                     <p></p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="#" class="nav-link" id="navColors">
                     <i class="far fa-circle nav-icon"></i>
                     <p></p>
                   </a>

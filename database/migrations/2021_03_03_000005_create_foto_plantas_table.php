@@ -17,6 +17,7 @@ class CreateFotoPlantasTable extends Migration
             $table->bigIncrements('id');
             $table->string('nombre')->nullable();
             $table->string('url')->nullable();
+            $table->string('PartePlanta')->nullable();
             $table->unsignedBigInteger('planta_id');
 
             $table->foreign('planta_id')
