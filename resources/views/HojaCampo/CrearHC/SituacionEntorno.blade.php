@@ -2,7 +2,7 @@
     <h2 class="alert alert-primary text-center">Situación y entorno</h2>
     <div class="form-group row g-3">
         <label for="NoEjemplar" class="col-md-4 col-form-label text-md-left">{{ __('No. de ejemplar') }}</label>
-        <div class="col-md-6">
+        <div class="col-md-7">
             @if ($nuevo)
             <input id="NoEjemplar" v-model="NoEjem" readonly type="text"
                 class="form-control @error('NoEjemplar') is-invalid @enderror" name="NoEjemplar"
@@ -25,7 +25,7 @@
     <div class="form-group row g-3 was-validated">
         <label for="EntidadA" class="col-md-4 col-form-label text-md-left">{{ __('Entidad Académica') }}</label>
         @if ($nuevo)
-        <div class="col-md-6">
+        <div class="col-md-7">
             <select class="custom-select" id="EntidadA" name="EntidadA" v-model="Entidad_id" required
                 @change="FiltroSubUnidades()">
                 <option selected disabled value="">Entidad Académica</option>
@@ -34,7 +34,7 @@
         </div>
         @else
 
-        <div class="col-md-6">
+        <div class="col-md-7">
             <select class="custom-select" id="EntidadA" name="EntidadA">
                 <option selected disabled value="">
 
@@ -58,14 +58,14 @@
         <label for="SubUnidadesFiltrada"
             class="col-md-4 col-form-label text-md-left">{{ __('SubUnidad Academica') }}</label>
         @if ($nuevo)
-        <div class="col-md-6">
+        <div class="col-md-7">
             <select class="custom-select" id="SubUnidadesFiltrada" name="SubUnidadesFiltrada" required>
                 <option selected disabled value="">SubUnidadAcademica</option>
                 <option v-for="(A,index) in SubUnidadesFiltrada" :value="A.NombreUnidad">@{{A.NombreUnidad}}</option>
             </select>
         </div>
         @else
-        <div class="col-md-6">
+        <div class="col-md-7">
             <select class="custom-select" id="SubUnidadesFiltrada" name="SubUnidadesFiltrada">
                 <option selected disabled value="">{{$Planta->SituacionEntorno->SubEntidadAcademica}}</option>
             </select>
@@ -73,25 +73,25 @@
         @endif
 
     </div>
-    <div class="form-group row">
+    <div class="form-group row was-validated">
         <label for="Coordenadageográfica"
             class="col-md-4 col-form-label text-md-left">{{ __('Coordenada geográfica') }}<br></label>
-        <div class="col-md-6">
-
-            <input id="Latitud" type="text" class="form-control  @error('Latitud') is-invalid @enderror" name="Latitud"
+        <div class="col-md-7">
+            <input id="Latitud" type="text" class="form-control  @error('Latitud') is-invalid @enderror" name="Latitud" required
                 value="{{$nuevo?old('Latitud'):$Planta->SituacionEntorno->Latitud}}" {{$isReO? "readonly":""}}
-                autocomplete="Latitud" autofocus data-toggle="tooltip" data-placement="top" placeholder="Latitud">
-            @error('Latitud')
+                autocomplete="Latitud" autofocus data-toggle="tooltip" data-placement="top" placeholder="Latitud" >
+                <span class="invalid-feedback" id="LatitudOK"></span>
+                @error('Latitud')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
             <div class="col-md-12 p-0 pt-1">
-
                 <input id="longitud" type="text" class="form-control  @error('longitud') is-invalid @enderror"
-                    name="longitud" value="{{$nuevo?old('longitud'):$Planta->SituacionEntorno->Altitud}}"
+                    name="longitud" value="{{$nuevo?old('longitud'):$Planta->SituacionEntorno->Altitud}}" required
                     {{$isReO? "readonly":""}} autocomplete="longitud" autofocus data-toggle="tooltip"
                     data-placement="top" placeholder="Longuitud">
+                    <span class="invalid-feedback" id="longitudOK"></span>
                 @error('longitud')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -107,7 +107,7 @@
         <label for="TAreaVerde"
             class="col-md-4 col-form-label text-md-left">{{ __('Tipo de área verde o lugar de plantación') }}</label>
 
-        <div class="col-md-6">
+        <div class="col-md-7">
             <select class="custom-select" id="TAreaVerde" name="TAreaVerde">
                 <option selected disabled>Estado de Crecimiento</option>
                 <option value="1">1 (Jardín)</option>
@@ -124,7 +124,7 @@
         <label for="TAreaVerde"
             class="col-md-4 col-form-label text-md-left">{{ __('Tipo de área verde o lugar de plantación') }}</label>
 
-        <div class="col-md-6">
+        <div class="col-md-7">
             <select class="custom-select" id="TAreaVerde" name="TAreaVerde">
                 @if (is_null($Planta->SituacionEntorno->TArea))
                 <option selected disabled>Sin Estado Tipo de Área Verde Registrado</option>
@@ -156,8 +156,8 @@
     </div>
     @endif
 
-    <x-typeInput labelFor="AspectoEspacio" isRequiered="true" isReadOnly="{{boolval($isReO)}}"
-        label="Aspectos de espacio" haveValue="true" value="{{$nuevo?null:$Planta->SituacionEntorno->Aspecto}}">
+    <x-typeInput labelFor="AspectoEspacio"  isReadOnly="{{boolval($isReO)}}"
+        label="Aspectos de espacio" haveValue="{{$nuevo?false:true}}" value="{{$nuevo?null:$Planta->SituacionEntorno->Aspecto}}">
     </x-typeInput>
     <!--
     <div class="form-group row g-3">

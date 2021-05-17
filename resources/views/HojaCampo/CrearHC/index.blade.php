@@ -21,29 +21,30 @@
 <div class="container-xl-6">
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
         Ver retroalimentación
-      </button>
-    </div> 
+    </button>
+</div>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-            
-          <h5 class="modal-title" id="exampleModalLabel">Motivio de Rechazo</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h5 class="modal-title" id="exampleModalLabel">Motivio de Rechazo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{$Planta->MotivoRechazo}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
         </div>
-        <div class="modal-body">
-          {{$Planta->MotivoRechazo}}
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
 @endif
+
 <body>
     <div class="container-fluid justify-content-between" id="appp">
         <div class="container mb-4">
@@ -85,7 +86,7 @@
                 </div>
                 @else
                 @if (Auth::user()->hasAnyRole(['administrador','Coordinador']))
-               
+
                 @if (!$Planta->Verificado && $Planta->MotivoRechazo==null)
                 <div class="container mb-3 mt-5">
                     <div class="row justify-content-between ">
@@ -245,7 +246,7 @@
   
 }, 
 methods:{
-    
+   
     cargarImagen: function(e,index){
         let t = this;
         var input = document.getElementById('fileImg' +index);
@@ -289,6 +290,38 @@ methods:{
     }
     return;
 }
+
+    document.getElementById("Latitud").addEventListener('input',function(){
+        campo=event.target;
+        var regx=/^[+-]?[0-9]{1,9}(?:.[0-9]{1,4})?$/;
+        validoL = document.getElementById('LatitudOK');
+        if(regx.test(campo.value)){
+            console.log("echos");
+            
+            validoL.innerText = "Coordenada latitud en formato correcto";
+            validoL.className+="alert alert-success"
+            
+        }else{
+            validoL.innerText = "Coordenada latitud en formato incorrecto";
+            validoL.className+="alert alert-danger"
+        }
+    });
+    document.getElementById("longitud").addEventListener('input',function(){
+        campo=event.target;
+        var regx=/^[+-]?[0-9]{1,9}(?:.[0-9]{1,4})?$/;
+        validoL = document.getElementById('longitudOK');
+        if(regx.test(campo.value)){
+            console.log("echos");
+            
+            validoL.innerText = "Coordenada longitud en formato correcto";
+            validoL.className+="alert alert-success"
+            
+        }else{
+            validoL.innerText = "Coordenada longitud en formato incorrecto";
+            validoL.className+="alert alert-danger"
+        }
+    });
+   
 </script>
 <script>
     function pasarIdPlanta(id){

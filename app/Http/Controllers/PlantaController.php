@@ -101,6 +101,8 @@ class PlantaController extends Controller
             'NombreCientifico' => ['required', 'max:40', 'bail'],
             "EntidadA" => ['required'],
             "NombreC" => ['required'],
+            'Latitud' => ['required', 'max:40', 'bail','regex:/^[+-]?[0-9]{1,9}(?:.[0-9]{1,4})?$/'],
+            'longitud' => ['required', 'max:40', 'bail','regex:/^[+-]?[0-9]{1,9}(?:.[0-9]{1,4})?$/'],
 
             'RegistroIdentificacion' => ['max:40', 'bail'],
             'CondicionG' => ['max:255', 'bail'],
