@@ -12,7 +12,7 @@
         
     </div>
    
-    <div class="row row-cols-1 row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 especies m-xl-5 m-lg-4">
+    <div class="row row-cols-1 row-cols-xl-4 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 especies m-xl-5 m-lg-4">
         @foreach ($Ejemplares as $Ejemplar)
         <div class="col mb-4">
             <div class="card w-100 ">

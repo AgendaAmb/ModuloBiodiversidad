@@ -21,6 +21,7 @@ Route::group(['prefix' => 'Biodiversidad'], function () {
     Route::view('/', 'index')->name('Bio');
     Route::view('/LoginInstitucional', 'Institucional.vista')->name('LInstitucional');
     Auth::routes();
+    Auth::routes(['verify' => true]);
     Route::get('/usuario', 'HomeController@verificar')->name('UXV');
     Route::get('/Ejemplares', 'NombreEjemplarController@indexPublic')->name('EjemplaresP');
 
