@@ -185,31 +185,31 @@
             <div class="form-check form-check-inline">
                 <!--checked-->
                 <input class="form-check-input" type="checkbox" id="CBCableado"
-                    {{$nuevo?null:json_decode($Planta->SituacionEntorno->Interfencia)->Sena!=null?'checked':''}}
+                    {{($nuevo?null:json_decode($Planta->SituacionEntorno->Interfencia)->Sena)!=null?'checked':''}}
                     value="CBCableado" name="CBCableado" {{$nuevo?null:'disabled'}}>
                 <label class="form-check-label" for="CBCableado">Cableado aéreo</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" id="CBInfra" value="CBInfra"
-                    {{$nuevo?null:json_decode($Planta->SituacionEntorno->Interfencia)->Edifi!=null?'checked':''}}
+                    {{($nuevo?null:json_decode($Planta->SituacionEntorno->Interfencia)->Edifi)!=null?'checked':''}}
                     {{$nuevo?null:'disabled'}} name="CBInfra">
                 <label class="form-check-label" for="CBInfra">Infraestructura</label>
             </div>
             <div class="form-check form-check-inline ">
                 <input class="form-check-input" type="checkbox" id="CBMobili" value="CBMobili"
-                    {{$nuevo?null:json_decode($Planta->SituacionEntorno->Interfencia)->Infra!=null?'checked':''}}
+                    {{($nuevo?null:json_decode($Planta->SituacionEntorno->Interfencia)->Infra)!=null?'checked':''}}
                     {{$nuevo?null:'disabled'}} name="CBMobili">
                 <label class="form-check-label" for="CBMobili">Mobiliario urbano</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" id="CBSena" value="CBSena"
-                    {{$nuevo?null:json_decode($Planta->SituacionEntorno->Interfencia)->Mobili!=null?'checked':''}}
+                    {{($nuevo?null:json_decode($Planta->SituacionEntorno->Interfencia)->Mobili!=null)?'checked':''}}
                     name="CBSena" {{$nuevo?null:'disabled'}}>
                 <label class="form-check-label" for="CBSena">Señalamientos</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" id="CBEdifi" value="CBEdifi"
-                    {{$nuevo?null:json_decode($Planta->SituacionEntorno->Interfencia)->Cableado!=null?'checked':''}}
+                    {{($nuevo?null:json_decode($Planta->SituacionEntorno->Interfencia)->Cableado)!=null?'checked':''}}
                     name="CBEdifi" {{$nuevo?null:'disabled'}}>
                 <label class="form-check-label" for="CBEdifi">Edificación</label>
             </div>
