@@ -28,6 +28,8 @@ Route::group(['prefix' => 'Biodiversidad'], function () {
     Route::post('/LoginInstitucional', 'HomeController@loginInstitucional')->name('LInstitucionalP');
     Route::get('/HojaCampo/Verificadas', 'PlantaController@showVerificadas')->name('showVerificados');
 
+    Route::get('/Mapa', 'PlantaController@allPlantas')->name('Mapa');
+
     Route::group(['prefix' => 'Sistema', 'middleware' => 'auth'], function () {
         Route::get('/', 'HomeController@index')->name('dashbord');
         Route::get('/Ejemplares', 'NombreEjemplarController@index')->name('Ejemplares');

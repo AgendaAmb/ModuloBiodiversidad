@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="{{asset('Dash/plugins/daterangepicker/daterangepicker.css')}}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('Dash/plugins/summernote/summernote-bs4.min.css')}}">
-  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('Dash/dist/css/adminlte.min.css')}}">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">

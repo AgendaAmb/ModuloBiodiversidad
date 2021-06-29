@@ -15,7 +15,7 @@
               <x-menuBio btnText="Entrar" btnUrl="login" />
           
              
-              <x-menuBio btnText="Mapa" btnUrl="#" />
+              <x-menuBio btnText="Mapa" btnUrl="Mapa" />
               <x-menuBio btnText="Contacto" btnUrl="#" />
             </div>
           </div>

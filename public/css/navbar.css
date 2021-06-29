@@ -4,7 +4,7 @@
   }
   #navP  .nav-item:hover{
   background-color: #96A834;
-  height: 34px;
+  
   }
   
   .navbar .nav-item .dropdown-menu{ 
@@ -19,10 +19,9 @@
   #navP .nav-item .nav-link{ 
     color: white;  
     font-weight: bolder;
-    padding-left: 0.2rem;
-    padding-bottom: 0%;
-    padding-right: 0.2rem;
-    padding-top: 0.5rem;
+    font-size: 15px;
+    width: 160px;
+    text-align: center;
   }
   .nav-item:hover .dropdown-menu{ 
     display: block; 
@@ -35,7 +34,9 @@
   }
   .dropdown-item, .dropdown-item{
     color: gray;
-  }
+    width: 160px;
+    text-align: center;
+}
   #navP .navbar .nav-item .dropdown-menu{
     margin-top:0; 
   }
@@ -46,3 +47,15 @@
     background-color: #96A834;
     color: white;
   }
+  .MiPortal{
+    width: 150px;
+    font-weight: 900;
+   
+}
+.ESINbnt .btn{
+  color: white;
+  background-color: transparent;
+  border:transparent;
+  border: 0px solid transparent;
+  font-weight: 900;
+}
