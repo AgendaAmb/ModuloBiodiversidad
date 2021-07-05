@@ -10,7 +10,7 @@
 <h5 class="d-none">{{$nuevo=true}}</h5>
 
 <body>
-    <div class="container-fluid justify-content-between" id="appp">
+    <div class="container-fluid justify-content-between p-0" id="appp">
         <div class="container mb-4">
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-12 contImagen">
@@ -33,10 +33,10 @@
                 </h2>
             </div>
             @endif
-            <form method="POST" action="{{route('GHC')}}" enctype="multipart/form-data">
+            <form method="POST" action="{{route('FichasT')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="row row-cols-1 row-cols-xl-4 row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
-                    <div class="col mb-4" v-for="(a, index) in archivos">
+                    <div class="col mb-4 " v-for="(a, index) in archivos">
                         <div class="card w-100 ">
                             <h5 class="card-title text-center">@{{a.parteP}} </h5>
                             @if ($nuevo)
@@ -56,7 +56,8 @@
                                 @if ($nuevo)
                                 <small class="text-muted">
                                     <input type="file" accept="image/png,image/jpeg" :id="'fileImg'+index"
-                                        :name="'fileImg'+index" class="inp" @change="cargarImagen($event,index)" />
+                                        :name="'fileImg'+index" class="inp" @change="cargarImagen($event,index)"
+                                        required />
                                 </small>
                                 @else
 
@@ -66,6 +67,8 @@
                             </div>
                         </div>
                     </div>
+
+
                 </div>
                 <div class="alert alert-warning text-right" role="alert">
                     <b>
@@ -73,43 +76,174 @@
                     </b>
                 </div>
 
-                <div class="container mb-3">
-                    <div class="row justify-content-center">
-                        <button type="submit" class="btn btn-primary btn-lg">Confirmar</button>
+
+                <h2 class="alert alert-primary text-center">Caracteristicas De La Especie</h2>
+                <div class="container-fluid p-0 m-0">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 ">
+                            <div class="form-group row  was-validated">
+                                <label for="NombreC"
+                                    class="col-md-4 col-form-label text-md-left pr-0">{{ __('Nombre Común') }}</label>
+                                <div class="col-md-8">
+                                    <select class="custom-select" id="NombreC" name="NombreC" v-model="NombreC"
+                                        @change="Ncientifico()" required>
+                                        <option selected="true" disabled>Nombre Común</option>
+                                        <option v-for="(N,index) in Nombres" :value="N.id">@{{N.Nombre}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 ">
+                            <div class="form-group row  was-validated">
+                                <label for="NombreCientifico"
+                                    class="col-md-4 col-form-label text-md-left px-xl-0">{{ __('Nombre Científico') }}</label>
+                                <div class="col-md-8 ">
+                                    <input id="NombreCientifico" v-model="NCientifico" readonly type="text"
+                                        class="form-control @error('NombreCientifico') is-invalid @enderror"
+                                        name="NombreCientifico" value="{{old('NombreCientifico') }}" maxlength="40"
+                                        required autocomplete="NombreCientifico" autofocus>
+
+                                    @error('NombreCientifico')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                            <x-typeInput :labelFor="'Fenologia'" :isRequiered="true" :label="'Fenología Foliar'"
+                                haveValue="{{$nuevo?false:true}}">
+                            </x-typeInput>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-row justify-content-between ">
+
+                    <div class="col-xl-6 pr-xl-3  pr-lg-3">
+
+                        <x-typeInput :labelFor="'FormaCrecimiento'" :isRequiered="true" :label="'Forma de Crecimiento'"
+                            haveValue="{{$nuevo?false:true}}">
+                        </x-typeInput>
+                        <x-typeInput labelFor="Floracion" :isRequiered="true" typeInput="text" label="Floración"
+                            isTextArea="true" haveValue="{{$nuevo?false:true}}"
+                            value="{{$nuevo?false:$Planta->Morfologia->CondicionGeneral}}">
+                        </x-typeInput>
+
+                        <x-typeInput :labelFor="'Origen'" :isRequiered="true" :label="'Origen'"
+                            haveValue="{{$nuevo?false:true}}">
+                        </x-typeInput>
+                        <x-typeInput labelFor="Descripcion" :isRequiered="true" typeInput="text" label="Descripción"
+                            isTextArea="true" haveValue="{{$nuevo?false:true}}"
+                            value="{{$nuevo?false:$Planta->Morfologia->CondicionGeneral}}">
+                        </x-typeInput>
+                        <x-typeInput :labelFor="'EstatusEco'" :isRequiered="true" :label="'Estatus Ecológico en México'"
+                            haveValue="{{$nuevo?false:true}}">
+                        </x-typeInput>
+                        <x-typeInput :labelFor="'EstatusConser'" :isRequiered="true" :label="'Estatus de conservación'"
+                            haveValue="{{$nuevo?false:true}}">
+                        </x-typeInput>
+                        <x-typeInput labelFor="Altura" typeInput="number" :isRequiered="true" label="Altura (m)"
+                            haveValue="{{$nuevo?false:true}}" value="{{$nuevo?null:$Planta->Morfologia->Altura}}">
+                            >
+                        </x-typeInput>
+                        <x-typeInput :labelFor="'TipoC'" :isRequiered="true" :label="'Tipo de Copa'"
+                            haveValue="{{$nuevo?false:true}}">
+                        </x-typeInput>
+                        <x-typeInput :labelFor="'TipoR'" :isRequiered="true" :label="'Tipo de Raíces'"
+                            haveValue="{{$nuevo?false:true}}">
+                        </x-typeInput>
+                        <x-typeInput labelFor="RaicesObs" :isRequiered="true" typeInput="text"
+                            label="Raíces Observables Del Ejemplar" isTextArea="true" haveValue="{{$nuevo?false:true}}"
+                            value="{{$nuevo?false:$Planta->Morfologia->CondicionGeneral}}">
+                        </x-typeInput>
+
+                    </div>
+                    <div class="col-xl-6 pl-xl-3  pr-lg-3">
+                        <x-typeInput labelFor="Usos" :isRequiered="true" typeInput="text" label="Usos" isTextArea="true"
+                            haveValue="{{$nuevo?false:true}}"
+                            value="{{$nuevo?false:$Planta->Morfologia->CondicionGeneral}}">
+                        </x-typeInput>
+                        <x-typeInput labelFor="ClimaN" :isRequiered="true" typeInput="text"
+                            label="Clima en Hábitad Natural" isTextArea="true" haveValue="{{$nuevo?false:true}}"
+                            value="{{$nuevo?false:$Planta->Morfologia->CondicionGeneral}}">
+                        </x-typeInput>
+                        <x-typeInput labelFor="Porte" :isRequiered="true" typeInput="text" label="Porte"
+                            isTextArea="true" haveValue="{{$nuevo?false:true}}"
+                            value="{{$nuevo?false:$Planta->Morfologia->CondicionGeneral}}">
+                        </x-typeInput>
+                        <x-typeInput labelFor="SistemaRa" :isRequiered="true" typeInput="text" label="Sistema de Raíces"
+                            isTextArea="true" haveValue="{{$nuevo?false:true}}"
+                            value="{{$nuevo?false:$Planta->Morfologia->CondicionGeneral}}">
+                        </x-typeInput>
+                        <x-typeInput labelFor="Requerimietos" :isRequiered="true" typeInput="text"
+                            label="Requerimientos De La Especie" isTextArea="true" haveValue="{{$nuevo?false:true}}"
+                            value="{{$nuevo?false:$Planta->Morfologia->CondicionGeneral}}">
+                        </x-typeInput>
+                        <x-typeInput labelFor="ServicioAmbiental" :isRequiered="true" typeInput="text"
+                            label="Servicios Ambientales" isTextArea="true" haveValue="{{$nuevo?false:true}}"
+                            value="{{$nuevo?false:$Planta->Morfologia->CondicionGeneral}}">
+                        </x-typeInput>
+                        <x-typeInput labelFor="AmenazasR" :isRequiered="true" typeInput="text"
+                            label="Amenazas y Riesgos" isTextArea="true" haveValue="{{$nuevo?false:true}}"
+                            value="{{$nuevo?false:$Planta->Morfologia->CondicionGeneral}}">
+                        </x-typeInput>
+                        <x-typeInput labelFor="AmenazasRC" :isRequiered="true" typeInput="text"
+                            label="Amenazas y Riesgos Para Comunidades Habitadas" isTextArea="true"
+                            haveValue="{{$nuevo?false:true}}"
+                            value="{{$nuevo?false:$Planta->Morfologia->CondicionGeneral}}">
+                        </x-typeInput>
+
+                    </div>
+                  
+                    <input type="text" >
+                    <div class="container mb-3">
+                        <div class="row justify-content-center">
+                            <button type="submit" class="btn btn-primary btn-lg">Confirmar</button>
+                        </div>
                     </div>
                 </div>
+
+            </form>
         </div>
     </div>
-    </form>
-    </div>
+
 </body>
 
 </html>
 
 
 @endsection
+
+
 @push('scripts')
 <script>
-    var img = new Vue({
+    var app = new Vue({
   el: '#appp',
   data: {
     archivos:[],
-    datos:[],
-    Nombres:[],
     NCientifico:'',
-    EntidadAcademica:[],
-    SubUnidadesP:[],
-    SubUnidadesFiltrada:[],
+    Nombres:[],
     NombreC:'',
-    Entidad_id:'',
-    NoEjem:'',
-    
-      info: null
-  }, 
-  mounted: 
-  function () {
-  this.$nextTick(
-    this.archivos = [
+    Referencias:[]
+  },
+  mounted:
+  function() {
+    this.$nextTick(
+          function () {
+     @foreach($Ejemplar as $E)
+                this.Nombres.push({
+                    "id":'{{$E->id}}',
+                    "Nombre":'{{$E->NombreComun}}',
+                    "NombreC":'{{$E->NombreCientifico}}',
+                    "Clave":'{{$E->Clave}}'
+                });
+    @endforeach
+            this.archivos=[
         {
             imagen:"",
             nombre:"Archivo1",
@@ -156,13 +290,19 @@
             nombre:"Archivo8",
             parteP:"Raíces"
             
-        },
-    ]
-    )
+        }
+        ]  
+    })
+      
+  },
+  methods:{
+    Ncientifico:function(){
+        this.Nombres.map((n) => {
+            if(document.getElementById('NombreC').value==n.id){
+                this.NCientifico=n.NombreC
+            }
+        })
     },
-
-methods:{
-   
     cargarImagen: function(e,index){
         let t = this;
         var input = document.getElementById('fileImg' +index);
@@ -175,22 +315,12 @@ methods:{
      
       reader.readAsDataURL(input.files[0]);
     }
-    },
-    Ncientifico:function(){
-        this.Nombres.map((n) => {
-            if(document.getElementById('NombreC').value==n.id){
-                this.NCientifico=n.NombreC
-                this.NoEjem=n.Clave+"UASLP";  
-            }
-        })
-    },   
-}  
+    }
+
+  }
+ 
 })
 
-    function readImage (e,input) {
-    }
-  
-   
 </script>
 
 @endpush

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class FichaTecnicaController extends Controller
 {
+    public $SubUnidades;
+    public $SubUnidadTP;
     /**
      * Display a listing of the resource.
      *
@@ -14,8 +16,12 @@ class FichaTecnicaController extends Controller
      */
     public function index()
     {
-    
-        return view('FichasTecnicas.index');
+        Controller::loadEjemplares();
+        Controller::loadSubUnidades();
+       
+        return view('FichasTecnicas.index') ->with("Ejemplar", $this->Ejemplar)
+        ->with("SubUnidades", $this->SubUnidades)
+        ->with("SubUnidadTP", $this->SubUnidadTP);
     }
 
     /**
@@ -36,7 +42,7 @@ class FichaTecnicaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**

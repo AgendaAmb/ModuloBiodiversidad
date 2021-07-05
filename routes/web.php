@@ -30,6 +30,7 @@ Route::group(['prefix' => 'Biodiversidad'], function () {
 
     Route::get('/Mapa', 'PlantaController@allPlantas')->name('Mapa');
     Route::get('FichasTecnicas','FichaTecnicaController@index')->name('FichasT');
+    Route::post('FichasTecnicas','FichaTecnicaController@store')->name('FichasT');
     Route::group(['prefix' => 'Sistema', 'middleware' => 'auth'], function () {
         Route::get('/', 'HomeController@index')->name('dashbord');
         Route::get('/Ejemplares', 'NombreEjemplarController@index')->name('Ejemplares');
