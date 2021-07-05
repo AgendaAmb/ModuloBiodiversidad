@@ -241,7 +241,6 @@
                     </p>
                   </a>
                   <ul class="nav nav-treeview">
-
                     @if (Auth::user()->hasAnyRole(array('administrador','Gestor')))
                     <li class="nav-item"  >
                       <a href="{{route('HojaCampo')}}" class="nav-link" id="navColors">
@@ -265,23 +264,41 @@
                     </li>
                     @endif
                     <!--Mostrar todas las hojas de campo-->
-
                   </ul>
                 </li>
+               
                 <li class="nav-item">
-                  <a href="{{route('Ejemplares')}}" class="nav-link" id="navColor">
-                    <i class="fas fa-file-alt"></i>
-                    <p>Fichas Tecnicas</p>
+                  <a href="#" class="nav-link" id="navColor">
+                    <i class="fas fa-address-card"></i>
+                    <p>
+                      Fichas Tecnicas
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
                   </a>
+                  <ul class="nav nav-treeview">
+                    @if (Auth::user()->hasAnyRole(array('administrador','Gestor')))
+                    <li class="nav-item"  >
+                      <a href="{{route('FichasT')}}" class="nav-link" id="navColors">
+                        <i class="fas fa-plus-circle"></i>
+                        <p>Registrar</p>
+                      </a>
+                    </li>
+                    @endif
+                    @if (Auth::user()->hasAnyRole(array('administrador','Coordinador')))
+                    <li class="nav-item">
+                      <a href="{{route('showVerificados')}}" class="nav-link" id="navColors">
+                        <i class="fas fa-user-check"></i>
+                        <p>Verificadas</p>
+                      </a>
+                    </li>
+                    @endif
+                    <!--Mostrar todas las hojas de campo-->
+                  </ul>
                 </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link" id="navColors">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p></p>
-                  </a>
-                </li>
+               
               </ul>
             </li>
+            
             @if (Auth::user()->hasRole('administrador'))
             <li class="nav-item ">
               <a href="#" class="nav-link active" id="navColor">

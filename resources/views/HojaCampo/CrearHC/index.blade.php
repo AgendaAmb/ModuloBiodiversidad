@@ -14,7 +14,8 @@
     <a href="{{ URL::previous() }}"><i class="fas fa-arrow-left"></i></a>
 </div>
 @else
-{{$nuevo=true}}
+<h5 class="d-none">{{$nuevo=true}}</h5>
+
 @endif
 
 @if (!$nuevo&&!$Planta->Verificado&&$Planta->NomVerificador!=null)

@@ -8,6 +8,7 @@ use App\NombreEjemplar;
 use App\Planta;
 use App\SituacionEntorno;
 use App\SubUnidades;
+
 use Auth;
 use DB;
 use File;
@@ -18,10 +19,11 @@ use Illuminate\Support\Str;
 
 class PlantaController extends Controller
 {
-    private $Nom;
-    private $Ejemplar;
-    private $SubUnidades;
-    private $SubUnidadTP;
+    public $Nom;
+    public $Ejemplar;
+    public $SubUnidades;
+    public $SubUnidadTP;
+   
     /**
      * Display a listing of the resource.
      *
@@ -30,8 +32,9 @@ class PlantaController extends Controller
     public function index(Request $request)
     {
         $request->user()->authorizeRoles(['administrador', 'Gestor']);
-        $this->loadEjemplares();
-        $this->loadSubUnidades();
+       // $controller = new Controller();
+        Controller::loadEjemplares();
+        Controller::loadSubUnidades();
         $Planta = new Planta();
         return \view('HojaCampo.CrearHC.index')
             ->with("Ejemplar", $this->Ejemplar)
@@ -39,30 +42,8 @@ class PlantaController extends Controller
             ->with("SubUnidadTP", $this->SubUnidadTP)
             ->with("isReO", false);
     }
-    private function loadEjemplares()
-    {
-        $this->Ejemplar = NombreEjemplar::all();
-        $this->SubUnidadTP = DB::table('sub_unidades')
-            ->orderBy('NombreUnidad', 'asc')
-            ->get();
-    }
-    private function loadSubUnidades()
-    {
-        $json = File::get("storage/TSubUnidades.json");
-        $SubUnidad = json_decode($json);
-        $this->SubUnidades = array();
-        for ($i = 0; $i < count($SubUnidad); $i++) {
-            $this->SubUnidades[] = array(
-                "IdSubUnidad" => $SubUnidad[$i]->IdSubUnidad,
-                "IdUnidad" => $SubUnidad[$i]->IdUnidad,
-                "SubUnidad" => $SubUnidad[$i]->SubUnidad,
-            );
-        }
-        foreach ($this->SubUnidades as $key => $row) {
-            $aux[$key] = $row['SubUnidad'];
-        }
-        array_multisort($aux, SORT_ASC, $this->SubUnidades);
-    }
+  
+   
     /**
      * Show the form for creating a new resource.
      *

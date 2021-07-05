@@ -4,10 +4,10 @@
     </label>
 
     @if ($isTextArea)
-    <div class="col-md-7">
-        <textarea {{$isReadOnly ? 'readonly':''}}  aria-label="With textarea" id="{{$labelFor}}" type="text"
+    <div class="col-md-8">
+        <textarea {{$isReadOnly ? 'readonly':''}}  {{$isRequiered ? 'required':''}}  aria-label="With textarea" id="{{$labelFor}}" type="text"
             class="form-control @error($labelFor) is-invalid @enderror" name="{{$labelFor}}"
-            value="{{$haveValue ? $value:old($labelFor)}}"  autocomplete autofocus>{{$value}}</textarea>
+             autocomplete autofocus>{{$value}}  {{$haveValue ? $value:old($labelFor)}}</textarea>
             @error($labelFor)
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
@@ -15,7 +15,7 @@
             @enderror
     </div>
     @else
-    <div class="col-md-7">
+    <div class="col-md-8">
         <input id="{{$labelFor}}" type="{{$typeInput}}" {{$typeInput=="number"? "step=0.0001 min=0.0001":''}} 
         class="form-control @error($labelFor)is-invalid @enderror"
         name="{{$labelFor}}"

@@ -11,26 +11,11 @@
      
      </div>
     
-    @if(count($nombreEjemplar->plantaNom)!=0)
-    @foreach($nombreEjemplar->plantaNom as $Plantas)
-    <h1>
-      
-        <br>
-        {{
-           $Plantas->Morfologia
-        }}
-        <br>
-        {{$Plantas->NombreEjem}}
-        <br>
-        {{ $Plantas->User}}
-        <br>
-        {{$Plantas->imagenesPlanta}}
-        <br>
-        {{$Plantas->SituacionEntorno}}
-    
-    </h1>
-    
-    @endforeach
+    @if($nombreEjemplar->FichaTecnica!=null)
+        <h1>
+            {{$nombreEjemplar}}
+        </h1>
+
     @else
     No exite aun ninguna planta de esta especie registrada.
     @endif
