@@ -8,7 +8,7 @@ class NombreEjemplar extends Model
 {
     protected $table = 'nombre_ejemplars';
 
-    protected $fillable=['NombreComun','NombreCientifico','Clave'];
+    protected $fillable=['NombreComun','NombreCientifico','Clave','ficha_tecnicas_id'];
 
     public function plantaNom()
     {

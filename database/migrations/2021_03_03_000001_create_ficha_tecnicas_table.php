@@ -18,6 +18,7 @@ class CreateFichaTecnicasTable extends Migration
             $table->string('TPertenencia');
             $table->string('Fcrecimiento');
             $table->string('Floracion');
+            $table->string('Origen');
             $table->string('Descripcion');
             $table->string('EstatusEco');
             $table->string('EstatusConv');

@@ -58,11 +58,10 @@ class NombreEjemplarController extends Controller
     public function show(NombreEjemplar $nombreEjemplar, $id)
     {
         $nombreEjemplar = NombreEjemplar::findorFail($id);
-
-        if (count($nombreEjemplar->plantaNom) == 0) {
+dd($nombreEjemplar);
+        if ($nombreEjemplar->FichaTecnica == null) {
             return \redirect()->back();
         } else {
-           
            
             return \view('Ejemplares.showPxE')->with("nombreEjemplar", $nombreEjemplar);
         }

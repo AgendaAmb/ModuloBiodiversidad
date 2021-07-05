@@ -200,7 +200,7 @@
 
                     </div>
                   
-                    <input type="text" >
+             
                     <div class="container mb-3">
                         <div class="row justify-content-center">
                             <button type="submit" class="btn btn-primary btn-lg">Confirmar</button>
