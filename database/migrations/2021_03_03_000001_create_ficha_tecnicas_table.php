@@ -33,6 +33,7 @@ class CreateFichaTecnicasTable extends Migration
             $table->string('ServiciosAmb');
             $table->string('AmenazasRiesgos');
             $table->string('AmenazasRiesgosHab');
+            
             $table->timestamps();
         });
     }

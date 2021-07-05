@@ -14,4 +14,8 @@ class NombreEjemplar extends Model
     {
         return $this->hasMany(Planta::class,'nombre_ejem_id');
     }
+    public function FichaTecnica()
+    {
+        return $this->hasOne(FichaTecnica::class,'id');
+    }
 }
