@@ -13,6 +13,7 @@ class FichaTecnica extends Model
         'Fcrecimiento',
         'Floracion',
         'Descripcion',
+        'Origen',
         'EstatusEco',
         'EstatusConv',
         'Altura',

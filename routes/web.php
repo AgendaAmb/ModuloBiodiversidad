@@ -24,6 +24,7 @@ Route::group(['prefix' => 'Biodiversidad'], function () {
     Auth::routes(['verify' => true]);
     Route::get('/usuario', 'HomeController@verificar')->name('UXV');
     Route::get('/Ejemplares', 'NombreEjemplarController@indexPublic')->name('EjemplaresP');
+    Route::get('/FichaTecnica/{id}', 'FichaTecnicaController@show')->name('FichaTecnicaPublica');
 
     Route::post('/LoginInstitucional', 'HomeController@loginInstitucional')->name('LInstitucionalP');
     Route::get('/HojaCampo/Verificadas', 'PlantaController@showVerificadas')->name('showVerificados');
@@ -34,7 +35,7 @@ Route::group(['prefix' => 'Biodiversidad'], function () {
     Route::group(['prefix' => 'Sistema', 'middleware' => 'auth'], function () {
         Route::get('/', 'HomeController@index')->name('dashbord');
         Route::get('/Ejemplares', 'NombreEjemplarController@index')->name('Ejemplares');
-        Route::get('/PlantasEjemplares/{id}', 'NombreEjemplarController@show')->name('PlantasEjemplares');
+        Route::get('/FichaTecnica/{id}', 'NombreEjemplarController@show')->name('PlantasEjemplares');
         Route::group(['middleware' => 'TRol:administrador'], function () {
             Route::post('/CambiaRoles', 'HomeController@editRol')->name('CambiaRol');
             Route::get('/home', 'HomeController@index')->name('home');

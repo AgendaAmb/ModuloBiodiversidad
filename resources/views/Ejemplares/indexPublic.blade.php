@@ -14,10 +14,11 @@
    
     <div class="row row-cols-1 row-cols-xl-4 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 especies m-xl-5 m-lg-4">
         @foreach ($Ejemplares as $Ejemplar)
+        @if ($Ejemplar->FichaTecnica->Estado=="Verificado")
         <div class="col mb-4">
             <div class="card w-100 ">
                 <div class="card-body">
-                    <a href="{{route('PlantasEjemplares',['id'=>$Ejemplar->id])}}">
+                    <a href="{{route('FichaTecnicaPublica',['id'=>$Ejemplar->id])}}">
                         <img class="card-img-top " id="{{$Ejemplar->id}}" src="{{asset('storage\Fondos\Fondo_Biodiversidad.webp')}}"
                             alt="Card image cap">
                     </a>
@@ -27,6 +28,7 @@
                 </div>
             </div>
         </div>
+        @endif    
         @endforeach
         
     </div>

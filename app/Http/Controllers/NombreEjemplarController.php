@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\NombreEjemplar;
 use Illuminate\Http\Request;
-use App\FotoPlanta;
 
 class NombreEjemplarController extends Controller
 {
@@ -15,17 +14,14 @@ class NombreEjemplarController extends Controller
      */
     public function index()
     {
-        
-        $EjemplaresJava = NombreEjemplar::orderBy('NombreComun','asc')->get();
-        $Ejemplares = NombreEjemplar::orderBy('NombreComun','asc')->Paginate(15);
-        return \view('Ejemplares.index')->with("Ejemplares", $Ejemplares)->with("EjemplaresJava",$EjemplaresJava);
+        $EjemplaresJava = NombreEjemplar::orderBy('NombreComun', 'asc')->get();
+        $Ejemplares = NombreEjemplar::orderBy('NombreComun', 'asc')->Paginate(15);
+        return \view('Ejemplares.index')->with("Ejemplares", $Ejemplares)->with("EjemplaresJava", $EjemplaresJava);
     }
     public function indexPublic()
     {
-        
-        $Ejemplares = NombreEjemplar::orderBy('NombreComun','asc')->Paginate(15);
-       
-        return \view('Ejemplares.indexPublic')->with("Ejemplares", $Ejemplares);
+        $Ejemplares = NombreEjemplar::where('ficha_tecnicas_id', '!=', null)->Paginate(15);
+        return \view('Ejemplares.indexPublic')->with("Ejemplares",$Ejemplares);
     }
 
     /**
@@ -58,11 +54,11 @@ class NombreEjemplarController extends Controller
     public function show(NombreEjemplar $nombreEjemplar, $id)
     {
         $nombreEjemplar = NombreEjemplar::findorFail($id);
-dd($nombreEjemplar);
+
         if ($nombreEjemplar->FichaTecnica == null) {
             return \redirect()->back();
         } else {
-           
+
             return \view('Ejemplares.showPxE')->with("nombreEjemplar", $nombreEjemplar);
         }
     }

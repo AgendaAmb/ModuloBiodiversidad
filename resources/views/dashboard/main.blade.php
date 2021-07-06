@@ -242,12 +242,13 @@
                   </a>
                   <ul class="nav nav-treeview">
                     @if (Auth::user()->hasAnyRole(array('administrador','Gestor')))
-                    <li class="nav-item"  >
+                    <li class="nav-item" >
                       <a href="{{route('HojaCampo')}}" class="nav-link" id="navColors">
                         <i class="fas fa-plus-circle"></i>
                         <p>Registrar</p>
                       </a>
                     </li>
+                  
                     <li class="nav-item">
                       <a href="{{route('UserHC')}}" class="nav-link" id="navColors">
                         <i class="far fa-file-alt"></i>
@@ -255,7 +256,14 @@
                       </a>
                     </li>
                     @endif
+                    
                     @if (Auth::user()->hasAnyRole(array('administrador','Coordinador')))
+                    <li class="nav-item">
+                      <a href="{{route('ShowHC')}}" class="nav-link" id="navColors">
+                        <i class="far fa-file-alt"></i>
+                        <p>Mostrar todas las hojas de campo</p>
+                      </a>
+                    </li>
                     <li class="nav-item">
                       <a href="{{route('showVerificados')}}" class="nav-link" id="navColors">
                         <i class="fas fa-user-check"></i>
@@ -284,7 +292,21 @@
                       </a>
                     </li>
                     @endif
+                    @if (Auth::user()->hasAnyRole('Gestor'))
+                    <li class="nav-item"  >
+                      <a href="{{route('FichasT')}}" class="nav-link" id="navColors">
+                        <i class="far fa-file-alt"></i>
+                        <p>Mis Fichas Tecnicas</p>
+                      </a>
+                    </li>
+                    @endif
                     @if (Auth::user()->hasAnyRole(array('administrador','Coordinador')))
+                    <li class="nav-item">
+                      <a href="{{route('Ejemplares')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Mostrar todas las Fichas Tecnicas</p>
+                      </a>
+                    </li>
                     <li class="nav-item">
                       <a href="{{route('showVerificados')}}" class="nav-link" id="navColors">
                         <i class="fas fa-user-check"></i>
@@ -292,6 +314,7 @@
                       </a>
                     </li>
                     @endif
+                    
                     <!--Mostrar todas las hojas de campo-->
                   </ul>
                 </li>
