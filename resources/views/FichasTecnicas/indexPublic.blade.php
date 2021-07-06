@@ -102,7 +102,22 @@
                         </div>
                     </div>
                 </div>
-               
+               <div class="container-fluid my-5" style="font-size: 12px;color:gray;">
+                   <div class="row justify-content-around">
+                       <div class="col bg-white px-0 mx-5">
+                        <p class="card-title text-center align-middle  mt-3 text-break ">
+                            Descripción:{{$fichaTecnica->FichaTecnica->Descripcion}}</p>
+                       </div>
+                       <div class="col bg-white px-0 mx-5">
+                        <p class="card-title text-center align-middle  mt-3 text-break ">
+                            Descripción:{{$fichaTecnica->FichaTecnica->Descripcion}}</p>
+                       </div>
+                       <div class="col  bg-white px-0 mx-5">
+                        <p class="card-title text-center align-middle  mt-3 text-break ">
+                            Descripción:{{$fichaTecnica->FichaTecnica->Descripcion}}</p>
+                       </div>
+                   </div>
+               </div>
             </div>
         </div>
     </div>
