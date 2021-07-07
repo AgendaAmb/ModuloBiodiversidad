@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\FichaTecnica;
 use App\NombreEjemplar;
 use Illuminate\Http\Request;
+use PDF;
 
 class FichaTecnicaController extends Controller
 {
@@ -89,6 +90,18 @@ class FichaTecnicaController extends Controller
         $fichaTecnica = FichaTecnica::findorFail($id);
        //dd(NombreEjemplar::findorFail($fichaTecnica->id));
         return \view('FichasTecnicas.indexPublic')->with("fichaTecnica", NombreEjemplar::findorFail($fichaTecnica->id));
+        
+    }
+    public function Imprimir(FichaTecnica $fichaTecnica, $id)
+    {
+        $fichaTecnica = FichaTecnica::findorFail($id);
+       //dd(NombreEjemplar::findorFail($fichaTecnica->id));
+       $fichaTecnica= NombreEjemplar::findorFail($fichaTecnica->id);
+       $data=compact('fichaTecnica');
+       $pdf = PDF::loadView('FichasTecnicas.pdf', $data)->setPaper([0, 0, 595.28,  1683.78]);
+       //$pdf->setPaper('A4', 'portrait');
+       return $pdf->stream('invoice.pdf');
+       // return \view('FichasTecnicas.pdf')->with("fichaTecnica", NombreEjemplar::findorFail($fichaTecnica->id));
         
     }
 

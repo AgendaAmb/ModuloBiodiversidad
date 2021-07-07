@@ -3,8 +3,15 @@
 @section('contenido')
 
 <div class="container-fluid bg-secondary px-5 py-0">
+    
     <div class="row justify-content-center">
         <div class="container-fluid bg-white mx-5 px-4 ">
+            <div class="row justify-content-end m-3">
+                <a href="{{route('ImprimirFichaTecnica',['id'=>$fichaTecnica->id])}}" class="d-inline-block btn btn-sm btn-primary">
+                    <i class="fas fa-print fa-sm text-white-50">  Descargar</i>
+                  
+                </a>
+            </div>
             <div class="row justify-content-center  m-4" style="background-color: #e0e2e1">
                 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">

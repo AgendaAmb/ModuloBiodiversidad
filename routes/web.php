@@ -16,7 +16,11 @@ Route::get('/', function () {
     return redirect('/Biodiversidad');
 });
 
+
 Route::group(['prefix' => 'Biodiversidad'], function () {
+    Route::get('/pruebaPdf', function () {
+        return view('FichasTecnicas.pdf');
+    });
     Route::get('/usuario', 'HomeController@verificar')->name('UXV');
     Route::view('/', 'index')->name('Bio');
     Route::view('/LoginInstitucional', 'Institucional.vista')->name('LInstitucional');
@@ -25,7 +29,7 @@ Route::group(['prefix' => 'Biodiversidad'], function () {
     Route::get('/usuario', 'HomeController@verificar')->name('UXV');
     Route::get('/Ejemplares', 'NombreEjemplarController@indexPublic')->name('EjemplaresP');
     Route::get('/FichaTecnica/{id}', 'FichaTecnicaController@show')->name('FichaTecnicaPublica');
-
+    Route::get('/FichaTecnica/imprimir/{id}', 'FichaTecnicaController@Imprimir')->name('ImprimirFichaTecnica');
     Route::post('/LoginInstitucional', 'HomeController@loginInstitucional')->name('LInstitucionalP');
     Route::get('/HojaCampo/Verificadas', 'PlantaController@showVerificadas')->name('showVerificados');
 
