@@ -15,25 +15,25 @@ class CreateFichaTecnicasTable extends Migration
     {
         Schema::create('ficha_tecnicas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('TPertenencia');
-            $table->string('Fcrecimiento');
-            $table->string('Floracion');
-            $table->string('Origen');
-            $table->string('Descripcion');
-            $table->string('EstatusEco');
-            $table->string('EstatusConv');
+            $table->string('TPertenencia',500);
+            $table->string('Fcrecimiento',500);
+            $table->string('Floracion',500);
+            $table->string('Origen',500);
+            $table->string('Descripcion',500);
+            $table->string('EstatusEco',500);
+            $table->string('EstatusConv',500);
             $table->string('Altura');
-            $table->string('TipoC');
-            $table->string('TipoR');
-            $table->string('RaicesObs');
-            $table->string('Usos');
-            $table->string('Clima');
-            $table->string('Porte');
-            $table->string('SistemR');
-            $table->string('RequerimientosE');
-            $table->string('ServiciosAmb');
-            $table->string('AmenazasRiesgos');
-            $table->string('AmenazasRiesgosHab');
+            $table->string('TipoC',500);
+            $table->string('TipoR',500);
+            $table->string('RaicesObs',500);
+            $table->string('Usos',500);
+            $table->string('Clima',500);
+            $table->string('Porte',500);
+            $table->string('SistemR',500);
+            $table->string('RequerimientosE',500);
+            $table->string('ServiciosAmb',500);
+            $table->string('AmenazasRiesgos',500);
+            $table->string('AmenazasRiesgosHab',500);
             $table->string('Estado');
             $table->string('Url_PC');
             $table->string('Url_F');
@@ -43,6 +43,13 @@ class CreateFichaTecnicasTable extends Migration
             $table->string('Url_S');
             $table->string('Url_T');
             $table->string('Url_R');
+            
+            $table->unsignedBigInteger('user_id')->nullable();
+            
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -17,9 +17,9 @@ class CreateSituacionEntornosTable extends Migration
             $table->bigIncrements('id');
             $table->string('Latitud')->nullable();
             $table->string('Altitud')->nullable();
-            $table->string('TArea')->nullable();
-            $table->string('Aspecto')->nullable();
-            $table->json('Interfencia')->nullable();
+            $table->string('TArea',500)->nullable();
+            $table->string('Aspecto',500)->nullable();
+            $table->json('Interfencia',500)->nullable();
             $table->string('No_Ejemplar')->nullable();
             $table->integer('EntidadAcademica')->nullable();
             $table->string('SubEntidadAcademica')->nullable();

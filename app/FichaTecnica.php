@@ -33,5 +33,8 @@ class FichaTecnica extends Model
     {
         return $this->belongsTo(NombreEjemplar::class);
     }
-    
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

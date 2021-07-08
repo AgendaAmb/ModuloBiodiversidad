@@ -7,8 +7,8 @@
     <div class="row justify-content-center">
         <div class="container-fluid bg-white mx-5 px-4 ">
             <div class="row justify-content-end m-3">
-                <a href="{{route('ImprimirFichaTecnica',['id'=>$fichaTecnica->id])}}" class="d-inline-block btn btn-sm btn-primary">
-                    <i class="fas fa-print fa-sm text-white-50">  Descargar</i>
+                <a href="{{route('ImprimirFichaTecnica',['id'=>$fichaTecnica->id])}}" class="d-inline-block btn btn-sm btn-primary" target="blank">
+                    <i class="fas fa-download">  Descargar</i>
                   
                 </a>
             </div>
@@ -16,7 +16,11 @@
                 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="{{asset('storage\Fondos\Fondo_Biodiversidad.webp')}}"
+                            <p class="d-none">
+                                {{$urlPC=$fichaTecnica->FichaTecnica->Url_PC}}
+                            </p>
+
+                            <img src="{{ asset("storage$urlPC" )}}"
                                 class="d-block w-100 mx-auto p-5" alt="..." style="opacity: 0.8">
                             <div class="carousel-caption d-none d-sm-block" style="bottom: 43%; opacity: 1.0;">
                                 <h1 class="font-weight-bold text-uppercase"
@@ -38,9 +42,12 @@
                     <div class="col mb-4 px-2">
                         <div class="card w-100 ">
                             <div class="card-body">
+                                <p class="d-none">
+                                    {{$urlH=$fichaTecnica->FichaTecnica->Url_H}}
+                                </p>
                                 <a href="#">
                                     <img class="card-img-top " style="height: 18rem;"
-                                        src="{{asset('storage\Fondos\Fondo_Biodiversidad.webp')}}" alt="Card image cap">
+                                    src="{{ asset("storage$urlH" )}}" alt="Card image cap">
                                 </a>
                             </div>
                             <div class="card-footer px-4 pb-4 pt-2">
@@ -55,9 +62,12 @@
                     <div class="col mb-4 px-2">
                         <div class="card w-100 ">
                             <div class="card-body">
+                                <p class="d-none">
+                                    {{$urlFL=$fichaTecnica->FichaTecnica->Url_FL}}
+                                </p>
                                 <a href="#">
                                     <img class="card-img-top " style="height: 18rem;"
-                                        src="{{asset('storage\Fondos\Fondo_Biodiversidad.webp')}}" alt="Card image cap">
+                                    src="{{ asset("storage$urlFL" )}}" alt="Card image cap">
                                 </a>
                             </div>
                             <div class="card-footer px-4 pb-4 pt-2">
@@ -72,10 +82,13 @@
                     </div>
                     <div class="col mb-4 px-2">
                         <div class="card w-100  ">
+                            <p class="d-none">
+                                {{$urlS=$fichaTecnica->FichaTecnica->Url_S}}
+                            </p>
                             <div class="card-body">
                                 <a href="#">
                                     <img class="card-img-top " style="height: 18rem;"
-                                        src="{{asset('storage\Fondos\Fondo_Biodiversidad.webp')}}" alt="Card image cap">
+                                    src="{{ asset("storage$urlS" )}}" alt="Card image cap">
                                 </a>
                             </div>
                             <div class="card-footer px-4 pb-4 pt-2">
@@ -91,7 +104,10 @@
                 </div>
                 <div class="container-fluid pl-0 pr-1 mt-4 bg-white">
                     <div class="row">
-                        <div class="col-6 pr-0"><img src="{{asset('storage\Fondos\Fondo_Biodiversidad.webp')}}"
+                        <p class="d-none">
+                            {{$urlF=$fichaTecnica->FichaTecnica->Url_F}}
+                        </p>
+                        <div class="col-6 pr-0"><img  src="{{ asset("storage$urlF" )}}" "
                                 class="w-100 h-100" alt=""></div>
                         <div class="col-6 p-5" style="font-size: 12px;color:gray;font-weight: 600;">
                             <p class="card-title text-center align-middle  mt-3 text-break pr-5">

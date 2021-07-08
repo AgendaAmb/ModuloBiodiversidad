@@ -46,6 +46,7 @@ Route::group(['prefix' => 'Biodiversidad'], function () {
             Route::get('/UsuariosAdmin', 'HomeController@getUsers')->name('UserAdmin');
             Route::post('/EliminarUser', 'HomeController@deleteUser')->name('EliminarUser');
             Route::get('/MisHojasCampo', 'HomeController@getHCByUser')->name('UserHC');
+            Route::get('/MisFichasTecnicas', 'HomeController@getFTByUser')->name('UserFT');
 
             //Route::get('/MisHojasCampo/{id}', 'PlantaController@show')->name('UserHCEdit');
            // Route::get('/HojasCampo', 'PlantaController@showAllPlantas')->name('ShowHC');
@@ -61,6 +62,7 @@ Route::group(['prefix' => 'Biodiversidad'], function () {
             Route::get('/HojaCampo', 'PlantaController@index')->name('HojaCampo');
             Route::post('/GuardaHC', 'PlantaController@store')->name('GHC');
             Route::get('/MisHojasCampo', 'HomeController@getHCByUser')->name('UserHC');
+            Route::get('/MisFichasTecnicas', 'HomeController@getFTByUser')->name('UserFT');
             Route::get('MisHojasCampo/{id}', 'PlantaController@show')->name('UserHCEdit');
            
         });

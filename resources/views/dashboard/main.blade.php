@@ -260,7 +260,7 @@
                     @if (Auth::user()->hasAnyRole(array('administrador','Coordinador')))
                     <li class="nav-item">
                       <a href="{{route('ShowHC')}}" class="nav-link" id="navColors">
-                        <i class="far fa-file-alt"></i>
+                        <i class="far fa-file-alt">  <i class="far fa-file-alt"></i></i>
                         <p>Mostrar todas las hojas de campo</p>
                       </a>
                     </li>
@@ -291,10 +291,9 @@
                         <p>Registrar</p>
                       </a>
                     </li>
-                    @endif
-                    @if (Auth::user()->hasAnyRole('Gestor'))
+                  
                     <li class="nav-item"  >
-                      <a href="{{route('FichasT')}}" class="nav-link" id="navColors">
+                      <a href="{{route('UserFT')}}" class="nav-link" id="navColors">
                         <i class="far fa-file-alt"></i>
                         <p>Mis Fichas Tecnicas</p>
                       </a>
@@ -302,8 +301,8 @@
                     @endif
                     @if (Auth::user()->hasAnyRole(array('administrador','Coordinador')))
                     <li class="nav-item">
-                      <a href="{{route('Ejemplares')}}" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
+                      <a href="{{route('Ejemplares')}}" class="nav-link" id="navColors">
+                        <i class="far fa-file-alt">  <i class="far fa-file-alt"></i></i>
                         <p>Mostrar todas las Fichas Tecnicas</p>
                       </a>
                     </li>

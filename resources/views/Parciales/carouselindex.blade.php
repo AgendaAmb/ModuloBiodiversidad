@@ -22,6 +22,8 @@
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
   <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
+   <!-- Font Awesome -->
+   <link rel="stylesheet" href="{{asset('Dash/plugins/fontawesome-free/css/all.min.css')}}">
   @stack('scripts')
 </head>
 

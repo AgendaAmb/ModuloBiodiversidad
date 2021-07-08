@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use PDF;
 use Illuminate\Support\Str;
 use App\FotoPlanta;
+use Auth;
 
 class FichaTecnicaController extends Controller
 {
@@ -114,6 +115,7 @@ class FichaTecnicaController extends Controller
         $Ficha_Tecnica->AmenazasRiesgos = $request->AmenazasR;
         $Ficha_Tecnica->AmenazasRiesgosHab = $request->AmenazasRC;
         $Ficha_Tecnica->Estado = "Verificacion";
+        $Ficha_Tecnica->user_id = Auth::id();
         $nombreEjemplar->FichaTecnica()->save($Ficha_Tecnica);
      
 
@@ -154,7 +156,8 @@ class FichaTecnicaController extends Controller
         $data = compact('fichaTecnica');
         $pdf = PDF::loadView('FichasTecnicas.pdf', $data)->setPaper([0, 0, 695.28, 1102.89]);
         // $pdf->setPaper('A4', 'portrait');
-        return $pdf->stream('invoice.pdf');
+        $pdfNombre='Ficha_Tecnica_'.$fichaTecnica->NombreComun.'.pdf';
+        return $pdf->stream($pdfNombre);
         // return \view('FichasTecnicas.pdf')->with("fichaTecnica", NombreEjemplar::findorFail($fichaTecnica->id));
 
     }
