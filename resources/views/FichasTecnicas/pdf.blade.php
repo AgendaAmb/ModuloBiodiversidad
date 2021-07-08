@@ -55,14 +55,14 @@
 <body style="background-color: gray;margin: 0% 0%;padding: 0%">
     <div style="background-color: white;margin: 0% 4%;">
         <div style="background-color: #e0e2e1;margin: 0% 4%;">
-            <div style="margin: 1% 6%;padding: 2% 0%">
-                <img src="{{ public_path('storage\Fondos\Fondo_Biodiversidad.jpg') }}" class="" width="600" height="400"
-                    alt="..." style="opacity: 0.6">
-                <p id="NombreF" >
+            <div style="margin-top: 10px; margin-bottom: 0%;">
+                <img src="{{ public_path('storage\Fondos\Fondo_Biodiversidad.jpg') }}"  width="700" height="500"
+                    alt="..." style="opacity: 0.6;margin-top: 5%;margin-left: 5%; margin-bottom: 0%;">
+                <p id="NombreF" style=" margin-bottom: 1%;">
                     {{$fichaTecnica->NombreComun}}
                 </p>
             </div>
-            <div style="text-align: center;margin: 40px 0%;">
+            <div style="text-align: center;margin-bottom: 40px 0%;">
                 <p
                     style="font-size: 32px;color: #466065; margin:0%; font-family: 'Myraid Pro Bold';font-weight: bolder;  text-transform: uppercase;">
                     {{$fichaTecnica->NombreCientifico}}
@@ -87,7 +87,7 @@
                         <img src="{{ public_path('storage\Fondos\Fondo_Biodiversidad.jpg') }}" width="185" height="200" alt="">
                         <p style="margin-bottom:0%;color: #bcc9cb; font-size: 10px;  font-family: 'Myraid Pro Bold'; font-weight: 900;">
                             FRORACIÓN</p>
-                        <p  style="font-size: 10px; color: #67817e;margin-top: 5px;padding: 0% 1%;">
+                        <p  style="font-size: 10px; color: #67817e;margin-top: 0%;padding: 0% 1%;">
                             {{$fichaTecnica->FichaTecnica->Floracion}} marzo a noviembre. Las ores se agrupan
                             en inorescencias y pueden ser blanquecinas,
                             cuelgan como lágrimas mecidas por el
@@ -97,9 +97,9 @@
                 <div class="item" style="margin-left: 69.66%;">
                     <div>
                         <img src="{{ public_path('storage\Fondos\Fondo_Biodiversidad.jpg') }}" width="185" height="200" alt="">
-                        <p style="margin-bottom:0%;color: #bcc9cb; font-size: 10px;   font-weight: 900;">
+                        <p style="margin-bottom:0%;color: #bcc9cb; font-size: 10px;  font-family: 'Myraid Pro Bold'; font-weight: 900;">
                             ORIGEN</p>
-                        <p  style="font-size: 10px; color: #67817e;margin-top: 5px;padding: 0% 1%;">
+                        <p  style="font-size: 10px; color: #67817e;margin-top: 0%;padding: 0% 1%;">
                             {{$fichaTecnica->FichaTecnica->Origen}} marzo a noviembre. Las ores se agrupan
                             en inorescencias y pueden ser blanquecinas,
                             cuelgan como lágrimas mecidas por el
