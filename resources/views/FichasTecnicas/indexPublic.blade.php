@@ -138,7 +138,7 @@
                                 style="color: #bcc9cb; font-size: 14px;font-family: 'Myraid Pro Bold';">
                                 SISTEMA DE RAÍCES</p>
                             <p class="card-title text-center align-middle  mt-3 text-break ">
-                                {{$fichaTecnica->FichaTecnica->Clima}}</p>
+                                {{$fichaTecnica->FichaTecnica->SistemR}}</p>
                         </div>
                     </div>
                     <div class="col mb-4 px-2">
