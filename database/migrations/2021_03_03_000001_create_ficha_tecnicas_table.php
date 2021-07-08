@@ -35,7 +35,14 @@ class CreateFichaTecnicasTable extends Migration
             $table->string('AmenazasRiesgos');
             $table->string('AmenazasRiesgosHab');
             $table->string('Estado');
-            
+            $table->string('Url_PC');
+            $table->string('Url_F');
+            $table->string('Url_H');
+            $table->string('Url_FL');
+            $table->string('Url_FR');
+            $table->string('Url_S');
+            $table->string('Url_T');
+            $table->string('Url_R');
             $table->timestamps();
         });
     }
