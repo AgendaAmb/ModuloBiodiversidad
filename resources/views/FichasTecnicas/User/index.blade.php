@@ -19,7 +19,7 @@
             <div class="card w-100 ">
                 <h5 class="card-title text-center">{{$Ficha->NombreComun}}</h5>
                 <div class="card-body">
-                    <a href="{{route('FichaTecnicaPublica',['id'=>$Ficha->id])}}">
+                    <a href="{{route('UserFTEdit',['id'=>$Ficha->id])}}">
                         <img class="card-img-top " id="{{$Ficha->id}}" src="{{asset('storage/'.$Ficha->Url_PC)}}"
                             alt="Card image cap">
 
@@ -29,18 +29,22 @@
                 <div class="card-footer p-1">
                     <div>
                         <div class="container">
-                            <div class="row">
-                                <div class="col-sm p-1">
-                                    <span>
-                                        <a href="{{route('ImprimirFichaTecnica',['id'=>$Ficha->id])}}"
-                                            class="d-inline-block btn btn-sm btn-primary" target="blank">
-                                            PDF</i>
-                                        </a>
-                                    </span>
-                                </div>
-                                <div class="col-sm p-1">
+                            <div class="row justify-content-center ">
 
+                                <div class="col-2 p-0">                                   
+                                        <a href="{{route('ImprimirFichaTecnica',['id'=>$Ficha->id])}}"
+                                            class="d-inline-block btn btn-sm btn-danger text-center" target="blank">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </a>
                                 </div>
+                                <div class="col-2 p-0">
+                                        <a href="{{route('FichaTecnicaPublica',['id'=>$Ficha->id])}}"
+                                            class="d-inline-block btn btn-sm btn-info" target="blank"
+                                            >
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>

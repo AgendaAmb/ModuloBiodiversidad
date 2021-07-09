@@ -28,7 +28,7 @@ Route::group(['prefix' => 'Biodiversidad'], function () {
     Auth::routes(['verify' => true]);
     Route::get('/usuario', 'HomeController@verificar')->name('UXV');
     Route::get('/Ejemplares', 'NombreEjemplarController@indexPublic')->name('EjemplaresP');
-    Route::get('/FichaTecnica/{id}', 'FichaTecnicaController@show')->name('FichaTecnicaPublica');
+    Route::get('/FichaTecnica/{id}', 'FichaTecnicaController@showPublic')->name('FichaTecnicaPublica');
     Route::get('/FichaTecnica/imprimir/{id}', 'FichaTecnicaController@Imprimir')->name('ImprimirFichaTecnica');
     Route::post('/LoginInstitucional', 'HomeController@loginInstitucional')->name('LInstitucionalP');
     Route::get('/HojaCampo/Verificadas', 'PlantaController@showVerificadas')->name('showVerificados');
@@ -63,6 +63,7 @@ Route::group(['prefix' => 'Biodiversidad'], function () {
             Route::post('/GuardaHC', 'PlantaController@store')->name('GHC');
             Route::get('/MisHojasCampo', 'HomeController@getHCByUser')->name('UserHC');
             Route::get('/MisFichasTecnicas', 'HomeController@getFTByUser')->name('UserFT');
+            Route::get('/MisFichasTecnicas/{id}', 'FichaTecnicaController@show')->name('UserFTEdit');
             Route::get('MisHojasCampo/{id}', 'PlantaController@show')->name('UserHCEdit');
            
         });
@@ -71,6 +72,8 @@ Route::group(['prefix' => 'Biodiversidad'], function () {
         Route::group(['middleware' => 'TRol:administrador|Coordinador|Gestor'], function () {
             Route::post('/MisHojasCampo/verificar', 'PlantaController@verificar')->name('VerificarHC');
             Route::post('/MisHojasCampo/rechazar', 'PlantaController@rechazar')->name('RechazarHC');
+            Route::post('/MisHojasCampo/verificar', 'FichaTecnicaController@verificar')->name('VerificarFT');
+            Route::post('/MisHojasCampo/rechazar', 'FichaTecnicaController@rechazar')->name('RechazarFT');
             Route::get('/HojasCampo', 'PlantaController@showAllPlantas')->name('ShowHC');
             Route::get('MisHojasCampo/{id}', 'PlantaController@show')->name('UserHCEdit');
         });

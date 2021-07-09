@@ -35,6 +35,8 @@ class CreateFichaTecnicasTable extends Migration
             $table->string('AmenazasRiesgos',500);
             $table->string('AmenazasRiesgosHab',500);
             $table->string('Estado');
+            $table->string('MotivoRechazo')->nullable();
+            $table->string('NomVerificador')->nullable();
             $table->string('Url_PC');
             $table->string('Url_F');
             $table->string('Url_H');

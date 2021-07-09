@@ -117,10 +117,10 @@
 @else
 @if (Auth::user()->hasAnyRole(['administrador','Coordinador']))
 @if (!$Planta->Verificado)
-<x-Modal idModal="verificar" modalTitle="Confirmar Hoja de campo" isRechazada="false">
+<x-Modal idModal="verificar" modalTitle="Confirmar Hoja de campo" isRechazada="false" vista="HC">
 </x-Modal>
 
-<x-Modal idModal="Rechazar" modalTitle="Rechazar Hoja de campo" isRechazada="true">
+<x-Modal idModal="Rechazar" modalTitle="Rechazar Hoja de campo" isRechazada="true"  vista="HC">
 </x-Modal>
 @endif
 

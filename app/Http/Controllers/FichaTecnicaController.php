@@ -29,7 +29,8 @@ class FichaTecnicaController extends Controller
 
         return view('FichasTecnicas.index')->with("Ejemplar", $this->Ejemplar->where('ficha_tecnicas_id', '==', null))
             ->with("SubUnidades", $this->SubUnidades)
-            ->with("SubUnidadTP", $this->SubUnidadTP);
+            ->with("SubUnidadTP", $this->SubUnidadTP)
+            ->with("isReO", false);
     }
 
     /**
@@ -141,7 +142,31 @@ class FichaTecnicaController extends Controller
      * @param  \App\FichaTecnica  $fichaTecnica
      * @return \Illuminate\Http\Response
      */
-    public function show(FichaTecnica $fichaTecnica, $id)
+    public function show(FichaTecnica $fichaTecnica, $id,Request $request)
+    {
+        $request->user()->authorizeRoles(['administrador', 'Gestor', 'Coordinador']);
+        $fichaTecnica = FichaTecnica::findorFail($id);
+       
+        if ($fichaTecnica->User->id == Auth::id()) {
+
+            Controller::loadEjemplares();
+            Controller::loadSubUnidades();
+
+            return \view('FichasTecnicas.index')
+                ->with("Ejemplar", $this->Ejemplar)
+                ->with("SubUnidades", $this->SubUnidades)
+                ->with("SubUnidadTP", $this->SubUnidadTP)
+                ->with("isReO", true)
+                ->with("FichaTecnica", $fichaTecnica);
+        } else {
+            return \redirect()->back();
+
+        }
+        //dd(NombreEjemplar::findorFail($fichaTecnica->id));
+       // return \view('FichasTecnicas.indexPublic')->with("fichaTecnica", NombreEjemplar::findorFail($fichaTecnica->id));
+
+    }
+    public function showPublic(FichaTecnica $fichaTecnica, $id)
     {
         $fichaTecnica = FichaTecnica::findorFail($id);
         //dd(NombreEjemplar::findorFail($fichaTecnica->id));
@@ -162,6 +187,30 @@ class FichaTecnicaController extends Controller
 
     }
 
+    public function verificar(Request $request)
+    {
+       
+        $request->user()->authorizeRoles(['administrador', 'Coordinador']);
+        $FichaTecnica = FichaTecnica::findorFail($request->idFichaT);
+        $FichaTecnica->Estado = "Verificado";
+        $FichaTecnica->NomVerificador = Auth::user()->name;
+        $FichaTecnica->save();
+        return back()->with('message', 'Se ha verificado la hoja de campo con exito');
+
+    }
+    public function rechazar(Request $request){
+        
+       
+        $request->user()->authorizeRoles(['administrador', 'Coordinador']);
+        $Planta = Planta::findorFail($request->idPlanta);
+
+        $Planta->Verificado = false;
+        $Planta->NomVerificador = Auth::user()->name;
+        $Planta->MotivoRechazo=$request->MRechazo;
+        $Planta->save();
+        return back()->with('message', 'La hoja de campo ha sido RECHAZADA');
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -170,7 +219,7 @@ class FichaTecnicaController extends Controller
      */
     public function edit(FichaTecnica $fichaTecnica)
     {
-        //
+      
     }
 
     /**

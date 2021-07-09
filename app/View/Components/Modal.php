@@ -9,16 +9,18 @@ class Modal extends Component
     public $idModal;
     public $modalTitle;
     public $isRechazada;
+    public $vista;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($idModal, $modalTitle, $isRechazada)
+    public function __construct($idModal, $modalTitle, $isRechazada,$vista)
     {
         $this->idModal = $idModal;
         $this->modalTitle = $modalTitle;
         $this->isRechazada = $isRechazada;
+        $this->vista=$vista;
     }
 
     /**
