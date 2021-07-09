@@ -78,8 +78,8 @@
                         <div class="card w-100 ">
                             <h5 class="card-title text-center">@{{a.parteP}} </h5>
                             
-                            <div class="card-body">
-                                <img class="card-img-top " v-if="a.imagen!=''" :id="a.nombre" :src="'/storage'+a.imagen"
+                            <div class="card-body"> 
+                                <img class="card-img-top " v-if="a.imagen!=''" :id="a.nombre"  :src="a.ban==false?'/storage'+a.imagen:a.imagen" 
                                     alt="Card image cap">
                             </div>
                             <div class="card-footer pl-5">
@@ -289,41 +289,49 @@
                     "imagen":'{{$FichaTecnica->Url_PC}}',
                     "nombre":'Archivo1',
                     "parteP":'Planta completa',   
+                    "ban":false
                 },
                 {
                     "imagen":'{{$FichaTecnica->Url_F}}',
                     "nombre":'Archivo2',
                     "parteP":'Follaje',   
+                    "ban":false
                 },
                 {
                     "imagen":'{{$FichaTecnica->Url_H}}',
                     "nombre":'Archivo3',
-                    "parteP":'Hojas',   
+                    "parteP":'Hojas',  
+                    "ban":false 
                 },
                 {
                     "imagen":'{{$FichaTecnica->Url_FR}}',
                     "nombre":'Archivo4',
-                    "parteP":'Flores',   
+                    "parteP":'Flores',  
+                    "ban":false 
                 },
                 {
                     "imagen":'{{$FichaTecnica->Url_FR}}',
                     "nombre":'Archivo5',
-                    "parteP":'Frutos',   
+                    "parteP":'Frutos', 
+                    "ban":false  
                 },
                 {
                     "imagen":'{{$FichaTecnica->Url_S}}',
                     "nombre":'Archivo6',
-                    "parteP":'Semillas',   
+                    "parteP":'Semillas',  
+                    "ban":false 
                 },
                 {
                     "imagen":'{{$FichaTecnica->Url_T}}',
                     "nombre":'Archivo7',
-                    "parteP":'Tronco',   
+                    "parteP":'Tronco',  
+                    "ban":false 
                 },
                 {
                     "imagen":'{{$FichaTecnica->Url_R}}',
                     "nombre":'Archivo8',
-                    "parteP":'Raíces',   
+                    "parteP":'Raíces',  
+                    "ban":false 
                 }
                 );
     
@@ -347,7 +355,9 @@
     if (input.files && input.files[0]) {
       var reader = new FileReader();
       reader.onload = function (e) {
+          
           t.archivos[index].imagen =  e.target.result;
+          t.archivos[index].ban=true;
       }
      
       reader.readAsDataURL(input.files[0]);
