@@ -200,14 +200,14 @@ class FichaTecnicaController extends Controller
     }
     public function rechazar(Request $request){
         
-       
+      
         $request->user()->authorizeRoles(['administrador', 'Coordinador']);
-        $Planta = Planta::findorFail($request->idPlanta);
+        $FichaTecnica = FichaTecnica::findorFail($request->idFichaT);
 
-        $Planta->Verificado = false;
-        $Planta->NomVerificador = Auth::user()->name;
-        $Planta->MotivoRechazo=$request->MRechazo;
-        $Planta->save();
+        $FichaTecnica->Estado = "Rechazada";
+        $FichaTecnica->NomVerificador = Auth::user()->name;
+        $FichaTecnica->MotivoRechazo=$request->MRechazo;
+        $FichaTecnica->save();
         return back()->with('message', 'La hoja de campo ha sido RECHAZADA');
     }
 

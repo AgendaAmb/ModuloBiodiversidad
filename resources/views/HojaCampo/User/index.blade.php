@@ -16,7 +16,7 @@
         @foreach ($MisHojasCampo as $Hoja)
         <div class="col mb-4">
             <div class="card w-100 ">
-                <h5 class="card-title text-center">{{$Hoja->NombreEjem->NombreComun}}</h5>
+                <h5 class="card-title text-center" style="font-family: Myraid Pro Bold;">{{$Hoja->NombreEjem->NombreComun}}</h5>
                 @if($Hoja->Verificado)
                 <span class="badge badge-success navbar-badge"><i class="fas fa-check-square"></i></span>
                 @elseif ($Hoja->NomVerificador==null&&!$Hoja->Verificado)

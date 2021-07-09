@@ -17,7 +17,14 @@
 
         <div class="col mb-4">
             <div class="card w-100 ">
-                <h5 class="card-title text-center">{{$Ficha->NombreComun}}</h5>
+                <h5 class="card-title text-center" style="font-family: Myraid Pro Bold">{{$Ficha->NombreComun}}</h5>
+                @if($Ficha->Estado=="Verificado")
+                <span class="badge badge-success navbar-badge"><i class="fas fa-check-square"></i></span>
+                @elseif ($Ficha->Estado=="Verificacion")
+                <span class="badge badge-info navbar-badge"><i class="far fa-clock"></i></span>
+                @else
+                <span class="badge badge-warning navbar-badge"><i class="fas fa-exclamation-circle"></i></span>
+                @endif
                 <div class="card-body">
                     <a href="{{route('UserFTEdit',['id'=>$Ficha->id])}}">
                         <img class="card-img-top " id="{{$Ficha->id}}" src="{{asset('storage/'.$Ficha->Url_PC)}}"

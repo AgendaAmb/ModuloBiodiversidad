@@ -18,6 +18,7 @@
 
 @endif
 
+
 <body>
     <div class="container-fluid justify-content-between p-0" id="appp">
         <div class="container mb-4">
@@ -32,6 +33,37 @@
                         <span> </span>
                     </div>
                 </div>
+                @if (!$nuevo&&$FichaTecnica->Estado=="Rechazada")
+                <div class="col-10 ">
+                   
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-2 ">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Ver retroalimentación
+                    </button>
+                </div>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+
+                                <h5 class="modal-title" id="exampleModalLabel">Motivio de Rechazo</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                {{$FichaTecnica->MotivoRechazo}}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary">Modificar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endif
             </div>
         </div>
         <div id="nosotros">
@@ -92,24 +124,26 @@
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 ">
                             @if (!$nuevo)
                             <p style="display: none;">
-                            @foreach ($Ejemplar as $item)
+                                @foreach ($Ejemplar as $item)
                                 @if ($item->id==$FichaTecnica->id)
-                                    {{$Nomb=$item->NombreComun}}
-                                    {{$NombC=$item->NombreCientifico}}
+                                {{$Nomb=$item->NombreComun}}
+                                {{$NombC=$item->NombreCientifico}}
                                 @endif
-                            @endforeach
+                                @endforeach
                             </p>
                             <div class="form-group row g-3 was-validated">
-                                <label for="NombreC" class="col-md-4 col-form-label text-md-left">{{ __('Nombre Común') }}</label>
+                                <label for="NombreC"
+                                    class="col-md-4 col-form-label text-md-left">{{ __('Nombre Común') }}</label>
                                 <div class="col-md-7">
-                                    <input id="NombreC"   readonly type="text"
-                                    class="form-control @error('NombreCientifico') is-invalid @enderror" name="NombreCientifico"
-                                    maxlength="40" value={{$Nomb}} required autocomplete="NombreCientifico" autofocus>
-                                @error('NombreCientifico')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                                    <input id="NombreC" readonly type="text"
+                                        class="form-control @error('NombreCientifico') is-invalid @enderror"
+                                        name="NombreCientifico" maxlength="40" value={{$Nomb}} required
+                                        autocomplete="NombreCientifico" autofocus>
+                                    @error('NombreCientifico')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
                             @else
@@ -131,11 +165,13 @@
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 ">
                             @if (!$nuevo)
                             <div class="form-group row g-3 was-validated">
-                                <label for="NombreCientifico" class="col-md-4 col-form-label text-md-left">{{ __('Nombre Científico') }}</label>
+                                <label for="NombreCientifico"
+                                    class="col-md-4 col-form-label text-md-left">{{ __('Nombre Científico') }}</label>
                                 <div class="col-md-7">
                                     <input id="NombreCientifico" readonly type="text"
-                                        class="form-control @error('NombreCientifico') is-invalid @enderror" name="NombreCientifico"
-                                        value={{$NombC}} maxlength="40" required autocomplete="NombreCientifico" autofocus>
+                                        class="form-control @error('NombreCientifico') is-invalid @enderror"
+                                        name="NombreCientifico" value={{$NombC}} maxlength="40" required
+                                        autocomplete="NombreCientifico" autofocus>
                                     @error('NombreCientifico')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -162,14 +198,13 @@
                             </div>
                             @endif
 
-                            
+
                         </div>
 
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                             <x-typeInput :labelFor="'Fenologia'" :isRequiered="true" :label="'Fenología Foliar'"
                                 haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->TPertenencia}}"
-                                isReadOnly="{{boolval($isReO)}}"
-                                >
+                                isReadOnly="{{boolval($isReO)}}">
                             </x-typeInput>
                         </div>
                     </div>
@@ -181,7 +216,8 @@
                     <div class="col-xl-6 pr-xl-3  pr-lg-3">
 
                         <x-typeInput :labelFor="'FormaCrecimiento'" :isRequiered="true" :label="'Forma de Crecimiento'"
-                            haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->Fcrecimiento}}" isReadOnly="{{boolval($isReO)}}">
+                            haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->Fcrecimiento}}"
+                            isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
                         <x-typeInput labelFor="Floracion" :isRequiered="true" typeInput="text" label="Floración"
                             isTextArea="true" haveValue="{{$nuevo?false:true}}"
@@ -189,27 +225,33 @@
                         </x-typeInput>
 
                         <x-typeInput :labelFor="'Origen'" :isRequiered="true" :label="'Origen'"
-                            haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->Origen}}" isReadOnly="{{boolval($isReO)}}">
+                            haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->Origen}}"
+                            isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
                         <x-typeInput labelFor="Descripcion" :isRequiered="true" typeInput="text" label="Descripción"
                             isTextArea="true" haveValue="{{$nuevo?false:true}}"
                             value="{{$nuevo?false:$FichaTecnica->Descripcion}}" isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
                         <x-typeInput :labelFor="'EstatusEco'" :isRequiered="true" :label="'Estatus Ecológico en México'"
-                            haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->EstatusEco}}" isReadOnly="{{boolval($isReO)}}">
+                            haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->EstatusEco}}"
+                            isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
                         <x-typeInput :labelFor="'EstatusConser'" :isRequiered="true" :label="'Estatus de conservación'"
-                            haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->EstatusConv}}" isReadOnly="{{boolval($isReO)}}">
+                            haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->EstatusConv}}"
+                            isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
                         <x-typeInput labelFor="Altura" typeInput="number" :isRequiered="true" label="Altura (m)"
-                            haveValue="{{$nuevo?false:true}}" value="{{$nuevo?null:$FichaTecnica->Altura}}" isReadOnly="{{boolval($isReO)}}">
+                            haveValue="{{$nuevo?false:true}}" value="{{$nuevo?null:$FichaTecnica->Altura}}"
+                            isReadOnly="{{boolval($isReO)}}">
                             >
                         </x-typeInput>
                         <x-typeInput :labelFor="'TipoC'" :isRequiered="true" :label="'Tipo de Copa'"
-                            haveValue="{{$nuevo?false:true}}" value="{{$nuevo?null:$FichaTecnica->TipoC}}" isReadOnly="{{boolval($isReO)}}">
+                            haveValue="{{$nuevo?false:true}}" value="{{$nuevo?null:$FichaTecnica->TipoC}}"
+                            isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
                         <x-typeInput :labelFor="'TipoR'" :isRequiered="true" :label="'Tipo de Raíces'"
-                            haveValue="{{$nuevo?false:true}}" value="{{$nuevo?null:$FichaTecnica->TipoR}}" isReadOnly="{{boolval($isReO)}}">
+                            haveValue="{{$nuevo?false:true}}" value="{{$nuevo?null:$FichaTecnica->TipoR}}"
+                            isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
                         <x-typeInput labelFor="RaicesObs" :isRequiered="true" typeInput="text"
                             label="Raíces Observables Del Ejemplar" isTextArea="true" haveValue="{{$nuevo?false:true}}"
@@ -219,7 +261,8 @@
                     </div>
                     <div class="col-xl-6 pl-xl-3  pr-lg-3">
                         <x-typeInput labelFor="Usos" :isRequiered="true" typeInput="text" label="Usos" isTextArea="true"
-                            haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->Usos}}" isReadOnly="{{boolval($isReO)}}">
+                            haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->Usos}}"
+                            isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
                         <x-typeInput labelFor="ClimaN" :isRequiered="true" typeInput="text"
                             label="Clima en Hábitad Natural" isTextArea="true" haveValue="{{$nuevo?false:true}}"
@@ -247,8 +290,8 @@
                         </x-typeInput>
                         <x-typeInput labelFor="AmenazasRC" :isRequiered="true" typeInput="text"
                             label="Amenazas y Riesgos Para Comunidades Habitadas" isTextArea="true"
-                            haveValue="{{$nuevo?false:true}}"
-                            value="{{$nuevo?false:$FichaTecnica->AmenazasRiesgosHab}}" isReadOnly="{{boolval($isReO)}}">
+                            haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->AmenazasRiesgosHab}}"
+                            isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
 
                     </div>
@@ -266,14 +309,16 @@
                         <div class="row justify-content-between ">
                             <div class="colum ">
                                 <button type="button" class="btn btn-success btn-lg" data-toggle="modal"
-                                    data-target="#verificar" onclick="pasarIdFichaT({{$FichaTecnica->id}});">Verificar</button>
+                                    data-target="#verificar"
+                                    onclick="pasarIdFichaT({{$FichaTecnica->id}});">Verificar</button>
                             </div>
                             <div class="colum ">
                                 <button type="button" class="btn btn-danger btn-lg" data-toggle="modal"
-                                    data-target="#Rechazar" onclick="pasarIdFichaTR({{$FichaTecnica->id}});">Rechazar</button>
+                                    data-target="#Rechazar"
+                                    onclick="pasarIdFichaTR({{$FichaTecnica->id}});">Rechazar</button>
                             </div>
                         </div>
-    
+
                     </div>
                     @endif
                     @endif
@@ -289,19 +334,19 @@
     @else
     @if (Auth::user()->hasAnyRole(['administrador','Coordinador']))
     @if ($FichaTecnica->Estado=="Verificacion")
-    <x-Modal idModal="verificar" modalTitle="Confirmar Ficha Técnica" isRechazada="false"  vista="FT">
+    <x-Modal idModal="verificar" modalTitle="Confirmar Ficha Técnica" isRechazada="false" vista="FT">
     </x-Modal>
-    
-    <x-Modal idModal="Rechazar" modalTitle="Rechazar Ficha Técnica" isRechazada="true"  vista="FT">
+
+    <x-Modal idModal="Rechazar" modalTitle="Rechazar Ficha Técnica" isRechazada="true" vista="FT">
     </x-Modal>
     @endif
-    
+
     @endif
-    
+
     @endif
-    
+
     @endsection
-    
+
 </body>
 
 </html>
