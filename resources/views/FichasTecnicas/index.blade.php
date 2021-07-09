@@ -28,7 +28,7 @@
                         alt="Logo uaslp-Agenda Ambiental" srcset="">
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-12 ">
-                    <div class="align-self-center">
+                    <div class="align-self-center" style="font-family:Myraid Pro Bold; ">
                         <h4 class="pt-5">FICHA TECNICA </h4>
                         <span> </span>
                     </div>
