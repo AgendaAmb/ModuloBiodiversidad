@@ -63,7 +63,10 @@ Route::group(['prefix' => 'Biodiversidad'], function () {
             Route::post('/GuardaHC', 'PlantaController@store')->name('GHC');
             Route::get('/MisHojasCampo', 'HomeController@getHCByUser')->name('UserHC');
             Route::get('/MisFichasTecnicas', 'HomeController@getFTByUser')->name('UserFT');
-            Route::get('/MisFichasTecnicas/{id}', 'FichaTecnicaController@show')->name('UserFTEdit');
+            Route::get('/MisFichasTecnicas/{id}', 'FichaTecnicaController@show')->name('UserFTShow');
+            Route::get('/EditarFichaT/{id}', 'FichaTecnicaController@edit')->name('UserFTEdit');
+            Route::post('/EditarFichaT/{id}', 'PlantaController@edit')->name('EditarFT');
+
             Route::get('MisHojasCampo/{id}', 'PlantaController@show')->name('UserHCEdit');
            
         });

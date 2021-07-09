@@ -217,9 +217,26 @@ class FichaTecnicaController extends Controller
      * @param  \App\FichaTecnica  $fichaTecnica
      * @return \Illuminate\Http\Response
      */
-    public function edit(FichaTecnica $fichaTecnica)
+    public function edit(FichaTecnica $fichaTecnica,Request $request,$id)
     {
-      
+        $request->user()->authorizeRoles(['administrador', 'Gestor']);
+        $fichaTecnica = FichaTecnica::findorFail($id);
+        if ($fichaTecnica->User->id == Auth::id()) {
+
+            Controller::loadEjemplares();
+            Controller::loadSubUnidades();
+
+            return \view('FichasTecnicas.User.editar')
+                ->with("Ejemplar", $this->Ejemplar)
+                ->with("SubUnidades", $this->SubUnidades)
+                ->with("SubUnidadTP", $this->SubUnidadTP)
+                ->with("isReO", false)
+                ->with("FichaTecnica", $fichaTecnica);
+        } else {
+            return \redirect()->back();
+
+        }
+
     }
 
     /**

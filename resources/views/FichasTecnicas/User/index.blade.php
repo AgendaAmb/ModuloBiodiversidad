@@ -26,7 +26,7 @@
                 <span class="badge badge-warning navbar-badge"><i class="fas fa-exclamation-circle"></i></span>
                 @endif
                 <div class="card-body">
-                    <a href="{{route('UserFTEdit',['id'=>$Ficha->id])}}">
+                    <a href="{{route('UserFTShow',['id'=>$Ficha->id])}}">
                         <img class="card-img-top " id="{{$Ficha->id}}" src="{{asset('storage/'.$Ficha->Url_PC)}}"
                             alt="Card image cap">
 
