@@ -18,9 +18,7 @@ Route::get('/', function () {
 
 
 Route::group(['prefix' => 'Biodiversidad'], function () {
-    Route::get('/pruebaPdf', function () {
-        return view('FichasTecnicas.pdf');
-    });
+    
     Route::get('/usuario', 'HomeController@verificar')->name('UXV');
     Route::view('/', 'index')->name('Bio');
     Route::view('/LoginInstitucional', 'Institucional.vista')->name('LInstitucional');
@@ -65,7 +63,7 @@ Route::group(['prefix' => 'Biodiversidad'], function () {
             Route::get('/MisFichasTecnicas', 'HomeController@getFTByUser')->name('UserFT');
             Route::get('/MisFichasTecnicas/{id}', 'FichaTecnicaController@show')->name('UserFTShow');
             Route::get('/EditarFichaT/{id}', 'FichaTecnicaController@edit')->name('UserFTEdit');
-            Route::post('/EditarFichaT/{id}', 'PlantaController@edit')->name('EditarFT');
+            Route::post('/EditarFichaT/{id}', 'FichaTecnicaController@update')->name('EditarFT');
 
             Route::get('MisHojasCampo/{id}', 'PlantaController@show')->name('UserHCEdit');
            

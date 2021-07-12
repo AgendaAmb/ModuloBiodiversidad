@@ -55,12 +55,10 @@ class FichaTecnicaController extends Controller
        // dd($request);
         $nombreEjemplar = NombreEjemplar::findorFail($request->NombreC);
         $directoryEspecie = '/FichasTecnicas/' . Str::of($nombreEjemplar->NombreComun)->replace(' ', '_');
-        //$directoryEspecie = $directoryEspecie . '/' . $nombreEjemplar->Clave . '_' . $fotoIniciales;
-        // $NF = $this->Nom->Clave;
-        // $No_Ejemplar = count(Planta::where('nombre_ejem_id', '='->nombre_ejem_id)->get());
         $Ficha_Tecnica = new FichaTecnica();
+        $this->saveImagenes($request,$Ficha_Tecnica,$nombreEjemplar,$directoryEspecie,false);
+       /*
         foreach ($request->file() as $image) {
-          
             if ($request->fileImg0 == $image) {
                 $this->saveImagen($directoryEspecie, $image, 'PC',"Planta Completa",$nombreEjemplar);
                 $Ficha_Tecnica->Url_PC=$this->urlFoto;
@@ -95,7 +93,8 @@ class FichaTecnicaController extends Controller
                   $Ficha_Tecnica->Url_R=$this->urlFoto;
             }
         }
-       
+       */
+
         $Ficha_Tecnica->TPertenencia = $request->Fenologia;
         $Ficha_Tecnica->Fcrecimiento = $request->FormaCrecimiento;
         $Ficha_Tecnica->Origen = $request->Origen;
@@ -125,16 +124,62 @@ class FichaTecnicaController extends Controller
         $nombreEjemplar->save();
         return back()->with('message', '¡¡¡Ficha Tecnica registrada con exito!!!');
     }
-    private function saveImagen(String $directoryEspecie, $image, String $ClaveF,String $Tipo,$nombreEjemplar)
+    private function saveImagen(String $directoryEspecie, $image, String $ClaveF,String $Tipo,$nombreEjemplar,$isEdit)
     {
-       
         $this->urlFoto = $directoryEspecie . '/' . $nombreEjemplar->Clave.'_'.$ClaveF . '.' . $image->getClientOriginalExtension();
-      
+      /*
+        dd($image->getClientOriginalExtension()=='png');
+        if ($isEdit) {
+            
+           if (!\Storage::disk('public')->exists($this->urlFoto)) {
+               if ($image->getClientOriginalExtension()=='png') {
+                  
+               }
+           }
+        }
+       */
         \Storage::disk('public')->put($this->urlFoto, \File::get($image));
-        
+    }
 
-       
-
+    private function saveImagenes(Request $request, FichaTecnica $Ficha_Tecnica,NombreEjemplar $nombreEjemplar, String $directoryEspecie,$isEdit)
+    {
+       // dd($directoryEspecie);
+        foreach ($request->file() as $image) {
+            if ($request->fileImg0 == $image) {
+               
+                $this->saveImagen($directoryEspecie, $image, 'PC',"Planta Completa",$nombreEjemplar,$isEdit);
+                $Ficha_Tecnica->Url_PC=$this->urlFoto;
+            } else
+            if ($request->fileImg1 == $image) {
+                $this->saveImagen($directoryEspecie, $image, 'F',"Follaje",$nombreEjemplar,$isEdit);
+                $Ficha_Tecnica->Url_F=$this->urlFoto;
+            } else
+            if ($request->fileImg2 == $image) {
+                $this->saveImagen($directoryEspecie, $image, 'H',"Hojas",$nombreEjemplar,$isEdit);
+                  $Ficha_Tecnica->Url_H=$this->urlFoto;
+            } else
+            if ($request->fileImg3 == $image) {
+                $this->saveImagen($directoryEspecie, $image, 'FL',"Flores",$nombreEjemplar,$isEdit);
+                  $Ficha_Tecnica->Url_FL=$this->urlFoto;
+            } else
+            if ($request->fileImg4 == $image) {
+                $this->saveImagen($directoryEspecie, $image, 'FR',"Frutos",$nombreEjemplar,$isEdit);
+                  $Ficha_Tecnica->Url_FR=$this->urlFoto;
+            } else
+            if ($request->fileImg5 == $image) {
+                $this->saveImagen($directoryEspecie, $image, 'S',"Semillas",$nombreEjemplar,$isEdit);
+                  $Ficha_Tecnica->Url_S=$this->urlFoto;
+            } else
+            if ($request->fileImg6 == $image) {
+                $this->saveImagen($directoryEspecie, $image, 'T',"Tronco",$nombreEjemplar,$isEdit);
+               
+                $Ficha_Tecnica->Url_T=$this->urlFoto;
+            } else
+            if ($request->fileImg7 == $image) {
+                $this->saveImagen($directoryEspecie, $image, 'R',"Raíces",$nombreEjemplar,$isEdit);
+                  $Ficha_Tecnica->Url_R=$this->urlFoto;
+            }
+        }
     }
     /**
      * Display the specified resource.
@@ -246,9 +291,13 @@ class FichaTecnicaController extends Controller
      * @param  \App\FichaTecnica  $fichaTecnica
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, FichaTecnica $fichaTecnica)
+    public function update(Request $request, FichaTecnica $fichaTecnica,$id)
     {
-        //
+        $nombreEjemplar = NombreEjemplar::findorFail($request->id);
+      
+        $directoryEspecie = '/FichasTecnicas/' . Str::of($nombreEjemplar->NombreComun)->replace(' ', '_');
+        $Ficha_Tecnica = new FichaTecnica();
+        $this->saveImagenes($request,$Ficha_Tecnica,$nombreEjemplar,$directoryEspecie,true);
     }
 
     /**

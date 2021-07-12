@@ -87,7 +87,7 @@
                                 <small class="text-muted">
                                     <input type="file" accept="image/png,image/jpeg" :id="'fileImg'+index"
                                         :name="'fileImg'+index" class="inp" @change="cargarImagen($event,index)"
-                                        required />
+                                        />
                                 </small>
                             </div>
                         </div>
@@ -120,10 +120,10 @@
                                     class="col-md-4 col-form-label text-md-left">{{ __('Nombre Común') }}</label>
                                 <div class="col-md-7">
                                     <input id="NombreC" readonly type="text"
-                                        class="form-control @error('NombreCientifico') is-invalid @enderror"
-                                        name="NombreCientifico" maxlength="40" value={{$Nomb}} required
-                                        autocomplete="NombreCientifico" autofocus>
-                                    @error('NombreCientifico')
+                                        class="form-control @error('NombreC') is-invalid @enderror"
+                                        name="NombreC" maxlength="40" value={{$Nomb}} required
+                                        autocomplete="NombreC" autofocus>
+                                    @error('NombreC')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -358,6 +358,7 @@
           
           t.archivos[index].imagen =  e.target.result;
           t.archivos[index].ban=true;
+
       }
      
       reader.readAsDataURL(input.files[0]);
