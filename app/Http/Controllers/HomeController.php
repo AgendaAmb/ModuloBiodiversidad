@@ -94,14 +94,14 @@ class HomeController extends Controller
     }
     public function loginInstitucional(Request $request)
     {
-        $response = Http::post('148.224.134.161/loginUASLP', [
-            'email' => $request->usuario,
+        $response = Http::post('https://ambiental.uaslp.mx/apiuaslp/loginUASLP', [
+            'username' => $request->usuario,
             'password' => $request->contraseña,
         ]);
            
         // dd($response->json()['data']);
+       // dd($response->ok());
         if ($response->ok()) {
-            //dd($request);
             //$existeInBD=DB::table('users')->where('email', 'yeicob_loredo@hotmail.com')->first();
             $existeInBD = User::where('email', $response->json()['data']['Correo'])->first();
             //dd($response->json()['data']);
@@ -127,7 +127,7 @@ class HomeController extends Controller
             }
 
         } else {
-            return redirect()->back()->withErrors();
+            return redirect()->back()->withErrors("error no tienes una cuenta activa");
         }
 
     }

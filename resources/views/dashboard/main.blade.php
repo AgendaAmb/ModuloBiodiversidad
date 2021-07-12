@@ -338,9 +338,9 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link" id="navColors">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p></p>
+                  <a href="{{route('Ejemplares')}}" class="nav-link " id="navColors">
+                    <i class="fas fa-users"></i>
+                    <p>Ejemplares</p>
                   </a>
                 </li>
                 <li class="nav-item">
