@@ -13,6 +13,7 @@ class FichaTecnica extends Model
         'Fcrecimiento',
         'Floracion',
         'Descripcion',
+        'Origen',
         'EstatusEco',
         'EstatusConv',
         'Altura',
@@ -31,5 +32,9 @@ class FichaTecnica extends Model
     public function NombreEjemplar()
     {
         return $this->belongsTo(NombreEjemplar::class);
+    }
+    public function User()
+    {
+        return $this->belongsTo(User::class);
     }
 }

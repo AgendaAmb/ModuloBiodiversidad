@@ -17,12 +17,15 @@
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
   <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
-  @stack('scripts')
+   <!-- Font Awesome -->
+   <link rel="stylesheet" href="{{asset('Dash/plugins/fontawesome-free/css/all.min.css')}}">
+ 
 </head>
 
 <body>
@@ -38,3 +41,4 @@
 </body>
 
 </html>
+@stack('scripts')

@@ -15,19 +15,19 @@ class CreateMorfologiasTable extends Migration
     {
         Schema::create('morfologias', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('CondicionGeneral')->nullable();
-            $table->string('EstadoCrecimiento')->nullable();
-            $table->double('Altura')->nullable();
-            $table->double('AlturaLiteratura')->nullable();
-            $table->string('Tcopa')->nullable();
+            $table->string('CondicionGeneral',500)->nullable();
+            $table->string('EstadoCrecimiento',500)->nullable();
+            $table->double('Altura',500)->nullable();
+            $table->double('AlturaLiteratura',500)->nullable();
+            $table->string('Tcopa',500)->nullable();
             $table->double('DiametroCopa')->nullable();
-            $table->string('Raices')->nullable();
-            $table->string('TRaices')->nullable();
-            $table->string('Manejo')->nullable();
-            $table->string('DanosF')->nullable();
-            $table->string('EstadoFiso')->nullable();
-            $table->string('EnfermeAparentes')->nullable();
-            $table->string('EnfermeLitera')->nullable();
+            $table->string('Raices',500)->nullable();
+            $table->string('TRaices',500)->nullable();
+            $table->string('Manejo',500)->nullable();
+            $table->string('DanosF',500)->nullable();
+            $table->string('EstadoFiso',500)->nullable();
+            $table->string('EnfermeAparentes',500)->nullable();
+            $table->string('EnfermeLitera',500)->nullable();
             $table->timestamps();
         });
     }

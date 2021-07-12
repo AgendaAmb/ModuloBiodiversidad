@@ -3,7 +3,7 @@
     @if (!$nuevo)
     <div class="form-group row g-3 was-validated">
         <label for="NombreC" class="col-md-4 col-form-label text-md-left">{{ __('Nombre Común') }}</label>
-        <div class="col-md-7">
+        <div class="col-md-8">
             <input id="NombreC"   readonly type="text"
             class="form-control @error('NombreCientifico') is-invalid @enderror" name="NombreCientifico"
             maxlength="40"value= "{{$Planta->NombreEjem->NombreComun}}" required autocomplete="NombreCientifico" autofocus>
@@ -17,7 +17,7 @@
     @else
     <div class="form-group row g-3 was-validated">
         <label for="NombreC" class="col-md-4 col-form-label text-md-left">{{ __('Nombre Común') }}</label>
-        <div class="col-md-7">
+        <div class="col-md-8">
             <select class="custom-select" id="NombreC" name="NombreC" v-model="NombreC"  @change="Ncientifico()" required>
                 <option selected="true"  disabled>Nombre Común</option>
                 <option v-for="(N,index) in Nombres" :value="N.id">@{{N.Nombre}}</option>
@@ -28,7 +28,7 @@
     @if (!$nuevo)
     <div class="form-group row g-3 was-validated">
         <label for="NombreCientifico" class="col-md-4 col-form-label text-md-left">{{ __('Nombre Científico') }}</label>
-        <div class="col-md-7">
+        <div class="col-md-8">
             <input id="NombreCientifico" readonly type="text"
                 class="form-control @error('NombreCientifico') is-invalid @enderror" name="NombreCientifico"
                 value="{{$Planta->NombreEjem->NombreCientifico}}" maxlength="40" required autocomplete="NombreCientifico" autofocus>
@@ -42,7 +42,7 @@
     @else
     <div class="form-group row g-3 was-validated">
         <label for="NombreCientifico" class="col-md-4 col-form-label text-md-left">{{ __('Nombre Científico') }}</label>
-        <div class="col-md-7">
+        <div class="col-md-8">
             <input id="NombreCientifico" v-model="NCientifico"  readonly type="text"
                 class="form-control @error('NombreCientifico') is-invalid @enderror" name="NombreCientifico"
                 value="{{old('NombreCientifico') }}" maxlength="40" required autocomplete="NombreCientifico" autofocus>

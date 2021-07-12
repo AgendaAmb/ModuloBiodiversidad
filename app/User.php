@@ -98,5 +98,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Planta::class);
     }
+    public function FichasT()
+    {
+        return $this->hasMany(FichaTecnica::class);
+    }
     
 }

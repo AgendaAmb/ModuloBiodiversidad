@@ -134,7 +134,7 @@ class PlantaController extends Controller
                     $this->saveImagen($directoryPersona, $NF, $image, 'FL', $Planta, $No_Ejemplar,"Flores");
                 } else
                 if ($request->fileImg4 == $image) {
-                    $this->saveImagen($directoryPersona, $NF, $image, 'FR', $Planta, $No_Ejemplar,"Furtos");
+                    $this->saveImagen($directoryPersona, $NF, $image, 'FR', $Planta, $No_Ejemplar,"Frutos");
                 } else
                 if ($request->fileImg5 == $image) {
                     $this->saveImagen($directoryPersona, $NF, $image, 'S', $Planta, $No_Ejemplar,"Semillas");
