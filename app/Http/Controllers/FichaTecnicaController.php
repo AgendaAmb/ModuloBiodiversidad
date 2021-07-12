@@ -127,7 +127,8 @@ class FichaTecnicaController extends Controller
     private function saveImagen(String $directoryEspecie, $image, String $ClaveF,String $Tipo,$nombreEjemplar,$isEdit)
     {
         $this->urlFoto = $directoryEspecie . '/' . $nombreEjemplar->Clave.'_'.$ClaveF . '.' . $image->getClientOriginalExtension();
-      /*
+       /* dd($this->urlFoto);
+        dd(\Storage::disk('public')->exists($this->urlFoto));
         dd($image->getClientOriginalExtension()=='png');
         if ($isEdit) {
             
