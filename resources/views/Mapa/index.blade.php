@@ -13,20 +13,60 @@
 
     </div>
 
-    <div class="row row-cols-1 row-cols-xl-4 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 especies m-xl-5 m-lg-4">
+    
+        <div id="dvMap" style="width: 100%; height: 400px;margin-bottom: 50px;"></div>
 
-       
-        <div id="mapid"></div>
 
-         
-    </div>
+    
 
 
 </div>
 
 
 </div>
+@push('scripts')
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy5kHqFi0_c44jWFWEmQhq5IVYEScngn8&libraries=places"></script>
 <script>
+    var app = new Vue({
+      el: '#fondo',
+      data: {
+        message: 'Hola Vue!'
+      },
+      methods: {
+        CargarMapa:function () {
+            let t = this;
+                mapOptions = {
+                    center: new google.maps.LatLng(parseFloat('22.1455389'), parseFloat('-101.0139005')),
+                    zoom: 15,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+                var myLatlng = null;
+                var marker = null;
+                /*
+                t.prospectos.map((n) => {
+                    myLatlng = new google.maps.LatLng(parseFloat(n.lat), parseFloat(n.long));
+                    marker = new google.maps.Marker({
+                        position: myLatlng,
+                        map: map,
+                        title: n.name,
+                        icon: '/layout/images/pin.png'
+                    });
+                });
+                */
+        }
+      },
+      mounted:
+  function() {
+    this.$nextTick(
+        function () {
+            this.CargarMapa();
+    })
+      
+  },
+      
+    })
+    </script>
+@endpush
 
-</script>
 @endsection

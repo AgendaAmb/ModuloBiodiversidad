@@ -14,7 +14,8 @@
     <a href="{{ URL::previous() }}"><i class="fas fa-arrow-left"></i></a>
 </div>
 @else
-{{$nuevo=true}}
+<h5 class="d-none">{{$nuevo=true}}</h5>
+
 @endif
 
 @if (!$nuevo&&!$Planta->Verificado&&$Planta->NomVerificador!=null)
@@ -55,7 +56,7 @@
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-12 ">
                     <div class="align-self-center">
-                        <h4 class="pt-5">HOJA DE CAMPO DE PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD </h4>
+                        <h4 class="pt-5" style="font-family: Myraid Pro Bold;">HOJA DE CAMPO DE PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD </h4>
                         <span> </span>
                     </div>
 
@@ -116,10 +117,10 @@
 @else
 @if (Auth::user()->hasAnyRole(['administrador','Coordinador']))
 @if (!$Planta->Verificado)
-<x-Modal idModal="verificar" modalTitle="Confirmar Hoja de campo" isRechazada="false">
+<x-Modal idModal="verificar" modalTitle="Confirmar Hoja de campo" isRechazada="false" vista="HC">
 </x-Modal>
 
-<x-Modal idModal="Rechazar" modalTitle="Rechazar Hoja de campo" isRechazada="true">
+<x-Modal idModal="Rechazar" modalTitle="Rechazar Hoja de campo" isRechazada="true"  vista="HC">
 </x-Modal>
 @endif
 

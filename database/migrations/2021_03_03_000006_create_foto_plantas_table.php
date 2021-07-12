@@ -18,12 +18,13 @@ class CreateFotoPlantasTable extends Migration
             $table->string('nombre')->nullable();
             $table->string('url')->nullable();
             $table->string('PartePlanta')->nullable();
-            $table->unsignedBigInteger('planta_id');
+            $table->unsignedBigInteger('planta_id')->nullable();
 
             $table->foreign('planta_id')
             ->references('id')
             ->on('plantas')
             ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

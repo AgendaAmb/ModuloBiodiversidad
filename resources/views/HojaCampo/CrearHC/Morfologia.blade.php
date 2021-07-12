@@ -21,7 +21,7 @@
         <label for="EstadoCrecimiento"
             class="col-md-4 col-form-label text-md-left">{{ __('Estado de Crecimiento') }}</label>
 
-        <div class="col-md-7">
+        <div class="col-md-8">
             <select class="custom-select" id="EstadoCrecimiento" name="Ecrecimiento">
                 <option selected disabled value="">Estado de Crecimiento</option>
                 <option value="1">1 (Juvenil)</option>
@@ -175,7 +175,7 @@
     <div class="form-group row g-3">
         <label for="Manejo" class="col-md-4 col-form-label text-md-left">{{ __('Manejo') }}</label>
 
-        <div class="col-md-7">
+        <div class="col-md-8">
             <select class="custom-select" id="Manejo" name="Manejo">
                 <option selected disabled>Manejo</option>
                 <option value="1">1 (Baja)</option>
@@ -244,7 +244,7 @@
         <label for="EstadoFitosanitario"
             class="col-md-4 col-form-label text-md-left">{{ __('Estado fitosanitario aparente') }}</label>
 
-        <div class="col-md-7">
+        <div class="col-md-8">
             <select class="custom-select" id="EstadoFitosanitario" name="EstadoFiso">
                 <option selected disabled>Estado</option>
                 <option value="1">1 (Favorable)</option>

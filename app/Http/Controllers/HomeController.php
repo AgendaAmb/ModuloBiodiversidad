@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
+use App\NombreEjemplar;
+use DB;
 
 class HomeController extends Controller
 {
@@ -76,6 +78,19 @@ class HomeController extends Controller
         $user = user::findorFail(Auth::id());
 
         return view('HojaCampo.User.index')->with('MisHojasCampo', $user->Plantas()->paginate(12));
+    }
+    public function getFTByUser()
+    {
+      //  $user = user::findorFail(Auth::id());
+
+        $FichasTecnicas = DB::table('nombre_ejemplars')
+        ->join('ficha_tecnicas', function ($join) {
+            $join->on('nombre_ejemplars.ficha_tecnicas_id', '=', 'ficha_tecnicas.id')
+                 ->where('ficha_tecnicas.user_id', '=', Auth::id())
+                 ->orderBy('NombreComun', 'asc');
+        })->paginate(15);
+           
+        return view('FichasTecnicas.User.index')->with('FichasTecnicas', $FichasTecnicas);
     }
     public function loginInstitucional(Request $request)
     {
