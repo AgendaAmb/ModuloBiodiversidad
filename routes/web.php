@@ -17,7 +17,8 @@ Route::get('/', function () {
 });
 
 
-
+Route::group(['prefix' => 'Biodiversidad'], function () {
+    
     Route::get('/usuario', 'HomeController@verificar')->name('UXV');
     Route::view('/', 'index')->name('Bio');
     Route::view('/LoginInstitucional', 'Institucional.vista')->name('LInstitucional');
@@ -78,4 +79,4 @@ Route::get('/', function () {
             Route::get('MisHojasCampo/{id}', 'PlantaController@show')->name('UserHCEdit');
         });
     });
-
+});
