@@ -140,9 +140,22 @@ class FichaTecnicaController extends Controller
     {
         $request->user()->authorizeRoles(['administrador', 'Gestor', 'Coordinador']);
         $fichaTecnica = FichaTecnica::findorFail($id);
-
-        if ($fichaTecnica->User->id == Auth::id()) {
-
+        if (Auth::user()->hasRole('Gestor')) {
+            if ($fichaTecnica->User->id == Auth::id()) {
+                Controller::loadEjemplares();
+                Controller::loadSubUnidades();
+    
+                return \view('FichasTecnicas.index')
+                    ->with("Ejemplar", $this->Ejemplar)
+                    ->with("SubUnidades", $this->SubUnidades)
+                    ->with("SubUnidadTP", $this->SubUnidadTP)
+                    ->with("isReO", true)
+                    ->with("FichaTecnica", $fichaTecnica);
+            } else {
+                return \redirect()->back();
+    
+            }
+        } else {
             Controller::loadEjemplares();
             Controller::loadSubUnidades();
 
@@ -152,10 +165,9 @@ class FichaTecnicaController extends Controller
                 ->with("SubUnidadTP", $this->SubUnidadTP)
                 ->with("isReO", true)
                 ->with("FichaTecnica", $fichaTecnica);
-        } else {
-            return \redirect()->back();
-
         }
+        
+      
         //dd(NombreEjemplar::findorFail($fichaTecnica->id));
         // return \view('FichasTecnicas.indexPublic')->with("fichaTecnica", NombreEjemplar::findorFail($fichaTecnica->id));
 

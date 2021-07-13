@@ -9,19 +9,27 @@
                 <div class="card-body">
 
                     <div class="alert alert-success" role="alert">
-                        <h2>Estas en proceso de verificación, esto puede tardar varios días</h2>
-                        <button class="btn btn-primary">
 
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                      document.getElementById('logout-form').submit();">
-                         {{ __('Logout') }}
-                        </a>
-                    </button>
-                   
-                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                         @csrf
-                     </form>
+
+                        @if (Auth::user()->email_verified_at)
+                        <h2>Gracias por verificar tu correo, se te asignara un rol dentro del sistema y te llegara un
+                            correo.</h2>
+                        @else
+                        <h2>Estas en proceso de verificación,te pedimos que confirmes tu correo y esperes a que se
+                            asigne un rol dentro del Sistema</h2>
+
+                        @endif
+                        <button class="btn btn-primary">
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+                        </button>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+
+
                     </div>
 
 

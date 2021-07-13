@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 use App\NombreEjemplar;
 use DB;
+use App\Notifications\WelcomeEmailNotification;
 
 class HomeController extends Controller
 {
@@ -50,7 +51,9 @@ class HomeController extends Controller
     {
         $request->user()->authorizeRoles(['administrador']);
         $user = user::findorFail($request->idUser);
-
+        if ($user->hasRole('Ninguno')) {
+            $user->notify(new WelcomeEmailNotification());
+        }
         if ($request->roles != null) {
             $user->roles()->detach();
             foreach ($request->roles as $rol) {
@@ -113,8 +116,8 @@ class HomeController extends Controller
                         'email' => $response->json()['data']['Correo'],
                         'password' => Hash::make($request->contraseña),
                     ]);
-                    $user->roles()->attach(Rol::where('nombre', 'Ninguno')->first());
                     $user->save();
+                    $user->roles()->attach(Rol::where('nombre', 'Ninguno')->first());
                     Auth::login($user);
                     return redirect()->route('UXV');
                 } else {

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Config;
 
-class WelcomeEmailNotification extends Notification
+class WelcomeEmailNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -18,11 +18,11 @@ class WelcomeEmailNotification extends Notification
      * Create a new notification instance.
      *
      * @return void
-     */
+      */
     public static $toMailCallback;
     public function __construct()
     {
-        //
+        
     }
 
     /**
@@ -44,7 +44,7 @@ class WelcomeEmailNotification extends Notification
      */
     public function toMail($notifiable)
     {
-       // $url = url('/Biodiversidad/email/verify/'.$this->invoice->id.'/');
+     
        $verificationUrl = $this->verificationUrl($notifiable); 
        if (static::$toMailCallback) {
         return call_user_func(static::$toMailCallback, $notifiable, $verificationUrl);
@@ -52,6 +52,7 @@ class WelcomeEmailNotification extends Notification
     
        return (new MailMessage)
                     ->greeting('Hola!')
+                    ->salutation('Atentamente: Equipo de TI Agenda Ambiental')
                     ->subject('Verficación de Correo')
                     ->line('Bienvenido a nuestro Sistema de Biodiversidad.')
                     ->action('Verifica tu correo ',  $verificationUrl)
