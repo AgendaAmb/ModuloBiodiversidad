@@ -52,11 +52,11 @@ class WelcomeEmailNotification extends Notification implements ShouldQueue
     
        return (new MailMessage)
                     ->greeting('Hola!')
-                    ->salutation('Atentamente: Equipo de TI Agenda Ambiental')
                     ->subject('Verficación de Correo')
-                    ->line('Bienvenido a nuestro Sistema de Biodiversidad.')
+                    ->line('Bienvenido a nuestro Sistema de Biodiversidad. Es necesario que verifiques tu correo dando click en el siguiente botón:')
                     ->action('Verifica tu correo ',  $verificationUrl)
-                    ->line('Gracias por usar nuestra aplicación!');
+                    ->line('Gracias por usar nuestra aplicación!')
+                    ->salutation('Atentamente: Equipo de TI Agenda Ambiental');
 
     }
     protected function verificationUrl($notifiable)

@@ -1,6 +1,8 @@
-<div>
-    <img src="https://laravel.com/img/notification-logo.png" class="logo" alt="Laravel Logo">   
+<div style="width: 100%; display: block; margin:0% 20%;">
+    <img src="https://laravel.com/img/notification-logo.png" class="logo" alt="Laravel Logo">
 </div>
+</div>
+
 @component('mail::message')
 {{-- Greeting --}}
 @if (! empty($greeting))
@@ -54,11 +56,11 @@
 @isset($actionText)
 @slot('subcopy')
 @lang(
-    "Si tienes algun problema con el botón de accioón, copia y pega el enlace en tu navegador\n".
-    'into your web browser:',
-    [
-        'actionText' => $actionText,
-    ]
+"Si tienes algun problema con el botón de accioón, copia y pega el enlace en tu navegador\n".
+'into your web browser:',
+[
+'actionText' => $actionText,
+]
 ) <span class="break-all">[{{ $displayableActionUrl }}]({{ $actionUrl }})</span>
 @endslot
 @endisset

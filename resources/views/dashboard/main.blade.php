@@ -301,7 +301,7 @@
                     @endif
                     @if (Auth::user()->hasAnyRole(array('administrador','Coordinador')))
                     <li class="nav-item">
-                      <a href="{{route('Ejemplares')}}" class="nav-link" id="navColors">
+                      <a href="{{route('ShowAllFT')}}" class="nav-link " id="navColors">
                         <i class="far fa-file-alt">  <i class="far fa-file-alt"></i></i>
                         <p>Mostrar todas las Fichas Tecnicas</p>
                       </a>
@@ -338,15 +338,15 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{route('Ejemplares')}}" class="nav-link " id="navColors">
-                    <i class="fas fa-users"></i>
-                    <p>Ejemplares</p>
+                  <a href="{{route('ShowAllFT')}}" class="nav-link " id="navColors">
+                    <i class="far fa-file-alt"></i>
+                    <p>Fichas Tecnicas</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link" id="navColors">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p></p>
+                  <a href="{{route('ShowHC')}}" class="nav-link " id="navColors">
+                    <i class="far fa-file-alt"></i>
+                    <p>Hojas de Campo</p>
                   </a>
                 </li>
               </ul>

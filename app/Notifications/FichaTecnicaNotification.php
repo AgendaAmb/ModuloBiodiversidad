@@ -48,8 +48,7 @@ class FichaTecnicaNotification extends Notification implements ShouldQueue
                     ->line('Se acaba de dar de alta una nueva ficha tecnica,')
                     ->line('Deseas revisarla para poder verficarla?!')
                     ->action('Ir a verificar',$verificacionUrl)
-                    ->line('The introduction to the notification.')
-                    ->salutation('Atentamente: Equipo de TI Agenda Ambiental');
+                    ->salutation('Atentamente: Equipo de Agenda Ambiental');
     }
 
     /**

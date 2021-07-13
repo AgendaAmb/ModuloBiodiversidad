@@ -8,6 +8,7 @@ use App\NombreEjemplar;
 use App\Planta;
 use App\SituacionEntorno;
 use App\SubUnidades;
+use App\User;
 
 use Auth;
 use DB;
@@ -16,6 +17,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use App\Notifications\VerificacionNotification;
 
 class PlantaController extends Controller
 {
@@ -319,6 +321,9 @@ class PlantaController extends Controller
         $request->user()->authorizeRoles(['administrador', 'Coordinador']);
         $Planta = Planta::findorFail($request->idPlanta);
 
+        $User=User::findorFail($FichaTecnica->user_id);
+        $User->notify(new VerificacionNotification($FichaTecnica->id,"HojaCampo",false));
+        
         $Planta->Verificado = true;
         $Planta->NomVerificador = Auth::user()->name;
         $Planta->save();
@@ -331,6 +336,9 @@ class PlantaController extends Controller
         $request->user()->authorizeRoles(['administrador', 'Coordinador']);
         $Planta = Planta::findorFail($request->idPlanta);
 
+        $User=User::findorFail($FichaTecnica->user_id);
+        $User->notify(new VerificacionNotification($FichaTecnica->id,"HojaCampo",true));
+        
         $Planta->Verificado = false;
         $Planta->NomVerificador = Auth::user()->name;
         $Planta->MotivoRechazo=$request->MRechazo;
