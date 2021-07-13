@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
+use App\Observers\UserObserver;
+use App\User;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,5 +29,6 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('menuBio',\App\View\Components\menuBio::class);
         Blade::component('typeInput',\App\View\Components\typeInput::class);
         Blade::component('Modal',\App\View\Components\Modal::class);
+        User::observe(UserObserver::class);
     }
 }

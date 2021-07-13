@@ -98,13 +98,9 @@ class HomeController extends Controller
             'username' => $request->usuario,
             'password' => $request->contraseña,
         ]);
-           
-        // dd($response->json()['data']);
-       // dd($response->ok());
         if ($response->ok()) {
-            //$existeInBD=DB::table('users')->where('email', 'yeicob_loredo@hotmail.com')->first();
             $existeInBD = User::where('email', $response->json()['data']['Correo'])->first();
-            //dd($response->json()['data']);
+          
             if ($existeInBD) {
                 Auth::login($existeInBD);
                 return redirect()->route('dashbord');
