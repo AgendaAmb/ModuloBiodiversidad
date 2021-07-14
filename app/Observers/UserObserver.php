@@ -4,6 +4,7 @@ namespace App\Observers;
 
 use App\User;
 use App\Notifications\WelcomeEmailNotification;
+use App\Notifications\UsuarioNuevoNotification;
 
 class UserObserver
 {
@@ -16,6 +17,13 @@ class UserObserver
     public function created(User $user)
     {
         $user->notify(new WelcomeEmailNotification());
+        
+        $User=User::all();
+        foreach ($User as $key => $value) {
+           if ($value->hasARole(['administrador'])) {
+                $value->notify(new UsuarioNuevoNotification($user));
+           }
+        }
     }
 
     /**
