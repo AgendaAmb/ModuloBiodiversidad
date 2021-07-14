@@ -352,9 +352,8 @@
               </ul>
             </li>
             @endif
-
+ <!--
             <li class="nav-item ">
-
               <a href="#" class="nav-link">
                 <i class="fas fa-seedling"></i>
                 <p>
@@ -362,7 +361,7 @@
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
-              <!--Mostrar las las hojas de campo de un usuario-->
+             Mostrar las las hojas de campo de un usuario
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="{{route('ShowHC')}}" class="nav-link">
@@ -372,8 +371,7 @@
                 </li>
               </ul>
             </li>
-
-
+            -->
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\WelcomeEmailNotification;
 use App\Rol;
 use App\User;
 use Auth;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
-use App\NombreEjemplar;
-use DB;
-use App\Notifications\WelcomeEmailNotification;
 
 class HomeController extends Controller
 {
@@ -84,15 +83,15 @@ class HomeController extends Controller
     }
     public function getFTByUser()
     {
-      //  $user = user::findorFail(Auth::id());
+        //  $user = user::findorFail(Auth::id());
 
         $FichasTecnicas = DB::table('nombre_ejemplars')
-        ->join('ficha_tecnicas', function ($join) {
-            $join->on('nombre_ejemplars.ficha_tecnicas_id', '=', 'ficha_tecnicas.id')
-                 ->where('ficha_tecnicas.user_id', '=', Auth::id())
-                 ->orderBy('NombreComun', 'asc');
-        })->paginate(15);
-           
+            ->join('ficha_tecnicas', function ($join) {
+                $join->on('nombre_ejemplars.ficha_tecnicas_id', '=', 'ficha_tecnicas.id')
+                    ->where('ficha_tecnicas.user_id', '=', Auth::id())
+                    ->orderBy('NombreComun', 'asc');
+            })->paginate(15);
+
         return view('FichasTecnicas.User.index')->with('FichasTecnicas', $FichasTecnicas);
     }
     public function loginInstitucional(Request $request)
@@ -103,7 +102,6 @@ class HomeController extends Controller
         ]);
         if ($response->ok()) {
             $existeInBD = User::where('email', $response->json()['data']['Correo'])->first();
-          
             if ($existeInBD) {
                 Auth::login($existeInBD);
                 return redirect()->route('dashbord');
@@ -121,14 +119,19 @@ class HomeController extends Controller
                     Auth::login($user);
                     return redirect()->route('UXV');
                 } else {
-                    return redirect()->back()->withErrors("error no tienes una cuenta activa");
+                    return redirect()->back()->with('message', "Error tus credenciales no coenciden con nuestra información");
                 }
             }
 
         } else {
-            return redirect()->back()->withErrors("error no tienes una cuenta activa");
+            $existeInBD = User::where('email', $request->usuario)->first();
+            //dd(Auth::attempt(['email' => $request->usuario, 'password' => $request->contraseña]));
+            if ($existeInBD && Auth::attempt(['email' => $request->usuario, 'password' => $request->contraseña])) {
+                Auth::login($existeInBD);
+                return redirect()->route('dashbord');
+            }else{
+                return redirect()->back()->with('message', "Error tus credenciales no coenciden con nuestra información");
+            }
         }
-
     }
-
 }

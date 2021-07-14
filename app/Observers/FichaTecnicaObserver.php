@@ -38,7 +38,6 @@ class FichaTecnicaObserver
                 $value->notify(new FichaTecnicaNotification($fichaTecnica->id));
            }
         }
-      
     }
 
     /**
