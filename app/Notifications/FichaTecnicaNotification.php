@@ -41,7 +41,8 @@ class FichaTecnicaNotification extends Notification implements ShouldQueue
      */
     public function toMail($notifiable)
     {
-        $verificacionUrl=route('UserFTShow',['id'=>$this->id_FichaT]);
+       
+        $verificacionUrl= 'https://ambiental.uaslp.mx/Biodiversidad/Sistema/MisFichasTecnicas/'.$this->id_FichaT;
         return (new MailMessage)
                     ->greeting('Hola!')
                     ->subject('Ficha Tecnica Nueva')
