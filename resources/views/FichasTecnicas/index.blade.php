@@ -93,7 +93,7 @@
                             </div>
                             @else
                             <div class="card-body">
-                                <img class="card-img-top " v-if="a.imagen!=''" :id="a.nombre" :src="'/storage'+a.imagen"
+                                <img class="card-img-top " v-if="a.imagen!=''" :id="a.nombre" :src="'{{asset('storage/')}}'+a.imagen"
                                     alt="Card image cap">
                             </div>
                             @endif
