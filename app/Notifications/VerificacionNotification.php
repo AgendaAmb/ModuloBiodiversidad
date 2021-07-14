@@ -59,7 +59,7 @@ class VerificacionNotification extends Notification
                 ->line('Tu hoja de campo fue rechazada por el siguente motivo,')
                 ->line( $Planta->MotivoRechazo)
                 ->action('Revisar',$Url)
-                ->salutation('Atentamente: Equipo de Agenda Ambiental');
+                ->salutation('Atentamente: Equipo de Gestion Ambiental');
             }else{
                 return (new MailMessage)
                 ->greeting('Hola!')
@@ -67,7 +67,7 @@ class VerificacionNotification extends Notification
                 ->line('Tu hoja de campo fue validada por un experto,')
                 ->line('Muchas gracias por cooperar con esta gran comunidad, te gustaria observar tu hoja de campo?')
                 ->action('Revisar',$Url)
-                ->salutation('Atentamente: Equipo de Agenda Ambiental');
+                ->salutation('Atentamente: Equipo de Gestion Ambiental');
             }
         } 
         else {
@@ -81,7 +81,7 @@ class VerificacionNotification extends Notification
                     ->line('Tu Ficha Técnica fue rechazada por el siguente motivo,')
                     ->line( $FichaT->MotivoRechazo)
                     ->action('Revisar',$Url)
-                    ->salutation('Atentamente: Equipo de Agenda Ambiental');
+                    ->salutation('Atentamente: Equipo de Gestion Ambiental');
                 }else{
                     return (new MailMessage)
                     ->greeting('Hola!')
@@ -89,7 +89,7 @@ class VerificacionNotification extends Notification
                     ->line('Tu Ficha Técnica fue validada por un experto,')
                     ->line('Muchas gracias por cooperar con esta gran comunidad, te gustaria observar tu Ficha Técnica?')
                     ->action('Revisar',$Url)
-                    ->salutation('Atentamente: Equipo de Agenda Ambiental');
+                    ->salutation('Atentamente: Equipo de Gestion Ambiental');
                 }
             }
         }

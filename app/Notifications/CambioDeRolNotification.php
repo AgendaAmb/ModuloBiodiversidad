@@ -3,11 +3,10 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class FichaTecnicaNotification extends Notification implements ShouldQueue
+class CambioDeRolNotification extends Notification
 {
     use Queueable;
 
@@ -16,10 +15,9 @@ class FichaTecnicaNotification extends Notification implements ShouldQueue
      *
      * @return void
      */
-    public $id_FichaT;
-    public function __construct($id)
+    public function __construct()
     {
-        $this->id_FichaT=$id;
+        //
     }
 
     /**
@@ -41,15 +39,14 @@ class FichaTecnicaNotification extends Notification implements ShouldQueue
      */
     public function toMail($notifiable)
     {
-       
-        $verificacionUrl=route('UserFTShow',['id'=>$this->id_FichaT]);
+        $Url=route('dashbord');
         return (new MailMessage)
-                    ->greeting('Hola!')
-                    ->subject('Ficha Tecnica Nueva')
-                    ->line('Se acaba de dar de alta una nueva ficha tecnica,')
-                    ->line('Deseas revisarla para poder verficarla?!')
-                    ->action('Ir a verificar',$verificacionUrl)
-                    ->salutation('Atentamente: Equipo de Agenda Ambiental');
+            ->greeting('Hola!')
+            ->subject('Asiganción de Rol-Biodiversidad')
+            ->line('Bienvenido a nuestro Sistema de Biodiversidad.Gracias por unirte a esta gran comunidad, deseas entrar ahora? da click en el siguiente botón:')
+            ->action('Entrar',  $Url)
+            ->line('Gracias por usar nuestra aplicación!')
+            ->salutation('Atentamente: Equipo de Gestion Ambiental');
     }
 
     /**

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Notifications\WelcomeEmailNotification;
+use App\Notifications\CambioDeRolNotification;
 use App\Rol;
 use App\User;
 use Auth;
@@ -51,7 +51,7 @@ class HomeController extends Controller
         $request->user()->authorizeRoles(['administrador']);
         $user = user::findorFail($request->idUser);
         if ($user->hasRole('Ninguno')) {
-            $user->notify(new WelcomeEmailNotification());
+            $user->notify(new CambioDeRolNotification());
         }
         if ($request->roles != null) {
             $user->roles()->detach();
