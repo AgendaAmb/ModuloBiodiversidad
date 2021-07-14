@@ -14,7 +14,9 @@ class NombreEjemplarController extends Controller
      */
     public function index()
     {
+       // ->with("Ejemplar", $this->Ejemplar->where('ficha_tecnicas_id', '==', null)
         $EjemplaresJava = NombreEjemplar::orderBy('NombreComun', 'asc')->get();
+        
         $Ejemplares = NombreEjemplar::orderBy('NombreComun', 'asc')->Paginate(15);
         return \view('Ejemplares.index')->with("Ejemplares", $Ejemplares)->with("EjemplaresJava", $EjemplaresJava);
     }

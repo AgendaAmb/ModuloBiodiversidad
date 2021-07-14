@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\WelcomeEmailNotification;
 use App\Rol;
 use App\User;
 use Auth;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
-use App\NombreEjemplar;
-use DB;
 
 class HomeController extends Controller
 {
@@ -50,7 +50,9 @@ class HomeController extends Controller
     {
         $request->user()->authorizeRoles(['administrador']);
         $user = user::findorFail($request->idUser);
-
+        if ($user->hasRole('Ninguno')) {
+            $user->notify(new WelcomeEmailNotification());
+        }
         if ($request->roles != null) {
             $user->roles()->detach();
             foreach ($request->roles as $rol) {
@@ -81,30 +83,25 @@ class HomeController extends Controller
     }
     public function getFTByUser()
     {
-      //  $user = user::findorFail(Auth::id());
+        //  $user = user::findorFail(Auth::id());
 
         $FichasTecnicas = DB::table('nombre_ejemplars')
-        ->join('ficha_tecnicas', function ($join) {
-            $join->on('nombre_ejemplars.ficha_tecnicas_id', '=', 'ficha_tecnicas.id')
-                 ->where('ficha_tecnicas.user_id', '=', Auth::id())
-                 ->orderBy('NombreComun', 'asc');
-        })->paginate(15);
-           
+            ->join('ficha_tecnicas', function ($join) {
+                $join->on('nombre_ejemplars.ficha_tecnicas_id', '=', 'ficha_tecnicas.id')
+                    ->where('ficha_tecnicas.user_id', '=', Auth::id())
+                    ->orderBy('NombreComun', 'asc');
+            })->paginate(15);
+
         return view('FichasTecnicas.User.index')->with('FichasTecnicas', $FichasTecnicas);
     }
     public function loginInstitucional(Request $request)
     {
-        $response = Http::post('148.224.134.161/loginUASLP', [
-            'email' => $request->usuario,
+        $response = Http::post('https://ambiental.uaslp.mx/apiuaslp/loginUASLP', [
+            'username' => $request->usuario,
             'password' => $request->contraseña,
         ]);
-           
-        // dd($response->json()['data']);
         if ($response->ok()) {
-            //dd($request);
-            //$existeInBD=DB::table('users')->where('email', 'yeicob_loredo@hotmail.com')->first();
             $existeInBD = User::where('email', $response->json()['data']['Correo'])->first();
-            //dd($response->json()['data']);
             if ($existeInBD) {
                 Auth::login($existeInBD);
                 return redirect()->route('dashbord');
@@ -117,19 +114,24 @@ class HomeController extends Controller
                         'email' => $response->json()['data']['Correo'],
                         'password' => Hash::make($request->contraseña),
                     ]);
-                    $user->roles()->attach(Rol::where('nombre', 'Ninguno')->first());
                     $user->save();
+                    $user->roles()->attach(Rol::where('nombre', 'Ninguno')->first());
                     Auth::login($user);
                     return redirect()->route('UXV');
                 } else {
-                    return redirect()->back()->withErrors("error no tienes una cuenta activa");
+                    return redirect()->back()->with('message', "Error tus credenciales no coenciden con nuestra información");
                 }
             }
 
         } else {
-            return redirect()->back()->withErrors();
+            $existeInBD = User::where('email', $request->usuario)->first();
+            //dd(Auth::attempt(['email' => $request->usuario, 'password' => $request->contraseña]));
+            if ($existeInBD && Auth::attempt(['email' => $request->usuario, 'password' => $request->contraseña])) {
+                Auth::login($existeInBD);
+                return redirect()->route('dashbord');
+            }else{
+                return redirect()->back()->with('message', "Error tus credenciales no coenciden con nuestra información");
+            }
         }
-
     }
-
 }

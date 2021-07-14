@@ -301,7 +301,7 @@
                     @endif
                     @if (Auth::user()->hasAnyRole(array('administrador','Coordinador')))
                     <li class="nav-item">
-                      <a href="{{route('Ejemplares')}}" class="nav-link" id="navColors">
+                      <a href="{{route('ShowAllFT')}}" class="nav-link " id="navColors">
                         <i class="far fa-file-alt">  <i class="far fa-file-alt"></i></i>
                         <p>Mostrar todas las Fichas Tecnicas</p>
                       </a>
@@ -338,23 +338,22 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link" id="navColors">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p></p>
+                  <a href="{{route('ShowAllFT')}}" class="nav-link " id="navColors">
+                    <i class="far fa-file-alt"></i>
+                    <p>Fichas Tecnicas</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link" id="navColors">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p></p>
+                  <a href="{{route('ShowHC')}}" class="nav-link " id="navColors">
+                    <i class="far fa-file-alt"></i>
+                    <p>Hojas de Campo</p>
                   </a>
                 </li>
               </ul>
             </li>
             @endif
-
+ <!--
             <li class="nav-item ">
-
               <a href="#" class="nav-link">
                 <i class="fas fa-seedling"></i>
                 <p>
@@ -362,7 +361,7 @@
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
-              <!--Mostrar las las hojas de campo de un usuario-->
+             Mostrar las las hojas de campo de un usuario
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="{{route('ShowHC')}}" class="nav-link">
@@ -372,8 +371,7 @@
                 </li>
               </ul>
             </li>
-
-
+            -->
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

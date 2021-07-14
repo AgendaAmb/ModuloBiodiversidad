@@ -6,12 +6,6 @@
 @section('contenido')
 
 <body>
-    <div class="alert alert-danger text-center">
-        <span>
-            <h1>Vista para mostrar informacion de cada una de las hojas de campo que ha dado 1 usuario</h1>
-        </span>
-
-    </div>
     <div class="row row-cols-1 row-cols-xl-4 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 especies">
         @foreach ($MisHojasCampo as $Hoja)
         <div class="col mb-4">

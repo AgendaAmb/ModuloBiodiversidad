@@ -24,20 +24,27 @@ Route::group(['prefix' => 'Biodiversidad'], function () {
     Route::view('/LoginInstitucional', 'Institucional.vista')->name('LInstitucional');
     Auth::routes();
     Auth::routes(['verify' => true]);
-    Route::get('/usuario', 'HomeController@verificar')->name('UXV');
-    Route::get('/Ejemplares', 'NombreEjemplarController@indexPublic')->name('EjemplaresP');
-    Route::get('/FichaTecnica/{id}', 'FichaTecnicaController@showPublic')->name('FichaTecnicaPublica');
-    Route::get('/FichaTecnica/imprimir/{id}', 'FichaTecnicaController@Imprimir')->name('ImprimirFichaTecnica');
-    Route::post('/LoginInstitucional', 'HomeController@loginInstitucional')->name('LInstitucionalP');
-    Route::get('/HojaCampo/Verificadas', 'PlantaController@showVerificadas')->name('showVerificados');
 
+    Route::get('/usuario', 'HomeController@verificar')->name('UXV');
+
+    Route::get('/Ejemplares', 'NombreEjemplarController@indexPublic')->name('EjemplaresP');
+
+    Route::get('/FichaTecnica/{id}', 'FichaTecnicaController@showPublic')->name('FichaTecnicaPublica');
+
+    Route::get('/FichaTecnica/imprimir/{id}', 'FichaTecnicaController@Imprimir')->name('ImprimirFichaTecnica');
+
+    Route::post('/LoginInstitucional', 'HomeController@loginInstitucional')->name('LInstitucionalP');
+
+    
+    Route::get('/HojaCampo/Verificadas', 'PlantaController@showVerificadas')->name('showVerificados');
     Route::get('/Mapa', 'PlantaController@allPlantas')->name('Mapa');
-    Route::get('FichasTecnicas','FichaTecnicaController@index')->name('FichasT');
-    Route::post('FichasTecnicas','FichaTecnicaController@store')->name('FichasT');
+   
+
     Route::group(['prefix' => 'Sistema', 'middleware' => 'auth'], function () {
         Route::get('/', 'HomeController@index')->name('dashbord');
-        Route::get('/Ejemplares', 'NombreEjemplarController@index')->name('Ejemplares');
+      
         Route::get('/FichaTecnica/{id}', 'NombreEjemplarController@show')->name('PlantasEjemplares');
+
         Route::group(['middleware' => 'TRol:administrador'], function () {
             Route::post('/CambiaRoles', 'HomeController@editRol')->name('CambiaRol');
             Route::get('/home', 'HomeController@index')->name('home');
@@ -45,7 +52,7 @@ Route::group(['prefix' => 'Biodiversidad'], function () {
             Route::post('/EliminarUser', 'HomeController@deleteUser')->name('EliminarUser');
             Route::get('/MisHojasCampo', 'HomeController@getHCByUser')->name('UserHC');
             Route::get('/MisFichasTecnicas', 'HomeController@getFTByUser')->name('UserFT');
-
+            Route::get('/Ejemplares', 'NombreEjemplarController@index')->name('Ejemplares');
             //Route::get('/MisHojasCampo/{id}', 'PlantaController@show')->name('UserHCEdit');
            // Route::get('/HojasCampo', 'PlantaController@showAllPlantas')->name('ShowHC');
             /*
@@ -57,6 +64,8 @@ Route::group(['prefix' => 'Biodiversidad'], function () {
         });
 
         Route::group(['middleware' => 'TRol:Gestor|administrador'], function () {
+            Route::get('/FichaTecnica','FichaTecnicaController@index')->name('FichasT');
+            Route::post('/FichaTecnica','FichaTecnicaController@store')->name('FichasT');
             Route::get('/HojaCampo', 'PlantaController@index')->name('HojaCampo');
             Route::post('/GuardaHC', 'PlantaController@store')->name('GHC');
             Route::get('/MisHojasCampo', 'HomeController@getHCByUser')->name('UserHC');
@@ -64,19 +73,20 @@ Route::group(['prefix' => 'Biodiversidad'], function () {
             Route::get('/MisFichasTecnicas/{id}', 'FichaTecnicaController@show')->name('UserFTShow');
             Route::get('/EditarFichaT/{id}', 'FichaTecnicaController@edit')->name('UserFTEdit');
             Route::post('/EditarFichaT/{id}', 'FichaTecnicaController@update')->name('EditarFT');
-
+          
             Route::get('MisHojasCampo/{id}', 'PlantaController@show')->name('UserHCEdit');
            
         });
         
 
-        Route::group(['middleware' => 'TRol:administrador|Coordinador|Gestor'], function () {
-            Route::post('/MisHojasCampo/verificar', 'PlantaController@verificar')->name('VerificarHC');
-            Route::post('/MisHojasCampo/rechazar', 'PlantaController@rechazar')->name('RechazarHC');
-            Route::post('/MisHojasCampo/verificar', 'FichaTecnicaController@verificar')->name('VerificarFT');
-            Route::post('/MisHojasCampo/rechazar', 'FichaTecnicaController@rechazar')->name('RechazarFT');
+        Route::group(['middleware' => 'TRol:administrador|Coordinador'], function () {
+            Route::post('/HojasCampo/verificar', 'PlantaController@verificar')->name('VerificarHC');
+            Route::post('/HojasCampo/rechazar', 'PlantaController@rechazar')->name('RechazarHC');
+            Route::post('/FichasTecnicas/verificar', 'FichaTecnicaController@verificar')->name('VerificarFT');
+            Route::post('/FichasTecnicas/rechazar', 'FichaTecnicaController@rechazar')->name('RechazarFT');
             Route::get('/HojasCampo', 'PlantaController@showAllPlantas')->name('ShowHC');
-            Route::get('MisHojasCampo/{id}', 'PlantaController@show')->name('UserHCEdit');
+            Route::get('/FichasTecnicas', 'FichaTecnicaController@showAllFichasT')->name('ShowAllFT');
+           
         });
     });
 });

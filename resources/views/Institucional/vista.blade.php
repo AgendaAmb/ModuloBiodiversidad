@@ -32,7 +32,13 @@
             @enderror
           
         </div>
-
+        @if(session()->has('message'))
+        <div class="alert alert-danger text-center">
+            <h2>
+                {{session()->get('message') }}
+            </h2>
+        </div>
+        @endif
         <div class="form-group col-md-7">
             <button type="submit" class="btn btn-primary"> Aceptar </button>
         </div>
