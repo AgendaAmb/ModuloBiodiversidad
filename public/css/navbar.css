@@ -1,61 +1,301 @@
-#navP.navbar{
-    background-color: gray;
-    padding: 0%; 
-  }
-  #navP  .nav-item:hover{
-  background-color: #96A834;
-  
-  }
-  
-  .navbar .nav-item .dropdown-menu{ 
-    display: none; 
-    flex-direction: column;
-  }
-  #navP .nav-item:hover .nav-link{ 
-    color: white;  
-    font-weight: bolder;
-    
-  }
-  #navP .nav-item .nav-link{ 
-    color: white;  
-    font-weight: bolder;
-    font-size: 15px;
-    width: 160px;
-    text-align: center;
-  }
-  .nav-item:hover .dropdown-menu{ 
-    display: block; 
-    background-color: white;
-  }
-  .dropdown-item:hover, .dropdown-item:focus{
-    color: white;
-    background-color: #97a83480;
-    font-weight: bold;
-  }
-  .dropdown-item, .dropdown-item{
-    color: gray;
-    width: 160px;
-    text-align: center;
+#navP{
+  background-color: gray;
+  padding: 0%;
 }
-  #navP .navbar .nav-item .dropdown-menu{
-    margin-top:0; 
-  }
-  #navP .navbar-brand{
-    color: white;
-  }
-  #navP.navbar-brand:hover{
-    background-color: #96A834;
-    color: white;
-  }
-  .MiPortal{
-    width: 150px;
-    font-weight: 900;
-   
+
+#navP .nav-item:hover{
+background-color: #96A834;
+
+
 }
-.ESINbnt .btn{
+
+
+#navP .nav-item .dropdown-menu{
+  display: none;
+  flex-direction: column;
+}
+#navP .nav-item:hover .nav-link{
   color: white;
+  font-weight: bolder;
+
+}
+#navP .nav-item .nav-link{
+  color: white;
+  font-weight: bolder;
+  font-size: 15px;
+  width: 160px;
+  text-align: center;
+}
+#navP .nav-item:hover .dropdown-menu{
+  display: block;
+  background-color: white;
+}
+.dropdown-item:hover, .dropdown-item:focus{
+  color: white;
+  background-color: #97a83480;
+  font-weight: bold;
+  
+}
+.dropdown-item, .dropdown-item{
+  color: gray;
+  width: 160px;
+  text-align: center;
+}
+#navP .nav-item .dropdown-menu{
+  margin-top:0;
+}
+#navP-brand{
+  color: white;
+  padding-left: 0.5rem;
+}
+#navP-brand:hover{
+  background-color: #96A834;
+  color: white;
+}
+.con-btn{
+  margin-right: 20px;
+  font-size: 1.0rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   background-color: transparent;
-  border:transparent;
-  border: 0px solid transparent;
+
+}
+#navP .form-inline .form-control{
+border-radius: 20px;
+height: 30px;
+margin-bottom: 0.1rem;
+}
+
+.btn-sm{
+  width: 10%;
+  background-color: transparent;
+  border: transparent;
+}
+.btn-sm:hover{
+
+  background-color: transparent;
+  border: transparent;
+}
+.btn img{
+  height: auto;
+  width:20%;
+
+}
+.navbar-brand{
+color: white;
+padding-left: 0.5rem;
+}
+.navbar-brand:hover{
+  color: white;
+ background-color: #96A834;
+  }
+
+/*
+* El menú desplegable está restringido
+* por el ancho de su contenedor li.
+*/
+ul.dropdown-menu
+{
+  margin-right:0px;
+}
+
+ul.dropdown-menu > li
+{
+  display: block;
+}
+.descripionP{
+  background-color: rgba(250, 250, 250, .8); 
+  color: black; 
+  font-size: 14px; 
+  border: 0px; 
+  position: absolute; 
+  top: 50%; 
+  left: 40%; 
+  padding: 15px 25px;
+}
+.MiPortal{
+  width: 150px;
   font-weight: 900;
+}
+.ejeTrabajo
+{
+    position: absolute;
+    display: block;
+    margin: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+
+@media only screen and (min-width: 638px) and (max-width: 765px)
+{
+
+    footer {  grid-template-columns: repeat(2, 1fr); }
+
+    .mapa
+    {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    .seccionFooter
+    {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+}
+@media only screen and (min-width: 10px) and (max-width: 575px){
+    .navbar .nav-item .nav-link{
+        width: auto;
+        text-align: start;
+        margin-left: 5%;
+    }
+    .MiPortal{
+        width: 150px;
+       
+        font-weight: 900;
+       
+    }
+     
+}
+@media only screen and (min-width: 576px) and (max-width: 767px)
+{
+    .img-slider{
+        height: auto;
+        width: inherit;
+
+    }
+    #imgODSLogo{
+        display: flex;
+    }
+    .navbar-brand{
+        display: none;
+    }
+    #odsHeader{
+display: flow-root;
+    }
+
+    ul.dropdown-menu {
+        margin-right: -2000px;
+        padding: 0%;
+        border-color: transparent;
+        border-style: none;
+        background-color: transparent;
+        font-size: 12px;
+        height: auto;
+    }
+    .dropdown-menu .dropdown-item{
+       padding: 0.6rem 0.6rem;
+    }
+    ul.dropdown-menu > li {
+        display: inline-block;
+    }
+    .navbar-brand{
+        display: flex;
+    }
+    
+
+    .MiPortal{
+        margin-left: 2%;
+       
+    }
+    .navbar .nav-item .nav-link{
+        margin-left: 5%;
+    }
+    
+     
+}
+
+@media only screen and (max-width: 991px) and (min-width: 766px){
+    .navbar-brand{
+        display: none;
+    }
+   
+    ul.dropdown-menu {
+        margin-right: -2000px;
+        padding: 0%;
+        border-color: transparent;
+        border-style: none;
+        background-color: transparent;
+        font-size: 12px;
+        height: auto;
+    }
+    
+    ul.dropdown-menu > li {
+        display: inline-block;
+    }
+
+   
+
+
+    .mapa
+    {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    .seccionFooter { margin: none; }
+ 
+}
+@media only screen and (max-width: 1800px) and (min-width: 992px)
+{
+    footer { grid-template-columns: repeat(3, 1fr); }
+    .mapa
+    {
+        grid-column-start: 3;
+        grid-column-end: 4;
+    }
+
+    .navbar-brand{
+        display: none;
+    }
+   
+    ul.dropdown-menu {
+        margin-right: -2000px;
+        padding: 0%;
+        border-color: transparent;
+        border-style: none;
+        background-color: transparent;
+        font-size: 12px;
+        height: auto;
+    }
+    
+    ul.dropdown-menu > li {
+        display: inline-block;
+    }
+    
+}
+@media only screen and (max-width: 3000px) and (min-width: 1801px)
+{
+    footer { grid-template-columns: repeat(3, 1fr); }
+    .mapa
+    {
+        grid-column-start: 3;
+        grid-column-end: 4;
+    }
+
+    .navbar-brand{
+        display: none;
+    }
+  
+
+
+    ul.dropdown-menu {
+        margin-right: -2000px;
+        padding: 0%;
+        border-color: transparent;
+        border-style: none;
+        background-color: transparent;
+        font-size: 12px;
+        height: auto;
+    }
+    
+    ul.dropdown-menu > li {
+        display: inline-block;
+    }
+  
 }
