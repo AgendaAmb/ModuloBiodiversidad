@@ -273,8 +273,167 @@
         "Nombre":"Floripondio",
         "NombreCientifico":"BRUGMANSIA ARBOREA L",
         "Clave":"FLP"
+    },
+    {
+        "Nombre":"Fresno",
+        "NombreCientifico":"FRAXINUS EXCELSIOR L.",
+        "Clave":"FRS"
+    },
+    {
+        "Nombre":"Granada",
+        "NombreCientifico":"PUNICA GRANATUM L.",
+        "Clave":"GRA"
+    },
+    {
+        "Nombre":"Pino de oro",
+        "NombreCientifico":"GREVILLEA ROBUSTA L.",
+        "Clave":"PIO"
+    },
+    {
+        "Nombre":"Guamúchil",
+        "NombreCientifico":"PITHECELLOBIUM DULCE L.",
+        "Clave":"GUA"
+    },
+    {
+        "Nombre":"Guayaba",
+        "NombreCientifico":"PSIDIUM GUAJAVA L.",
+        "Clave":"GUAYA"
+    },
+    {
+        "Nombre":"Higuera",
+        "NombreCientifico":"FICUS CARICA L.",
+        "Clave":"HIG"
+    },
+    {
+        "Nombre":"Huaje",
+        "NombreCientifico":"LEUCAENA LEUCOCEPHALA L.",
+        "Clave":"HUA"
+    },
+    {
+        "Nombre":"Huele de Noche",
+        "NombreCientifico":"CESTRUM NOCTURNUM L.",
+        "Clave":"HUNOC"
+    },
+    {
+        "Nombre":"Huizache",
+        "NombreCientifico":"VACHELLIA FARNESIANA L.",
+        "Clave":"HUIZA"
+    },
+    {
+        "Nombre":"Hule",
+        "NombreCientifico":"CASTILLA ELASTICA L.",
+        "Clave":"HULE"
+    },
+    {
+        "Nombre":"Hule",
+        "NombreCientifico":"CASTILLA ELASTICA L.",
+        "Clave":"HULE"
+    },
+    {
+        "Nombre":"Jacaranda",
+        "NombreCientifico":"JACARANDA MIMOSIFOLIA L.",
+        "Clave":"JACAR"
+    },
+    {
+        "Nombre":"Lechero Rojo",
+        "NombreCientifico":"EUPHORBIA COTINIFOLIA L.",
+        "Clave":"JACAR"
+    },
+    {
+        "Nombre":"Lima",
+        "NombreCientifico":"CITRUS AURANTIFOLIA L.",
+        "Clave":"LIMA"
+    },
+    {
+        "Nombre":"Limón",
+        "NombreCientifico":"CITRUS LIMONUM L.",
+        "Clave":"LIMON"
+    },
+    {
+        "Nombre":"Liquidámbar",
+        "NombreCientifico":"LIQUIDAMBAR STYRACIFLUA L.",
+        "Clave":"LIQA"
+    },
+    {
+        "Nombre":"Lluvia de Oro",
+        "NombreCientifico":"LABURNUM ANAGYROIDES L.",
+        "Clave":"LLUORO"
+    },
+    {
+        "Nombre":"Maculi",
+        "NombreCientifico":"TABEBUIA ROSEA L.",
+        "Clave":"MACU"
+    },
+    {
+        "Nombre":"Magnolia",
+        "NombreCientifico":"MAGNOLIA GRANDIFLORA L.",
+        "Clave":"MAG"
+    },
+    {
+        "Nombre":"Maíz",
+        "NombreCientifico":"ZEA MAYS L.",
+        "Clave":"MAIZ"
+    },
+    {
+        "Nombre":"Mandarina",
+        "NombreCientifico":"CITRUS RETICULATA L.",
+        "Clave":"MAND"
+    },
+    {
+        "Nombre":"Mango",
+        "NombreCientifico":"MANGIFERA INDICA L.",
+        "Clave":"MANG"
+    },
+    {
+        "Nombre":"Manzano",
+        "NombreCientifico":"MALUS DOMESTICA L.",
+        "Clave":"MANZ"
+    },
+    {
+        "Nombre":"Mezquite",
+        "NombreCientifico":"PROSOPIS L.",
+        "Clave":"MANQ"
+    },
+    {
+        "Nombre":"Mimosa",
+        "NombreCientifico":"MIMOSA PUDICA",
+        "Clave":"MAMO"
+    },
+    {
+        "Nombre":"Mora",
+        "NombreCientifico":"MORUS ALBA L.",
+        "Clave":"MORA"
+    },
+    {
+        "Nombre":"Moringa",
+        "NombreCientifico":"MORINGA OLEIFERA L.",
+        "Clave":"MORI"
+    },
+    {
+        "Nombre":"Naranjo",
+        "NombreCientifico":"CITRUS SINENSIS L.",
+        "Clave":"NARA"
+    },
+    {
+        "Nombre":"Neem",
+        "NombreCientifico":"AZADIRACHTA INDICA L.",
+        "Clave":"NEEM"
+    },
+    {
+        "Nombre":"Níspero",
+        "NombreCientifico":"MESPILUS GERMANICA L.",
+        "Clave":"NIS"
+    },
+    {
+        "Nombre":"Níspero",
+        "NombreCientifico":"MESPILUS GERMANICA L.",
+        "Clave":"NIS"
+    },
+    {
+        "Nombre":"NocheBuena",
+        "NombreCientifico":"MESPILUS GERMANICA L.",
+        "Clave":"NIS"
     }
-
 
 
 ]
