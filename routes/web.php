@@ -68,8 +68,13 @@ Route::group(['prefix' => 'Sistema', 'middleware' => 'auth'], function () {
         Route::get('/MisFichasTecnicas/{id}', 'FichaTecnicaController@show')->name('UserFTShow');
         Route::get('/EditarFichaT/{id}', 'FichaTecnicaController@edit')->name('UserFTEdit');
         Route::post('/EditarFichaT/{id}', 'FichaTecnicaController@update')->name('EditarFT');
-
+      
+       
         Route::get('MisHojasCampo/{id}', 'PlantaController@show')->name('UserHCEdit');
+
+        Route::get('/EditarHojaCampo/{id}', 'PlantaController@edit')->name('UserEHCEdit');
+        Route::post('/EditarHojaCampo/{id}', 'PlantaController@update')->name('EditarHC');
+
 
     });
 

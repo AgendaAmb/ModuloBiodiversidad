@@ -19,10 +19,14 @@
 @endif
 
 @if (!$nuevo&&!$Planta->Verificado&&$Planta->NomVerificador!=null)
-<div class="container-xl-6">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Ver retroalimentación
-    </button>
+<div class="container-fluid mx-0 mb-2">
+    <div class="row justify-content-end">
+        <div class="col-auto text-center">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Ver retroalimentación
+            </button>
+        </div>
+    </div>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -38,8 +42,9 @@
                 {{$Planta->MotivoRechazo}}
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <a class="btn btn-primary" href="{{route('UserEHCEdit',['id'=>$Planta->id])}}"
+                    role="button">Modificar</a>
             </div>
         </div>
     </div>
@@ -56,7 +61,8 @@
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-12 ">
                     <div class="align-self-center">
-                        <h4 class="pt-5" style="font-family: Myraid Pro Bold;">HOJA DE CAMPO DE PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD </h4>
+                        <h4 class="pt-5" style="font-family: Myraid Pro Bold;">HOJA DE CAMPO DE PROGRAMA UNIVERSITARIO
+                            DE BIODIVERSIDAD </h4>
                         <span> </span>
                     </div>
 
@@ -120,7 +126,7 @@
 <x-Modal idModal="verificar" modalTitle="Confirmar Hoja de campo" isRechazada="false" vista="HC">
 </x-Modal>
 
-<x-Modal idModal="Rechazar" modalTitle="Rechazar Hoja de campo" isRechazada="true"  vista="HC">
+<x-Modal idModal="Rechazar" modalTitle="Rechazar Hoja de campo" isRechazada="true" vista="HC">
 </x-Modal>
 @endif
 
@@ -148,8 +154,8 @@
     NombreC:'',
     Entidad_id:'',
     NoEjem:'',
-    
-      info: null
+    info: null,
+    imgPartes:[]
   }, 
   mounted: 
   function () {
@@ -180,13 +186,64 @@
 
     //*Guardar en la base de datos la parte de la planta**/
    @if (!$nuevo) {
+    this.archivos = [
+        {
+            imagen:"",
+            nombre:"Archivo1",
+            parteP:"Planta completa"
+            
+        },
+        {
+            imagen:"",
+            nombre:"Archivo2",
+            parteP:"Follaje"
+        },
+        {
+            imagen:"",
+            nombre:"Archivo3",
+            parteP:"Hojas"
+            
+        },
+        {
+            imagen:"",
+            nombre:"Archivo4",
+            parteP:"Flores"
+            
+        },
+        {
+            imagen:"",
+            nombre:"Archivo5",
+            parteP:"Frutos"
+            
+        },
+        {
+            imagen:"",
+            nombre:"Archivo6",
+            parteP:"Semillas"
+            
+        },
+        {
+            imagen:"",
+            nombre:"Archivo7",
+            parteP:"Tronco"
+            
+        },
+        {
+            imagen:"",
+            nombre:"Archivo8",
+            parteP:"Raíces"
+            
+        },
+    ]
     @foreach($Planta->imagenesPlanta as $Foto)
-                this.archivos.push({
-                    "imagen":'{{$Foto->url}}',
-                    "nombre":'{{$Foto->nombre}}',
-                    "parteP":'{{$Foto->PartePlanta}}',
-                    
-                });
+        '{{$Foto->PartePlanta}}'==='Planta Completa'? this.archivos[0].imagen='{{$Foto->url}}':'';
+        '{{$Foto->PartePlanta}}'==='Follaje'? this.archivos[1].imagen='{{$Foto->url}}':'';
+        '{{$Foto->PartePlanta}}'==='Hojas'? this.archivos[2].imagen='{{$Foto->url}}':'';
+        '{{$Foto->PartePlanta}}'==='Flores'? this.archivos[3].imagen='{{$Foto->url}}':'';
+        '{{$Foto->PartePlanta}}'==='Frutos'? this.archivos[4].imagen='{{$Foto->url}}':'';
+        '{{$Foto->PartePlanta}}'==='Semillas'? this.archivos[5].imagen='{{$Foto->url}}':'';
+        '{{$Foto->PartePlanta}}'==='Tronco'? this.archivos[6].imagen='{{$Foto->url}}':'';
+        '{{$Foto->PartePlanta}}'==='Raíces'? this.archivos[7].imagen='{{$Foto->url}}':'';
     @endforeach
    }
    @else{

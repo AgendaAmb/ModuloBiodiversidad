@@ -79,7 +79,7 @@
                             <h5 class="card-title text-center">@{{a.parteP}} </h5>
                             
                             <div class="card-body"> 
-                                <img class="card-img-top " v-if="a.imagen!=''" :id="a.nombre"  :src="a.ban==false?'/storage'+a.imagen:a.imagen" 
+                                <img class="card-img-top " v-if="a.imagen!=''" :id="a.nombre"  :src="a.ban==false?'{{asset('storage/')}}'+a.imagen:a.imagen" 
                                     alt="Card image cap">
                             </div>
                             <div class="card-footer pl-5">

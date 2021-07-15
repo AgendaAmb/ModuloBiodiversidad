@@ -219,15 +219,15 @@ class FichaTecnicaController extends Controller
         $request->user()->authorizeRoles(['administrador', 'Coordinador']);
     
         $FichaTecnica = FichaTecnica::findorFail($request->idFichaT);
-        $User=User::findorFail($FichaTecnica->user_id);
-        $User->notify(new VerificacionNotification($FichaTecnica->id,"FichaTecnica",false));
-        
+     
         $FichaTecnica->Estado = "Verificado";
         $FichaTecnica->NomVerificador = Auth::user()->name;
     
         
         $FichaTecnica->save();
-
+        $User=User::findorFail($FichaTecnica->user_id);
+        $User->notify(new VerificacionNotification($FichaTecnica->id,"FichaTecnica",false));
+        
         
         return back()->with('message', 'Se ha verificado la hoja de campo con exito');
 
@@ -238,13 +238,14 @@ class FichaTecnicaController extends Controller
         $request->user()->authorizeRoles(['administrador', 'Coordinador']);
         $FichaTecnica = FichaTecnica::findorFail($request->idFichaT);
 
-        $User=User::findorFail($FichaTecnica->user_id);
-        $User->notify(new VerificacionNotification($FichaTecnica->id,"FichaTecnica",true));
+     
 
         $FichaTecnica->Estado = "Rechazada";
         $FichaTecnica->NomVerificador = Auth::user()->name;
         $FichaTecnica->MotivoRechazo = $request->MRechazo;
         $FichaTecnica->save();
+        $User=User::findorFail($FichaTecnica->user_id);
+        $User->notify(new VerificacionNotification($FichaTecnica->id,"FichaTecnica",true));
         return back()->with('message', 'La hoja de campo ha sido RECHAZADA');
     }
 

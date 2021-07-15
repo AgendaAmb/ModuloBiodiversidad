@@ -50,7 +50,8 @@ class VerificacionNotification extends Notification
     {
         $Url;
         if ($this->TipoVerificacion == "HojaCampo") {
-            $Planta = Planta::findorFail($this->id)->select('MotivoRechazo')->get();
+            $Planta = Planta::findorFail($this->id);
+          
             $Url=route('UserHCEdit',['id'=>$this->id]);
             if($this->isRechazado){
                 return (new MailMessage)

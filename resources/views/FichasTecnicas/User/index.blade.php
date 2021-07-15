@@ -40,13 +40,14 @@
 
                                 <div class="col-2 p-0">                                   
                                         <a href="{{route('ImprimirFichaTecnica',['id'=>$Ficha->id])}}"
-                                            class="d-inline-block btn btn-sm btn-danger text-center" target="blank">
+                                            class="d-inline-block btn btn-sm btn-danger text-center" data-toggle="tooltip" data-placement="top" title="Ver PDF" target="blank">
                                             <i class="fas fa-file-pdf"></i>
+                                            
                                         </a>
                                 </div>
                                 <div class="col-2 p-0">
                                         <a href="{{route('FichaTecnicaPublica',['id'=>$Ficha->id])}}"
-                                            class="d-inline-block btn btn-sm btn-info" target="blank"
+                                            class="d-inline-block btn btn-sm btn-info"   data-toggle="tooltip" data-placement="top" title="Vista Previa" target="blank"
                                             >
                                             <i class="fas fa-eye"></i>
                                         </a>

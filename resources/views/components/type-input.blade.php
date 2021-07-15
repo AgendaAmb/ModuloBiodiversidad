@@ -7,7 +7,7 @@
     <div class="col-md-8">
         <textarea {{$isReadOnly ? 'readonly':''}}  {{$isRequiered ? 'required':''}}  aria-label="With textarea" id="{{$labelFor}}" type="text"
             class="form-control @error($labelFor) is-invalid @enderror" name="{{$labelFor}}"
-             autocomplete autofocus>{{$value}}  {{$haveValue ? $value:old($labelFor)}}</textarea>
+             autocomplete autofocus>{{$haveValue ? $value:old($labelFor)}}</textarea>
             @error($labelFor)
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
