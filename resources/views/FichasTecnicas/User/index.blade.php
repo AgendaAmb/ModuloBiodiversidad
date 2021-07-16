@@ -52,7 +52,8 @@
                                             <i class="fas fa-eye"></i>
                                         </a>
                                 </div>
-                                @if ($Ficha->Estado=="Rechazada")
+                               
+                                @if ($Ficha->Estado=="Rechazada"&&Auth::user()->id==$Ficha->user_id)
                                 <div class="col-2 p-0">
                                     <a href="{{route('UserFTEdit',['id'=>$Ficha->id])}}"
                                         class="d-inline-block btn btn-sm btn-warning" target="blank"
