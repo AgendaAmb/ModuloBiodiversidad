@@ -2,10 +2,10 @@
 
 @section('contenido')
 
-<div class="container-fluid bg-secondary px-5 py-0">
+<div class="container-fluid bg-secondary px-0 px-xl-5 py-0">
     
     <div class="row justify-content-center">
-        <div class="container-fluid bg-white mx-5 px-4 ">
+        <div class="container-fluid bg-white mx-xl-5 px-xl-4 ">
             <div class="row justify-content-end m-3">
                 <a href="{{route('ImprimirFichaTecnica',['id'=>$fichaTecnica->id])}}" class="d-inline-block btn btn-sm btn-primary" target="blank">
                     <i class="fas fa-download">  Descargar</i>
@@ -21,7 +21,7 @@
                             </p>
 
                             <img src="{{ asset("storage$urlPC" )}}"
-                                class="d-block w-100 mx-auto p-5" alt="..." style="opacity: 0.8">
+                                class="d-block w-100 mx-auto p-xl-5" alt="..." style="opacity: 0.8">
                             <div class="carousel-caption d-none d-sm-block" style="bottom: 43%; opacity: 1.0;">
                                 <h1 class="font-weight-bold text-uppercase"
                                     style="font-size: 50px;font-family: 'Myraid Pro Bold';">
@@ -30,7 +30,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="container-fluid px-5 mt-5">
+                <div class="container-fluid px-xl-5 mt-xl-5">
                     <p class="text-center text-uppercase font-weight-bold "
                         style="font-size: 32px;color: #466065;  font-family: 'Myraid Pro Bold';">
                         {{$fichaTecnica->NombreCientifico}}</p>
@@ -107,9 +107,9 @@
                         <p class="d-none">
                             {{$urlF=$fichaTecnica->FichaTecnica->Url_F}}
                         </p>
-                        <div class="col-6 pr-0"><img  src="{{ asset("storage$urlF" )}}" "
+                        <div class="col-12 col-xl-6 pr-0"><img  src="{{ asset("storage$urlF" )}}" "
                                 class="w-100 h-100" alt=""></div>
-                        <div class="col-6 p-5" style="font-size: 12px;color:gray;font-weight: 600;">
+                        <div class="col-12 col-xl-6 p-5" style="font-size: 12px;color:gray;font-weight: 600;">
                             <p class="card-title text-center align-middle  mt-3 text-break pr-5">
                                 Descripción:{{$fichaTecnica->FichaTecnica->Descripcion}}</p>
                             <p class="card-title text-center align-middle  mt-3 text-break pr-5">
