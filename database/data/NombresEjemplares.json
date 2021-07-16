@@ -433,7 +433,191 @@
         "Nombre":"NocheBuena",
         "NombreCientifico":"MESPILUS GERMANICA L.",
         "Clave":"NIS"
+    },
+    {
+        "Nombre":"Nogal",
+        "NombreCientifico":"JUGLANS REGIA L.",
+        "Clave":"NOG"
+    },
+    {
+        "Nombre":"Nopal",
+        "NombreCientifico":"OPUNTIA FICUS-INDICA L.",
+        "Clave":"NOP"
+    },
+    {
+        "Nombre":"Olivo",
+        "NombreCientifico":"OLEA EUROPAEA L.",
+        "Clave":"OLI"
+    },
+    {
+        "Nombre":"Olmo Chino",
+        "NombreCientifico":"ULMUS PARVIFOLIA L.",
+        "Clave":"OLMO"
+    },
+    {
+        "Nombre":"Órgano",
+        "NombreCientifico":"ULMUS PARVIFOLIA L.",
+        "Clave":"ORGA"
+    },
+    {
+        "Nombre":"Palma Areca",
+        "NombreCientifico":"DYPSIS LUTESCENS L.",
+        "Clave":"PAAR"
+    },
+    {
+        "Nombre":"Palma Canaria",
+        "NombreCientifico":"PHOENIX CANARIENSIS L.",
+        "Clave":"PALC"
+    },
+    {
+        "Nombre":"Palma Coco Plumoso",
+        "NombreCientifico":"SYAGRUS ROMANZOFFIANA L.",
+        "Clave":"PALCP"
+    },
+    {
+        "Nombre":"Palma Rubelina",
+        "NombreCientifico":"PHOENIX ROEBELENII",
+        "Clave":"PALR"
+    },
+    {
+        "Nombre":"Palma Washintona",
+        "NombreCientifico":"WASHINGTONIA FILIFERA L.",
+        "Clave":"PALW"
+    },
+    {
+        "Nombre":"Palo Mulato",
+        "NombreCientifico":"BURSERA SIMARUBA L.",
+        "Clave":"PALM"
+    },
+    {
+        "Nombre":"Papaya",
+        "NombreCientifico":"CARICA PAPAYA L.",
+        "Clave":"PAPAYA"
+    },
+    {
+        "Nombre":"Pata De Elefante",
+        "NombreCientifico":"BEAUCARNEA RECURVATA L.",
+        "Clave":"PAEL"
+    },
+    {
+        "Nombre":"Pata De Vaca",
+        "NombreCientifico":"BAUHINIA FORFICATE L.",
+        "Clave":"PAVAC"
+    },
+    {
+        "Nombre":"Pera",
+        "NombreCientifico":"PYRUS COMMUNIS L.",
+        "Clave":"PERA"
+    },
+    {
+        "Nombre":"Pino",
+        "NombreCientifico":"PINUS SYLVESTRIS L.",
+        "Clave":"PINO"
+    },
+    {
+        "Nombre":"Piracanto",
+        "NombreCientifico":"PYRACANTHA L.",
+        "Clave":"PIRAC"
+    },
+    {
+        "Nombre":"Pirul",
+        "NombreCientifico":"SCHINUS MOLLE  L.",
+        "Clave":"PIRUL"
+    },
+    {
+        "Nombre":"Plátano",
+        "NombreCientifico":"MUSA PARADISIACA L.",
+        "Clave":"PLAT"
+    },
+    {
+        "Nombre":"Plúmbago",
+        "NombreCientifico":"PLUMBAGO L.",
+        "Clave":"PLÚM"
+    },
+    {
+        "Nombre":"Roble Blanco",
+        "NombreCientifico":"QUERCUS ALBA L.",
+        "Clave":"ROBL"
+    },
+    {
+        "Nombre":"Encino De California",
+        "NombreCientifico":"QUERCUS AGRIFOLIA L.",
+        "Clave":"ENCAL"
+    },
+    {
+        "Nombre":"Rama Negra",
+        "NombreCientifico":"CONYZA SUMATRENSIS L.",
+        "Clave":"RAN"
+    },
+    {
+        "Nombre":"Retama",
+        "NombreCientifico":"RETAMA SPHAEROCARPA L.",
+        "Clave":"RET"
+    },
+    {
+        "Nombre":"Rosa Laurel",
+        "NombreCientifico":"NERIUM OLEANDER L.",
+        "Clave":"ROSLA"
+    },
+    {
+        "Nombre":"Sauce Criollo",
+        "NombreCientifico":"SALIX HUMBOLDTIANA L.",
+        "Clave":"SACRIO"
+    },
+    {
+        "Nombre":"Sauco",
+        "NombreCientifico":"SAMBUCUS L.",
+        "Clave":"SAU"
+    },
+    {
+        "Nombre":"Tamarindo",
+        "NombreCientifico":"TAMARINDUS INDICA L. ",
+        "Clave":"TAMA"
+    },
+    {
+        "Nombre":"Tuya",
+        "NombreCientifico":"THUJA L.",
+        "Clave":"TUYA"
+    },
+    {
+        "Nombre":"Tronadora",
+        "NombreCientifico":"TECOMA STANS L.",
+        "Clave":"TRON"
+    },
+    {
+        "Nombre":"Trueno",
+        "NombreCientifico":"LIGUSTRUM VULGARE L.",
+        "Clave":"TRUE"
+    },
+    {
+        "Nombre":"Tulipán Africano",
+        "NombreCientifico":"LIGUSTRUM VULGARE L.",
+        "Clave":"TULIA"
+    },
+    {
+        "Nombre":"Velo De Novia",
+        "NombreCientifico":"GYPSOPHILA PANICULATE L.",
+        "Clave":"VENO"
+    },
+    {
+        "Nombre":"Yuca Pie De Elefante",
+        "NombreCientifico":"YUCCA ELEPHANTIPES L.",
+        "Clave":"YUCAEL"
+    },
+    {
+        "Nombre":"Izote",
+        "NombreCientifico":"YUCCA FILIFERA L.",
+        "Clave":"IZOTE"
+    },
+    {
+        "Nombre":"Zapote Blanco",
+        "NombreCientifico":"CASIMIROA EDULIS L.",
+        "Clave":"ZAPOBL"
     }
+    
+    
+    
+    
 
 
 ]
