@@ -59,7 +59,7 @@ class FichaTecnicaController extends Controller
         $directoryEspecie = '/FichasTecnicas/' . Str::of($nombreEjemplar->NombreComun)->replace(' ', '_');
         $Ficha_Tecnica = new FichaTecnica();
         $this->saveImagenes($request, $Ficha_Tecnica, $nombreEjemplar, $directoryEspecie, false);
-
+       
         $Ficha_Tecnica->TPertenencia = $request->Fenologia;
         $Ficha_Tecnica->Fcrecimiento = $request->FormaCrecimiento;
         $Ficha_Tecnica->Origen = $request->Origen;
@@ -75,7 +75,7 @@ class FichaTecnicaController extends Controller
         $Ficha_Tecnica->Clima = $request->ClimaN;
         $Ficha_Tecnica->Porte = $request->Porte;
         $Ficha_Tecnica->SistemR = $request->SistemaRa;
-        $Ficha_Tecnica->RequerimientosE = $request->Requerimietos;
+        $Ficha_Tecnica->RequerimientosE = $request->Requerimientos;
         $Ficha_Tecnica->ServiciosAmb = $request->ServicioAmbiental;
         $Ficha_Tecnica->AmenazasRiesgos = $request->AmenazasR;
         $Ficha_Tecnica->AmenazasRiesgosHab = $request->AmenazasRC;

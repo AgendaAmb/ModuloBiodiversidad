@@ -282,7 +282,7 @@
                             isTextArea="true" haveValue="{{$nuevo?false:true}}"
                             value="{{$nuevo?false:$FichaTecnica->SistemR}}" isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
-                        <x-typeInput labelFor="Requerimietos" :isRequiered="true" typeInput="text"
+                        <x-typeInput labelFor="Requerimientos" :isRequiered="true" typeInput="text"
                             label="Requerimientos De La Especie" isTextArea="true" haveValue="{{$nuevo?false:true}}"
                             value="{{$nuevo?false:$FichaTecnica->RequerimientosE}}" isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
