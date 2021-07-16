@@ -118,12 +118,9 @@
                         <img src="{{ public_path("storage$urlFL") }}" width="215" height="200" alt="">
                         <p
                             style="margin-bottom:0%;margin-top: 5px;color: #bcc9cb; font-size: 12px;  font-family: 'Myraid Pro Bold'; font-weight: 900;">
-                            FRORACIÓN</p>
+                            FLORACIÓN</p>
                         <p style="font-size: 10px; color: #67817e;margin-top: 0%;padding: 0% 1%;">
-                            {{$fichaTecnica->FichaTecnica->Floracion}} marzo a noviembre. Las ores se agrupan
-                            en inorescencias y pueden ser blanquecinas,
-                            cuelgan como lágrimas mecidas por el
-                            viento.</p>
+                            {{$fichaTecnica->FichaTecnica->Floracion}} </p>
                     </div>
                 </div>
                 <div class="item" style="margin-left: 65.66%;">
@@ -133,10 +130,7 @@
                             style="margin-bottom:0%;margin-top: 5px; color: #bcc9cb; font-size: 12px;  font-family: 'Myraid Pro Bold'; font-weight: 900;">
                             ORIGEN</p>
                         <p style="font-size: 10px; color: #67817e;margin-top: 0%;padding: 0% 1%;">
-                            {{$fichaTecnica->FichaTecnica->Origen}} marzo a noviembre. Las ores se agrupan
-                            en inorescencias y pueden ser blanquecinas,
-                            cuelgan como lágrimas mecidas por el
-                            viento.</p>
+                            {{$fichaTecnica->FichaTecnica->Origen}} </p>
 
                     </div>
                 </div>
