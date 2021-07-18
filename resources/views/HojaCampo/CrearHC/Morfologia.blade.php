@@ -10,7 +10,7 @@
         </div>
     </div>
 -->
-{{$Planta->Morfologia->CondicionGeneral}}}
+
     <x-typeInput labelFor="CondicionG" typeInput="text" label="Condición General" isTextArea="true" haveValue="{{$nuevo?false:true}}"
         isReadOnly="{{boolval($isReO)}}" value="{{$nuevo?false:$Planta->Morfologia->CondicionGeneral}}">
     </x-typeInput>
