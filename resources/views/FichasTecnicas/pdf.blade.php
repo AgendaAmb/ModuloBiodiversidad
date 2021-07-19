@@ -210,7 +210,7 @@
 
             <div class="flex-container" style="height: 400px;margin-left: 1%;margin-bottom: 2%;">
                 <div class="item2">
-                    <img src="{{ public_path("storage$urlF") }}" width="402" height="400" alt="...">
+                    <img src="{{ public_path("storage$urlF") }}" width="420" height="400" alt="...">
                 </div>
                 <div class="item2"
                     style="margin-left: 51%;background-color: white;height: 400px;color:gray;font-size: 14px; text-align: center;">
@@ -297,7 +297,7 @@
                     Amenazas y riesgos para comunidad habitables:{{$fichaTecnica->FichaTecnica->ServiciosAmb}}
                 </p>
             </div>
-            <div style="background-color: #5f7878;text-align: center;height: 200px;padding-top: 20px;color: white;">
+            <div style="background-color: #5f7878;text-align: center;height: 50px;padding-top: 20px;color: white;">
                 <p style="font-size: 24px; margin:0%; font-weight: bolder;  text-transform: uppercase;">
                    BIBIOGRAFÍA
                 </p>
