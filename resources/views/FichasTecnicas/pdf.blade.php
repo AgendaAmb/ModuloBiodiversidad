@@ -210,7 +210,7 @@
 
             <div class="flex-container" style="height: 400px;margin-left: 1%;margin-bottom: 2%;">
                 <div class="item2">
-                    <img src="{{ public_path("storage$urlF") }}" width="420" height="400" alt="...">
+                    <img src="{{ public_path("storage$urlF") }}" width="450" height="400" alt="...">
                 </div>
                 <div class="item2"
                     style="margin-left: 51%;background-color: white;height: 400px;color:gray;font-size: 14px; text-align: center;">
