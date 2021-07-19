@@ -263,13 +263,14 @@
                             label="Raíces Observables Del Ejemplar" isTextArea="true" haveValue="{{$nuevo?false:true}}"
                             value="{{$nuevo?false:$FichaTecnica->RaicesObs}}" isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
+                        <x-typeInput labelFor="Usos" :isRequiered="true" typeInput="text" label="Usos" isTextArea="true"
+                        haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->Usos}}"
+                        isReadOnly="{{boolval($isReO)}}">
+                    </x-typeInput>
 
                     </div>
                     <div class="col-xl-6 pl-xl-3  pr-lg-3">
-                        <x-typeInput labelFor="Usos" :isRequiered="true" typeInput="text" label="Usos" isTextArea="true"
-                            haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->Usos}}"
-                            isReadOnly="{{boolval($isReO)}}">
-                        </x-typeInput>
+                     
                         <x-typeInput labelFor="ClimaN" :isRequiered="true" typeInput="text"
                             label="Clima en Hábitad Natural" isTextArea="true" haveValue="{{$nuevo?false:true}}"
                             value="{{$nuevo?false:$FichaTecnica->Clima}}" isReadOnly="{{boolval($isReO)}}">

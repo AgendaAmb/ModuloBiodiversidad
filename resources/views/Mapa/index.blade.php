@@ -25,7 +25,7 @@
 
 </div>
 @push('scripts')
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy5kHqFi0_c44jWFWEmQhq5IVYEScngn8&libraries=places"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhAp2D_woF_DvIpYQrystCSSSjko70ezw&libraries=places"></script>
 <script>
     var app = new Vue({
       el: '#fondo',
