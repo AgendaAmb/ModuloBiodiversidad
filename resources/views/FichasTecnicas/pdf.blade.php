@@ -73,7 +73,7 @@
     <div style="background-color: white;margin: 0% 0%;">
         <div style="background-color: #e0e2e1;margin: 0% 0%;">
             <div style="margin-top: 10px; margin-bottom: 0%;height: 450px;width: 100%;">
-                <img src="{{ public_path("storage/Fondos/Fondo_Biodiversidad.jpg") }}" alt="..."
+                <img src="{{ public_path("storage$urlPC") }}" alt="..."
                     style="opacity: 0.6;margin-top: 5%;margin-left: 15%; margin-bottom: 0%;width: auto;height: 450px;">
                 <p id="NombreF" style=" margin-top: 6%;">
                     {{$fichaTecnica->NombreComun}}
@@ -210,7 +210,7 @@
 
             <div class="flex-container" style="height: 400px;margin-left: 1%;margin-bottom: 2%;">
                 <div class="item2">
-                    <img src="{{ public_path("storage$urlF") }}" width="450" height="400" alt="...">
+                    <img src="{{ public_path("storage$urlF") }}" width="460" height="400" alt="...">
                 </div>
                 <div class="item2"
                     style="margin-left: 51%;background-color: white;height: 400px;color:gray;font-size: 14px; text-align: center;">
