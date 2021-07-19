@@ -74,7 +74,7 @@
         <div style="background-color: #e0e2e1;margin: 0% 0%;">
             <div style="margin-top: 10px; margin-bottom: 0%;height: 550px;width: 100%;">
                 <img src="{{ public_path("storage$urlPC") }}" alt="..."
-                    style="opacity: 0.6;margin-top: 5%;margin-left: 2%; margin-bottom: 0%;width: auto;height: 450px;">
+                    style="opacity: 0.6;margin-top: 5%;margin-left: 15%; margin-bottom: 0%;width: auto;height: 450px;">
                 <p id="NombreF" style=" margin-top: 6%;">
                     {{$fichaTecnica->NombreComun}}
                 </p>
