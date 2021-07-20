@@ -98,8 +98,15 @@ class FichaTecnicaController extends Controller
     }
     private function saveImagen(String $directoryEspecie, $image, String $ClaveF, String $Tipo, $nombreEjemplar)
     {
-        $this->urlFoto = $directoryEspecie . '/' . $nombreEjemplar->Clave . '_' . $ClaveF . '.' . $image->getClientOriginalExtension();
-        \Storage::disk('public')->put($this->urlFoto, \File::get($image));
+        $this->urlFoto = $directoryEspecie . '/' . $nombreEjemplar->Clave . '_' . $ClaveF . '.' . $image->getClientOriginalExtension(); 
+        if (file_exists(public_path().'\storage'.$this->urlFoto)) {
+            @unlink(public_path().'\storage'.$this->urlFoto);
+            \Storage::disk('public')->put($this->urlFoto, \File::get($image));
+         }else{
+             \Storage::disk('public')->put($this->urlFoto, \File::get($image));
+         }
+        
+        
     }
 
     private function saveImagenes(Request $request, FichaTecnica $Ficha_Tecnica, NombreEjemplar $nombreEjemplar, String $directoryEspecie)

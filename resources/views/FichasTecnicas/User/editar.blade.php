@@ -304,7 +304,7 @@
                     "ban":false 
                 },
                 {
-                    "imagen":'{{$FichaTecnica->Url_FR}}',
+                    "imagen":'{{$FichaTecnica->Url_FL}}',
                     "nombre":'Archivo4',
                     "parteP":'Flores',  
                     "ban":false 
