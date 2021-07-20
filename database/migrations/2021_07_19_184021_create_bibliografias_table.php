@@ -15,7 +15,7 @@ class CreateBibliografiasTable extends Migration
     {
         Schema::create('bibliografias', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('Referencia',600);
+            $table->string('Referencia',600)->nullable();
 
               
             $table->unsignedBigInteger('ficha_tecnicas_id')->nullable();
