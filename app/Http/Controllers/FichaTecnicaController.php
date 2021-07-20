@@ -121,6 +121,7 @@ class FichaTecnicaController extends Controller
             if ($request->fileImg3 == $image) {
                 $this->saveImagen($directoryEspecie, $image, 'FL', "Flores", $nombreEjemplar);
                 $Ficha_Tecnica->Url_FL = $this->urlFoto;
+               
             } else
             if ($request->fileImg4 == $image) {
                 $this->saveImagen($directoryEspecie, $image, 'FR', "Frutos", $nombreEjemplar);
@@ -326,6 +327,7 @@ class FichaTecnicaController extends Controller
         $Ficha_Tecnica->Estado = "Verificacion";
         $Ficha_Tecnica->user_id = Auth::id();
         $Ficha_Tecnica->MotivoRechazo=null;
+        $Ficha_Tecnica->save();
         $nombreEjemplar->FichaTecnica()->save($Ficha_Tecnica);
 
         $nombreEjemplar->ficha_tecnicas_id = $Ficha_Tecnica->id;

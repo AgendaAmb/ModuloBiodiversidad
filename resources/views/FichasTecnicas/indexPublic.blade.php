@@ -255,7 +255,7 @@
                     "parteP":'Hojas',   
                 },
                 {
-                    "imagen":'{{$fichaTecnica->FichaTecnica->Url_FR}}',
+                    "imagen":'{{$fichaTecnica->FichaTecnica->Url_FL}}',
                     "nombre":'Archivo4',
                     "parteP":'Flores',   
                 },
