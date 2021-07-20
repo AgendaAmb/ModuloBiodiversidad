@@ -314,10 +314,19 @@
                                 <a class="btn btn-outline-success " @click="agregar" role="button"><i class="fas fa-plus-circle"></i></a>
                             </div>
                         </div>
+
+                        
                         <div v-if="Referencias" v-for="Referencia in Referencias">
+                           @if (!$nuevo)
                            <li>
-                               @{{Referencia['Referencia']}}
-                           </li>
+                            @{{Referencia['Referencia']}}
+                        </li>
+                           @else
+                           <li>
+                            @{{Referencia}}
+                        </li>
+                           @endif
+                           
                         </div>
                         <input type="hidden" name="Bibliografia[]" v-for="Referencia in Referencias"
                             :value="Referencia">
