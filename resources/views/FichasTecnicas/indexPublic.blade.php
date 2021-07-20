@@ -209,6 +209,13 @@
                             <p class="card-title text-left  font-weight-bold"
                                 style="font-size: 12px;font-family: 'Myraid Pro Bold';">
                                 Bibliografias</p>
+                               
+                                @foreach ($Biblio as $item)
+                                <li>
+                                    {{$item->Referencia}}
+                                </li>    
+                                @endforeach
+                               
                         </div>
                     </div>
                 </div>

@@ -33,7 +33,7 @@
                         <span> </span>
                     </div>
                 </div>
-              
+
             </div>
         </div>
         <div id="nosotros">
@@ -93,8 +93,8 @@
                             </div>
                             @else
                             <div class="card-body">
-                                <img class="card-img-top " v-if="a.imagen!=''" :id="a.nombre" :src="'{{asset('storage/')}}'+a.imagen"
-                                    alt="Card image cap">
+                                <img class="card-img-top " v-if="a.imagen!=''" :id="a.nombre"
+                                    :src="'{{asset('storage/')}}'+a.imagen" alt="Card image cap">
                             </div>
                             @endif
 
@@ -264,13 +264,13 @@
                             value="{{$nuevo?false:$FichaTecnica->RaicesObs}}" isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
                         <x-typeInput labelFor="Usos" :isRequiered="true" typeInput="text" label="Usos" isTextArea="true"
-                        haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->Usos}}"
-                        isReadOnly="{{boolval($isReO)}}">
-                    </x-typeInput>
+                            haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->Usos}}"
+                            isReadOnly="{{boolval($isReO)}}">
+                        </x-typeInput>
 
                     </div>
                     <div class="col-xl-6 pl-xl-3  pr-lg-3">
-                     
+
                         <x-typeInput labelFor="ClimaN" :isRequiered="true" typeInput="text"
                             label="Clima en Hábitad Natural" isTextArea="true" haveValue="{{$nuevo?false:true}}"
                             value="{{$nuevo?false:$FichaTecnica->Clima}}" isReadOnly="{{boolval($isReO)}}">
@@ -300,7 +300,27 @@
                             haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->AmenazasRiesgosHab}}"
                             isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
-
+                    </div>
+                    
+                    <div class="col-xl-6 pr-xl-3  pr-lg-3 ">
+                       
+                        <div class="form-group row g-3" v-show={{$nuevo}}>
+                            <label for="nuevo"
+                                class="col-md-4 col-form-label text-md-left">{{ __('Bibliografía') }}</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control px-xl-0" v-model="nuevo" placeholder="Bibliografia">
+                            </div>
+                            <div class="col-md-2">
+                                <a class="btn btn-outline-success " @click="agregar" role="button"><i class="fas fa-plus-circle"></i></a>
+                            </div>
+                        </div>
+                        <div v-if="Referencias" v-for="Referencia in Referencias">
+                           <li>
+                               @{{Referencia['Referencia']}}
+                           </li>
+                        </div>
+                        <input type="hidden" name="Bibliografia[]" v-for="Referencia in Referencias"
+                            :value="Referencia">
                     </div>
 
                     @if ($nuevo)
@@ -335,7 +355,7 @@
             </form>
         </div>
     </div>
-
+  
     @if ($nuevo)
 
     @else
@@ -369,14 +389,13 @@
     NCientifico:'',
     Nombres:[],
     NombreC:'',
-    Referencias:[]
+    Referencias:[],
+    nuevo: ""
   },
   mounted:
   function() {
     this.$nextTick(
           function () {
-
-             
      @foreach($Ejemplar as $E)
                 this.Nombres.push({
                     "id":'{{$E->id}}',
@@ -428,9 +447,16 @@
                     "parteP":'Raíces',   
                 }
                 );
+                @foreach($Biblio as $B)
+                this.Referencias.push({
+                    "id":'{{$B->id}}',
+                    "Referencia":'{{$B->Referencia}}', 
+                });
+    @endforeach
     
    }
    @else{
+     
     this.archivos = [
         {
             imagen:"",
@@ -481,8 +507,10 @@
         },
     ]
    }
+
    @endif
-     
+
+ 
     })
       
   },
@@ -491,8 +519,17 @@
         this.Nombres.map((n) => {
             if(document.getElementById('NombreC').value==n.id){
                 this.NCientifico=n.NombreC
+                this.NoEjem=n.Clave+"UASLP";
+                
             }
         })
+    },
+    agregar:function(){
+        if (this.nuevo!="") {
+            this.Referencias.push(this.nuevo);
+            this.nuevo="";
+            
+        }
     },
     cargarImagen: function(e,index){
         let t = this;

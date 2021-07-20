@@ -301,7 +301,16 @@
                 <p style="font-size: 24px; margin:0%; font-weight: bolder;  text-transform: uppercase;">
                    BIBIOGRAFÍA
                 </p>
+               
             </div>
+            <div style="text-align: left; color: #5f7878;font: 14px; margin-left: 15%;">
+                @foreach ($Biblio as $item)
+                <li style="list-style: none; margin: 2%;">
+                    {{$item->Referencia}}
+                </li>
+        @endforeach 
+            </div>
+           
 
         </div>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\FichaTecnica;
 use App\NombreEjemplar;
+use App\Bibliografia;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -54,7 +55,6 @@ class FichaTecnicaController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
         $nombreEjemplar = NombreEjemplar::findorFail($request->NombreC);
         $directoryEspecie = '/FichasTecnicas/' . Str::of($nombreEjemplar->NombreComun)->replace(' ', '_');
         $Ficha_Tecnica = new FichaTecnica();
@@ -85,7 +85,14 @@ class FichaTecnicaController extends Controller
 
         $nombreEjemplar->ficha_tecnicas_id = $Ficha_Tecnica->id;
 
+        foreach ($request->Bibliografia as $key => $value) {
+            $Biblio= new Bibliografia();
+            $Biblio->Referencia=$value;
+            $Biblio->ficha_tecnicas_id=$Ficha_Tecnica->id;
+            $Biblio->save();
+        }
         $nombreEjemplar->save();
+       
       
         return back()->with('message', '¡¡¡Ficha Tecnica registrada con exito!!!');
     }
@@ -100,7 +107,6 @@ class FichaTecnicaController extends Controller
         // dd($directoryEspecie);
         foreach ($request->file() as $image) {
             if ($request->fileImg0 == $image) {
-
                 $this->saveImagen($directoryEspecie, $image, 'PC', "Planta Completa", $nombreEjemplar);
                 $Ficha_Tecnica->Url_PC = $this->urlFoto;
             } else
@@ -149,12 +155,14 @@ class FichaTecnicaController extends Controller
             if ($fichaTecnica->User->id == Auth::id()) {
                 Controller::loadEjemplares();
                 Controller::loadSubUnidades();
+                $Biblio=Bibliografia::where('ficha_tecnicas_id','=',$id)->get();
                 return \view('FichasTecnicas.index')
                     ->with("Ejemplar", $this->Ejemplar)
                     ->with("SubUnidades", $this->SubUnidades)
                     ->with("SubUnidadTP", $this->SubUnidadTP)
                     ->with("isReO", true)
-                    ->with("FichaTecnica", $fichaTecnica);
+                    ->with("FichaTecnica", $fichaTecnica)
+                    ->with("Biblio", $Biblio);
             } else {
                 return \redirect()->back();
 
@@ -162,13 +170,14 @@ class FichaTecnicaController extends Controller
         } else {
             Controller::loadEjemplares();
             Controller::loadSubUnidades();
-
+            $Biblio=Bibliografia::where('ficha_tecnicas_id','=',$id)->get();
             return \view('FichasTecnicas.index')
                 ->with("Ejemplar", $this->Ejemplar)
                 ->with("SubUnidades", $this->SubUnidades)
                 ->with("SubUnidadTP", $this->SubUnidadTP)
                 ->with("isReO", true)
-                ->with("FichaTecnica", $fichaTecnica);
+                ->with("FichaTecnica", $fichaTecnica)
+                ->with("Biblio", $Biblio);
         }
 
     }
@@ -181,7 +190,8 @@ class FichaTecnicaController extends Controller
         } else {
             if ($fichaTecnica->Estado == "Verificacion" &&Auth::check()|| $fichaTecnica->Estado == "Rechazada" &&Auth::check()) {
                 if (Auth::id() == $fichaTecnica->user_id || Auth::user()->hasAnyRole(['administrador', 'Coordinador'])) {
-                    return \view('FichasTecnicas.indexPublic')->with("fichaTecnica", NombreEjemplar::findorFail($fichaTecnica->id));
+                    $Biblio=Bibliografia::where('ficha_tecnicas_id','=',$id)->get();
+                    return \view('FichasTecnicas.indexPublic')->with("fichaTecnica", NombreEjemplar::findorFail($fichaTecnica->id))->with('Biblio',$Biblio);
                 }
             } else {
                 return \redirect()->back();
@@ -194,8 +204,9 @@ class FichaTecnicaController extends Controller
     {
         $fichaTecnicaA = FichaTecnica::findorFail($id);
         $fichaTecnica = NombreEjemplar::findorFail($fichaTecnicaA->id);
+        $Biblio=Bibliografia::where('ficha_tecnicas_id','=',$id)->get();
         if ($fichaTecnicaA->Estado == "Verificado") {
-            $data = compact('fichaTecnica');
+            $data = compact('fichaTecnica','Biblio');
             $pdf = PDF::loadView('FichasTecnicas.pdf', $data)->setPaper([0, 0, 695.28, 1102.89]);
             $pdfNombre = 'Ficha_Tecnica_' . $fichaTecnica->NombreComun . '.pdf';
             return $pdf->stream($pdfNombre);
@@ -203,7 +214,7 @@ class FichaTecnicaController extends Controller
 
             if ($fichaTecnicaA->Estado == "Verificacion" &&Auth::check()|| $fichaTecnicaA->Estado == "Rechazada" &&Auth::check()) {
                 if (Auth::id() == $fichaTecnicaA->user_id || Auth::user()->hasAnyRole(['administrador', 'Coordinador'])) {
-                    $data = compact('fichaTecnica');
+                    $data = compact('fichaTecnica','Biblio');
                     $pdf = PDF::loadView('FichasTecnicas.pdf', $data)->setPaper([0, 0, 695.28, 1102.89]);
                     $pdfNombre = 'Ficha_Tecnica_' . $fichaTecnica->NombreComun . '.pdf';
                     return $pdf->stream($pdfNombre);}
@@ -263,13 +274,14 @@ class FichaTecnicaController extends Controller
 
             Controller::loadEjemplares();
             Controller::loadSubUnidades();
-
+            $Biblio=Bibliografia::where('ficha_tecnicas_id','=',$id)->get();
             return \view('FichasTecnicas.User.editar')
                 ->with("Ejemplar", $this->Ejemplar)
                 ->with("SubUnidades", $this->SubUnidades)
                 ->with("SubUnidadTP", $this->SubUnidadTP)
                 ->with("isReO", false)
-                ->with("FichaTecnica", $fichaTecnica);
+                ->with("FichaTecnica", $fichaTecnica)
+                ->with("Biblio", $Biblio);
         } else {
             return \redirect()->back();
 

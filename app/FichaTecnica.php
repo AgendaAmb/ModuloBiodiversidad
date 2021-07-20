@@ -37,4 +37,8 @@ class FichaTecnica extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function Bibliografia()
+    {
+        return $this->hasMany(Bibliografia::class,'id');
+    }
 }
