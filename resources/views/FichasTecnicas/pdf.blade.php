@@ -122,92 +122,92 @@
                     </div>
                 </div>
             </div>
-            <div style="text-align: center;margin-bottom: 20px;background-color: #5f7878; height: 350px; margin-left: 2%;"
+            <div style="text-align: center;margin-bottom: 20px;background-color: #5f7878; height: 280px; margin-left: 2%;"
                 class="flex-container">
-                <div class="item" style="margin-right: 2%; height: 350px;background-color:white; width: 23%;">
+                <div class="item" style="margin-right: 2%; height: 280px;background-color:white; width: 23%;">
                     <div>
-                        <img src="{{ public_path("storage$urlPC") }}" width="210" height="280" alt="..." >
+                        <img src="{{ public_path("storage$urlPC") }}" width="210" height="210" alt="...">
                         <p
                             style="color: #5f7878; font-size: 15px;font-family: 'Myraid Pro Bold'; font-weight: 900;padding: 10px;">
                             PLANTA COMPLETA</p>
-                     
+
                     </div>
                 </div>
-                <div class="item" style="margin-left: 25%;height: 350px;background-color: white;width:23%;">
+                <div class="item" style="margin-left: 25%;height: 280px;background-color: white;width:23%;">
                     <div>
-                        <img src="{{ public_path("storage$urlF") }}" width="210" height="280" alt="..." >
+                        <img src="{{ public_path("storage$urlF") }}" width="210" height="210" alt="...">
                         <p
-                        style="color: #5f7878; font-size: 15px;font-family: 'Myraid Pro Bold'; font-weight: 900;padding: 10px;">
-                        FOLLAJE</p>
-                       
+                            style="color: #5f7878; font-size: 15px;font-family: 'Myraid Pro Bold'; font-weight: 900;padding: 10px;">
+                            FOLLAJE</p>
+
                     </div>
                 </div>
-                <div class="item" style="margin-left: 50%;height: 350px;background-color: white;width: 23%;">
+                <div class="item" style="margin-left: 50%;height: 280px;background-color: white;width: 23%;">
                     <div>
-                        <img src="{{ public_path("storage$urlH") }}" width="210" height="280" alt="..." >
+                        <img src="{{ public_path("storage$urlH") }}" width="210" height="210" alt="...">
                         <p
-                        style="color: #5f7878; font-size: 15px;font-family: 'Myraid Pro Bold'; font-weight: 900;padding: 10px;">
-                        HOJAS</p>
-                       
+                            style="color: #5f7878; font-size: 15px;font-family: 'Myraid Pro Bold'; font-weight: 900;padding: 10px;">
+                            HOJAS</p>
+
                     </div>
                 </div>
-                <div class="item" style="margin-left: 75%;height: 350px;background-color: white;width: 23%;">
+                <div class="item" style="margin-left: 75%;height: 280px;background-color: white;width: 23%;">
                     <div>
-                        <img src="{{ public_path("storage$urlFL") }}" width="210" height="280" alt="..." >
+                        <img src="{{ public_path("storage$urlFL") }}" width="210" height="210" alt="...">
                         <p
-                        style="color: #5f7878; font-size: 15px;font-family: 'Myraid Pro Bold'; font-weight: 900;padding: 10px;">
-                        FLORES</p>
+                            style="color: #5f7878; font-size: 15px;font-family: 'Myraid Pro Bold'; font-weight: 900;padding: 10px;">
+                            FLORES</p>
 
                     </div>
                 </div>
             </div>
-            
 
 
 
+
+
+            <div style="text-align: center;margin-bottom: 20px;background-color: #5f7878; height: 280px; margin-left: 2%;"
+                class="flex-container">
+                <div class="item" style="margin-right: 2%; height: 280px;background-color:white; width: 23%;">
+                    <div>
+                        <img src="{{ public_path("storage$urlFR") }}" width="210" height="210" alt="...">
+                        <p
+                            style="color: #5f7878; font-size: 15px;font-family: 'Myraid Pro Bold'; font-weight: 900;padding: 10px;">
+                            FRUTOS</p>
+
+                    </div>
+                </div>
+                <div class="item" style="margin-left: 25%;height: 280px;background-color: white;width:23%;">
+                    <div>
+                        <img src="{{ public_path("storage$urlS") }}" width="210" height="210" alt="...">
+                        <p
+                            style="color: #5f7878; font-size: 15px;font-family: 'Myraid Pro Bold'; font-weight: 900;padding: 10px;">
+                            SEMILLAS</p>
+
+                    </div>
+                </div>
+                <div class="item" style="margin-left: 50%;height: 280px;background-color: white;width: 23%;">
+                    <div>
+                        <img src="{{ public_path("storage$urlT") }}" width="210" height="210" alt="...">
+                        <p
+                            style="color: #5f7878; font-size: 15px;font-family: 'Myraid Pro Bold'; font-weight: 900;padding: 10px;">
+                            TRONCO</p>
+
+                    </div>
+                </div>
+                <div class="item" style="margin-left: 75%;height: 280px;background-color: white;width: 23%;">
+                    <div>
+                        <img src="{{ public_path("storage$urlR") }}" width="210" height="210" alt="...">
+                        <p
+                            style="color: #5f7878; font-size: 15px;font-family: 'Myraid Pro Bold'; font-weight: 900;padding: 10px;">
+                            RAÍCES</p>
+
+                    </div>
+                </div>
+            </div>
             <div class="page_break">
                 
             </div>
-            <div style="text-align: center;margin-bottom: 20px;background-color: #5f7878; height: 350px; margin-left: 2%;"
-            class="flex-container">
-            <div class="item" style="margin-right: 2%; height: 350px;background-color:white; width: 23%;">
-                <div>
-                    <img src="{{ public_path("storage$urlFR") }}" width="210" height="280" alt="..." >
-                    <p
-                        style="color: #5f7878; font-size: 15px;font-family: 'Myraid Pro Bold'; font-weight: 900;padding: 10px;">
-                        FRUTOS</p>
-                 
-                </div>
-            </div>
-            <div class="item" style="margin-left: 25%;height: 350px;background-color: white;width:23%;">
-                <div>
-                    <img src="{{ public_path("storage$urlS") }}" width="210" height="280" alt="..." >
-                    <p
-                    style="color: #5f7878; font-size: 15px;font-family: 'Myraid Pro Bold'; font-weight: 900;padding: 10px;">
-                    SEMILLAS</p>
-                   
-                </div>
-            </div>
-            <div class="item" style="margin-left: 50%;height: 350px;background-color: white;width: 23%;">
-                <div>
-                    <img src="{{ public_path("storage$urlT") }}" width="210" height="280" alt="..." >
-                    <p
-                    style="color: #5f7878; font-size: 15px;font-family: 'Myraid Pro Bold'; font-weight: 900;padding: 10px;">
-                    TRONCO</p>
-                   
-                </div>
-            </div>
-            <div class="item" style="margin-left: 75%;height: 350px;background-color: white;width: 23%;">
-                <div>
-                    <img src="{{ public_path("storage$urlR") }}" width="210" height="280" alt="..." >
-                    <p
-                    style="color: #5f7878; font-size: 15px;font-family: 'Myraid Pro Bold'; font-weight: 900;padding: 10px;">
-                    RAÍCES</p>
-
-                </div>
-            </div>
-        </div>
-
             <div class="flex-container" style="height: 400px;margin-left: 1%;margin-bottom: 2%;">
                 <div class="item2">
                     <img src="{{ public_path("storage$urlF") }}" width="470" height="400" alt="...">
@@ -299,18 +299,18 @@
             </div>
             <div style="background-color: #5f7878;text-align: center;height: 50px;padding-top: 20px;color: white;">
                 <p style="font-size: 24px; margin:0%; font-weight: bolder;  text-transform: uppercase;">
-                   BIBIOGRAFÍA
+                    BIBLIOGRAFÍA
                 </p>
-               
+
             </div>
             <div style="text-align: left; color: #5f7878;font: 14px; margin-left: 15%;">
                 @foreach ($Biblio as $item)
                 <li style="list-style: none; margin: 2%;">
                     {{$item->Referencia}}
                 </li>
-        @endforeach 
+                @endforeach
             </div>
-           
+
 
         </div>
 
