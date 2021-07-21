@@ -13,9 +13,23 @@
 
     <!-- Styles -->
     <style>
+        @font-face {
+            font-family: 'Myraid light';
+            src: url(https://ambiental.uaslp.mx/Biodiversidad/TiposDeLetra/MyriadPro-Light.otf) format('opentype');
+            font-display: auto;
+        }
+
+
+        @font-face {
+            font-family: 'Myraid Pro Bold';
+            src: url(https://ambiental.uaslp.mx/Biodiversidad/TiposDeLetra/MyriadPro-Bold.otf) format('opentype');
+            font-display: auto;
+        }
+
         html {
             margin: 0;
-            font-family: 'Myraid light';
+            font-family:'Myraid light';
+            
         }
 
         #NombreF {
@@ -26,7 +40,7 @@
             top: 10%;
             left: 15%;
             z-index: 10;
-
+           
             color: white;
             text-align: center;
             font-family: 'Myraid Pro Bold';
@@ -206,7 +220,7 @@
                 </div>
             </div>
             <div class="page_break">
-                
+
             </div>
             <div class="flex-container" style="height: 400px;margin-left: 1%;margin-bottom: 2%;">
                 <div class="item2">
