@@ -44,7 +44,12 @@ class HomeController extends Controller
     }
     public function verificar()
     {
-        return view('UsuarioXVerificar');
+        if (Auth::user()->email_verified_at) {
+           return route('dashbord');
+        }else{
+            return view('UsuarioXVerificar');
+        }
+
     }
     public function editRol(Request $request)
     {
@@ -94,8 +99,18 @@ class HomeController extends Controller
 
         return view('FichasTecnicas.User.index')->with('FichasTecnicas', $FichasTecnicas);
     }
+    public function CheckLogin()
+    {
+        if (Auth::check()) {
+            return redirect()->route('dashbord');
+        } else {
+            return view('Institucional.vista');
+        }
+
+    }
     public function loginInstitucional(Request $request)
     {
+
         $response = Http::post('https://ambiental.uaslp.mx/apiuaslp/loginUASLP', [
             'username' => $request->usuario,
             'password' => $request->contraseña,
@@ -129,7 +144,7 @@ class HomeController extends Controller
             if ($existeInBD && Auth::attempt(['email' => $request->usuario, 'password' => $request->contraseña])) {
                 Auth::login($existeInBD);
                 return redirect()->route('dashbord');
-            }else{
+            } else {
                 return redirect()->back()->with('message', "Error tus credenciales no coenciden con nuestra información");
             }
         }
