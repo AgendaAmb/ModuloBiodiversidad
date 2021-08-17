@@ -3,7 +3,7 @@
 
     <div class="form-group row g-3 was-validated">
         <label for="NombreC"
-            class="col-md-4 col-form-label text-md-left">{{ __('Nombre Común') }}</label>
+            class="col-md-4 col-form-label text-md-left">{{ __('Nombre común') }}</label>
             <div class="col-md-8">
                 <input id="NombreC"   readonly type="text"
                 class="form-control @error('NombreCientifico') is-invalid @enderror" name="NombreCientifico"
@@ -17,7 +17,7 @@
     </div>
     <div class="form-group row g-3 was-validated">
         <label for="NombreCientifico"
-            class="col-md-4 col-form-label text-md-left">{{ __('Nombre Científico') }}</label>
+            class="col-md-4 col-form-label text-md-left">{{ __('Nombre científico') }}</label>
             <div class="col-md-8">
                 <input id="NombreCientifico" readonly type="text"
                     class="form-control @error('NombreCientifico') is-invalid @enderror" name="NombreCientifico"

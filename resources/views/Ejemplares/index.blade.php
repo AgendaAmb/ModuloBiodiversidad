@@ -64,7 +64,7 @@
             <th>Imagen</th>
             <th>ID</th>
             <th>NombreCientífico</th>
-            <th>Nombre Común</th>
+            <th>Nombre común</th>
             <th>Clave</th>
           </tr>
         </thead>
@@ -82,7 +82,7 @@
             <th>Imagen</th>
             <th>ID</th>
             <th>NombreCientífico</th>
-            <th>Nombre Común</th>
+            <th>Nombre común</th>
             <th>Clave</th>
           </tr>
         </tfoot>

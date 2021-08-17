@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-12 ">
                     <div class="align-self-center" style="font-family:Myraid Pro Bold; ">
-                        <h4 class="pt-5">FICHA TECNICA </h4>
+                        <h4 class="pt-5">Ficha técnica </h4>
                         <span> </span>
                     </div>
                 </div>
@@ -124,7 +124,7 @@
                 </div>
 
 
-                <h2 class="alert alert-primary text-center">Caracteristicas De La Especie</h2>
+                <h2 class="alert alert-primary text-center">Características de la especie </h2>
                 <div class="container-fluid p-0 m-0">
                     <div class="row">
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 ">
@@ -139,7 +139,7 @@
                             </p>
                             <div class="form-group row g-3 was-validated">
                                 <label for="NombreC"
-                                    class="col-md-4 col-form-label text-md-left">{{ __('Nombre Común') }}</label>
+                                    class="col-md-4 col-form-label text-md-left">{{ __('Nombre común') }}</label>
                                 <div class="col-md-7">
                                     <input id="NombreC" readonly type="text"
                                         class="form-control @error('NombreCientifico') is-invalid @enderror"
@@ -155,11 +155,11 @@
                             @else
                             <div class="form-group row  was-validated">
                                 <label for="NombreC"
-                                    class="col-md-4 col-form-label text-md-left pr-0">{{ __('Nombre Común') }}</label>
+                                    class="col-md-4 col-form-label text-md-left pr-0">{{ __('Nombre común') }}</label>
                                 <div class="col-md-8">
                                     <select class="custom-select" id="NombreC" name="NombreC" v-model="NombreC"
                                         @change="Ncientifico()" required>
-                                        <option selected="true" disabled>Nombre Común</option>
+                                        <option selected="true" disabled>Nombre común</option>
                                         <option v-for="(N,index) in Nombres" :value="N.id">@{{N.Nombre}}</option>
                                     </select>
                                 </div>
@@ -172,7 +172,7 @@
                             @if (!$nuevo)
                             <div class="form-group row g-3 was-validated">
                                 <label for="NombreCientifico"
-                                    class="col-md-4 col-form-label text-md-left">{{ __('Nombre Científico') }}</label>
+                                    class="col-md-4 col-form-label text-md-left">{{ __('Nombre científico') }}</label>
                                 <div class="col-md-7">
                                     <input id="NombreCientifico" readonly type="text"
                                         class="form-control @error('NombreCientifico') is-invalid @enderror"
@@ -188,7 +188,7 @@
                             @else
                             <div class="form-group row  was-validated">
                                 <label for="NombreCientifico"
-                                    class="col-md-4 col-form-label text-md-left px-xl-0">{{ __('Nombre Científico') }}</label>
+                                    class="col-md-4 col-form-label text-md-left px-xl-0">{{ __('Nombre científico') }}</label>
                                 <div class="col-md-8 ">
                                     <input id="NombreCientifico" v-model="NCientifico" readonly type="text"
                                         class="form-control @error('NombreCientifico') is-invalid @enderror"
@@ -208,7 +208,7 @@
                         </div>
 
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                            <x-typeInput :labelFor="'Fenologia'" :isRequiered="true" :label="'Fenología Foliar'"
+                            <x-typeInput :labelFor="'Fenologia'" :isRequiered="true" :label="'Fenología foliar'"
                                 haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->TPertenencia}}"
                                 isReadOnly="{{boolval($isReO)}}">
                             </x-typeInput>
@@ -221,7 +221,7 @@
 
                     <div class="col-xl-6 pr-xl-3  pr-lg-3">
 
-                        <x-typeInput :labelFor="'FormaCrecimiento'" :isRequiered="true" :label="'Forma de Crecimiento'"
+                        <x-typeInput :labelFor="'FormaCrecimiento'" :isRequiered="true" :label="'Forma de crecimiento'"
                             haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->Fcrecimiento}}"
                             isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
@@ -238,7 +238,7 @@
                             isTextArea="true" haveValue="{{$nuevo?false:true}}"
                             value="{{$nuevo?false:$FichaTecnica->Descripcion}}" isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
-                        <x-typeInput :labelFor="'EstatusEco'" :isRequiered="true" :label="'Estatus Ecológico en México'"
+                        <x-typeInput :labelFor="'EstatusEco'" :isRequiered="true" :label="'Estatus ecológico en México'"
                             haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->EstatusEco}}"
                             isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
@@ -251,16 +251,16 @@
                             isReadOnly="{{boolval($isReO)}}">
                             >
                         </x-typeInput>
-                        <x-typeInput :labelFor="'TipoC'" :isRequiered="true" :label="'Tipo de Copa'"
+                        <x-typeInput :labelFor="'TipoC'" :isRequiered="true" :label="'Tipo de copa'"
                             haveValue="{{$nuevo?false:true}}" value="{{$nuevo?null:$FichaTecnica->TipoC}}"
                             isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
-                        <x-typeInput :labelFor="'TipoR'" :isRequiered="true" :label="'Tipo de Raíces'"
+                        <x-typeInput :labelFor="'TipoR'" :isRequiered="true" :label="'Tipo de raíces'"
                             haveValue="{{$nuevo?false:true}}" value="{{$nuevo?null:$FichaTecnica->TipoR}}"
                             isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
                         <x-typeInput labelFor="RaicesObs" :isRequiered="true" typeInput="text"
-                            label="Raíces Observables Del Ejemplar" isTextArea="true" haveValue="{{$nuevo?false:true}}"
+                            label="Raíces observables del ejemplar" isTextArea="true" haveValue="{{$nuevo?false:true}}"
                             value="{{$nuevo?false:$FichaTecnica->RaicesObs}}" isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
                         <x-typeInput labelFor="Usos" :isRequiered="true" typeInput="text" label="Usos" isTextArea="true"
@@ -272,31 +272,31 @@
                     <div class="col-xl-6 pl-xl-3  pr-lg-3">
 
                         <x-typeInput labelFor="ClimaN" :isRequiered="true" typeInput="text"
-                            label="Clima en Hábitad Natural" isTextArea="true" haveValue="{{$nuevo?false:true}}"
+                            label="Clima en hábitad  natural" isTextArea="true" haveValue="{{$nuevo?false:true}}"
                             value="{{$nuevo?false:$FichaTecnica->Clima}}" isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
                         <x-typeInput labelFor="Porte" :isRequiered="true" typeInput="text" label="Porte"
                             isTextArea="true" haveValue="{{$nuevo?false:true}}"
                             value="{{$nuevo?false:$FichaTecnica->Porte}}" isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
-                        <x-typeInput labelFor="SistemaRa" :isRequiered="true" typeInput="text" label="Sistema de Raíces"
+                        <x-typeInput labelFor="SistemaRa" :isRequiered="true" typeInput="text" label="Sistema de raíces"
                             isTextArea="true" haveValue="{{$nuevo?false:true}}"
                             value="{{$nuevo?false:$FichaTecnica->SistemR}}" isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
                         <x-typeInput labelFor="Requerimientos" :isRequiered="true" typeInput="text"
-                            label="Requerimientos De La Especie" isTextArea="true" haveValue="{{$nuevo?false:true}}"
+                            label="Requerimientos de la especie" isTextArea="true" haveValue="{{$nuevo?false:true}}"
                             value="{{$nuevo?false:$FichaTecnica->RequerimientosE}}" isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
                         <x-typeInput labelFor="ServicioAmbiental" :isRequiered="true" typeInput="text"
-                            label="Servicios Ambientales" isTextArea="true" haveValue="{{$nuevo?false:true}}"
+                            label="Servicios ambientales" isTextArea="true" haveValue="{{$nuevo?false:true}}"
                             value="{{$nuevo?false:$FichaTecnica->ServiciosAmb}}" isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
                         <x-typeInput labelFor="AmenazasR" :isRequiered="true" typeInput="text"
-                            label="Amenazas y Riesgos" isTextArea="true" haveValue="{{$nuevo?false:true}}"
+                            label="Amenazas y riesgos" isTextArea="true" haveValue="{{$nuevo?false:true}}"
                             value="{{$nuevo?false:$FichaTecnica->AmenazasRiesgos}}" isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>
                         <x-typeInput labelFor="AmenazasRC" :isRequiered="true" typeInput="text"
-                            label="Amenazas y Riesgos Para Comunidades Habitadas" isTextArea="true"
+                            label="Amenazas y riesgos para comunidades habitadas" isTextArea="true"
                             haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->AmenazasRiesgosHab}}"
                             isReadOnly="{{boolval($isReO)}}">
                         </x-typeInput>

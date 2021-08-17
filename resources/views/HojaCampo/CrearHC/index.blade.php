@@ -61,8 +61,8 @@
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-12 ">
                     <div class="align-self-center">
-                        <h4 class="pt-5" style="font-family: Myraid Pro Bold;">HOJA DE CAMPO DE PROGRAMA UNIVERSITARIO
-                            DE BIODIVERSIDAD </h4>
+                        <h4 class="pt-5" style="font-family: Myraid Pro Bold;">Hoja de campo de programa
+                             universitario de biodiversidad</h4>
                         <span> </span>
                     </div>
 

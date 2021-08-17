@@ -2,7 +2,7 @@
     <h2 class="alert alert-primary text-center">Morfología y estado de fitosanitarios básicos</h2>
     <!--
     <div class="form-group row g-3">
-        <label for="CondicionG" class="col-md-4 col-form-label text-md-left">{{ __('Condición General') }}</label>
+        <label for="CondicionG" class="col-md-4 col-form-label text-md-left">{{ __('Condición general') }}</label>
         <div class="col-md-6">
             <textarea aria-label="With textarea" id="CondicionG" type="text"
                 class="form-control @error('CondicionG') is-invalid @enderror" name="CondicionG"
@@ -11,7 +11,7 @@
     </div>
 -->
 
-    <x-typeInput labelFor="CondicionG" typeInput="text" label="Condición General" isTextArea="true" haveValue="{{$nuevo?false:true}}"
+    <x-typeInput labelFor="CondicionG" typeInput="text" label="Condición general" isTextArea="true" haveValue="{{$nuevo?false:true}}"
         isReadOnly="{{boolval($isReO)}}" value="{{$nuevo?false:$Planta->Morfologia->CondicionGeneral}}">
     </x-typeInput>
 
@@ -20,7 +20,7 @@
     @if ($nuevo)
     <div class="form-group row g-3">
         <label for="EstadoCrecimiento"
-            class="col-md-4 col-form-label text-md-left">{{ __('Estado de Crecimiento') }}</label>
+            class="col-md-4 col-form-label text-md-left">{{ __('Estado de crecimiento') }}</label>
 
         <div class="col-md-8">
             <select class="custom-select" id="EstadoCrecimiento" name="Ecrecimiento">
@@ -34,7 +34,7 @@
     @else
     <div class="form-group row g-3">
         <label for="EstadoCrecimiento"
-            class="col-md-4 col-form-label text-md-left">{{ __('Estado de Crecimiento') }}</label>
+            class="col-md-4 col-form-label text-md-left">{{ __('Estado de crecimiento') }}</label>
 
         <div class="col-md-6">
             <select class="custom-select" id="EstadoCrecimiento" name="Ecrecimiento">
@@ -154,14 +154,14 @@
     </div>
     -->
 
-    <x-typeInput labelFor="Raices" typeInput="text" label="Raíces" isTextArea="true" haveValue="{{$nuevo?false:true}}"
+    <x-typeInput labelFor="raices" typeInput="text" label="raíces" isTextArea="true" haveValue="{{$nuevo?false:true}}"
         isReadOnly="{{boolval($isReO)}}" value="{{$nuevo?false:$Planta->Morfologia->Raices}}">
 
     </x-typeInput>
     <!--
     <div class="form-group row g-3">
         <label for="TRaices"
-            class="col-md-4 col-form-label text-md-left">{{ __('Tipo de Raíces') }}</label>
+            class="col-md-4 col-form-label text-md-left">{{ __('Tipo de raíces') }}</label>
         <div class="col-md-6">
             <textarea aria-label="With textarea" id="TRaices" type="text"
                 class="form-control @error('Raices') is-invalid @enderror" name="TRaices"
@@ -169,7 +169,7 @@
         </div>
     </div>
 -->
-    <x-typeInput labelFor="TRaices" typeInput="text" label="Tipo de Raíces" isTextArea="true" haveValue="{{$nuevo?false:true}}"
+    <x-typeInput labelFor="TRaices" typeInput="text" label="Tipo de raíces" isTextArea="true" haveValue="{{$nuevo?false:true}}"
         isReadOnly="{{boolval($isReO)}}" value="{{$nuevo?null:$Planta->Morfologia->TRaices}}">
     </x-typeInput>
     @if ($nuevo)
@@ -279,13 +279,13 @@
         </div>
     </div>
     @endif
-    <x-typeInput labelFor="EnfermedadesA" typeInput="text" label="Enfermedades Aparentes" isTextArea="true"
+    <x-typeInput labelFor="EnfermedadesA" typeInput="text" label="Enfermedades aparentes" isTextArea="true"
     haveValue="{{$nuevo?false:true}}" isReadOnly="{{boolval($isReO)}}" value="{{$nuevo?false:$Planta->Morfologia->EnfermeAparentes}}">
     </x-typeInput>
     <!--
     <div class="form-group row g-3">
         <label for="EnfermedadesA"
-            class="col-md-4 col-form-label text-md-left">{{ __('Enfermedades Aparentes') }}</label>
+            class="col-md-4 col-form-label text-md-left">{{ __('Enfermedades aparentes') }}</label>
         <div class="col-md-6">
             <textarea aria-label="With textarea" id="EnfermedadesA" type="text"
                 class="form-control @error('EnfermedadesA') is-invalid @enderror" name="EnfermedadesA"
@@ -293,13 +293,13 @@
         </div>
     </div>
 -->
-    <x-typeInput labelFor="EnfermedadesP" typeInput="text" label="Enfermedades Probables" isTextArea="true"
+    <x-typeInput labelFor="EnfermedadesP" typeInput="text" label="Enfermedades probables" isTextArea="true"
     haveValue="{{$nuevo?false:true}}" isReadOnly="{{boolval($isReO)}}" value="{{$nuevo?false:$Planta->Morfologia->EnfermeLitera}}">
     </x-typeInput>
     <!--
     <div class="form-group row g-3">
         <label for="EnfermedadesP"
-            class="col-md-4 col-form-label text-md-left">{{ __('Enfermedades Probables') }}</label>
+            class="col-md-4 col-form-label text-md-left">{{ __('Enfermedades robables') }}</label>
         <div class="col-md-6">
             <textarea aria-label="With textarea" id="EnfermedadesP" type="text" maxlength="400"
                 class="form-control @error('EnfermedadesP') is-invalid @enderror" name="EnfermedadesP"

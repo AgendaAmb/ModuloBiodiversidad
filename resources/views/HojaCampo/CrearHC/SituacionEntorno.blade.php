@@ -23,12 +23,12 @@
 
     </div>
     <div class="form-group row g-3 was-validated">
-        <label for="EntidadA" class="col-md-4 col-form-label text-md-left">{{ __('Entidad Académica') }}</label>
+        <label for="EntidadA" class="col-md-4 col-form-label text-md-left">{{ __('Entidad académica') }}</label>
         @if ($nuevo)
         <div class="col-md-8">
             <select class="custom-select" id="EntidadA" name="EntidadA" v-model="Entidad_id" required
                 @change="FiltroSubUnidades()">
-                <option selected disabled value="">Entidad Académica</option>
+                <option selected disabled value="">Entidad académica</option>
                 <option v-for="(N,index) in SubUnidadesP" :value="N.IdUnidad">@{{N.NombreUnidad}}</option>
             </select>
         </div>
@@ -56,7 +56,7 @@
     </div>
     <div class="form-group row g-3 was-validated">
         <label for="SubUnidadesFiltrada"
-            class="col-md-4 col-form-label text-md-left">{{ __('SubUnidad Academica') }}</label>
+            class="col-md-4 col-form-label text-md-left">{{ __('SubUnidad academica') }}</label>
         @if ($nuevo)
         <div class="col-md-8">
             <select class="custom-select" id="SubUnidadesFiltrada" name="SubUnidadesFiltrada" required>

@@ -8,7 +8,7 @@
 <body>
     <div class="alert alert-secondary    text-center">
         <span>
-            <h1 style="font-family: Myraid Pro Bold;">Fichas Tecnicas</h1>
+            <h1 style="font-family: Myraid Pro Bold;">Fichas técnicas</h1>
         </span>
 
     </div>

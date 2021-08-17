@@ -1,6 +1,6 @@
 <div class="form-row ">
     <div class="col-xl-6">
-        <h2 class="alert alert-primary text-center">Datos Generales</h2>
+        <h2 class="alert alert-primary text-center">Datos generales</h2>
         <x-typeInput  
         labelFor="FechaRecoleccion" 
         isRequiered="true" 
@@ -48,7 +48,7 @@
         labelFor="NombreRecolectorD" 
         isRequiered="true"
         isReadOnly="{{boolval($isReO)}}"
-        label="Nombre del Recolector de datos" 
+        label="Nombre del recolector de datos" 
         haveValue="{{true}}"
         value="{{$Planta->NombreRecolectorDatos}}"
         >
@@ -56,7 +56,7 @@
         <!--
             <div class="form-group row g-3 was-validated">
             <label for="NombreRecolectorD"
-                class="col-md-4 col-form-label text-md-left">{{ __('Nombre del Recolector de datos') }}</label>
+                class="col-md-4 col-form-label text-md-left">{{ __('Nombre del recolector de datos') }}</label>
 
             <div class="col-md-6">
                 <input id="NombreRecolectorD" type="text"
@@ -76,7 +76,7 @@
         labelFor="NombreRecolectorm" 
         isRequiered="true"
         isReadOnly="{{boolval($isReO)}}"
-        label="Nombre del Recolector de muestra" 
+        label="Nombre del recolector de muestra" 
         haveValue="{{true}}"
         value="{{$Planta->NombreRecolectorMuestra}}"
         >
@@ -84,7 +84,7 @@
         <!--
             <div class="form-group row g-3 was-validated">
             <label for="NombreRecolectorm"
-                class="col-md-4 col-form-label text-md-left">{{ __('Nombre del Recolector de muestra') }}</label>
+                class="col-md-4 col-form-label text-md-left">{{ __('Nombre del recolector de muestra') }}</label>
             <div class="col-md-6">
                 <input id="NombreRecolectorm" type="text"
                     class="form-control @error('NombreRecolectorm') is-invalid @enderror" name="NombreRecolectorm"

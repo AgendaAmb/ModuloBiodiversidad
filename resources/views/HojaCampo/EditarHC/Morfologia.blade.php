@@ -59,7 +59,7 @@
 
     </x-typeInput>
 
-    <x-typeInput labelFor="TRaices" typeInput="text" label="Tipo de Raíces" isTextArea="true" haveValue="{{true}}"
+    <x-typeInput labelFor="TRaices" typeInput="text" label="Tipo de raíces" isTextArea="true" haveValue="{{true}}"
         isReadOnly="{{boolval($isReO)}}" value="{{$Planta->Morfologia->TRaices}}">
     </x-typeInput>
 

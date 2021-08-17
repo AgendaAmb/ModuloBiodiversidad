@@ -68,11 +68,8 @@ Route::group(['prefix' => 'Sistema', 'middleware' => 'auth'], function () {
         Route::get('/MisFichasTecnicas', 'HomeController@getFTByUser')->name('UserFT');
         Route::get('/MisFichasTecnicas/{id}', 'FichaTecnicaController@show')->name('UserFTShow');
         Route::get('/EditarFichaT/{id}', 'FichaTecnicaController@edit')->name('UserFTEdit');
-        Route::post('/EditarFichaT/{id}', 'FichaTecnicaController@update')->name('EditarFT');
-      
-       
+        Route::post('/EditarFichaT/{id}', 'FichaTecnicaController@update')->name('EditarFT');   
         Route::get('MisHojasCampo/{id}', 'PlantaController@show')->name('UserHCEdit');
-
         Route::get('/EditarHojaCampo/{id}', 'PlantaController@edit')->name('UserEHCEdit');
         Route::post('/EditarHojaCampo/{id}', 'PlantaController@update')->name('EditarHC');
 
@@ -80,6 +77,7 @@ Route::group(['prefix' => 'Sistema', 'middleware' => 'auth'], function () {
     });
 
     Route::group(['middleware' => 'TRol:administrador|Coordinador'], function () {
+        Route::get('/MisFichasTecnicas/{id}', 'FichaTecnicaController@show')->name('UserFTShow');
         Route::post('/HojasCampo/verificar', 'PlantaController@verificar')->name('VerificarHC');
         Route::post('/HojasCampo/rechazar', 'PlantaController@rechazar')->name('RechazarHC');
         Route::post('/FichasTecnicas/verificar', 'FichaTecnicaController@verificar')->name('VerificarFT');

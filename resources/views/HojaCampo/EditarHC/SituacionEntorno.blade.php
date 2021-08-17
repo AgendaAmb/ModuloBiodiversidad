@@ -33,7 +33,7 @@
     </div>
     <div class="form-group row g-3 was-validated">
         <label for="SubUnidadesFiltrada"
-            class="col-md-4 col-form-label text-md-left">{{ __('SubUnidad Academica') }}</label>
+            class="col-md-4 col-form-label text-md-left">{{ __('SubUnidad academica') }}</label>
        
         <div class="col-md-8">
             <select class="custom-select" id="SubUnidadesFiltrada" name="SubUnidadesFiltrada">
