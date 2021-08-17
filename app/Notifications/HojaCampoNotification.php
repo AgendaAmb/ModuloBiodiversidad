@@ -7,7 +7,8 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class FichaTecnicaNotification extends Notification implements ShouldQueue
+
+class HojaCampoNotification extends Notification
 {
     use Queueable;
 
@@ -16,10 +17,10 @@ class FichaTecnicaNotification extends Notification implements ShouldQueue
      *
      * @return void
      */
-    public $id_FichaT;
+    public $id_HojaCampo;
     public function __construct($id)
     {
-        $this->id_FichaT=$id;
+        $this->id_HojaCampo=$id;
     }
 
     /**
@@ -41,12 +42,11 @@ class FichaTecnicaNotification extends Notification implements ShouldQueue
      */
     public function toMail($notifiable)
     {
-       
-        $verificacionUrl=route('UserFTShow',['id'=>$this->id_FichaT]);
+        $verificacionUrl=route('UserHCEdit',['id'=>$this->id_HojaCampo]);
         return (new MailMessage)
                     ->greeting('Hola!')
-                    ->subject('Ficha Tecnica Nueva')
-                    ->line('Se acaba de dar de alta una nueva ficha técnica,')
+                    ->subject('Hoja de campo  Nueva')
+                    ->line('Se acaba de dar de alta una nueva Hoja de campo,')
                     ->line('Deseas revisarla para poder verficarla?!')
                     ->action('Ir a verificar',$verificacionUrl)
                     ->salutation('Atentamente: Equipo de Agenda Ambiental');

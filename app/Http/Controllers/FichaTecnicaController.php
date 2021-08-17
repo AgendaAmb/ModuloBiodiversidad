@@ -85,12 +85,15 @@ class FichaTecnicaController extends Controller
 
         $nombreEjemplar->ficha_tecnicas_id = $Ficha_Tecnica->id;
 
-        foreach ($request->Bibliografia as $key => $value) {
-            $Biblio= new Bibliografia();
-            $Biblio->Referencia=$value;
-            $Biblio->ficha_tecnicas_id=$Ficha_Tecnica->id;
-            $Biblio->save();
+        if($request->Bibliografia!=null){
+            foreach ($request->Bibliografia as $key => $value) {
+                $Biblio= new Bibliografia();
+                $Biblio->Referencia=$value;
+                $Biblio->ficha_tecnicas_id=$Ficha_Tecnica->id;
+                $Biblio->save();
+            }
         }
+      
         $nombreEjemplar->save();
        
       
