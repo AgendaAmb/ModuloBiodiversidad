@@ -16,7 +16,7 @@ Route::get('/', function () {
     return redirect('/Biodiversidad');
 });
 
-Route::get('/usuario', 'HomeController@verificar')->name('UXV');
+
 Route::view('/', 'index')->name('Bio');
 Route::get('/LoginInstitucional', 'HomeController@CheckLogin')->name('LInstitucional');
 
