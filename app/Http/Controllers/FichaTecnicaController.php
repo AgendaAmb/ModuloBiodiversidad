@@ -58,9 +58,15 @@ class FichaTecnicaController extends Controller
         $nombreEjemplar = NombreEjemplar::findorFail($request->NombreC);
         $directoryEspecie = '/FichasTecnicas/' . Str::of($nombreEjemplar->NombreComun)->replace(' ', '_');
         $Ficha_Tecnica = new FichaTecnica();
+      
         $this->saveImagenes($request, $Ficha_Tecnica, $nombreEjemplar, $directoryEspecie, false);
-       
-        $Ficha_Tecnica->TPertenencia = $request->Fenologia;
+        $Ficha_Tecnica->FechaRecoleccion = $request->FechaRecoleccion;
+        $Ficha_Tecnica->FechaFotografia = $request->FechaFotografia;
+        $Ficha_Tecnica->NombreRecolectorDatos = $request->NombreRecolectorD;
+        $Ficha_Tecnica->NombreRecolectorMuestra = $request->NombreRecolectorm;
+        $Ficha_Tecnica->NombreAutorFoto = $request->NombreAutorFoto;
+
+        $Ficha_Tecnica->TPertenencia = $request->PermanenciaHojas;
         $Ficha_Tecnica->Fcrecimiento = $request->FormaCrecimiento;
         $Ficha_Tecnica->Origen = $request->Origen;
         $Ficha_Tecnica->Floracion = $request->Floracion;
@@ -68,17 +74,18 @@ class FichaTecnicaController extends Controller
         $Ficha_Tecnica->EstatusEco = $request->EstatusEco;
         $Ficha_Tecnica->EstatusConv = $request->EstatusConser;
         $Ficha_Tecnica->Altura = $request->Altura;
+        $Ficha_Tecnica->AlturaCondicionesUrbanos = $request->AlturaCurbanas;
         $Ficha_Tecnica->TipoC = $request->TipoC;
         $Ficha_Tecnica->TipoR = $request->TipoR;
         $Ficha_Tecnica->RaicesObs = $request->RaicesObs;
         $Ficha_Tecnica->Usos = $request->Usos;
         $Ficha_Tecnica->Clima = $request->ClimaN;
         $Ficha_Tecnica->Porte = $request->Porte;
-        $Ficha_Tecnica->SistemR = $request->SistemaRa;
+       // $Ficha_Tecnica->SistemR = $request->SistemaRa;
         $Ficha_Tecnica->RequerimientosE = $request->Requerimientos;
         $Ficha_Tecnica->ServiciosAmb = $request->ServicioAmbiental;
         $Ficha_Tecnica->AmenazasRiesgos = $request->AmenazasR;
-        $Ficha_Tecnica->AmenazasRiesgosHab = $request->AmenazasRC;
+        
         $Ficha_Tecnica->Estado = "Verificacion";
         $Ficha_Tecnica->user_id = Auth::id();
         $nombreEjemplar->FichaTecnica()->save($Ficha_Tecnica);
@@ -186,7 +193,7 @@ class FichaTecnicaController extends Controller
                 ->with("Ejemplar", $this->Ejemplar)
                 ->with("SubUnidades", $this->SubUnidades)
                 ->with("SubUnidadTP", $this->SubUnidadTP)
-                ->with("isReO", true)
+                ->with("isReO", false)
                 ->with("FichaTecnica", $fichaTecnica)
                 ->with("Biblio", $Biblio);
         }
@@ -238,8 +245,9 @@ class FichaTecnicaController extends Controller
 
     public function verificar(Request $request)
     {
+     
         $request->user()->authorizeRoles(['administrador', 'Coordinador']);
-    
+        
         $FichaTecnica = FichaTecnica::findorFail($request->idFichaT);
      
         $FichaTecnica->Estado = "Verificado";
@@ -323,17 +331,18 @@ class FichaTecnicaController extends Controller
         $Ficha_Tecnica->EstatusEco = $request->EstatusEco;
         $Ficha_Tecnica->EstatusConv = $request->EstatusConser;
         $Ficha_Tecnica->Altura = $request->Altura;
+        $Ficha_Tecnica->AlturaCondicionesUrbanos = $request->AlturaCurbanas;
         $Ficha_Tecnica->TipoC = $request->TipoC;
         $Ficha_Tecnica->TipoR = $request->TipoR;
         $Ficha_Tecnica->RaicesObs = $request->RaicesObs;
         $Ficha_Tecnica->Usos = $request->Usos;
         $Ficha_Tecnica->Clima = $request->ClimaN;
         $Ficha_Tecnica->Porte = $request->Porte;
-        $Ficha_Tecnica->SistemR = $request->SistemaRa;
+      //$Ficha_Tecnica->SistemR = $request->SistemaRa;
         $Ficha_Tecnica->RequerimientosE = $request->Requerimietos;
         $Ficha_Tecnica->ServiciosAmb = $request->ServicioAmbiental;
         $Ficha_Tecnica->AmenazasRiesgos = $request->AmenazasR;
-        $Ficha_Tecnica->AmenazasRiesgosHab = $request->AmenazasRC;
+        //$Ficha_Tecnica->AmenazasRiesgosHab = $request->AmenazasRC;
         $Ficha_Tecnica->Estado = "Verificacion";
         $Ficha_Tecnica->user_id = Auth::id();
         $Ficha_Tecnica->MotivoRechazo=null;

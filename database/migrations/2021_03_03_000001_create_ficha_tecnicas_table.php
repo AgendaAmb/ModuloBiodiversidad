@@ -15,6 +15,11 @@ class CreateFichaTecnicasTable extends Migration
     {
         Schema::create('ficha_tecnicas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('FechaRecoleccion');
+            $table->string('FechaFotografia');
+            $table->string('NombreRecolectorDatos');
+            $table->string('NombreRecolectorMuestra');
+            $table->string('NombreAutorFoto');
             $table->string('TPertenencia',600);
             $table->string('Fcrecimiento',600);
             $table->string('Floracion',600);
@@ -23,17 +28,16 @@ class CreateFichaTecnicasTable extends Migration
             $table->string('EstatusEco',600);
             $table->string('EstatusConv',600);
             $table->string('Altura');
+            $table->string('AlturaCondicionesUrbanos');
             $table->string('TipoC',600);
             $table->string('TipoR',600);
             $table->string('RaicesObs',600);
             $table->string('Usos',600);
             $table->string('Clima',600);
             $table->string('Porte',600);
-            $table->string('SistemR',600);
             $table->string('RequerimientosE',600);
             $table->string('ServiciosAmb',600);
             $table->string('AmenazasRiesgos',600);
-            $table->string('AmenazasRiesgosHab',600);
             $table->string('Estado');
             $table->string('MotivoRechazo')->nullable();
             $table->string('NomVerificador')->nullable();

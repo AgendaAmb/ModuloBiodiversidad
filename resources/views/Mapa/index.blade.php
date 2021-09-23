@@ -16,10 +16,6 @@
     
         <div id="dvMap" style="width: 100%; height: 400px;margin-bottom: 50px;"></div>
 
-
-    
-
-
 </div>
 
 
@@ -30,7 +26,8 @@
     var app = new Vue({
       el: '#fondo',
       data: {
-        message: 'Hola Vue!'
+        message: 'Hola Vue!',
+        
       },
       methods: {
         CargarMapa:function () {
