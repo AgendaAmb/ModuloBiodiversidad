@@ -21,7 +21,7 @@ Route::view('/', 'index')->name('Bio');
 Route::get('/LoginInstitucional', 'HomeController@CheckLogin')->name('LInstitucional');
 
 Auth::routes();
-Auth::routes(['verify' => true]);
+Auth::routes(['verify' => false]);
 
 Route::get('/usuario', 'HomeController@verificar')->name('UXV');
 
