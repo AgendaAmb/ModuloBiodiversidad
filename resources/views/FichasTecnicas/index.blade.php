@@ -81,353 +81,366 @@
             </div>
             @endif
             @if ($nuevo)
-            <form method="POST" action="{{route('FichasT')}}"  enctype="multipart/form-data">
-            @else
-            <form method="POST" action="{{route('EditarFT',['id'=>$FichaTecnica->id])}}"  enctype="multipart/form-data">
-                
-            @endif
-                @csrf
-                <div class="row row-cols-1 row-cols-xl-4 row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
-                    <div class="col mb-4 " v-for="(a, index) in archivos">
-                        <div class="card w-100 ">
-                            <h5 class="card-title text-center">@{{a.parteP}} </h5>
-                            @if ($nuevo)
-                            <div class="card-body">
-                                <img class="card-img-top " v-if="a.imagen!=''" :id="a.nombre" :src="a.imagen"
-                                    alt="Card image cap">
-                            </div>
-                            @else
-                            <div class="card-body">
-                                <img class="card-img-top " v-if="a.imagen!=''" :id="a.nombre"
-                                    :src="'{{asset('storage/')}}'+a.imagen" alt="Card image cap">
-                            </div>
-                            @endif
+            <form method="POST" action="{{route('FichasT')}}" enctype="multipart/form-data">
+                @else
+                <form method="POST" action="{{route('EditarFT',['id'=>$FichaTecnica->id])}}"
+                    enctype="multipart/form-data">
 
-
-                            <div class="card-footer pl-5">
+                    @endif
+                    @csrf
+                    <div class="row row-cols-1 row-cols-xl-4 row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
+                        <div class="col mb-4 " v-for="(a, index) in archivos">
+                            <div class="card w-100 ">
+                                <h5 class="card-title text-center">@{{a.parteP}} </h5>
                                 @if ($nuevo)
-                                <small class="text-muted">
-                                    <input type="file" accept="image/png,image/jpeg" :id="'fileImg'+index"
-                                        :name="'fileImg'+index" class="inp" @change="cargarImagen($event,index)"
-                                        required />
-                                </small>
+                                <div class="card-body">
+                                    <img class="card-img-top " v-if="a.imagen!=''" :id="a.nombre" :src="a.imagen"
+                                        alt="Card image cap">
+                                </div>
                                 @else
-
+                                <div class="card-body">
+                                    <img class="card-img-top " v-if="a.imagen!=''" :id="a.nombre"
+                                        :src="'{{asset('storage/')}}'+a.imagen" alt="Card image cap">
+                                </div>
                                 @endif
 
 
-                            </div>
-                        </div>
-                    </div>
+                                <div class="card-footer pl-5">
+                                    @if ($nuevo)
+                                    <small class="text-muted">
+                                        <input type="file" accept="image/png,image/jpeg" :id="'fileImg'+index"
+                                            :name="'fileImg'+index" class="inp" @change="cargarImagen($event,index)"
+                                            required />
+                                    </small>
+                                    @else
+
+                                    @endif
 
 
-                </div>
-                <div class="alert alert-warning text-right" role="alert">
-                    <b>
-                        La previsualización de las imagenes no representa la calidad real de las mismas.*
-                    </b>
-                </div>
-
-
-
-                <div class="form-row justify-content-between ">
-                    <div class="col-xl-6">
-                        <h2 class="alert alert-primary text-center">Datos generales</h2>
-                        <x-typeInput labelFor="FechaRecoleccion" isRequiered="true" typeInput="date"
-                            isReadOnly="{{boolval($isReO)}}" label="Fecha de recoleccion de datos"
-                            haveValue="{{$nuevo?false:true}}" value="{{$nuevo?null:$FichaTecnica->FechaRecoleccion}}">
-                        </x-typeInput>
-                        <x-typeInput labelFor="FechaFotografia" isRequiered="true" typeInput="date"
-                            isReadOnly="{{boolval($isReO)}}" label="Fecha de fotografía"
-                            haveValue="{{$nuevo?false:true}}" value="{{$nuevo?null:$FichaTecnica->FechaRecoleccion}}">
-                        </x-typeInput>
-                        <x-typeInput labelFor="NombreRecolectorD" isRequiered="true" isReadOnly="{{boolval($isReO)}}"
-                            label="Nombre del recolector de datos" haveValue="{{$nuevo?false:true}}"
-                            value="{{$nuevo?false:$FichaTecnica->NombreRecolectorDatos}}">
-                        </x-typeInput>
-                        <x-typeInput labelFor="NombreRecolectorm" isRequiered="true" isReadOnly="{{boolval($isReO)}}"
-                            label="Nombre del recolector de muestra" haveValue="{{$nuevo?false:true}}"
-                            value="{{$nuevo?null:$FichaTecnica->NombreRecolectorMuestra}}">
-                        </x-typeInput>
-                        <x-typeInput labelFor="NombreAutorFoto" isRequiered="true" isReadOnly="{{boolval($isReO)}}"
-                            label="Nombre de autor de fotografías" haveValue="{{$nuevo?false:true}}"
-                            value="{{$nuevo?null:$FichaTecnica->NombreAutorFoto}}">
-
-                        </x-typeInput>
-                    </div>
-                    <div class="col-xl-6">
-                        <h2 class="alert alert-primary text-center">Caracteristicas de la especie</h2>
-                        @if (!$nuevo)
-                        <p style="display: none;">
-                            @foreach ($Ejemplar as $item)
-                            @if ($item->id==$FichaTecnica->id)
-                            {{$Nomb=$item->NombreComun}}
-                            {{$NombC=$item->NombreCientifico}}
-                            @endif
-                            @endforeach
-                        </p>
-                        <div class="form-group row g-3 was-validated">
-                            <label for="NombreC"
-                                class="col-md-4 col-form-label text-md-left">{{ __('Nombre común') }}</label>
-                            <div class="col-md-7">
-                                <input id="NombreC" readonly type="text"
-                                    class="form-control @error('NombreCientifico') is-invalid @enderror"
-                                    name="NombreCientifico" maxlength="40" value={{$Nomb}} required
-                                    autocomplete="NombreCientifico" autofocus>
-                                @error('NombreCientifico')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-                        @else
-                        <div class="form-group row  was-validated">
-                            <label for="NombreC"
-                                class="col-md-4 col-form-label text-md-left pr-0">{{ __('Nombre común') }}</label>
-                            <div class="col-md-8">
-                                <select class="custom-select" id="NombreC" name="NombreC" v-model="NombreC"
-                                    @change="Ncientifico()" required>
-                                    <option selected="true" disabled>Nombre común</option>
-                                    <option v-for="(N,index) in Nombres" :value="N.id">@{{N.Nombre}}</option>
-                                </select>
-                            </div>
-                        </div>
-                        @endif
-
-                        @if (!$nuevo)
-                        <div class="form-group row g-3 was-validated">
-                            <label for="NombreCientifico"
-                                class="col-md-4 col-form-label text-md-left">{{ __('Nombre científico') }}</label>
-                            <div class="col-md-7">
-                                <input id="NombreCientifico" readonly type="text"
-                                    class="form-control @error('NombreCientifico') is-invalid @enderror"
-                                    name="NombreCientifico" value={{$NombC}} maxlength="40" required
-                                    autocomplete="NombreCientifico" autofocus>
-                                @error('NombreCientifico')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-                        @else
-                        <div class="form-group row  was-validated">
-                            <label for="NombreCientifico"
-                                class="col-md-4 col-form-label text-md-left ">{{ __('Nombre científico') }}</label>
-                            <div class="col-md-8 ">
-                                <input id="NombreCientifico" v-model="NCientifico" readonly type="text"
-                                    class="form-control @error('NombreCientifico') is-invalid @enderror"
-                                    name="NombreCientifico" value="{{old('NombreCientifico') }}" maxlength="40" required
-                                    autocomplete="NombreCientifico" autofocus>
-
-                                @error('NombreCientifico')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-                        @endif
-                        <x-typeInput :labelFor="'PermanenciaHojas'" :isRequiered="true"
-                        :label="'Permanencia de hojas'" haveValue="{{$nuevo?false:true}}"
-                        value="{{$nuevo?false:$FichaTecnica->TPertenencia}}" isReadOnly="{{boolval($isReO)}}">
-                    </x-typeInput>
-                    </div>
-
-                    <div class="col-12">
-                        <h2 class="alert alert-primary text-center">Morfología y estado de fitosanitarios básicos</h2>
-                        <div class="form-group row">
-                            <div class="col-xl-6 ">
-                                <x-typeInput :labelFor="'FormaCrecimiento'" :isRequiered="true" :label="'Forma de crecimiento'"
-                                    haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->Fcrecimiento}}"
-                                    isReadOnly="{{boolval($isReO)}}">
-                                </x-typeInput>
-                                <x-typeInput labelFor="Floracion" :isRequiered="true" typeInput="text" label="Floración"
-                                    isTextArea="true" haveValue="{{$nuevo?false:true}}"
-                                    value="{{$nuevo?false:$FichaTecnica->Floracion}}" isReadOnly="{{boolval($isReO)}}">
-                                </x-typeInput>
-        
-                                <x-typeInput :labelFor="'Origen'" :isRequiered="true" :label="'Origen'"
-                                    haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->Origen}}"
-                                    isReadOnly="{{boolval($isReO)}}">
-                                </x-typeInput>
-                                <x-typeInput labelFor="Descripcion" :isRequiered="true" typeInput="text" label="Descripción"
-                                    isTextArea="true" haveValue="{{$nuevo?false:true}}"
-                                    value="{{$nuevo?false:$FichaTecnica->Descripcion}}" isReadOnly="{{boolval($isReO)}}">
-                                </x-typeInput>
-                                <x-typeInput :labelFor="'EstatusEco'" :isRequiered="true" :label="'Estatus ecológico en México'"
-                                    haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->EstatusEco}}"
-                                    isReadOnly="{{boolval($isReO)}}">
-                                </x-typeInput>
-                                <x-typeInput :labelFor="'EstatusConser'" :isRequiered="true" :label="'Estatus de conservación'"
-                                    haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->EstatusConv}}"
-                                    isReadOnly="{{boolval($isReO)}}">
-                                </x-typeInput>
-                                <x-typeInput labelFor="Altura" typeInput="number" :isRequiered="true"
-                                    label="Altura en estado natural (m)" haveValue="{{$nuevo?false:true}}"
-                                    value="{{$nuevo?null:$FichaTecnica->Altura}}" isReadOnly="{{boolval($isReO)}}">
-                                </x-typeInput>
-        
-                                <x-typeInput labelFor="AlturaCurbanas" typeInput="number" :isRequiered="true"
-                                    label="Altura en condiciones urbanas (m)" haveValue="{{$nuevo?false:true}}"
-                                    value="{{$nuevo?null:$FichaTecnica->Altura}}" isReadOnly="{{boolval($isReO)}}">
-        
-                                </x-typeInput>
-                                <x-typeInput :labelFor="'TipoC'" :isRequiered="true" :label="'Tipo de copa'"
-                                    haveValue="{{$nuevo?false:true}}" value="{{$nuevo?null:$FichaTecnica->TipoC}}"
-                                    isReadOnly="{{boolval($isReO)}}">
-                                </x-typeInput>
-                                <x-typeInput :labelFor="'TipoR'" :isRequiered="true" :label="'Tipo de raíces'"
-                                    haveValue="{{$nuevo?false:true}}" value="{{$nuevo?null:$FichaTecnica->TipoR}}"
-                                    isReadOnly="{{boolval($isReO)}}">
-                                </x-typeInput>
-                               
-        
-                            </div>
-                            <div class="col-xl-6">
-                                <x-typeInput labelFor="RaicesObs" :isRequiered="true" typeInput="text"
-                                label="Raíces observables del ejemplar" isTextArea="true" haveValue="{{$nuevo?false:true}}"
-                                value="{{$nuevo?false:$FichaTecnica->RaicesObs}}" isReadOnly="{{boolval($isReO)}}">
-                            </x-typeInput>
-                            <x-typeInput labelFor="Usos" :isRequiered="true" typeInput="text" label="Usos" isTextArea="true"
-                                haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->Usos}}"
-                                isReadOnly="{{boolval($isReO)}}">
-                            </x-typeInput>
-                            @if ($nuevo)
-                            <div class="form-group row g-3  was-validated">
-                                <label for="Porte"
-                                    class="col-md-4 col-form-label text-md-left">{{ __('Porte') }}</label>
-                        
-                                <div class="col-md-8">
-                                    <select class="custom-select" id="Porte" name="Porte">
-                                        <option selected disabled value="">Porte</option>
-                                        <option value="Chico">Chico</option>
-                                        <option value="Mediano">Mediano</option>
-                                        <option value="Grande">Grande</option>
-                                    </select>
                                 </div>
                             </div>
-                            @else
-                            <div class="form-group row g-3">
-                                <label for="EstadoCrecimiento"
-                                    class="col-md-4 col-form-label text-md-left">{{ __('Estado de crecimiento') }}</label>
-                        
-                                <div class="col-md-8">
-                                   
-                                    <select class="custom-select" id="EstadoCrecimiento" name="Ecrecimiento">
-                                        @if (is_null($FichaTecnica->Porte))
-                                        <option selected disabled>Sin Estado de porte registrado</option>
-                                        @else
-                                        @if ($FichaTecnica->Porte=="Chico")
-                                        <option selected disabled value="Chico">Chico</option>
-                                        @else
-                                        @if ($FichaTecnica->Porte=="Mediano")
-                                        <option selected disabled value="Mediano">Mediano</option>
-                                        @else
-                                        <option selected disabled value="Grande">Grande</option>
-                                        @endif
-                                        @endif
-                                        @endif
-                                    </select>
-                                
-                                </div>
-                            </div>
-                            @endif
-                           
-                                <x-typeInput labelFor="ClimaN" :isRequiered="true" typeInput="text"
-                                    label="Clima en hábitad  natural" isTextArea="true" haveValue="{{$nuevo?false:true}}"
-                                    value="{{$nuevo?false:$FichaTecnica->Clima}}" isReadOnly="{{boolval($isReO)}}">
-                                </x-typeInput>
-                              
-                                <!--
-                                <x-typeInput labelFor="SistemaRa" :isRequiered="true" typeInput="text" label="Sistema de raíces"
-                                    isTextArea="true" haveValue="{{$nuevo?false:true}}"
-                                    value="{{$nuevo?false:$FichaTecnica->SistemR}}" isReadOnly="{{boolval($isReO)}}">
-                                </x-typeInput>
-                                -->
-                                <x-typeInput labelFor="Requerimientos" :isRequiered="true" typeInput="text"
-                                    label="Requerimientos de la especie" isTextArea="true" haveValue="{{$nuevo?false:true}}"
-                                    value="{{$nuevo?false:$FichaTecnica->RequerimientosE}}" isReadOnly="{{boolval($isReO)}}">
-                                </x-typeInput>
-                                <x-typeInput labelFor="ServicioAmbiental" :isRequiered="true" typeInput="text"
-                                    label="Servicios ambientales" isTextArea="true" haveValue="{{$nuevo?false:true}}"
-                                    value="{{$nuevo?false:$FichaTecnica->ServiciosAmb}}" isReadOnly="{{boolval($isReO)}}">
-                                </x-typeInput>
-                                <x-typeInput labelFor="AmenazasR" :isRequiered="true" typeInput="text"
-                                    label="Amenazas y riesgos" isTextArea="true" haveValue="{{$nuevo?false:true}}"
-                                    value="{{$nuevo?false:$FichaTecnica->AmenazasRiesgos}}" isReadOnly="{{boolval($isReO)}}">
-                                </x-typeInput>
-                             
-                            </div>
                         </div>
-                      
+
+
                     </div>
-                  
+                    <div class="alert alert-warning text-right" role="alert">
+                        <b>
+                            La previsualización de las imagenes no representa la calidad real de las mismas.*
+                        </b>
+                    </div>
 
-                    <div class="col-xl-6 pr-xl-3  pr-lg-3 ">
 
-                        <div class="form-group row g-3" v-show={{$nuevo}}>
-                            <label for="nuevo"
-                                class="col-md-4 col-form-label text-md-left">{{ __('Bibliografía') }}</label>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control px-xl-0" v-model="nuevo"
-                                    placeholder="Bibliografia">
-                            </div>
-                            <div class="col-md-2">
-                                <a class="btn btn-outline-success " @click="agregar" role="button"><i
-                                        class="fas fa-plus-circle"></i></a>
-                            </div>
+
+                    <div class="form-row justify-content-between ">
+                        <div class="col-xl-6">
+                            <h2 class="alert alert-primary text-center">Datos generales</h2>
+                            <x-typeInput labelFor="FechaRecoleccion" isRequiered="true" typeInput="date"
+                                isReadOnly="{{boolval($isReO)}}" label="Fecha de recoleccion de datos"
+                                haveValue="{{$nuevo?false:true}}"
+                                value="{{$nuevo?null:$FichaTecnica->FechaRecoleccion}}">
+                            </x-typeInput>
+                            <x-typeInput labelFor="FechaFotografia" isRequiered="true" typeInput="date"
+                                isReadOnly="{{boolval($isReO)}}" label="Fecha de fotografía"
+                                haveValue="{{$nuevo?false:true}}"
+                                value="{{$nuevo?null:$FichaTecnica->FechaRecoleccion}}">
+                            </x-typeInput>
+                            <x-typeInput labelFor="NombreRecolectorD" isRequiered="true"
+                                isReadOnly="{{boolval($isReO)}}" label="Nombre del recolector de datos"
+                                haveValue="{{$nuevo?false:true}}"
+                                value="{{$nuevo?false:$FichaTecnica->NombreRecolectorDatos}}">
+                            </x-typeInput>
+                            <x-typeInput labelFor="NombreRecolectorm" isRequiered="true"
+                                isReadOnly="{{boolval($isReO)}}" label="Nombre del recolector de muestra"
+                                haveValue="{{$nuevo?false:true}}"
+                                value="{{$nuevo?null:$FichaTecnica->NombreRecolectorMuestra}}">
+                            </x-typeInput>
+                            <x-typeInput labelFor="NombreAutorFoto" isRequiered="true" isReadOnly="{{boolval($isReO)}}"
+                                label="Nombre de autor de fotografías" haveValue="{{$nuevo?false:true}}"
+                                value="{{$nuevo?null:$FichaTecnica->NombreAutorFoto}}">
+
+                            </x-typeInput>
                         </div>
-
-
-                        <div v-if="Referencias" v-for="Referencia in Referencias">
+                        <div class="col-xl-6">
+                            <h2 class="alert alert-primary text-center">Caracteristicas de la especie</h2>
                             @if (!$nuevo)
-                            <li>
-                                @{{Referencia['Referencia']}}
-                            </li>
+                            <p style="display: none;">
+                                @foreach ($Ejemplar as $item)
+                                @if ($item->id==$FichaTecnica->id)
+                                {{$Nomb=$item->NombreComun}}
+                                {{$NombC=$item->NombreCientifico}}
+                                @endif
+                                @endforeach
+                            </p>
+                            <div class="form-group row g-3 was-validated">
+                                <label for="NombreC"
+                                    class="col-md-4 col-form-label text-md-left">{{ __('Nombre común') }}</label>
+                                <div class="col-md-7">
+                                    <input id="NombreC" readonly type="text"
+                                        class="form-control @error('NombreCientifico') is-invalid @enderror"
+                                        name="NombreCientifico" maxlength="40" value={{$Nomb}} required
+                                        autocomplete="NombreCientifico" autofocus>
+                                    @error('NombreCientifico')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
                             @else
-                            <li>
-                                @{{Referencia}}
-                            </li>
+                            <div class="form-group row  was-validated">
+                                <label for="NombreC"
+                                    class="col-md-4 col-form-label text-md-left pr-0">{{ __('Nombre común') }}</label>
+                                <div class="col-md-8">
+                                    <select class="custom-select" id="NombreC" name="NombreC" v-model="NombreC"
+                                        @change="Ncientifico()" required>
+                                        <option selected="true" disabled>Nombre común</option>
+                                        <option v-for="(N,index) in Nombres" :value="N.id">@{{N.Nombre}}</option>
+                                    </select>
+                                </div>
+                            </div>
                             @endif
 
-                        </div>
-                        <input type="hidden" name="Bibliografia[]" v-for="Referencia in Referencias"
-                            :value="Referencia">
-                    </div>
-
-                    @if ($nuevo)
-                    <div class="container mb-3">
-                        <div class="row justify-content-center">
-                            <button type="submit" class="btn btn-primary btn-lg">Confirmar</button>
-                        </div>
-                    </div>
-                    @else
-                    @if (Auth::user()->hasAnyRole(['administrador','Coordinador']))
-                    @if ($FichaTecnica->Estado=="Verificacion" && $FichaTecnica->MotivoRechazo==null)
-                    <div class="container mb-3 mt-5">
-                        <div class="row justify-content-between ">
-                            <div class="colum ">
-                                <button type="button" class="btn btn-success btn-lg" data-toggle="modal"
-                                    data-target="#verificar"
-                                    onclick="pasarIdFichaT({{$FichaTecnica->id}});">Verificar</button>
+                            @if (!$nuevo)
+                            <div class="form-group row g-3 was-validated">
+                                <label for="NombreCientifico"
+                                    class="col-md-4 col-form-label text-md-left">{{ __('Nombre científico') }}</label>
+                                <div class="col-md-7">
+                                    <input id="NombreCientifico" readonly type="text"
+                                        class="form-control @error('NombreCientifico') is-invalid @enderror"
+                                        name="NombreCientifico" value={{$NombC}} maxlength="40" required
+                                        autocomplete="NombreCientifico" autofocus>
+                                    @error('NombreCientifico')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
                             </div>
-                            <div class="colum ">
-                                <button type="button" class="btn btn-danger btn-lg" data-toggle="modal"
-                                    data-target="#Rechazar"
-                                    onclick="pasarIdFichaTR({{$FichaTecnica->id}});">Rechazar</button>
+                            @else
+                            <div class="form-group row  was-validated">
+                                <label for="NombreCientifico"
+                                    class="col-md-4 col-form-label text-md-left ">{{ __('Nombre científico') }}</label>
+                                <div class="col-md-8 ">
+                                    <input id="NombreCientifico" v-model="NCientifico" readonly type="text"
+                                        class="form-control @error('NombreCientifico') is-invalid @enderror"
+                                        name="NombreCientifico" value="{{old('NombreCientifico') }}" maxlength="40"
+                                        required autocomplete="NombreCientifico" autofocus>
+
+                                    @error('NombreCientifico')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
                             </div>
+                            @endif
+                            <x-typeInput :labelFor="'PermanenciaHojas'" :isRequiered="true"
+                                :label="'Permanencia de hojas'" haveValue="{{$nuevo?false:true}}"
+                                value="{{$nuevo?false:$FichaTecnica->TPertenencia}}" isReadOnly="{{boolval($isReO)}}">
+                            </x-typeInput>
                         </div>
 
+                        <div class="col-12">
+                            <h2 class="alert alert-primary text-center">Morfología y estado de fitosanitarios básicos
+                            </h2>
+                            <div class="form-group row">
+                                <div class="col-xl-6 ">
+                                    <x-typeInput :labelFor="'FormaCrecimiento'" :isRequiered="true"
+                                        :label="'Forma de crecimiento'" haveValue="{{$nuevo?false:true}}"
+                                        value="{{$nuevo?false:$FichaTecnica->Fcrecimiento}}"
+                                        isReadOnly="{{boolval($isReO)}}">
+                                    </x-typeInput>
+                                    <x-typeInput labelFor="Floracion" :isRequiered="true" typeInput="text"
+                                        label="Floración" isTextArea="true" haveValue="{{$nuevo?false:true}}"
+                                        value="{{$nuevo?false:$FichaTecnica->Floracion}}"
+                                        isReadOnly="{{boolval($isReO)}}">
+                                    </x-typeInput>
+
+                                    <x-typeInput :labelFor="'Origen'" :isRequiered="true" :label="'Origen'"
+                                        haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->Origen}}"
+                                        isReadOnly="{{boolval($isReO)}}">
+                                    </x-typeInput>
+                                    <x-typeInput labelFor="Descripcion" :isRequiered="true" typeInput="text"
+                                        label="Descripción" isTextArea="true" haveValue="{{$nuevo?false:true}}"
+                                        value="{{$nuevo?false:$FichaTecnica->Descripcion}}"
+                                        isReadOnly="{{boolval($isReO)}}">
+                                    </x-typeInput>
+                                    <x-typeInput :labelFor="'EstatusEco'" :isRequiered="true"
+                                        :label="'Estatus ecológico en México'" haveValue="{{$nuevo?false:true}}"
+                                        value="{{$nuevo?false:$FichaTecnica->EstatusEco}}"
+                                        isReadOnly="{{boolval($isReO)}}">
+                                    </x-typeInput>
+                                    <x-typeInput :labelFor="'EstatusConser'" :isRequiered="true"
+                                        :label="'Estatus de conservación'" haveValue="{{$nuevo?false:true}}"
+                                        value="{{$nuevo?false:$FichaTecnica->EstatusConv}}"
+                                        isReadOnly="{{boolval($isReO)}}">
+                                    </x-typeInput>
+                                    <x-typeInput labelFor="Altura" typeInput="number" :isRequiered="true"
+                                        label="Altura en estado natural (m)" haveValue="{{$nuevo?false:true}}"
+                                        value="{{$nuevo?null:$FichaTecnica->Altura}}" isReadOnly="{{boolval($isReO)}}">
+                                    </x-typeInput>
+
+                                    <x-typeInput labelFor="AlturaCurbanas" typeInput="number" :isRequiered="true"
+                                        label="Altura en condiciones urbanas (m)" haveValue="{{$nuevo?false:true}}"
+                                        value="{{$nuevo?null:$FichaTecnica->Altura}}" isReadOnly="{{boolval($isReO)}}">
+
+                                    </x-typeInput>
+                                    <x-typeInput :labelFor="'TipoC'" :isRequiered="true" :label="'Tipo de copa'"
+                                        haveValue="{{$nuevo?false:true}}" value="{{$nuevo?null:$FichaTecnica->TipoC}}"
+                                        isReadOnly="{{boolval($isReO)}}">
+                                    </x-typeInput>
+                                    <x-typeInput :labelFor="'TipoR'" :isRequiered="true" :label="'Tipo de raíces'"
+                                        haveValue="{{$nuevo?false:true}}" value="{{$nuevo?null:$FichaTecnica->TipoR}}"
+                                        isReadOnly="{{boolval($isReO)}}">
+                                    </x-typeInput>
+
+
+                                </div>
+                                <div class="col-xl-6">
+                                    <x-typeInput labelFor="RaicesObs" :isRequiered="true" typeInput="text"
+                                        label="Raíces observables del ejemplar" isTextArea="true"
+                                        haveValue="{{$nuevo?false:true}}"
+                                        value="{{$nuevo?false:$FichaTecnica->RaicesObs}}"
+                                        isReadOnly="{{boolval($isReO)}}">
+                                    </x-typeInput>
+                                    <x-typeInput labelFor="Usos" :isRequiered="true" typeInput="text" label="Usos"
+                                        isTextArea="true" haveValue="{{$nuevo?false:true}}"
+                                        value="{{$nuevo?false:$FichaTecnica->Usos}}" isReadOnly="{{boolval($isReO)}}">
+                                    </x-typeInput>
+                                    @if ($nuevo)
+                                    <div class="form-group row g-3  was-validated">
+                                        <label for="Porte"
+                                            class="col-md-4 col-form-label text-md-left">{{ __('Porte') }}</label>
+
+                                        <div class="col-md-8">
+                                            <select class="custom-select" id="Porte" name="Porte">
+                                                <option selected disabled value="">Porte</option>
+                                                <option value="Chico">Chico</option>
+                                                <option value="Mediano">Mediano</option>
+                                                <option value="Grande">Grande</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    @else
+                                    <div class="form-group row g-3">
+                                        <label for="EstadoCrecimiento"
+                                            class="col-md-4 col-form-label text-md-left">{{ __('Estado de crecimiento') }}</label>
+
+                                        <div class="col-md-8">
+
+                                            <select class="custom-select" id="EstadoCrecimiento" name="Ecrecimiento">
+                                                @if (is_null($FichaTecnica->Porte))
+                                                <option selected disabled>Sin Estado de porte registrado</option>
+                                                @else
+                                                @if ($FichaTecnica->Porte=="Chico")
+                                                <option selected disabled value="Chico">Chico</option>
+                                                @else
+                                                @if ($FichaTecnica->Porte=="Mediano")
+                                                <option selected disabled value="Mediano">Mediano</option>
+                                                @else
+                                                <option selected disabled value="Grande">Grande</option>
+                                                @endif
+                                                @endif
+                                                @endif
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    @endif
+
+                                    <x-typeInput labelFor="ClimaN" :isRequiered="true" typeInput="text"
+                                        label="Clima en hábitad  natural" isTextArea="true"
+                                        haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->Clima}}"
+                                        isReadOnly="{{boolval($isReO)}}">
+                                    </x-typeInput>
+
+                                    <x-typeInput labelFor="Requerimientos" :isRequiered="true" typeInput="text"
+                                        label="Requerimientos de la especie" isTextArea="true"
+                                        haveValue="{{$nuevo?false:true}}"
+                                        value="{{$nuevo?false:$FichaTecnica->RequerimientosE}}"
+                                        isReadOnly="{{boolval($isReO)}}">
+                                    </x-typeInput>
+                                    <x-typeInput labelFor="ServicioAmbiental" :isRequiered="true" typeInput="text"
+                                        label="Servicios ambientales" isTextArea="true"
+                                        haveValue="{{$nuevo?false:true}}"
+                                        value="{{$nuevo?false:$FichaTecnica->ServiciosAmb}}"
+                                        isReadOnly="{{boolval($isReO)}}">
+                                    </x-typeInput>
+                                    <x-typeInput labelFor="AmenazasR" :isRequiered="true" typeInput="text"
+                                        label="Amenazas y riesgos" isTextArea="true" haveValue="{{$nuevo?false:true}}"
+                                        value="{{$nuevo?false:$FichaTecnica->AmenazasRiesgos}}"
+                                        isReadOnly="{{boolval($isReO)}}">
+                                    </x-typeInput>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-xl-6 pr-xl-3  pr-lg-3 ">
+
+                            <div class="form-group row g-3" v-show={{$nuevo}}>
+                                <label for="nuevo"
+                                    class="col-md-4 col-form-label text-md-left">{{ __('Bibliografía') }}</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control px-xl-0" v-model="nuevo"
+                                        placeholder="Bibliografia">
+                                </div>
+                                <div class="col-md-2">
+                                    <a class="btn btn-outline-success " @click="agregar" role="button"><i
+                                            class="fas fa-plus-circle"></i></a>
+                                </div>
+                            </div>
+
+
+                            <div v-if="Referencias" v-for="Referencia in Referencias">
+                                @if (!$nuevo)
+                                <li>
+                                    @{{Referencia['Referencia']}}
+                                </li>
+                                @else
+                                <li>
+                                    @{{Referencia}}
+                                </li>
+                                @endif
+
+                            </div>
+                            <input type="hidden" name="Bibliografia[]" v-for="Referencia in Referencias"
+                                :value="Referencia">
+                        </div>
+
+                        @if ($nuevo)
+                        <div class="container mb-3">
+                            <div class="row justify-content-center">
+                                <button type="submit" class="btn btn-primary btn-lg">Confirmar</button>
+                            </div>
+                        </div>
+                        @else
+                        @if (Auth::user()->hasAnyRole(['administrador','Coordinador']))
+                        @if ($FichaTecnica->Estado=="Verificacion" && $FichaTecnica->MotivoRechazo==null)
+                        <div class="container mb-3 mt-5">
+                            <div class="row justify-content-between ">
+                                <div class="colum ">
+                                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal"
+                                        data-target="#verificar"
+                                        onclick="pasarIdFichaT({{$FichaTecnica->id}});">Verificar</button>
+                                </div>
+                                <div class="colum ">
+                                    <button type="button" class="btn btn-danger btn-lg" data-toggle="modal"
+                                        data-target="#Rechazar"
+                                        onclick="pasarIdFichaTR({{$FichaTecnica->id}});">Rechazar</button>
+                                </div>
+                            </div>
+
+                        </div>
+                        @endif
+                        @endif
+                        @endif
                     </div>
-                    @endif
-                    @endif
-                    @endif
-                </div>
 
 
-            </form>
+                </form>
         </div>
     </div>
 

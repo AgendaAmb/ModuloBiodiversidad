@@ -27,6 +27,7 @@ class FichaTecnicaController extends Controller
      */
     public function index()
     {
+     
         Controller::loadEjemplares();
         Controller::loadSubUnidades();
         //**Regresar nombre de ejemplares que no tengan ficha tecnica */
@@ -287,10 +288,11 @@ class FichaTecnicaController extends Controller
      */
     public function edit(FichaTecnica $fichaTecnica, Request $request, $id)
     {
+       
         $request->user()->authorizeRoles(['administrador', 'Gestor']);
         $fichaTecnica = FichaTecnica::findorFail($id);
+        
         if ($fichaTecnica->User->id == Auth::id()) {
-
             Controller::loadEjemplares();
             Controller::loadSubUnidades();
             $Biblio=Bibliografia::where('ficha_tecnicas_id','=',$id)->get();
@@ -317,13 +319,14 @@ class FichaTecnicaController extends Controller
      */
     public function update(Request $request, FichaTecnica $fichaTecnica, $id)
     {
+      
         $nombreEjemplar = NombreEjemplar::findorFail($request->id);
         $directoryEspecie = '/FichasTecnicas/' . Str::of($nombreEjemplar->NombreComun)->replace(' ', '_');
         $Ficha_Tecnica = FichaTecnica::findorFail($id);
         // dd($Ficha_Tecnica);
      
         $this->saveImagenes($request, $Ficha_Tecnica, $nombreEjemplar, $directoryEspecie);
-        $Ficha_Tecnica->TPertenencia = $request->Fenologia;
+        $Ficha_Tecnica->TPertenencia = $request->PermanenciaHojas;
         $Ficha_Tecnica->Fcrecimiento = $request->FormaCrecimiento;
         $Ficha_Tecnica->Origen = $request->Origen;
         $Ficha_Tecnica->Floracion = $request->Floracion;
@@ -339,7 +342,7 @@ class FichaTecnicaController extends Controller
         $Ficha_Tecnica->Clima = $request->ClimaN;
         $Ficha_Tecnica->Porte = $request->Porte;
       //$Ficha_Tecnica->SistemR = $request->SistemaRa;
-        $Ficha_Tecnica->RequerimientosE = $request->Requerimietos;
+        $Ficha_Tecnica->RequerimientosE = $request->Requerimientos;
         $Ficha_Tecnica->ServiciosAmb = $request->ServicioAmbiental;
         $Ficha_Tecnica->AmenazasRiesgos = $request->AmenazasR;
         //$Ficha_Tecnica->AmenazasRiesgosHab = $request->AmenazasRC;
