@@ -134,8 +134,12 @@
                                 <label for="roles">Roles</label>
                                 <select class="select2" multiple name="roles[]" id="roles"
                                     data-placeholder="Selecciona los roles" style="width: 100%;">
+                                   
                                     @foreach ($roles as $rol)
+                                    @if ($rol->nombre!='Consultor técnico'&&$rol->nombre!='JefeJardinero'&&$rol->nombre!='Supervisor')
                                     <option value="{{$rol->id}}">{{$rol->nombre}}</option>
+                                        
+                                    @endif
                                     @endforeach
                                 </select>
                             </div>

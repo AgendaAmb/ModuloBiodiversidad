@@ -604,15 +604,23 @@
                         <div class="container mb-3 mt-5">
                             <div class="row justify-content-between ">
                                 <div class="colum ">
+                                    <button type="button" class="btn btn-outline-danger btn-lg" data-toggle="modal"
+                                        data-target="#Rechazar"
+                                        onclick="pasarIdFichaTR({{$FichaTecnica->id}});">Rechazar</button>
+                                </div>
+                               <!--
+                                <div class="colum ">
+                                    <button type="button" class="btn btn-outline-primary btn-lg" data-toggle="modal"
+                                      
+                                     >Actualizar</button>
+                                </div>
+                            -->
+                                <div class="colum ">
                                     <button type="button" class="btn btn-success btn-lg" data-toggle="modal"
                                         data-target="#verificar"
                                         onclick="pasarIdFichaT({{$FichaTecnica->id}});">Verificar</button>
                                 </div>
-                                <div class="colum ">
-                                    <button type="button" class="btn btn-danger btn-lg" data-toggle="modal"
-                                        data-target="#Rechazar"
-                                        onclick="pasarIdFichaTR({{$FichaTecnica->id}});">Rechazar</button>
-                                </div>
+                               
                             </div>
 
                         </div>
