@@ -245,11 +245,60 @@
                             </h2>
                             <div class="form-group row">
                                 <div class="col-xl-6 ">
-                                    <x-typeInput :labelFor="'FormaCrecimiento'" :isRequiered="true"
-                                        :label="'Forma de crecimiento'" haveValue="{{$nuevo?false:true}}"
-                                        value="{{$nuevo?false:$FichaTecnica->Fcrecimiento}}"
-                                        isReadOnly="{{boolval($isReO)}}">
-                                    </x-typeInput>
+
+
+                                 
+                                    @if ($nuevo)
+                                    <div class="form-group row g-3  was-validated">
+                                        <label for="FormaCrecimiento"
+                                            class="col-md-4 col-form-label text-md-left">{{ __('Forma de crecimiento') }}</label>
+
+                                        <div class="col-md-8">
+                                            <select class="custom-select" id="FormaCrecimiento" name="FormaCrecimiento">
+                                                <option selected disabled value="">Forma de crecimiento</option>
+                                                <option value="Herbacea">Herbacea</option>
+                                                <option value="Arbustiva">Arbustiva</option>
+                                                <option value="Arborescente">Arborescente</option>
+                                                <option value="Arbórea">Arbórea</option>
+                                                <option value="Columnar">Columnar</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    @else
+                                    <div class="form-group row g-3">
+                                        <label for="FormaCrecimiento"
+                                        class="col-md-4 col-form-label text-md-left">{{ __('Forma de crecimiento') }}</label>
+
+                                        <div class="col-md-8">
+
+                                            <select class="custom-select" id="FormaCrecimiento" name="FormaCrecimiento">
+                                                @if (is_null($FichaTecnica->Fcrecimiento))
+                                                <option selected disabled>Sin Estado de uso registrado</option>
+                                                @else
+                                                @if ($FichaTecnica->Fcrecimiento=="Herbacea")
+                                                <option selected disabled value="Herbacea">Herbacea</option>
+                                                @else
+                                                @if ($FichaTecnica->Fcrecimiento=="Arbustiva")
+                                                <option selected disabled value="Arbustiva">Arbustiva</option>
+                                                @else
+                                                @if ($FichaTecnica->Fcrecimiento=="Arborescente")
+                                                <option selected disabled value="Arborescente">Arborescente</option>
+                                                @else
+                                                @if ($FichaTecnica->Fcrecimiento=="Arbórea")
+                                                <option selected disabled value="Arbórea">Arbórea</option>
+                                                @else
+                                                <option selected disabled value="Columnar">Columnar</option>
+                                                @endif
+                                                @endif
+                                                @endif
+                                                @endif
+                                                @endif
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    @endif
+
                                     <x-typeInput labelFor="Floracion" :isRequiered="true" typeInput="text"
                                         label="Floración" isTextArea="true" haveValue="{{$nuevo?false:true}}"
                                         value="{{$nuevo?false:$FichaTecnica->Floracion}}"
@@ -270,11 +319,59 @@
                                         value="{{$nuevo?false:$FichaTecnica->EstatusEco}}"
                                         isReadOnly="{{boolval($isReO)}}">
                                     </x-typeInput>
-                                    <x-typeInput :labelFor="'EstatusConser'" :isRequiered="true"
-                                        :label="'Estatus de conservación'" haveValue="{{$nuevo?false:true}}"
-                                        value="{{$nuevo?false:$FichaTecnica->EstatusConv}}"
-                                        isReadOnly="{{boolval($isReO)}}">
-                                    </x-typeInput>
+
+                                      
+                                    @if ($nuevo)
+                                    <div class="form-group row g-3  was-validated">
+                                        <label for="EstatusConser"
+                                            class="col-md-4 col-form-label text-md-left">{{ __('Estatus de conservación') }}</label>
+
+                                        <div class="col-md-8">
+                                            <select class="custom-select" id="EstatusConser" name="EstatusConser">
+                                                <option selected disabled value="">Estatus de conservación</option>
+                                                <option value="Peligro de extinción">Peligro de extinción</option>
+                                                <option value="Amenaza">Amenaza</option>
+                                                <option value="Vulnerable">Vulnerable</option>
+                                                <option value="Menor preocupación">Menor preocupación</option>
+                                                <option value="Sin problema">Sin problema</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    @else
+                                    <div class="form-group row g-3">
+                                        <label for="EstatusConser"
+                                        class="col-md-4 col-form-label text-md-left">{{ __('Estatus de conservación') }}</label>
+
+                                        <div class="col-md-8">
+
+                                            <select class="custom-select" id="EstatusConser" name="EstatusConser">
+                                                @if (is_null($FichaTecnica->EstatusConv))
+                                                <option selected disabled>Sin Estado de uso registrado</option>
+                                                @else
+                                                @if ($FichaTecnica->EstatusConv=="Peligro de extinción")
+                                                <option selected disabled value="Peligro de extinción">Peligro de extinción</option>
+                                                @else
+                                                @if ($FichaTecnica->EstatusConv=="Amenaza")
+                                                <option selected disabled value="Amenaza">Amenaza</option>
+                                                @else
+                                                @if ($FichaTecnica->EstatusConv=="Vulnerable")
+                                                <option selected disabled value="Vulnerable">Vulnerable</option>
+                                                @else
+                                                @if ($FichaTecnica->EstatusConv=="Menor preocupación")
+                                                <option selected disabled value="Menor preocupación">Menor preocupación</option>
+                                                @else
+                                                <option selected disabled value="Sin problema">Sin problema</option>
+                                                @endif
+                                                @endif
+                                                @endif
+                                                @endif
+                                                @endif
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    @endif
+                                  
                                     <x-typeInput labelFor="Altura" typeInput="number" :isRequiered="true"
                                         label="Altura en estado natural (m)" haveValue="{{$nuevo?false:true}}"
                                         value="{{$nuevo?null:$FichaTecnica->Altura}}" isReadOnly="{{boolval($isReO)}}">
@@ -303,10 +400,57 @@
                                         value="{{$nuevo?false:$FichaTecnica->RaicesObs}}"
                                         isReadOnly="{{boolval($isReO)}}">
                                     </x-typeInput>
-                                    <x-typeInput labelFor="Usos" :isRequiered="true" typeInput="text" label="Usos"
-                                        isTextArea="true" haveValue="{{$nuevo?false:true}}"
-                                        value="{{$nuevo?false:$FichaTecnica->Usos}}" isReadOnly="{{boolval($isReO)}}">
-                                    </x-typeInput>
+                                    @if ($nuevo)
+                                    <div class="form-group row g-3  was-validated">
+                                        <label for="Usos"
+                                            class="col-md-4 col-form-label text-md-left">{{ __('Usos') }}</label>
+
+                                        <div class="col-md-8">
+                                            <select class="custom-select" id="Usos" name="Usos">
+                                                <option selected disabled value="">Usos</option>
+                                                <option value="Ornamental(estético)">Ornamental(estético)</option>
+                                                <option value="Medicinal">Medicinal</option>
+                                                <option value="Comestible">Comestible</option>
+                                                <option value="Sombra">Sombra</option>
+                                                <option value="Aromático">Aromático</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    @else
+                                    <div class="form-group row g-3">
+                                        <label for="EstadoCrecimiento"
+                                            class="col-md-4 col-form-label text-md-left">{{ __('Estado de crecimiento') }}</label>
+
+                                        <div class="col-md-8">
+
+                                            <select class="custom-select" id="EstadoCrecimiento" name="Ecrecimiento">
+                                                @if (is_null($FichaTecnica->Usos))
+                                                <option selected disabled>Sin Estado de uso registrado</option>
+                                                @else
+                                                @if ($FichaTecnica->Usos=="Estetico")
+                                                <option selected disabled value="Estetico">Ornamental(estético)</option>
+                                                @else
+                                                @if ($FichaTecnica->Usos=="Medicinal")
+                                                <option selected disabled value="Medicinal">Medicinal</option>
+                                                @else
+                                                @if ($FichaTecnica->Usos=="Comestible")
+                                                <option selected disabled value="Comestible">Comestible</option>
+                                                @else
+                                                @if ($FichaTecnica->Usos=="Sombra")
+                                                <option selected disabled value="Sombra">Sombra</option>
+                                                @else
+                                                <option selected disabled value="Aromatico">Aromático</option>
+                                                @endif
+                                                @endif
+                                                @endif
+                                                @endif
+                                                @endif
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    @endif
+
                                     @if ($nuevo)
                                     <div class="form-group row g-3  was-validated">
                                         <label for="Porte"
@@ -371,6 +515,44 @@
                                         value="{{$nuevo?false:$FichaTecnica->AmenazasRiesgos}}"
                                         isReadOnly="{{boolval($isReO)}}">
                                     </x-typeInput>
+                                    <div class="form-group row g-3">
+                                        <label for="Interferecia"
+                                            class="col-md-4 col-form-label text-md-left">{{ __('Interferencia aparente con instalaciones inmediatas') }}</label>
+                                
+                                        <div class="col-md-6">
+                                            <div class="form-check form-check-inline">
+                                                <!--checked-->
+                                                <input class="form-check-input" type="checkbox" id="CBCableado"
+                                                    {{($nuevo?null:json_decode($FichaTecnica->Interfencia)->Sena)!=null?'checked':''}}
+                                                    value="CBCableado" name="CBCableado" {{$nuevo?null:'disabled'}}>
+                                                <label class="form-check-label" for="CBCableado">Cableado aéreo</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="CBInfra" value="CBInfra"
+                                                    {{($nuevo?null:json_decode($FichaTecnica->Interfencia)->Edifi)!=null?'checked':''}}
+                                                    {{$nuevo?null:'disabled'}} name="CBInfra">
+                                                <label class="form-check-label" for="CBInfra">Infraestructura</label>
+                                            </div>
+                                            <div class="form-check form-check-inline ">
+                                                <input class="form-check-input" type="checkbox" id="CBMobili" value="CBMobili"
+                                                    {{($nuevo?null:json_decode($FichaTecnica->Interfencia)->Infra)!=null?'checked':''}}
+                                                    {{$nuevo?null:'disabled'}} name="CBMobili">
+                                                <label class="form-check-label" for="CBMobili">Mobiliario urbano</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="CBSena" value="CBSena"
+                                                    {{($nuevo?null:json_decode($FichaTecnica->Interfencia)->Mobili!=null)?'checked':''}}
+                                                    name="CBSena" {{$nuevo?null:'disabled'}}>
+                                                <label class="form-check-label" for="CBSena">Señalamientos</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="CBEdifi" value="CBEdifi"
+                                                    {{($nuevo?null:json_decode($FichaTecnica->Interfencia)->Cableado)!=null?'checked':''}}
+                                                    name="CBEdifi" {{$nuevo?null:'disabled'}}>
+                                                <label class="form-check-label" for="CBEdifi">Edificación</label>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </div>
                             </div>

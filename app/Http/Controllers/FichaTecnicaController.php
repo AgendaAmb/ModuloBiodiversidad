@@ -56,6 +56,7 @@ class FichaTecnicaController extends Controller
      */
     public function store(Request $request)
     {
+      
         $nombreEjemplar = NombreEjemplar::findorFail($request->NombreC);
         $directoryEspecie = '/FichasTecnicas/' . Str::of($nombreEjemplar->NombreComun)->replace(' ', '_');
         $Ficha_Tecnica = new FichaTecnica();
@@ -86,7 +87,16 @@ class FichaTecnicaController extends Controller
         $Ficha_Tecnica->RequerimientosE = $request->Requerimientos;
         $Ficha_Tecnica->ServiciosAmb = $request->ServicioAmbiental;
         $Ficha_Tecnica->AmenazasRiesgos = $request->AmenazasR;
-        
+        $inter = array(
+            'Cableado' => $request->CBCableado,
+            'Infra' => $request->CBInfra,
+            'Mobili' => $request->CBMobili,
+            'Sena' => $request->CBSena,
+            'Edifi' => $request->CBEdifi,
+        );
+
+        $Ficha_Tecnica->Interfencia = json_encode($inter);
+      
         $Ficha_Tecnica->Estado = "Verificacion";
         $Ficha_Tecnica->user_id = Auth::id();
         $nombreEjemplar->FichaTecnica()->save($Ficha_Tecnica);
@@ -205,7 +215,9 @@ class FichaTecnicaController extends Controller
         $fichaTecnica = FichaTecnica::findorFail($id);
         
         if ($fichaTecnica->Estado == "Verificado") {
-            return \view('FichasTecnicas.indexPublic')->with("fichaTecnica", NombreEjemplar::findorFail($fichaTecnica->id));
+ 
+            $Biblio=Bibliografia::where('ficha_tecnicas_id','=',$id)->get();
+            return \view('FichasTecnicas.indexPublic')->with("fichaTecnica", NombreEjemplar::findorFail($fichaTecnica->id))->with('Biblio',$Biblio);
         } else {
             if ($fichaTecnica->Estado == "Verificacion" &&Auth::check()|| $fichaTecnica->Estado == "Rechazada" &&Auth::check()) {
                 if (Auth::id() == $fichaTecnica->user_id || Auth::user()->hasAnyRole(['administrador', 'Coordinador'])) {

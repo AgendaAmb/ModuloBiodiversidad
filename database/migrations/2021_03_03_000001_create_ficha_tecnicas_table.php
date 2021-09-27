@@ -49,6 +49,7 @@ class CreateFichaTecnicasTable extends Migration
             $table->string('Url_S');
             $table->string('Url_T');
             $table->string('Url_R');
+            $table->json('Interfencia',500)->nullable();
             
             $table->unsignedBigInteger('user_id')->nullable();
             
