@@ -80,4 +80,10 @@
   'nunito' => array(
     'normal' => $fontDir . '/nunito_normal_7173294b894229c46ad1835001660d90',
   ),
+  'myriad pro' => array(
+    'normal' => $fontDir . '/myriad_pro_normal_7016ffcd198dbe973e78a54c23da443d',
+  ),
+  'myriad pro bold' => array(
+    'normal' => $fontDir . '/myriad_pro_bold_normal_f5b233451fc31de6962ae28648c30da0',
+  ),
 ) ?>

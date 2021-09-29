@@ -10,12 +10,10 @@
           <div class="container-fluid">
             <div class="row justify-content-center">
 
+              <x-menuBio btnText="Mapa" btnUrl="Mapa" />
               <x-menuBio btnText="Especies" btnUrl="EjemplaresP" />
              
               <x-menuBio btnText="Entrar" btnUrl="login" />
-          
-             
-              <x-menuBio btnText="Mapa" btnUrl="Mapa" />
               <x-menuBio btnText="Contacto" btnUrl="#" />
             </div>
           </div>
