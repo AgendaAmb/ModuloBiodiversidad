@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Bibliografia;
 use App\FichaTecnica;
 use App\NombreEjemplar;
-use App\Bibliografia;
+use App\Notifications\VerificacionNotification;
+use App\User;
 use Auth;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use PDF;
-use DB;
-use App\User;
-
-use App\Notifications\VerificacionNotification;
 
 class FichaTecnicaController extends Controller
 {
@@ -27,7 +26,7 @@ class FichaTecnicaController extends Controller
      */
     public function index()
     {
-     
+
         Controller::loadEjemplares();
         Controller::loadSubUnidades();
         //**Regresar nombre de ejemplares que no tengan ficha tecnica */
@@ -56,11 +55,11 @@ class FichaTecnicaController extends Controller
      */
     public function store(Request $request)
     {
-      
+
         $nombreEjemplar = NombreEjemplar::findorFail($request->NombreC);
         $directoryEspecie = '/FichasTecnicas/' . Str::of($nombreEjemplar->NombreComun)->replace(' ', '_');
         $Ficha_Tecnica = new FichaTecnica();
-      
+
         $this->saveImagenes($request, $Ficha_Tecnica, $nombreEjemplar, $directoryEspecie, false);
         $Ficha_Tecnica->FechaRecoleccion = $request->FechaRecoleccion;
         $Ficha_Tecnica->FechaFotografia = $request->FechaFotografia;
@@ -83,7 +82,7 @@ class FichaTecnicaController extends Controller
         $Ficha_Tecnica->Usos = $request->Usos;
         $Ficha_Tecnica->Clima = $request->ClimaN;
         $Ficha_Tecnica->Porte = $request->Porte;
-       // $Ficha_Tecnica->SistemR = $request->SistemaRa;
+        // $Ficha_Tecnica->SistemR = $request->SistemaRa;
         $Ficha_Tecnica->RequerimientosE = $request->Requerimientos;
         $Ficha_Tecnica->ServiciosAmb = $request->ServicioAmbiental;
         $Ficha_Tecnica->AmenazasRiesgos = $request->AmenazasR;
@@ -96,38 +95,36 @@ class FichaTecnicaController extends Controller
         );
 
         $Ficha_Tecnica->Interfencia = json_encode($inter);
-      
+
         $Ficha_Tecnica->Estado = "Verificacion";
         $Ficha_Tecnica->user_id = Auth::id();
         $nombreEjemplar->FichaTecnica()->save($Ficha_Tecnica);
 
         $nombreEjemplar->ficha_tecnicas_id = $Ficha_Tecnica->id;
 
-        if($request->Bibliografia!=null){
+        if ($request->Bibliografia != null) {
             foreach ($request->Bibliografia as $key => $value) {
-                $Biblio= new Bibliografia();
-                $Biblio->Referencia=$value;
-                $Biblio->ficha_tecnicas_id=$Ficha_Tecnica->id;
+                $Biblio = new Bibliografia();
+                $Biblio->Referencia = $value;
+                $Biblio->ficha_tecnicas_id = $Ficha_Tecnica->id;
                 $Biblio->save();
             }
         }
-      
+
         $nombreEjemplar->save();
-       
-      
+
         return back()->with('message', '¡¡¡Ficha Tecnica registrada con exito!!!');
     }
     private function saveImagen(String $directoryEspecie, $image, String $ClaveF, String $Tipo, $nombreEjemplar)
     {
-        $this->urlFoto = $directoryEspecie . '/' . $nombreEjemplar->Clave . '_' . $ClaveF . '.' . $image->getClientOriginalExtension(); 
-        if (file_exists(public_path().'\storage'.$this->urlFoto)) {
-            @unlink(public_path().'\storage'.$this->urlFoto);
+        $this->urlFoto = $directoryEspecie . '/' . $nombreEjemplar->Clave . '_' . $ClaveF . '.' . $image->getClientOriginalExtension();
+        if (file_exists(public_path() . '\storage' . $this->urlFoto)) {
+            @unlink(public_path() . '\storage' . $this->urlFoto);
             \Storage::disk('public')->put($this->urlFoto, \File::get($image));
-         }else{
-             \Storage::disk('public')->put($this->urlFoto, \File::get($image));
-         }
-        
-        
+        } else {
+            \Storage::disk('public')->put($this->urlFoto, \File::get($image));
+        }
+
     }
 
     private function saveImagenes(Request $request, FichaTecnica $Ficha_Tecnica, NombreEjemplar $nombreEjemplar, String $directoryEspecie)
@@ -149,7 +146,7 @@ class FichaTecnicaController extends Controller
             if ($request->fileImg3 == $image) {
                 $this->saveImagen($directoryEspecie, $image, 'FL', "Flores", $nombreEjemplar);
                 $Ficha_Tecnica->Url_FL = $this->urlFoto;
-               
+
             } else
             if ($request->fileImg4 == $image) {
                 $this->saveImagen($directoryEspecie, $image, 'FR', "Frutos", $nombreEjemplar);
@@ -184,7 +181,7 @@ class FichaTecnicaController extends Controller
             if ($fichaTecnica->User->id == Auth::id()) {
                 Controller::loadEjemplares();
                 Controller::loadSubUnidades();
-                $Biblio=Bibliografia::where('ficha_tecnicas_id','=',$id)->get();
+                $Biblio = Bibliografia::where('ficha_tecnicas_id', '=', $id)->get();
                 return \view('FichasTecnicas.index')
                     ->with("Ejemplar", $this->Ejemplar)
                     ->with("SubUnidades", $this->SubUnidades)
@@ -199,7 +196,9 @@ class FichaTecnicaController extends Controller
         } else {
             Controller::loadEjemplares();
             Controller::loadSubUnidades();
-            $Biblio=Bibliografia::where('ficha_tecnicas_id','=',$id)->get();
+
+            $Biblio = Bibliografia::where('ficha_tecnicas_id', '=', $id)->get();
+
             return \view('FichasTecnicas.index')
                 ->with("Ejemplar", $this->Ejemplar)
                 ->with("SubUnidades", $this->SubUnidades)
@@ -213,16 +212,16 @@ class FichaTecnicaController extends Controller
     public function showPublic(FichaTecnica $fichaTecnica, $id)
     {
         $fichaTecnica = FichaTecnica::findorFail($id);
-        
+
         if ($fichaTecnica->Estado == "Verificado") {
- 
-            $Biblio=Bibliografia::where('ficha_tecnicas_id','=',$id)->get();
-            return \view('FichasTecnicas.indexPublic')->with("fichaTecnica", NombreEjemplar::findorFail($fichaTecnica->id))->with('Biblio',$Biblio);
+
+            $Biblio = Bibliografia::where('ficha_tecnicas_id', '=', $id)->get();
+            return \view('FichasTecnicas.indexPublic')->with("fichaTecnica", NombreEjemplar::findorFail($fichaTecnica->id))->with('Biblio', $Biblio);
         } else {
-            if ($fichaTecnica->Estado == "Verificacion" &&Auth::check()|| $fichaTecnica->Estado == "Rechazada" &&Auth::check()) {
+            if ($fichaTecnica->Estado == "Verificacion" && Auth::check() || $fichaTecnica->Estado == "Rechazada" && Auth::check()) {
                 if (Auth::id() == $fichaTecnica->user_id || Auth::user()->hasAnyRole(['administrador', 'Coordinador'])) {
-                    $Biblio=Bibliografia::where('ficha_tecnicas_id','=',$id)->get();
-                    return \view('FichasTecnicas.indexPublic')->with("fichaTecnica", NombreEjemplar::findorFail($fichaTecnica->id))->with('Biblio',$Biblio);
+                    $Biblio = Bibliografia::where('ficha_tecnicas_id', '=', $id)->get();
+                    return \view('FichasTecnicas.indexPublic')->with("fichaTecnica", NombreEjemplar::findorFail($fichaTecnica->id))->with('Biblio', $Biblio);
                 }
             } else {
                 return \redirect()->back();
@@ -235,20 +234,24 @@ class FichaTecnicaController extends Controller
     {
         $fichaTecnicaA = FichaTecnica::findorFail($id);
         $fichaTecnica = NombreEjemplar::findorFail($fichaTecnicaA->id);
-        $Biblio=Bibliografia::where('ficha_tecnicas_id','=',$id)->get();
+        $Biblio = Bibliografia::where('ficha_tecnicas_id', '=', $id)->get();
         if ($fichaTecnicaA->Estado == "Verificado") {
-            $data = compact('fichaTecnica','Biblio');
+            $data = compact('fichaTecnica', 'Biblio');
             $pdf = PDF::loadView('FichasTecnicas.pdf', $data)->setPaper([0, 0, 695.28, 1102.89]);
             $pdfNombre = 'Ficha_Tecnica_' . $fichaTecnica->NombreComun . '.pdf';
             return $pdf->stream($pdfNombre);
         } else {
 
-            if ($fichaTecnicaA->Estado == "Verificacion" &&Auth::check()|| $fichaTecnicaA->Estado == "Rechazada" &&Auth::check()) {
+            if ($fichaTecnicaA->Estado == "Verificacion" && Auth::check() || $fichaTecnicaA->Estado == "Rechazada" && Auth::check()) {
                 if (Auth::id() == $fichaTecnicaA->user_id || Auth::user()->hasAnyRole(['administrador', 'Coordinador'])) {
-                    $data = compact('fichaTecnica','Biblio');
-                    $pdf = PDF::loadView('FichasTecnicas.pdf', $data)->setPaper([0, 0, 695.28, 1102.89]);
+                    $data = compact('fichaTecnica', 'Biblio');
+                  
+                    $pdf = PDF::loadView('FichasTecnicas.pdf', $data)->setPaper([0, 0, 612.00, 792.00]);
+                    $pdf->getDomPDF()->set_option("enable_php", true);
+                    $data = ['title' => 'Testing Page Number In Body'];
                     $pdfNombre = 'Ficha_Tecnica_' . $fichaTecnica->NombreComun . '.pdf';
-                    return $pdf->stream($pdfNombre);}
+                    return $pdf->stream($pdfNombre,$data);
+                }
             } else {
                 return \redirect()->back();
             }
@@ -258,20 +261,18 @@ class FichaTecnicaController extends Controller
 
     public function verificar(Request $request)
     {
-     
+
         $request->user()->authorizeRoles(['administrador', 'Coordinador']);
-        
+
         $FichaTecnica = FichaTecnica::findorFail($request->idFichaT);
-     
+
         $FichaTecnica->Estado = "Verificado";
         $FichaTecnica->NomVerificador = Auth::user()->name;
-    
-        
+
         $FichaTecnica->save();
-        $User=User::findorFail($FichaTecnica->user_id);
-        $User->notify(new VerificacionNotification($FichaTecnica->id,"FichaTecnica",false));
-        
-        
+        $User = User::findorFail($FichaTecnica->user_id);
+        $User->notify(new VerificacionNotification($FichaTecnica->id, "FichaTecnica", false));
+
         return back()->with('message', 'Se ha verificado la hoja de campo con exito');
 
     }
@@ -281,14 +282,12 @@ class FichaTecnicaController extends Controller
         $request->user()->authorizeRoles(['administrador', 'Coordinador']);
         $FichaTecnica = FichaTecnica::findorFail($request->idFichaT);
 
-     
-
         $FichaTecnica->Estado = "Rechazada";
         $FichaTecnica->NomVerificador = Auth::user()->name;
         $FichaTecnica->MotivoRechazo = $request->MRechazo;
         $FichaTecnica->save();
-        $User=User::findorFail($FichaTecnica->user_id);
-        $User->notify(new VerificacionNotification($FichaTecnica->id,"FichaTecnica",true));
+        $User = User::findorFail($FichaTecnica->user_id);
+        $User->notify(new VerificacionNotification($FichaTecnica->id, "FichaTecnica", true));
         return back()->with('message', 'La hoja de campo ha sido RECHAZADA');
     }
 
@@ -300,14 +299,14 @@ class FichaTecnicaController extends Controller
      */
     public function edit(FichaTecnica $fichaTecnica, Request $request, $id)
     {
-       
+
         $request->user()->authorizeRoles(['administrador', 'Gestor']);
         $fichaTecnica = FichaTecnica::findorFail($id);
-        
+
         if ($fichaTecnica->User->id == Auth::id()) {
             Controller::loadEjemplares();
             Controller::loadSubUnidades();
-            $Biblio=Bibliografia::where('ficha_tecnicas_id','=',$id)->get();
+            $Biblio = Bibliografia::where('ficha_tecnicas_id', '=', $id)->get();
             return \view('FichasTecnicas.User.editar')
                 ->with("Ejemplar", $this->Ejemplar)
                 ->with("SubUnidades", $this->SubUnidades)
@@ -331,12 +330,12 @@ class FichaTecnicaController extends Controller
      */
     public function update(Request $request, FichaTecnica $fichaTecnica, $id)
     {
-      
+
         $nombreEjemplar = NombreEjemplar::findorFail($request->id);
         $directoryEspecie = '/FichasTecnicas/' . Str::of($nombreEjemplar->NombreComun)->replace(' ', '_');
         $Ficha_Tecnica = FichaTecnica::findorFail($id);
         // dd($Ficha_Tecnica);
-     
+
         $this->saveImagenes($request, $Ficha_Tecnica, $nombreEjemplar, $directoryEspecie);
         $Ficha_Tecnica->TPertenencia = $request->PermanenciaHojas;
         $Ficha_Tecnica->Fcrecimiento = $request->FormaCrecimiento;
@@ -353,14 +352,14 @@ class FichaTecnicaController extends Controller
         $Ficha_Tecnica->Usos = $request->Usos;
         $Ficha_Tecnica->Clima = $request->ClimaN;
         $Ficha_Tecnica->Porte = $request->Porte;
-      //$Ficha_Tecnica->SistemR = $request->SistemaRa;
+        //$Ficha_Tecnica->SistemR = $request->SistemaRa;
         $Ficha_Tecnica->RequerimientosE = $request->Requerimientos;
         $Ficha_Tecnica->ServiciosAmb = $request->ServicioAmbiental;
         $Ficha_Tecnica->AmenazasRiesgos = $request->AmenazasR;
         //$Ficha_Tecnica->AmenazasRiesgosHab = $request->AmenazasRC;
         $Ficha_Tecnica->Estado = "Verificacion";
         $Ficha_Tecnica->user_id = Auth::id();
-        $Ficha_Tecnica->MotivoRechazo=null;
+        $Ficha_Tecnica->MotivoRechazo = null;
         $Ficha_Tecnica->save();
         $nombreEjemplar->FichaTecnica()->save($Ficha_Tecnica);
 
@@ -375,10 +374,10 @@ class FichaTecnicaController extends Controller
     {
         $request->user()->authorizeRoles(['administrador', 'Coordinador']);
         $FichasTecnicas = DB::table('nombre_ejemplars')
-        ->join('ficha_tecnicas', function ($join) {
-            $join->on('nombre_ejemplars.ficha_tecnicas_id', '=', 'ficha_tecnicas.id')
-                 ->orderBy('NombreComun', 'asc');
-        })->paginate(15);
+            ->join('ficha_tecnicas', function ($join) {
+                $join->on('nombre_ejemplars.ficha_tecnicas_id', '=', 'ficha_tecnicas.id')
+                    ->orderBy('NombreComun', 'asc');
+            })->paginate(15);
         return view('FichasTecnicas.User.index')->with('FichasTecnicas', $FichasTecnicas);
     }
     /**

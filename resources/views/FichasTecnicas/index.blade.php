@@ -20,6 +20,7 @@
 
 
 <body>
+  
     <div class="container-fluid justify-content-between p-0" id="appp">
         <div class="container mb-4">
             <div class="row">
@@ -207,7 +208,7 @@
                                 <div class="col-md-7">
                                     <input id="NombreCientifico" readonly type="text"
                                         class="form-control @error('NombreCientifico') is-invalid @enderror"
-                                        name="NombreCientifico" value={{$NombC}} maxlength="40" required
+                                        name="NombreCientifico" value="{{$NombC}}"
                                         autocomplete="NombreCientifico" autofocus>
                                     @error('NombreCientifico')
                                     <span class="invalid-feedback" role="alert">
@@ -563,7 +564,7 @@
                         <div class="col-xl-6 pr-xl-3  pr-lg-3 ">
 
                             <div class="form-group row g-3" v-show={{$nuevo}}>
-                                <label for="nuevo"
+                                <label for="Bibliografía"
                                     class="col-md-4 col-form-label text-md-left">{{ __('Bibliografía') }}</label>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control px-xl-0" v-model="nuevo"
@@ -678,7 +679,7 @@
                 this.Nombres.push({
                     "id":'{{$E->id}}',
                     "Nombre":'{{$E->NombreComun}}',
-                    "NombreC":'{{Str::of($E->NombreCientifico)->title()}}',
+                    "NombreC":'{{$E->NombreCientifico}}',
                     "Clave":'{{$E->Clave}}'
                 });
     @endforeach

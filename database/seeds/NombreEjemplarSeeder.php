@@ -16,12 +16,15 @@ class NombreEjemplarSeeder extends Seeder
         $json = File::get("database/data/NombresEjemplares.json");
         $data = json_decode($json);
         foreach ($data as $obj) {
+          
             NombreEjemplar::create(array(
+                
                 'NombreComun' => $obj->Nombre,
                 'NombreComunIng'=> $obj->NombreComunIng,
                 'NombreCientifico' => $obj->NombreCientifico,
                 'Clave'=>$obj->Clave
             ));
+           
         }
     }
 }

@@ -20,12 +20,12 @@ class CreateNombreEjemplarsTable extends Migration
             $table->string('NombreCientifico')->nullable();
             $table->string('Clave');
             $table->unsignedBigInteger('ficha_tecnicas_id')->nullable();
+            $table->timestamps();
 
             $table->foreign('ficha_tecnicas_id')
                 ->references('id')
                 ->on('ficha_tecnicas')
                 ->onDelete('cascade');
-            $table->timestamps();
         });
     }
 
