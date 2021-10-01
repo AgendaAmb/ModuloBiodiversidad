@@ -283,19 +283,19 @@
                 <div style="position: fixed;top:525;left: 287">
                     <div class="flex-container" style="height: 117px; margin: 0px; padding: 0%;">
                         <div class="item">
-                            <img src="{{ public_path("storage$urlF") }}" alt=""
+                            <img src="{{ public_path("storage$urlFR") }}" alt=""
                                 style="margin: 0%;height: 110px;width: 110px;">
-                                <p class="tituloImagen">FOLLAJE</p>
+                                <p class="tituloImagen">FRUTO</p>
                         </div>
                         <div class="item"style="margin-left:120px;">
-                            <img src="{{ public_path("storage$urlH") }}" alt=""
+                            <img src="{{ public_path("storage$urlS") }}" alt=""
                                 style="margin: 0%;height: 110px;width: 110px;">
-                                <p class="tituloImagen">HOJAS</p>
+                                <p class="tituloImagen">SEMILLAS</p>
                         </div>
                         <div class="item" style="margin-left:242px;">
-                            <img src="{{ public_path("storage$urlFL")}}" alt=""
+                            <img src="{{ public_path("storage$urlR")}}" alt=""
                                 style="margin: 0%;height: 110px;width: 110px;">
-                                <p class="tituloImagen">FLORES</p>
+                                <p class="tituloImagen">RAÍCES</p>
                         </div>
                     </div>
                 </div>
