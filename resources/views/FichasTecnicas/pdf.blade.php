@@ -39,12 +39,12 @@
         }
 
         html {
-             font-family: 'Myriad Pro regular';
+            font-family: "Myriad Pro";
         }
 
         body {
             margin: 0% 20px;
-             font-family: 'Myriad Pro regular';
+            font-family: "Myriad Pro";
         }
 
         .saltopagina {
@@ -53,7 +53,7 @@
 
         main {
 
-             font-family: 'Myriad Pro regular';
+            font-family: "Myriad Pro";
         }
 
         header {
@@ -230,7 +230,7 @@
 
         .textContenido {
             margin: 0%;
-            font-family: 'Myriad Pro regular';
+            font-family: 'Myriad Pro';
             font-size: 9pt;
             color: black;
             text-align: justify;
@@ -292,27 +292,27 @@
                         {{$fichaTecnica->FichaTecnica->Fcrecimiento}}</p>
                     @if ($fichaTecnica->FichaTecnica->Fcrecimiento=='Herbacea')
                     <img style="margin-top: 10px;"
-                        src="{{public_path("storage/Logos/FichasTecnicas/FormasCrecimiento/Herbacea.png")}}" height="30"
-                        width="30" alt="">
+                        src="{{public_path("storage/Logos/FichasTecnicas/FormasCrecimiento/Herbacea.png")}}" height="40"
+                        width="40" alt="">
                     @else
                     @if ($fichaTecnica->FichaTecnica->Fcrecimiento=='Arbustiva')
                     <img style="margin-top: 10px;"
                         src="{{public_path("storage/Logos/FichasTecnicas/FormasCrecimiento/Arbustiva.png")}}"
-                        height="30" width="30" alt="">
+                        height="40" width="40" alt="">
                     @else
                     @if ($fichaTecnica->FichaTecnica->Fcrecimiento=='Arborescente')
                     <img style="margin-top: 10px;"
                         src="{{public_path("storage/Logos/FichasTecnicas/FormasCrecimiento/Arborescente.png")}}"
-                        height="30" width="30" alt="">
+                        height="40" width="40" alt="">
                     @else
                     @if ($fichaTecnica->FichaTecnica->Fcrecimiento=='Arbórea')
                     <img style="margin-top: 10px;"
-                        src="{{public_path("storage/Logos/FichasTecnicas/FormasCrecimiento/Arbórea.png")}}" height="30"
-                        width="30" alt="">
+                        src="{{public_path("storage/Logos/FichasTecnicas/FormasCrecimiento/Arbórea.png")}}" height="40"
+                        width="40" alt="">
                     @else
                     <img style="margin-top: 10px;"
-                        src="{{public_path("storage/Logos/FichasTecnicas/FormasCrecimiento/Columnar.png")}}" height="30"
-                        width="30" alt="">
+                        src="{{public_path("storage/Logos/FichasTecnicas/FormasCrecimiento/Columnar.png")}}" height="40"
+                        width="40" alt="">
                     @endif
                     @endif
                     @endif
@@ -384,7 +384,7 @@
                     <div class="flex-container" style="height: 470px; margin: 0px 0px 20px 0px;">
 
                         <div class="item1" style="background-color: red;height: 470px;">
-                            <img src="{{ public_path("storage$urlFL") }}" alt="..." style="width: 360px;height: 470px;">
+                            <img src="{{ public_path("storage$urlFR") }}" alt="..." style="width: 360px;height: 470px;">
                         </div>
                         <div class="item2" style=" margin-left: 360px; padding: 20px; height: 428px;">
                             <p class="textContenido">
