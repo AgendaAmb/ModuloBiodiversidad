@@ -89,4 +89,7 @@
   'myriad pro italic' => array(
     'normal' => $fontDir . '/myriad_pro_italic_normal_81010e1575fd3c27bc5fa9d80ca09e7d',
   ),
+  'myriad pro regular' => array(
+    'normal' => $fontDir . '/myriad_pro_regular_normal_e8c6d0fbb0da1dabc3efcc2b64ab2561',
+  ),
 ) ?>

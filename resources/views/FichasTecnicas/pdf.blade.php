@@ -12,7 +12,10 @@
     <style>
         /** Define the margins of your page **/
         @page {
-            margin: 100px 30px;
+           margin-top: 100px;
+           margin-left: 30px;
+           margin-right: 30px;
+           margin-bottom: 0px;
         }
 
         @font-face {
@@ -29,21 +32,28 @@
         @font-face {
             font-family: 'Myriad Pro italic';
             src: url({{public_path('/TiposDeLetra/Myriad-Pro-Light-Italic.ttf')}})format("truetype");
-
+        }
+        @font-face {
+            font-family: 'Myriad Pro regular';
+            src: url({{public_path('/TiposDeLetra/Myriad-Pro-Regular.ttf')}})format("truetype");
         }
 
         html {
-            font-family: "Myriad Pro";
+             font-family: 'Myriad Pro regular';
         }
 
         body {
             margin: 0% 20px;
-            font-family: "Myriad Pro";
+             font-family: 'Myriad Pro regular';
         }
-        .saltopagina{page-break-after:always;}
+
+        .saltopagina {
+            page-break-after: always;
+        }
+
         main {
-            
-            font-family: "Myriad Pro";
+
+             font-family: 'Myriad Pro regular';
         }
 
         header {
@@ -68,7 +78,7 @@
             left: 725px;
             right: -60px;
             height: 20px;
-            background-color: #3B9B64;
+            background-color:rgb(59, 155, 100);
             /** Extra personal styles
             background-color: #03a9f4;
             color: white;
@@ -95,6 +105,12 @@
             size: 12pt;
 
         }
+        .NombreCien2 {
+           
+            font-family: 'Myriad Pro italic';
+            text-align: center;
+            size: 9pt;
+        }
 
         .titulos {
             font-family: 'Myriad Pro Bold';
@@ -102,16 +118,19 @@
             font-size: 16px;
             color: white;
         }
-        .tituloImagen{
+
+        .tituloImagen {
             font-family: 'Myriad Pro Bold';
             font-size: 9pt;
-            color:  #3B9B64;
+            color: #3B9B64;
             text-align: left;
             margin: 0%;
             padding: 0%;
         }
+
         .parrafos {
-            font-family: "Myriad Pro";
+            line-height: 9.0pt;
+            font-family: 'Myriad Pro regular';
             font-size: 9pt;
             color: white;
             text-align: center;
@@ -130,12 +149,12 @@
         }
 
         .container1 {
-            padding:   20px 20px 0px 20px;
+            padding: 20px 20px 0px 20px;
             background-color: rgb(59, 155, 100);
             height: 421px;
             width: 200px;
             margin-left: 472px;
-           
+
         }
 
         .container2 {
@@ -147,21 +166,78 @@
             height: 104px;
         }
 
+        .item1 {
+            width: 360px;
+            margin: 0px;
+            padding: 0%;
+        }
+
+        .item2 {
+            width: 311px;
+            margin: 0px;
+            padding: 0%;
+            z-index: 5;
+            border-top: 1px solid rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+            border-right: 1px solid rgba(0, 0, 0, 0.3);
+            box-shadow: 5px 6px 6px rgba(0, 0, 0, 0.25);
+        }
+
+        .itemC1 {
+            background-color: rgb(59, 155, 100);
+            width: 187px;
+            padding: 10px 20px 10px 20px;
+            height: 223px;
+        }
+
+        .itemC2 {
+            width: 187px;
+            background-color: white;
+            padding: 10px 20px 10px 20px;
+            height: 223px;
+        }
+
         footer {
             margin: 0% 20px;
             position: fixed;
-            bottom: -60px;
-            left: 0px;
-            right: 0px;
-            height: 50px;
-
+            bottom: 40px;
+            left: 715px;
+            right: -40px;
+            height: 20px;
+            background-color: #3B9B64;
             /** Extra personal styles **/
-            background-color: #03a9f4;
-            color: white;
-            text-align: center;
-            line-height: 35px;
+
+
         }
 
+        .titulo2 {
+            font-family: 'Myriad Pro Bold';
+            font-size: 9pt;
+            color: black;
+            text-align: justify;
+            background-color: white;
+            margin: 0%;
+            display: inline;
+
+        }
+
+        strong {
+            font-family: 'Myriad Pro Bold';
+            font-size: 9pt;
+            color: black;
+            margin: 0%;
+        }
+
+        .textContenido {
+            margin: 0%;
+            font-family: 'Myriad Pro regular';
+            font-size: 9pt;
+            color: black;
+            text-align: justify;
+
+            background-color: white;
+        }
+        
         hr {
             color: white;
             width: 100px;
@@ -187,11 +263,11 @@
     <header>
         <img src="{{ public_path("storage/Logos/LogoPdf.png") }}" alt="..." height="30" width="152">
     </header>
-    <!--
+
     <footer>
-        Copyright &copy; <?php echo date("Y");?> 
+
     </footer>
--->
+
     <!-- Wrap the content of your PDF inside a main tag -->
     <main>
         <p class="NombreComun">
@@ -207,23 +283,26 @@
                 <div class="container1">
                     <p class="titulos" style="margin-top: 0px;margin-bottom: 0px;"> ORIGEN</p>
 
-                    <p class="parrafos" style="margin-top: 0px;margin-bottom: 10px;">
+                    <p class="parrafos" style="margin-top: 0px;margin-bottom: 20px;">
                         {{$fichaTecnica->FichaTecnica->Origen}}</p>
                     <hr>
-                    <p class="titulos" style="margin-top: 10px;margin-bottom: 0px;  "> FORMA DE
+                    <p class="titulos" style="margin-top: 20px;margin-bottom: 0px;  "> FORMA DE
                         CRECIMIENTO</p>
                     <p class="parrafos" style="margin-top: 0px;margin-bottom: 0px;">
                         {{$fichaTecnica->FichaTecnica->Fcrecimiento}}</p>
                     @if ($fichaTecnica->FichaTecnica->Fcrecimiento=='Herbacea')
-                    <img src="{{public_path("storage/Logos/FichasTecnicas/FormasCrecimiento/Herbacea.png")}}"
-                        height="30" width="30" alt="">
+                    <img style="margin-top: 10px;"
+                        src="{{public_path("storage/Logos/FichasTecnicas/FormasCrecimiento/Herbacea.png")}}" height="30"
+                        width="30" alt="">
                     @else
                     @if ($fichaTecnica->FichaTecnica->Fcrecimiento=='Arbustiva')
-                    <img src="{{public_path("storage/Logos/FichasTecnicas/FormasCrecimiento/Arbustiva.png")}}"
+                    <img style="margin-top: 10px;"
+                        src="{{public_path("storage/Logos/FichasTecnicas/FormasCrecimiento/Arbustiva.png")}}"
                         height="30" width="30" alt="">
                     @else
                     @if ($fichaTecnica->FichaTecnica->Fcrecimiento=='Arborescente')
-                    <img src="{{public_path("storage/Logos/FichasTecnicas/FormasCrecimiento/Arborescente.png")}}"
+                    <img style="margin-top: 10px;"
+                        src="{{public_path("storage/Logos/FichasTecnicas/FormasCrecimiento/Arborescente.png")}}"
                         height="30" width="30" alt="">
                     @else
                     @if ($fichaTecnica->FichaTecnica->Fcrecimiento=='Arbórea')
@@ -231,77 +310,276 @@
                         src="{{public_path("storage/Logos/FichasTecnicas/FormasCrecimiento/Arbórea.png")}}" height="30"
                         width="30" alt="">
                     @else
-                    <img src="{{public_path("storage/Logos/FichasTecnicas/FormasCrecimiento/Columnar.png")}}"
-                        height="30" width="30" alt="">
+                    <img style="margin-top: 10px;"
+                        src="{{public_path("storage/Logos/FichasTecnicas/FormasCrecimiento/Columnar.png")}}" height="30"
+                        width="30" alt="">
                     @endif
                     @endif
                     @endif
                     @endif
                     <hr style="margin-top: 10px;">
-                    <p class="titulos" style="margin-top: 10px;margin-bottom: 0px; padding-top: 0px;"> PERMANENCIA DE
+                    <p class="titulos" style="margin-top: 20px;margin-bottom: 0px; padding-top: 0px;"> PERMANENCIA DE
                         HOJAS</p>
                     <p class="parrafos" style="margin-top: 0px;margin-bottom: 10px;">
                         {{$fichaTecnica->FichaTecnica->TPertenencia}}</p>
                     <hr>
-                    <p class="titulos" style="margin-top: 0px;margin-bottom: 0px; padding-top: 0px;"> FLORACIÓN</p>
-                    <p class="parrafos" style="margin-top: 0px;margin-bottom: 0px;padding: 0% 15px; text-align: justify;">
+                    <p class="titulos" style="margin-top: 20px;margin-bottom: 0px; padding-top: 0px;"> FLORACIÓN</p>
+                    <p class="parrafos"
+                        style="margin-top: 0px;margin-bottom: 0px;padding: 0% 15px; text-align: justify;">
                         {{$fichaTecnica->FichaTecnica->Floracion}}</p>
 
                 </div>
 
-                </div>
+            </div>
                 <div style="height: 30px;"></div>
                 <div class="flex-container" style="height: 110px; margin: 0px; padding: 0%;">
-                        <div class="item">
-                            <img src="{{ public_path("storage$urlF") }}" alt=""
-                                style="margin: 0%;height: 110px;width: 110px;">
-                                <p class="tituloImagen">FOLLAJE</p>
-                        </div>
-                        <div class="item"style="margin-left:120px;">
-                            <img src="{{ public_path("storage$urlH") }}" alt=""
-                                style="margin: 0%;height: 110px;width: 110px;">
-                                <p class="tituloImagen">HOJAS</p>
-                        </div>
-                        <div class="item" style="margin-left:242px;">
-                            <img src="{{ public_path("storage$urlFL")}}" alt=""
-                                style="margin: 0%;height: 110px;width: 110px;">
-                                <p class="tituloImagen">FLORES</p>
-                        </div>
-                        <div  style="margin-left:360px; width: 348px; height: 154px;">
-                            <img src="{{ public_path("storage$urlT")}}" alt=""
-                                style="margin: 0%;height: 154px;width: 348px;">
-                                <p class="tituloImagen">TRONCO</p>
-                        </div>
-                       
+                    <div class="item">
+                        <img src="{{ public_path("storage$urlF") }}" alt=""
+                            style="margin: 0%;height: 110px;width: 110px;">
+                        <p class="tituloImagen">FOLLAJE</p>
+                    </div>
+                    <div class="item" style="margin-left:120px;">
+                        <img src="{{ public_path("storage$urlH") }}" alt=""
+                            style="margin: 0%;height: 110px;width: 110px;">
+                        <p class="tituloImagen">HOJAS</p>
+                    </div>
+                    <div class="item" style="margin-left:242px;">
+                        <img src="{{ public_path("storage$urlFL")}}" alt=""
+                            style="margin: 0%;height: 110px;width: 110px;">
+                        <p class="tituloImagen">FLORES</p>
+                    </div>
+                    <div style="margin-left:360px; width: 350px; height: 154px;">
+                        <img src="{{ public_path("storage$urlT")}}" alt=""
+                            style="margin: 0%;height: 154px;width: 350px;">
+                        <p class="tituloImagen">TRONCO</p>
+                    </div>
+
                 </div>
                 <div class="container2" style=" margin-top: 25px;">
-                    <img src="{{ public_path("storage$urlPC")}}" alt=""
-                    style="margin: 0%;height: 154px;width: 348px;">
+                    <img src="{{ public_path("storage$urlPC")}}" alt="" style="margin: 0%;height: 154px;width: 348px;">
                     <p class="tituloImagen">PLANTA COMPLETA</p>
                 </div>
-                
+
                 <div style="position: fixed;top:525;left: 287">
                     <div class="flex-container" style="height: 117px; margin: 0px; padding: 0%;">
                         <div class="item">
                             <img src="{{ public_path("storage$urlFR") }}" alt=""
                                 style="margin: 0%;height: 110px;width: 110px;">
-                                <p class="tituloImagen">FRUTO</p>
+                            <p class="tituloImagen">FRUTO</p>
                         </div>
-                        <div class="item"style="margin-left:120px;">
+                        <div class="item" style="margin-left:120px;">
                             <img src="{{ public_path("storage$urlS") }}" alt=""
                                 style="margin: 0%;height: 110px;width: 110px;">
-                                <p class="tituloImagen">SEMILLAS</p>
+                            <p class="tituloImagen">SEMILLAS</p>
                         </div>
                         <div class="item" style="margin-left:242px;">
                             <img src="{{ public_path("storage$urlR")}}" alt=""
                                 style="margin: 0%;height: 110px;width: 110px;">
-                                <p class="tituloImagen">RAÍCES</p>
+                            <p class="tituloImagen">RAÍCES</p>
                         </div>
                     </div>
                 </div>
                 <div clas='saltopagina'></div>
-                <div>hola</div>
-        <!--
+                <div>
+                    <div class="flex-container" style="height: 470px; margin: 0px 0px 20px 0px;">
+
+                        <div class="item1" style="background-color: red;height: 470px;">
+                            <img src="{{ public_path("storage$urlFL") }}" alt="..." style="width: 360px;height: 470px;">
+                        </div>
+                        <div class="item2" style=" margin-left: 360px; padding: 20px; height: 428px;">
+                            <p class="textContenido">
+                                <strong>Descripción:</strong>&nbsp; {{$fichaTecnica->FichaTecnica->Descripcion}}
+                                <br>
+                                <br>
+                                <strong>Estatus ecológico en
+                                    México:</strong>&nbsp;{{$fichaTecnica->FichaTecnica->EstatusEco}}.
+                                <br>
+                                <br>
+
+                                <strong>Estatus de
+                                    conservación:</strong>&nbsp;{{$fichaTecnica->FichaTecnica->EstatusConv}}.
+                                <br>
+                                @if ($fichaTecnica->FichaTecnica->EstatusConv=='Peligro de extinción')
+                                <img style="margin-top: 10px;"
+                                    src="{{public_path("storage/Logos/FichasTecnicas/EstatusConservacion/Extincion.png")}}"
+                                    height="30" width="30" alt="">
+                                @else
+                                @if ($fichaTecnica->FichaTecnica->EstatusConv=='Amenaza')
+                                <img style="margin-top: 10px;"
+                                    src="{{public_path("storage/Logos/FichasTecnicas/EstatusConservacion/Amenaza.png")}}"
+                                    height="30" width="30" alt="">
+                                @else
+                                @if ($fichaTecnica->FichaTecnica->EstatusConv=='Vulnerable')
+                                <img style="margin-top: 10px;"
+                                    src="{{public_path("storage/Logos/FichasTecnicas/EstatusConservacion/Vulnerable.png")}}"
+                                    height="30" width="30" alt="">
+                                @else
+                                @if ($fichaTecnica->FichaTecnica->EstatusConv=='Menor preocupación')
+
+                                <img style="margin-top: 10px;"
+                                    src="{{public_path("storage/Logos/FichasTecnicas/EstatusConservacion/MenorPreocupacion.png")}}"
+                                    height="30" width="30" alt="">
+                                @else
+                                <img style="margin-top: 10px;"
+                                    src="{{public_path("storage/Logos/FichasTecnicas/EstatusConservacion/SinProblema.png")}}"
+                                    height="30" width="30" alt="">
+                                @endif
+                                @endif
+                                @endif
+                                @endif
+                                <br>
+                                <br>
+                                <strong>Altura en estado
+                                    natural:</strong>&nbsp;{{$fichaTecnica->FichaTecnica->Altura}}m.
+                                <br>
+                                <br>
+                                <strong>Altura en condiciones
+                                    urbanas:</strong>&nbsp;{{$fichaTecnica->FichaTecnica->AlturaCondicionesUrbanos}}m.
+                                <br>
+                                <br>
+                                <strong>Tipo de copa:</strong>&nbsp;{{$fichaTecnica->FichaTecnica->TipoC}}.
+                                <br>
+                                <br>
+                                <strong>Tipo de raíces:</strong>&nbsp;{{$fichaTecnica->FichaTecnica->TipoR}}.
+                                <br>
+                                <br>
+                                <strong>Raíces observadas:</strong>&nbsp;{{$fichaTecnica->FichaTecnica->RaicesObs}}.
+                                <br>
+                                <br>
+                                <strong>Porte:</strong>&nbsp;{{$fichaTecnica->FichaTecnica->Porte}}.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex-container" style="height: 223px; margin: 0px 0px 40px 0px;">
+                        <div class="itemC1">
+                            <p class="titulos" style="margin-top: 0px;margin-bottom: 0px;"> REQUERIMIENTOS DE LA ESPECIE
+                            </p>
+                            <p class="parrafos" style="margin: 0%;text-align: justify;">
+                                {{$fichaTecnica->FichaTecnica->RequerimientosE}}</p>
+                        </div>
+                        <div class="itemC2" style="margin-left:  242px; 
+                    border: 1px  solid rgba(0, 0, 0, 0.3);">
+                            <p class="titulos" style="margin-top: 0px;margin-bottom: 0px;color: black;">USOS</p>
+                            <div  style="height: 187px; margin: 0px 0px;">
+                                <div style="width: 100%; margin:0%;">
+                                    <p style="font-size: 9pt;color: black;text-align: justify;">
+                                        {{$fichaTecnica->FichaTecnica->Usos}}</p>
+                                </div>
+                               
+                                <div style="width: 100%;margin: 0% 0% 0% 0%;">
+                                    @if ($fichaTecnica->FichaTecnica->Usos=='Ornamental(estético)')
+                                    <img style="margin-top: 0px;"
+                                        src="{{public_path("storage/Logos/FichasTecnicas/Usos/Ornamental.png")}}"
+                                        height="50" width="50" alt="">
+
+                                    @else
+                                    @if ($fichaTecnica->FichaTecnica->Usos=='Medicinal')
+                                    <img  style="margin: 0%;"
+                                        src="{{public_path("storage/Logos/FichasTecnicas/Usos/Medicinal.png")}}"
+                                        height="30" width="30" alt="">
+                                    @else
+                                    @if ($fichaTecnica->FichaTecnica->Usos=='Comestible')
+                                   
+                                    <img style="margin: 0%;"
+                                        src="{{public_path("storage/Logos/FichasTecnicas/Usos/Comestible.png")}}"
+                                        height="50" width="50" alt="">
+                                    @else
+                                    @if ($fichaTecnica->FichaTecnica->Usos=='Sombra')
+                                    <img style="margin: 0%;"
+                                        src="{{public_path("storage/Logos/FichasTecnicas/Usos/Sombra.png")}}"
+                                        height="30" width="30" alt="">
+                                    @else
+                                    <img style="margin: 0%;"
+                                        src="{{public_path("storage/Logos/FichasTecnicas/Usos/Aromático.png")}}"
+                                        height="30" width="30" alt="">
+                                    @endif
+                                    @endif
+                                    @endif
+                                    @endif
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="itemC1" style="margin-left:  484px">
+                            <p class="titulos" style="margin-top: 0px;margin-bottom: 0px;"> CLIMA EN HÁBITAT NATURAL</p>
+                            <p class="parrafos" style="margin: 0%;text-align: justify;">
+                                {{$fichaTecnica->FichaTecnica->Clima}}</p>
+
+                        </div>
+                    </div>
+                    <div >
+                        <p class="titulos" style="margin-top: 0px;margin-bottom: 0px;color: black;text-align: left;">RIESGOS Y AMENAZAS  </p>
+                        <hr style="color: black; width: 100%; margin:0%;margin-right: 91%;">
+                        <p class="textContenido">
+                            {{$fichaTecnica->FichaTecnica->AmenazasRiesgos}}
+                           
+                        </p>
+                        <p class="titulos" style="margin-top: 10px;margin-bottom: 0px;color: black;text-align: left;">SERVICIOS AMBIENTALES</p>
+                        <hr style="color: black; width: 100%; margin:0%;margin-right: 91%;">
+                        <p class="textContenido" style="margin: 0%;">
+                            {{$fichaTecnica->FichaTecnica->ServiciosAmb}}
+                        </p>
+                    </div>
+                  
+           
+             <div clas='saltopagina'></div>
+                    <div style="width: 100%;background-color: rgb(59, 155, 100);">
+                        <p class="titulos" style="margin-top: 0px;margin-bottom: 0px;"> FUENTE DE CONSULTA</p>
+                    </div>
+                    @foreach ($Biblio as $item)
+                    <p class="parrafos" style="color: black;text-align: left;"> {{$item->Referencia}}</p>
+                    @endforeach
+                    <div style="width: 100%;background-color: rgb(59, 155, 100);">
+                        <p class="titulos" style="margin-top: 0px;margin-bottom: 0px;"> PARA CITAR ESTA FICHA</p>
+                    </div>
+                 
+                    <p class="parrafos" style="color: black;text-align: left;"> 
+                        Ramos-Palacios C.R. 2021. Ficha técnica de   <span class="NombreCien2">{{$NombreCienti[0]}} {{$NombreCienti[1]}}.&nbsp;</span>
+                        <q>Inventario de especies de flora del Programa Universitario de Biodiversidad</q>.&nbsp;Agenda Ambiental, Universidad Autónoma de San Luis Potosí.&nbsp;Base de datos del Programa Universitario de Biodiversidad-UASLP.México, S.L.P.
+                    </p>
+                    <img style="margin-bottom: 10px;"
+                    src="{{public_path("storage/Logos/Licencia.PNG")}}"alt="" height="30" width="100">
+                    
+                </div>
+                <div style="width: 100%;background-color: rgb(59, 155, 100);">
+                    <p class="titulos" style="margin-top: 0px;margin-bottom: 0px;"> CRÉDITOS</p>
+                </div>
+                <p class="textContenido">
+                    <strong>Dirección:</strong>&nbsp; Dr. Marcos Algara Siller
+                    <br>
+                    <strong>Supervisión:</strong>&nbsp; IBP. Laura Daniela Hernández
+                    <br>
+                    <strong>Revisión y autorización:</strong>&nbsp; Dr. Carlos Renato Ramos Palacios
+                    <br>
+                    <strong>Fotografías:</strong>&nbsp;   {{$fichaTecnica->FichaTecnica->NombreAutorFoto}}
+                    <br>
+                    @if ($fichaTecnica->FichaTecnica->NombreRecolectorMuestra==$fichaTecnica->FichaTecnica->NombreRecolectorDatos)
+                    <strong>Muestreo y captura:</strong>&nbsp;{{$fichaTecnica->FichaTecnica->NombreRecolectorMuestra}}
+                    @else
+                    <strong>>Muestreo y captura:</strong>&nbsp;{{$fichaTecnica->FichaTecnica->NombreRecolectorMuestra}},&nbsp;{{$fichaTecnica->FichaTecnica->NombreRecolectorDatos}}
+                    @endif
+                    <br>
+                    <strong>Diseño:</strong>&nbsp;LDG. María de Jesús Villarreal Iturriaga
+                    <br>
+                    <strong>Diseño de íconos:</strong>&nbsp;LDG. Itzel Zárate Figueroa
+                    <br>
+                    <br>
+                    <br>
+                    Universidad Autónoma de San Luis Potosí
+                    <br>
+                    Agenda Ambiental
+                    <br>
+                    Sistema de Gestión Ambiental/Programa Universitario de Biodiversidad
+                    <br>
+                    San Luis Potosí, S.L.P.,México.
+                    <br>
+                 
+                    Fecha de elaboración: &nbsp; {{   Carbon\Carbon::parse($fichaTecnica->FichaTecnica->FechaRecoleccion)->locale('es')->isoFormat('DD MMMM YYYY')}}
+                </p>
+
+                
+              
+                <!--
         <p style="page-break-after: always;">
           
         </p>
@@ -310,13 +588,10 @@
             Content Page 2
         </p>
     -->
-                <div class="backgoundCountP">
-
-                </div>
                 <script type="text/php">
                     if (isset($pdf)) {
             $x = 575;
-            $y = 710;
+            $y = 744;
             $text = "{PAGE_NUM} ";
             $font = null;
             $size = 12;
