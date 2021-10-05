@@ -132,7 +132,7 @@ class HomeController extends Controller
                     $user->save();
                     $user->roles()->attach(Rol::where('nombre', 'Ninguno')->first());
                     Auth::login($user);
-                    return redirect()->route('UXV');
+                    return redirect()->route('dashbord');
                 } else {
                     return redirect()->back()->with('message', "Error tus credenciales no coenciden con nuestra información");
                 }
