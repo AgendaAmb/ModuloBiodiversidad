@@ -16,6 +16,10 @@ class AddColumnNamEnglish extends Migration
         Schema::table('nombre_ejemplars', function (Blueprint $table) {
             $table->string('NombreComunIng')->nullable()->after('NombreComun');
         });
+
+        Schema::table('ficha_tecnicas', function (Blueprint $table) {
+            $table->string('Url_PC2')->nullable()->after('Url_PC');
+        });
        
     }
 

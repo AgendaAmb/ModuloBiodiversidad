@@ -103,7 +103,6 @@
             font-family: 'Myriad Pro italic';
             text-align: center;
             size: 12pt;
-
         }
         .NombreCien2 {
            
@@ -247,6 +246,7 @@
 </head>
 <p style="display: none;">
     {{$urlPC=$fichaTecnica->FichaTecnica->Url_PC}}
+    {{$urlPC2=$fichaTecnica->FichaTecnica->Url_PC2}}
     {{$urlF=$fichaTecnica->FichaTecnica->Url_F}}
     {{$urlH=$fichaTecnica->FichaTecnica->Url_H}}
     {{$urlFL=$fichaTecnica->FichaTecnica->Url_FL}}
@@ -274,7 +274,6 @@
             {{$fichaTecnica->NombreComun}} / {{$fichaTecnica->NombreComunIng}}
         </p>
         <p class="NombreCien">{{$NombreCienti[0]}} {{$NombreCienti[1]}},
-
             @for ($i = 2; $i < count($NombreCienti); $i++) {{$NombreCienti[$i]}} @endfor </p> 
             <div class="flex-container" style="height: 441px;">
                 <div class="imgCompleta1">
@@ -356,7 +355,7 @@
 
                 </div>
                 <div class="container2" style=" margin-top: 25px;">
-                    <img src="{{ public_path("storage$urlPC")}}" alt="" style="margin: 0%;height: 154px;width: 348px;">
+                    <img src="{{ public_path("storage$urlPC2")}}" alt="" style="margin: 0%;height: 154px;width: 348px;">
                     <p class="tituloImagen">PLANTA COMPLETA</p>
                 </div>
 
@@ -384,7 +383,7 @@
                     <div class="flex-container" style="height: 470px; margin: 0px 0px 20px 0px;">
 
                         <div class="item1" style="background-color: red;height: 470px;">
-                            <img src="{{ public_path("storage$urlFR") }}" alt="..." style="width: 360px;height: 470px;">
+                            <img src="{{ public_path("storage$urlFL") }}" alt="..." style="width: 360px;height: 470px;">
                         </div>
                         <div class="item2" style=" margin-left: 360px; padding: 20px; height: 428px;">
                             <p class="textContenido">
