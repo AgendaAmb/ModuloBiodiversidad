@@ -221,7 +221,7 @@
 
         }
 
-        strong {
+        span {
             font-family: 'Myriad Pro Bold';
             font-size: 9pt;
             color: black;
@@ -261,7 +261,7 @@
 <body>
     <!-- Define header and footer blocks before your content -->
     <header>
-        <img src="{{ public_path("storage/Logos/LogoPdf.png") }}" alt="..." height="30" width="152">
+        <img src="{{ public_path("storage/Logos/LogoPdf.png") }}" alt="..." height="40" width="192">
     </header>
 
     <footer>
@@ -388,71 +388,71 @@
                         </div>
                         <div class="item2" style=" margin-left: 360px; padding: 20px; height: 428px;">
                             <p class="textContenido">
-                                <strong>Descripción:</strong>&nbsp; {{$fichaTecnica->FichaTecnica->Descripcion}}
+                                <span style="font-family: 'Myriad Pro Bold';">Descripción:</span>&nbsp; {{$fichaTecnica->FichaTecnica->Descripcion}}
                                 <br>
                                 <br>
-                                <strong>Estatus ecológico en
-                                    México:</strong>&nbsp;{{$fichaTecnica->FichaTecnica->EstatusEco}}.
+                                <span>Estatus ecológico en
+                                    México:</span>&nbsp;{{$fichaTecnica->FichaTecnica->EstatusEco}}.
                                 <br>
                                 <br>
 
-                                <strong>Estatus de
-                                    conservación:</strong>&nbsp;{{$fichaTecnica->FichaTecnica->EstatusConv}}.
+                                <span>Estatus de
+                                    conservación:</span>&nbsp;{{$fichaTecnica->FichaTecnica->EstatusConv}}.
                                 <br>
                                 @if ($fichaTecnica->FichaTecnica->EstatusConv=='Peligro de extinción')
                                 <img style="margin-top: 10px;"
                                     src="{{public_path("storage/Logos/FichasTecnicas/EstatusConservacion/Extincion.png")}}"
-                                    height="30" width="30" alt="">
+                                    height="40" width="40" alt="">
                                 @else
                                 @if ($fichaTecnica->FichaTecnica->EstatusConv=='Amenaza')
                                 <img style="margin-top: 10px;"
                                     src="{{public_path("storage/Logos/FichasTecnicas/EstatusConservacion/Amenaza.png")}}"
-                                    height="30" width="30" alt="">
+                                    height="40" width="40" alt="">
                                 @else
                                 @if ($fichaTecnica->FichaTecnica->EstatusConv=='Vulnerable')
                                 <img style="margin-top: 10px;"
                                     src="{{public_path("storage/Logos/FichasTecnicas/EstatusConservacion/Vulnerable.png")}}"
-                                    height="30" width="30" alt="">
+                                    height="40" width="40" alt="">
                                 @else
                                 @if ($fichaTecnica->FichaTecnica->EstatusConv=='Menor preocupación')
 
                                 <img style="margin-top: 10px;"
                                     src="{{public_path("storage/Logos/FichasTecnicas/EstatusConservacion/MenorPreocupacion.png")}}"
-                                    height="30" width="30" alt="">
+                                    height="40" width="40" alt="">
                                 @else
                                 <img style="margin-top: 10px;"
                                     src="{{public_path("storage/Logos/FichasTecnicas/EstatusConservacion/SinProblema.png")}}"
-                                    height="30" width="30" alt="">
+                                    height="40" width="40" alt="">
                                 @endif
                                 @endif
                                 @endif
                                 @endif
                                 <br>
                                 <br>
-                                <strong>Altura en estado
-                                    natural:</strong>&nbsp;{{$fichaTecnica->FichaTecnica->Altura}}m.
+                                <span>Altura en estado
+                                    natural:</span>&nbsp;{{$fichaTecnica->FichaTecnica->Altura}}m.
                                 <br>
                                 <br>
-                                <strong>Altura en condiciones
-                                    urbanas:</strong>&nbsp;{{$fichaTecnica->FichaTecnica->AlturaCondicionesUrbanos}}m.
+                                <span>Altura en condiciones
+                                    urbanas:</span>&nbsp;{{$fichaTecnica->FichaTecnica->AlturaCondicionesUrbanos}}m.
                                 <br>
                                 <br>
-                                <strong>Tipo de copa:</strong>&nbsp;{{$fichaTecnica->FichaTecnica->TipoC}}.
+                                <span>Tipo de copa:</span>&nbsp;{{$fichaTecnica->FichaTecnica->TipoC}}.
                                 <br>
                                 <br>
-                                <strong>Tipo de raíces:</strong>&nbsp;{{$fichaTecnica->FichaTecnica->TipoR}}.
+                                <span>Tipo de raíces:</span>&nbsp;{{$fichaTecnica->FichaTecnica->TipoR}}.
                                 <br>
                                 <br>
-                                <strong>Raíces observadas:</strong>&nbsp;{{$fichaTecnica->FichaTecnica->RaicesObs}}.
+                                <span>Raíces observadas:</span>&nbsp;{{$fichaTecnica->FichaTecnica->RaicesObs}}.
                                 <br>
                                 <br>
-                                <strong>Porte:</strong>&nbsp;{{$fichaTecnica->FichaTecnica->Porte}}.
+                                <span>Porte:</span>&nbsp;{{$fichaTecnica->FichaTecnica->Porte}}.
                             </p>
                         </div>
                     </div>
                     <div class="flex-container" style="height: 223px; margin: 0px 0px 40px 0px;">
                         <div class="itemC1">
-                            <p class="titulos" style="margin-top: 0px;margin-bottom: 0px;"> REQUERIMIENTOS DE LA ESPECIE
+                            <p class="titulos" style="margin-top: 0px;margin-bottom: 7.5pt; line-height: 7.5pt;"> REQUERIMIENTOS DE LA ESPECIE
                             </p>
                             <p class="parrafos" style="margin: 0%;text-align: justify;">
                                 {{$fichaTecnica->FichaTecnica->RequerimientosE}}</p>
@@ -501,7 +501,7 @@
 
                         </div>
                         <div class="itemC1" style="margin-left:  484px">
-                            <p class="titulos" style="margin-top: 0px;margin-bottom: 0px;"> CLIMA EN HÁBITAT NATURAL</p>
+                            <p class="titulos" style="margin-top: 0px;margin-bottom: 7.5pt; line-height: 7.5pt;"> CLIMA EN HÁBITAT NATURAL</p>
                             <p class="parrafos" style="margin: 0%;text-align: justify;">
                                 {{$fichaTecnica->FichaTecnica->Clima}}</p>
 
@@ -523,17 +523,17 @@
                   
            
              <div clas='saltopagina'></div>
-                    <div style="width: 100%;background-color: rgb(59, 155, 100);">
-                        <p class="titulos" style="margin-top: 0px;margin-bottom: 0px;"> FUENTE DE CONSULTA</p>
+                    <div style="width: 100%;background-color: rgb(59, 155, 100);padding: 0px;height: 30px;">
+                        <p class="titulos" style="margin: 0px;"> FUENTE DE CONSULTA</p>
                     </div>
                     @foreach ($Biblio as $item)
-                    <p class="parrafos" style="color: black;text-align: left;"> {{$item->Referencia}}</p>
+                    <p class="parrafos" style="color: black;text-align: left;  font-family: 'Myriad Pro';"> {{$item->Referencia}}</p>
                     @endforeach
-                    <div style="width: 100%;background-color: rgb(59, 155, 100);">
+                    <div style="width: 100%;background-color: rgb(59, 155, 100);padding: 5px;height: 30px;">
                         <p class="titulos" style="margin-top: 0px;margin-bottom: 0px;"> PARA CITAR ESTA FICHA</p>
                     </div>
                  
-                    <p class="parrafos" style="color: black;text-align: left;"> 
+                    <p class="parrafos" style="color: black;text-align: left;font-family: 'Myriad Pro';height: 30px;"> 
                         Ramos-Palacios C.R. 2021. Ficha técnica de   <span class="NombreCien2">{{$NombreCienti[0]}} {{$NombreCienti[1]}}.&nbsp;</span>
                         <q>Inventario de especies de flora del Programa Universitario de Biodiversidad</q>.&nbsp;Agenda Ambiental, Universidad Autónoma de San Luis Potosí.&nbsp;Base de datos del Programa Universitario de Biodiversidad-UASLP.México, S.L.P.
                     </p>
@@ -541,27 +541,27 @@
                     src="{{public_path("storage/Logos/Licencia.PNG")}}"alt="" height="30" width="100">
                     
                 </div>
-                <div style="width: 100%;background-color: rgb(59, 155, 100);">
+                <div style="width: 100%;background-color: rgb(59, 155, 100);padding: 5px;">
                     <p class="titulos" style="margin-top: 0px;margin-bottom: 0px;"> CRÉDITOS</p>
                 </div>
                 <p class="textContenido">
-                    <strong>Dirección:</strong>&nbsp; Dr. Marcos Algara Siller
+                    <span>Dirección:</span>&nbsp; Dr. Marcos Algara Siller
                     <br>
-                    <strong>Supervisión:</strong>&nbsp; IBP. Laura Daniela Hernández
+                    <span>Supervisión:</span>&nbsp; IBP. Laura Daniela Hernández
                     <br>
-                    <strong>Revisión y autorización:</strong>&nbsp; Dr. Carlos Renato Ramos Palacios
+                    <span>Revisión y autorización:</span>&nbsp; Dr. Carlos Renato Ramos Palacios
                     <br>
-                    <strong>Fotografías:</strong>&nbsp;   {{$fichaTecnica->FichaTecnica->NombreAutorFoto}}
+                    <span>Fotografías:</span>&nbsp;   {{$fichaTecnica->FichaTecnica->NombreAutorFoto}}
                     <br>
                     @if ($fichaTecnica->FichaTecnica->NombreRecolectorMuestra==$fichaTecnica->FichaTecnica->NombreRecolectorDatos)
-                    <strong>Muestreo y captura:</strong>&nbsp;{{$fichaTecnica->FichaTecnica->NombreRecolectorMuestra}}
+                    <span>Muestreo y captura:</span>&nbsp;{{$fichaTecnica->FichaTecnica->NombreRecolectorMuestra}}
                     @else
-                    <strong>>Muestreo y captura:</strong>&nbsp;{{$fichaTecnica->FichaTecnica->NombreRecolectorMuestra}},&nbsp;{{$fichaTecnica->FichaTecnica->NombreRecolectorDatos}}
+                    <span>>Muestreo y captura:</span>&nbsp;{{$fichaTecnica->FichaTecnica->NombreRecolectorMuestra}},&nbsp;{{$fichaTecnica->FichaTecnica->NombreRecolectorDatos}}
                     @endif
                     <br>
-                    <strong>Diseño:</strong>&nbsp;LDG. María de Jesús Villarreal Iturriaga
+                    <span>Diseño:</span>&nbsp;LDG. María de Jesús Villarreal Iturriaga
                     <br>
-                    <strong>Diseño de íconos:</strong>&nbsp;LDG. Itzel Zárate Figueroa
+                    <span>Diseño de íconos:</span>&nbsp;LDG. Itzel Zárate Figueroa
                     <br>
                     <br>
                     <br>
@@ -593,7 +593,7 @@
             $x = 575;
             $y = 744;
             $text = "{PAGE_NUM} ";
-            $font = null;
+            $font = 10;
             $size = 12;
             $color = array(255,255,255);
             $word_space = 0.0;  //  default
