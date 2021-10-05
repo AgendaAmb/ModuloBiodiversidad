@@ -3,6 +3,7 @@
 @section('contenido')
 
 <div class="container-fluid  py-5" id="appp">
+  
     <p style="display: none;">
         {{$urlPC=$fichaTecnica->FichaTecnica->Url_PC}}
         {{$urlF=$fichaTecnica->FichaTecnica->Url_F}}

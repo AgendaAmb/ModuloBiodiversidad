@@ -256,6 +256,9 @@
     {{$urlT=$fichaTecnica->FichaTecnica->Url_T}}
     {{$urlR=$fichaTecnica->FichaTecnica->Url_R}}
     {{$NombreCienti=Str::of($fichaTecnica->NombreCientifico)->split('/[\s,]+/')}}
+    {{$NombreMuestraInit=Str::of($fichaTecnica->FichaTecnica->NombreRecolectorMuestra)->studly()->split('/([a-zí]+)/')}}
+   
+    {{$ApellidosMuestra=Str::of($fichaTecnica->FichaTecnica->NombreRecolectorMuestra)->explode(' ')}}
 </p>
 
 <body>
@@ -539,10 +542,10 @@
                     </div>
                  
                     <p class="parrafos" style="color: black;text-align: left;font-family: 'Myriad Pro';height: 30px;"> 
-                        Ramos-Palacios C.R. 2021. Ficha técnica de   <span class="NombreCien2">{{$NombreCienti[0]}} {{$NombreCienti[1]}}.&nbsp;</span>
-                        <q>Inventario de especies de flora del Programa Universitario de Biodiversidad</q>.&nbsp;Agenda Ambiental, Universidad Autónoma de San Luis Potosí.&nbsp;Base de datos del Programa Universitario de Biodiversidad-UASLP.México, S.L.P.
+                        Ramos-Palacios C.R. y {{$NombreMuestraInit[0] }}.{{$NombreMuestraInit[1]}}.&nbsp;{{$ApellidosMuestra[2]}}-{{$ApellidosMuestra[3]}} (2021). Ficha técnica de   <span class="NombreCien2">{{$NombreCienti[0]}} {{$NombreCienti[1]}}.&nbsp;</span>
+                        <q>Inventario de especies de flora del Programa Universitario de Biodiversidad</q>.&nbsp;Agenda Ambiental, Universidad Autónoma de San Luis Potosí.&nbsp;Base de datos del Programa Universitario de Biodiversidad-UASLP, {{$fichaTecnica->Clave}}-1. México, S.L.P. <br>
                     </p>
-                    <img style="margin-bottom: 10px;"
+                    <img style="margin-bottom: 10px;margin-top: 10px;"
                     src="{{public_path("storage/Logos/Licencia.PNG")}}"alt="" height="30" width="100">
                     
                 </div>
