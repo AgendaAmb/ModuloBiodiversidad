@@ -10,11 +10,5 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-storage/app/public/FichasTecnicas/Sauco/SAU_F.jpg
-storage/app/public/FichasTecnicas/Sauco/SAU_FL.png
-storage/app/public/FichasTecnicas/Sauco/SAU_FR.jpg
-storage/app/public/FichasTecnicas/Sauco/SAU_H.jpeg
-storage/app/public/FichasTecnicas/Sauco/SAU_PC.png
-storage/app/public/FichasTecnicas/Sauco/SAU_R.jpeg
-storage/app/public/FichasTecnicas/Sauco/SAU_S.jpeg
-storage/app/public/FichasTecnicas/Sauco/SAU_T.jpeg
+storage/app/public/FichasTecnicas/*
+

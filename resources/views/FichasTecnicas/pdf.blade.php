@@ -355,7 +355,13 @@
 
                 </div>
                 <div class="container2" style=" margin-top: 25px;">
+                    @if ($urlPC21!=null)
+                        
                     <img src="{{ public_path("storage$urlPC2")}}" alt="" style="margin: 0%;height: 154px;width: 348px;">
+                    @else
+                    <img src="{{ public_path("storage$urlPC")}}" alt="" style="margin: 0%;height: 154px;width: 348px;">
+  
+                    @endif
                     <p class="tituloImagen">PLANTA COMPLETA</p>
                 </div>
 
