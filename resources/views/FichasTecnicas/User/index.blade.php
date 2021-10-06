@@ -12,10 +12,10 @@
         </span>
 
     </div>
-    <div class="row row-cols-1 row-cols-xl-4 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 especies">
+    <div class="row row-cols-1 row-cols-xl-5 row-cols-lg-5 row-cols-md-3 row-cols-sm-2 especies">
         @foreach ($FichasTecnicas as $Ficha)
 
-        <div class="col mb-4">
+        <div class="col mb-3">
             <div class="card w-100 ">
                 <h5 class="card-title text-center" style="font-family: Myraid Pro Bold">{{$Ficha->NombreComun}}</h5>
                 @if($Ficha->Estado=="Verificado")
