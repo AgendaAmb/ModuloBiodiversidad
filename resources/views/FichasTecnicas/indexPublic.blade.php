@@ -278,15 +278,15 @@
                 @foreach ($Biblio as $item)
                 <p class="parrafos " style="color: black;text-align: left;  font-family: 'Myraid light';"> {{$item->Referencia}}</p>
                 @endforeach
-                <div class="col-12 mb-4" style="width: 100%;background-color: rgb(59, 155, 100);padding: 0px;height: 30px;">
+                <div class="col-12 mb-4" style="width: 100%;background-color: rgb(59, 155, 100);padding: 0px;">
                     <p class="titulos" style="margin: 0px;"> PARA CITAR ESTA FICHA</p>
                 </div>
-                <p class="parrafos" style="color: black;text-align: left;font-family: 'Myraid light';height: 30px;"> 
+                <p class="parrafos" style="color: black;text-align: left;font-family: 'Myraid light';"> 
                     Ramos-Palacios C.R. y {{$NombreMuestraInit[0] }}.{{$NombreMuestraInit[1]}}.&nbsp;{{$ApellidosMuestra[2]}}-{{$ApellidosMuestra[3]}} (2021). Ficha técnica de   <span class="NombreCien2">{{$NombreCienti[0]}} {{$NombreCienti[1]}}.&nbsp;</span>
                     <q>Inventario de especies de flora del Programa Universitario de Biodiversidad</q>.&nbsp;Agenda Ambiental, Universidad Autónoma de San Luis Potosí.&nbsp;Base de datos del Programa Universitario de Biodiversidad-UASLP, {{$fichaTecnica->Clave}}-1.&nbsp; México, S.L.P. <br>
                 </p>
                 <img style="margin-bottom: 10px;"
-                src="{{asset("storage/Logos/Licencia.PNG")}}"alt="" height="30" width="100" class="mt-xl-3 mt-lg-3 mt-5 ">
+                src="{{asset("storage/Logos/Licencia.PNG")}}"alt="" height="30" width="100" class="mt-xl-3 ">
                 <div class="col-12 mb-4" style="width: 100%;background-color: rgb(59, 155, 100);padding: 0px;height: 30px;">
                     <p class="titulos" style="margin-top: 0px;margin-bottom: 0px;"> CRÉDITOS</p>
                 </div>
