@@ -15,18 +15,18 @@
 }
 @font-face {
   font-family: 'Myriad Pro Bold';
-  src: url(/TiposDeLetra/Myriad-Pro-Bold.ttf)format("truetype");
+  src: url(Biodiversidad/TiposDeLetra/Myriad-Pro-Bold.ttf)format("truetype");
   font-display: auto;
 }
 
 @font-face {
   font-family: 'Myriad Pro italic';
-  src: url(/TiposDeLetra/Myriad-Pro-Light-Italic.ttf)format("truetype");
+  src: url(Biodiversidad/TiposDeLetra/Myriad-Pro-Light-Italic.ttf)format("truetype");
   font-display: auto;
 }
 @font-face {
   font-family: 'Myriad Pro regular';
-  src: url(/TiposDeLetra/Myriad-Pro-Regular.ttf)format("truetype");
+  src: url(Biodiversidad/TiposDeLetra/Myriad-Pro-Regular.ttf)format("truetype");
   font-display: auto;
 }
 
