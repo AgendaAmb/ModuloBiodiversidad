@@ -24,7 +24,7 @@ body{
 @font-face
 {
     font-family:'Myraid light';
-    src: url(/TiposDeLetra/MyriadPro-Light.otf) format('opentype');
+    src: url('/TiposDeLetra/MyriadPro-Light.otf') format('opentype');
     font-display: auto;
 }
 
