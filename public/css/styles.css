@@ -5,38 +5,7 @@ body{
  min-width: 320px;
 
 }
-.NombreComun{
-  text-align: center;
-  font-family: 'Myriad Pro Bold';
-  font-size: 48px;
-  color: rgb(59, 155, 100);
-  margin: 0%;
-  line-height:90%;
-}
-.NombreCien{
-  font-family: 'Myriad Pro italic';
-  text-align: right;
-  size: 12pt;
-  margin: 0%;
-}
-.titulos {
-  font-family: 'Myriad Pro Bold';
-  text-align: center;
-  font-size: 12pt;
-  color: white;
-}
-.parrafos {
-  line-height: 9.0pt;
-  font-family: 'Myriad Pro regular';
-  font-size: 9pt;
-  color: white;
-  text-align: center;
-}
- 
-hr {
-  background-color: white;
-  width: 100px;
-}
+
 @font-face {
   font-family: 'Myriad Pro Bold';
   src: url('/TiposDeLetra/Myriad-Pro-Bold.ttf')format("truetype");
@@ -66,7 +35,54 @@ hr {
     src: url(/TiposDeLetra/MyriadPro-Bold.otf) format('opentype');
     font-display: auto;
 }
-
+.NombreComun{
+  text-align: center;
+  font-family: 'Myriad Pro Bold';
+  font-size: 48px;
+  color: rgb(59, 155, 100);
+  margin: 0%;
+  line-height:90%;
+}
+.NombreCien{
+  font-family: 'Myriad Pro italic';
+  text-align: right;
+  size: 15pt;
+  margin: 0%;
+}
+.titulos {
+  font-family: 'Myriad Pro Bold';
+  text-align: center;
+  font-size: 15pt;
+  color: white;
+}
+.parrafos {
+  line-height: 12.0pt;
+  font-family: 'Myriad Pro regular';
+  font-size: 12pt;
+  color: white;
+  text-align: center;
+}
+.tituloImagen {
+  font-family: 'Myriad Pro Bold';
+  font-size: 9pt;
+  color: #3B9B64;
+  text-align: left;
+  margin: 0%;
+  padding: 0%;
+}
+hr {
+  background-color: white;
+  width: 100px;
+}
+.textContenido {
+  margin: 0%;
+  font-family: 'Myraid light';
+  font-size: 12pt;
+  color: black;
+  text-align: justify;
+  line-height: 12.0pt;
+  background-color: white;
+}
 /*Estilos que hay que separar*/
 #imagen1,
 #imagen2,
