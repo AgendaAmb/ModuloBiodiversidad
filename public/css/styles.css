@@ -8,23 +8,23 @@ body{
 
 @font-face {
   font-family: 'Myriad Pro Bold';
-  src: url('/TiposDeLetra/Myriad-Pro-Bold.ttf')format("truetype");
+  src: url('Biodiversidad/TiposDeLetra/Myriad-Pro-Bold.ttf')format("truetype");
 
 }
 
 @font-face {
   font-family: 'Myriad Pro italic';
-  src: url('/TiposDeLetra/Myriad-Pro-Light-Italic.ttf')format("truetype");
+  src: url('Biodiversidad/TiposDeLetra/Myriad-Pro-Light-Italic.ttf')format("truetype");
 }
 @font-face {
   font-family: 'Myriad Pro regular';
-  src: url('/TiposDeLetra/Myriad-Pro-Regular.ttf')format("truetype");
+  src: url('Biodiversidad/TiposDeLetra/Myriad-Pro-Regular.ttf')format("truetype");
 }
 
 @font-face
 {
     font-family:'Myraid light';
-    src: url('/TiposDeLetra/MyriadPro-Light.otf') format('opentype');
+    src: url('Biodiversidad/TiposDeLetra/MyriadPro-Light.otf') format('opentype');
     font-display: auto;
 }
 
@@ -32,7 +32,7 @@ body{
 @font-face
 {
     font-family:'Myraid Pro Bold';
-    src: url(/TiposDeLetra/MyriadPro-Bold.otf) format('opentype');
+    src: url('Biodiversidad/TiposDeLetra/MyriadPro-Bold.otf') format('opentype');
     font-display: auto;
 }
 .NombreComun{
