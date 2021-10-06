@@ -2,7 +2,7 @@
 
 @section('contenido')
 
-<div class="container mx-auto py-5" id="appp">
+<div class="container mx-auto py-5 px-5" id="appp">
   
     <p style="display: none;">
         {{$urlPC=$fichaTecnica->FichaTecnica->Url_PC}}
@@ -23,9 +23,9 @@
         <div class="col-12 p-0" style="height: 75px;">
             <img src="{{asset('/storage/Logos/LogoPdf.png')}}" alt="" style="width: auto;height:100%;">
         </div>
-        <div class="col-12 p-0">
+        <div class="col-12 p-0 ">
             <p class="NombreComun">   {{$fichaTecnica->NombreComun}}/ {{$fichaTecnica->NombreComunIng}}</p>
-            <div class="row">
+            <div class="row ">
                 <div class="col-6 p-0">
                     <p class="NombreCien">{{$NombreCienti[0]}} {{$NombreCienti[1]}},  </p> 
                 </div>
@@ -35,11 +35,11 @@
                     @endfor 
                 </div>   
             </div>
-            <div class="row">
-                <div class="col-8 p-0">
+            <div class="row ">
+                <div class="col-xl-8 col-lg-8 col-12 p-xl-0 p-lg-0 p-5">
                     <img src="{{asset('storage'.$fichaTecnica->FichaTecnica->Url_PC)}}" alt="" class="img-fluid">
                 </div>
-                <div class="col-4" style="background-color: rgb(59, 155, 100);padding:20px;">
+                <div class="col-xl-4 col-lg-4  col-12" style="background-color: rgb(59, 155, 100);padding:20px;">
                     <p class="titulos" style="margin-top: 0px;margin-bottom: 0px;"> ORIGEN</p>
                     <p class="parrafos" style="margin-top: 0px;margin-bottom: 20px;">
                         {{$fichaTecnica->FichaTecnica->Origen}}</p>
@@ -90,9 +90,9 @@
                     </div>
             </div>
             <div class="row mt-5 justify-content-around" >
-                <div class="col-6 pr-4">
+                <div class="col-xl-6 col-lg-6 col-12 pr-xl-4 pr-lg-4">
                     <div class="row">
-                        <div class="col" style="padding-right: 10px; padding-left: 0%;">
+                        <div class="col" style="padding-right: 20px; padding-left: 0%;">
                             <img src="{{asset('storage'.$fichaTecnica->FichaTecnica->Url_F)}}" alt="" style="width: 100%;height: 150px;">
                             <p class="tituloImagen">FOLLAJE</p>
                         </div>
@@ -100,19 +100,19 @@
                             <img src="{{asset('storage'.$fichaTecnica->FichaTecnica->Url_H)}}" alt="" style="width: 100%;height: 150px;">
                             <p class="tituloImagen">HOJAS</p>
                         </div>
-                        <div class="col" style="padding-left: 10px; padding-right: 0%;">
+                        <div class="col" style="padding-left: 20px; padding-right: 0%;">
                             <img src="{{asset('storage'.$fichaTecnica->FichaTecnica->Url_FL)}}" alt="" style="width: 100%;height: 150px;">
                             <p class="tituloImagen">FLORES</p>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mb-xl mb-lg mb-5">
                         <div class="col-12 p-0">
                             <img src="{{asset('storage'.$fichaTecnica->FichaTecnica->Url_PC2)}}" alt="" style="width: 100%;height: 268px;">
                             <p class="tituloImagen">PLANTA COMPLETA</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-6 pl-4">
+                <div class="col-xl-6 col-lg-6 col-12 pl-xl-4  pl-lg-4">
                     <div class="row">
                         <div class="col-12 p-0">
                             <img src="{{asset('storage'.$fichaTecnica->FichaTecnica->Url_T)}}" alt="" style="width: 100%;height: 268px;">
@@ -120,7 +120,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col" style="padding-right: 10px; padding-left: 0%;">
+                        <div class="col" style="padding-right: 20px; padding-left: 0%;">
                             <img src="{{asset('storage'.$fichaTecnica->FichaTecnica->Url_FR)}}" alt="" style="width: 100%;height: 150px;">
                             <p class="tituloImagen">FRUTO</p>
                         </div>
@@ -128,7 +128,7 @@
                             <img src="{{asset('storage'.$fichaTecnica->FichaTecnica->Url_S)}}" alt="" style="width: 100%;height: 150px;">
                             <p class="tituloImagen">SEMILLAS</p>
                         </div>
-                        <div class="col" style="padding-left: 10px; padding-right: 0%;">
+                        <div class="col" style="padding-left: 20px; padding-right: 0%;">
                             <img src="{{asset('storage'.$fichaTecnica->FichaTecnica->Url_R)}}" alt="" style="width: 100%;height: 150px;">
                             <p class="tituloImagen">RAÍCES</p>
                         </div>
@@ -137,10 +137,10 @@
                 </div>
             </div>
             <div class="row mt-5">
-                <div class="col-6 pl-0 pr-0">
+                <div class="col-6 pl-0 pr-0 d-xl-block d-lg-block d-none">
                     <img src="{{asset('storage'.$fichaTecnica->FichaTecnica->Url_FL)}}" alt="" style="width: 100%;height: 100%;">
                 </div>
-                <div class="col-6 px-4 py-5" style=" border: 1px  solid rgba(0, 0, 0, 0.3);">
+                <div class="col-xl-6 col-lg-6 col-12 px-4 py-5" style=" border: 1px  solid rgba(0, 0, 0, 0.3);">
                     <p class="textContenido">
                         <span style="font-family: 'Myriad Pro Bold';">Descripción:</span>&nbsp; {{$fichaTecnica->FichaTecnica->Descripcion}}
                         <br><br><br>
@@ -204,13 +204,13 @@
                 </div>
             </div>
             <div class="row mt-4 justify-content-between">
-                <div class="col mr-4" style=" background-color: rgb(59, 155, 100); height: 223px;">
+                <div class="col-xl col-lg col-12 mr-xl-4 mr-lg-4 " style=" background-color: rgb(59, 155, 100); height: 223px;">
                     <p class="titulos mt-3" style="margin-bottom: 9.5pt; line-height: 12.0pt;"> REQUERIMIENTOS DE LA ESPECIE
                     </p>
                     <p class="parrafos px-3" style="margin: 0%;text-align: justify; ">
                         {{$fichaTecnica->FichaTecnica->RequerimientosE}}</p>
                 </div>
-                <div class="col" style=" border: 1px  solid rgba(0, 0, 0, 0.3);">
+                <div class="col-xl col-lg col-12 my-xl-0 my-lg-0 my-4" style=" border: 1px  solid rgba(0, 0, 0, 0.3);">
                     <p class="titulos mt-1" style="margin-top: 0px;margin-bottom: 0px;color: black;">USOS</p>
                     <div class="row justify-content-center">
                         <div class="col-12">
@@ -251,7 +251,7 @@
                         
                     </div>
                 </div>
-                <div class="col ml-4" style=" background-color: rgb(59, 155, 100); height: 223px;">
+                <div class=" col-xl col-lg col-12 ml-lg-4 ml-lg-4" style=" background-color: rgb(59, 155, 100); height: 223px;">
                     <p class="titulos mt-3"  style="margin-top: 0px;margin-bottom: 9.5pt; line-height: 12.0pt;"> CLIMA EN HÁBITAT NATURAL</p>
                     <p class="parrafos px-3"  style="margin: 0%;text-align: justify;">
                         {{$fichaTecnica->FichaTecnica->Clima}}</p>
@@ -285,8 +285,8 @@
                     Ramos-Palacios C.R. y {{$NombreMuestraInit[0] }}.{{$NombreMuestraInit[1]}}.&nbsp;{{$ApellidosMuestra[2]}}-{{$ApellidosMuestra[3]}} (2021). Ficha técnica de   <span class="NombreCien2">{{$NombreCienti[0]}} {{$NombreCienti[1]}}.&nbsp;</span>
                     <q>Inventario de especies de flora del Programa Universitario de Biodiversidad</q>.&nbsp;Agenda Ambiental, Universidad Autónoma de San Luis Potosí.&nbsp;Base de datos del Programa Universitario de Biodiversidad-UASLP, {{$fichaTecnica->Clave}}-1. México, S.L.P. <br>
                 </p>
-                <img style="margin-bottom: 10px;margin-top: 10px;"
-                src="{{asset("storage/Logos/Licencia.PNG")}}"alt="" height="30" width="100">
+                <img style="margin-bottom: 10px;"
+                src="{{asset("storage/Logos/Licencia.PNG")}}"alt="" height="30" width="100" class="mt-xl-3 mt-lg-3 mt-5 ">
                 <div class="col-12 mb-4" style="width: 100%;background-color: rgb(59, 155, 100);padding: 0px;height: 30px;">
                     <p class="titulos" style="margin-top: 0px;margin-bottom: 0px;"> CRÉDITOS</p>
                 </div>
