@@ -6,7 +6,7 @@
     font-display: auto;
 }
 
-
+/*
 @font-face
 {
     font-family:'Myraid Pro Bold';
@@ -28,8 +28,8 @@
   font-family: 'Myriad Pro regular';
   src: url(/TiposDeLetra/Myriad-Pro-Regular.ttf)format("truetype");
   font-display: auto;
-}
-/*
+}*/
+
 @font-face {
   font-family: 'Myriad Pro Bold';
   src: url(/Biodiversidad/TiposDeLetra/Myriad-Pro-Bold.ttf)format("truetype");
@@ -46,7 +46,7 @@
   src: url(/Biodiversidad/TiposDeLetra/Myriad-Pro-Regular.ttf)format("truetype");
   font-display: auto;
 }
-*/
+
 @font-face
 {
     font-family:'Myraid light';
