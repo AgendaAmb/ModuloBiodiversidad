@@ -58,7 +58,7 @@ body{
 }
 .parrafos {
   line-height: 12.0pt;
-  font-family: 'Myriad Pro regular';
+  font-family: 'Myraid light';
   font-size: 12pt;
   color: white;
   text-align: center;
@@ -82,7 +82,7 @@ hr {
   color: black;
   text-align: justify;
   line-height: 12.0pt;
-  background-color: white;
+ 
 }
 /*Estilos que hay que separar*/
 #imagen1,

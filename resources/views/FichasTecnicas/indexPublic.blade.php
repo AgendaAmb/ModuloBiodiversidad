@@ -21,7 +21,7 @@
     </p>
     <div class="row">
         <div class="col-12 p-0" style="height: 75px;">
-            <img src="{{asset('/storage/Logos/LogoPdf.png')}}" alt="" style="width: auto;height:100%;">
+            <img src="{{asset('/storage/Logos/LogoPdf.png')}}" alt="" style="width: auto;height:100%;" class="d-xl-block d-lg-block d-none">
         </div>
         <div class="col-12 p-0 ">
             <p class="NombreComun">   {{$fichaTecnica->NombreComun}}/ {{$fichaTecnica->NombreComunIng}}</p>
