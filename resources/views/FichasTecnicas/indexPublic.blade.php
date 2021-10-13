@@ -15,7 +15,7 @@
         {{$urlT=$fichaTecnica->FichaTecnica->Url_T}}
         {{$urlR=$fichaTecnica->FichaTecnica->Url_R}}
         {{$NombreCienti=Str::of($fichaTecnica->NombreCientifico)->split('/[\s,]+/')}}
-        {{$NombreMuestraInit=Str::of($fichaTecnica->FichaTecnica->NombreRecolectorMuestra)->studly()->split('/([a-zí]+)/')}}
+        {{$NombreMuestraInit=Str::of($fichaTecnica->FichaTecnica->NombreRecolectorMuestra)->studly()->split('/([a-zíú]+)/')}}
        
         {{$ApellidosMuestra=Str::of($fichaTecnica->FichaTecnica->NombreRecolectorMuestra)->explode(' ')}}
     </p>
