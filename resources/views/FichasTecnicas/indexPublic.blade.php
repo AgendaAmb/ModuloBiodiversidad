@@ -107,7 +107,12 @@
                     </div>
                     <div class="row mb-xl mb-lg mb-5">
                         <div class="col-12 p-0">
+                            @if ($fichaTecnica->FichaTecnica->Url_PC2==null)
+                            <img class="imgFicha2" src="{{asset('storage'.$fichaTecnica->FichaTecnica->Url_PC)}}" alt="" >
+                            @else
                             <img class="imgFicha2" src="{{asset('storage'.$fichaTecnica->FichaTecnica->Url_PC2)}}" alt="" >
+                            @endif
+                           
                             <p class="tituloImagen">PLANTA COMPLETA</p>
                         </div>
                     </div>

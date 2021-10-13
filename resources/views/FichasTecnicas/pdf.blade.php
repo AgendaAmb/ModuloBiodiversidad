@@ -358,7 +358,7 @@
 
                 </div>
                 <div class="container2" style=" margin-top: 25px;">
-                    @if ($urlPC2!=null)
+                    @if ($urlPC2==null)
                         
                     <img src="{{ public_path("storage$urlPC2")}}" alt="" style="margin: 0%;height: 154px;width: 348px;">
                     @else
