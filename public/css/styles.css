@@ -50,6 +50,12 @@ body{
   size: 15pt;
   margin: 0%;
 }
+.NombreCienMap{
+  font-family: 'Myriad Pro italic';
+  text-align: center;
+  size: 15pt;
+  margin: 0%;
+}
 .titulos {
   font-family: 'Myriad Pro Bold';
   text-align: center;

@@ -512,7 +512,7 @@ class PlantaController extends Controller
 
         //$request->user()->authorizeRoles(['administrador', 'Coordinador']);
         $Planta = Planta::all();
-        // dd($Planta);
+       
         return view('Mapa.index')->with('Planta', $Planta);
     }
 }
