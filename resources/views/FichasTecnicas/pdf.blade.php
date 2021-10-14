@@ -399,7 +399,7 @@
                         </div>
                     </div>
                 </div>
-                <div clas='saltopagina'></div>
+                <div class="saltopagina"></div>
                 <div>
                     <div class="flex-container" style="height: 470px; margin: 0px 0px 20px 0px;">
 
@@ -542,7 +542,8 @@
                     </div>
                   
            
-             <div clas='saltopagina'></div>
+             <div class="saltopagina">
+             </div>
                     <div style="width: 100%;background-color: rgb(59, 155, 100);padding: 0px;height: 30px;">
                         <p class="titulos" style="margin: 0px;"> FUENTE DE CONSULTA</p>
                     </div>
