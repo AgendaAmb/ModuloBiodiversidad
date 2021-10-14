@@ -232,6 +232,7 @@ class FichaTecnicaController extends Controller
     }
     public function Imprimir(FichaTecnica $fichaTecnica, $id)
     {
+       
         $fichaTecnicaA = FichaTecnica::findorFail($id);
         $fichaTecnica = NombreEjemplar::findorFail($fichaTecnicaA->id);
         $Biblio = Bibliografia::where('ficha_tecnicas_id', '=', $id)->get();
@@ -250,6 +251,7 @@ class FichaTecnicaController extends Controller
                     $pdf->getDomPDF()->set_option("enable_php", true);
                     $data = ['title' => 'Testing Page Number In Body'];
                     $pdfNombre = 'Ficha_Tecnica_' . $fichaTecnica->NombreComun . '.pdf';
+                  
                     return $pdf->stream($pdfNombre,$data);
                 }
             } else {

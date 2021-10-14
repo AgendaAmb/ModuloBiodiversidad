@@ -250,7 +250,7 @@
     {{$urlF=$fichaTecnica->FichaTecnica->Url_F}}
     {{$urlH=$fichaTecnica->FichaTecnica->Url_H}}
     {{$urlFL=$fichaTecnica->FichaTecnica->Url_FL}}
-
+   
     {{$urlFR=$fichaTecnica->FichaTecnica->Url_FR}}
     {{$urlS=$fichaTecnica->FichaTecnica->Url_S}}
     {{$urlT=$fichaTecnica->FichaTecnica->Url_T}}
@@ -258,14 +258,17 @@
     {{$NombreCienti=Str::of($fichaTecnica->NombreCientifico)->split('/[\s,]+/')}}
  
     {{$NombreMuestraInit=Str::of($fichaTecnica->FichaTecnica->NombreRecolectorMuestra)->studly()->split('/([a-zíú]+)/')}}
-   
+  
     {{$ApellidosMuestra=Str::of($fichaTecnica->FichaTecnica->NombreRecolectorMuestra)->explode(' ')}}
+   
 </p>
 
 <body>
     <!-- Define header and footer blocks before your content -->
     <header>
-        <img src="{{ public_path("storage/Logos/LogoPdf.png") }}" alt="..." height="40" width="192">
+     
+        <img src="{{ public_path("/storage/Logos/LogoPdf.png") }}" alt="..." height="40" width="192">
+     
     </header>
 
     <footer>
@@ -275,13 +278,16 @@
     <!-- Wrap the content of your PDF inside a main tag -->
     <main>
         <p class="NombreComun">
+           
             {{$fichaTecnica->NombreComun}} / {{$fichaTecnica->NombreComunIng}}
         </p>
         <p class="NombreCien">{{$NombreCienti[0]}} {{$NombreCienti[1]}},
             @for ($i = 2; $i < count($NombreCienti); $i++) {{$NombreCienti[$i]}} @endfor </p> 
             <div class="flex-container" style="height: 441px;">
                 <div class="imgCompleta1">
+                   
                     <img src="{{ public_path("storage$urlPC") }}" alt="..." class="imgCompleta1">
+                  
                 </div>
                 <div class="container1">
                     <p class="titulos" style="margin-top: 0px;margin-bottom: 0px;"> ORIGEN</p>
@@ -297,6 +303,7 @@
                     <img style="margin-top: 10px;"
                         src="{{public_path("storage/Logos/FichasTecnicas/FormasCrecimiento/Herbacea.png")}}" height="40"
                         width="40" alt="">
+                      
                     @else
                     @if ($fichaTecnica->FichaTecnica->Fcrecimiento=='Arbustiva')
                     <img style="margin-top: 10px;"
@@ -312,6 +319,7 @@
                     <img style="margin-top: 10px;"
                         src="{{public_path("storage/Logos/FichasTecnicas/FormasCrecimiento/Arbórea.png")}}" height="40"
                         width="40" alt="">
+                      
                     @else
                     <img style="margin-top: 10px;"
                         src="{{public_path("storage/Logos/FichasTecnicas/FormasCrecimiento/Columnar.png")}}" height="40"
@@ -341,6 +349,7 @@
                             style="margin: 0%;height: 110px;width: 110px;">
                         <p class="tituloImagen">FOLLAJE</p>
                     </div>
+                
                     <div class="item" style="margin-left:120px;">
                         <img src="{{ public_path("storage$urlH") }}" alt=""
                             style="margin: 0%;height: 110px;width: 110px;">
@@ -360,10 +369,11 @@
                 </div>
                 <div class="container2" style=" margin-top: 25px;">
                    
-                    @if ($urlPC2==null)
-                        
+                    @if ($urlPC2)
+                       
                     <img src="{{ public_path("storage$urlPC2")}}" alt="" style="margin: 0%;height: 154px;width: 348px;">
-                    @else
+                        @else
+                     
                     <img src="{{ public_path("storage$urlPC")}}" alt="" style="margin: 0%;height: 154px;width: 348px;">
   
                     @endif
@@ -587,7 +597,7 @@
                     Fecha de elaboración: &nbsp; {{   Carbon\Carbon::parse($fichaTecnica->FichaTecnica->FechaRecoleccion)->locale('es')->isoFormat('DD MMMM YYYY')}}
                 </p>
 
-                
+               
               
                 <!--
         <p style="page-break-after: always;">
