@@ -278,18 +278,18 @@
                                                 <option selected disabled>Sin Estado de uso registrado</option>
                                                 @else
                                                 @if ($FichaTecnica->Fcrecimiento=="Herbacea")
-                                                <option selected disabled value="Herbacea">Herbacea</option>
+                                                <option selected  value="Herbacea">Herbacea</option>
                                                 @else
                                                 @if ($FichaTecnica->Fcrecimiento=="Arbustiva")
-                                                <option selected disabled value="Arbustiva">Arbustiva</option>
+                                                <option selected  value="Arbustiva">Arbustiva</option>
                                                 @else
                                                 @if ($FichaTecnica->Fcrecimiento=="Arborescente")
-                                                <option selected disabled value="Arborescente">Arborescente</option>
+                                                <option selected  value="Arborescente">Arborescente</option>
                                                 @else
                                                 @if ($FichaTecnica->Fcrecimiento=="Arbórea")
-                                                <option selected disabled value="Arbórea">Arbórea</option>
+                                                <option selected  value="Arbórea">Arbórea</option>
                                                 @else
-                                                <option selected disabled value="Columnar">Columnar</option>
+                                                <option selected  value="Columnar">Columnar</option>
                                                 @endif
                                                 @endif
                                                 @endif
@@ -351,18 +351,18 @@
                                                 <option selected disabled>Sin Estado de uso registrado</option>
                                                 @else
                                                 @if ($FichaTecnica->EstatusConv=="Peligro de extinción")
-                                                <option selected disabled value="Peligro de extinción">Peligro de extinción</option>
+                                                <option selected  value="Peligro de extinción">Peligro de extinción</option>
                                                 @else
                                                 @if ($FichaTecnica->EstatusConv=="Amenaza")
-                                                <option selected disabled value="Amenaza">Amenaza</option>
+                                                <option selected  value="Amenaza">Amenaza</option>
                                                 @else
                                                 @if ($FichaTecnica->EstatusConv=="Vulnerable")
-                                                <option selected disabled value="Vulnerable">Vulnerable</option>
+                                                <option selected  value="Vulnerable">Vulnerable</option>
                                                 @else
                                                 @if ($FichaTecnica->EstatusConv=="Menor preocupación")
-                                                <option selected disabled value="Menor preocupación">Menor preocupación</option>
+                                                <option selected  value="Menor preocupación">Menor preocupación</option>
                                                 @else
-                                                <option selected disabled value="Sin problema">Sin problema</option>
+                                                <option selected  value="Sin problema">Sin problema</option>
                                                 @endif
                                                 @endif
                                                 @endif
@@ -421,27 +421,27 @@
                                     @else
                                     <div class="form-group row g-3">
                                         <label for="EstadoCrecimiento"
-                                            class="col-md-4 col-form-label text-md-left">{{ __('Estado de crecimiento') }}</label>
+                                            class="col-md-4 col-form-label text-md-left">{{ __('Usos') }}</label>
 
                                         <div class="col-md-8">
 
-                                            <select class="custom-select" id="EstadoCrecimiento" name="Ecrecimiento">
+                                            <select class="custom-select" id="Usos" name="Usos">
                                                 @if (is_null($FichaTecnica->Usos))
                                                 <option selected disabled>Sin Estado de uso registrado</option>
                                                 @else
                                                 @if ($FichaTecnica->Usos=="Estetico")
-                                                <option selected disabled value="Estetico">Ornamental(estético)</option>
+                                                <option selected  value="Estetico">Ornamental(estético)</option>
                                                 @else
                                                 @if ($FichaTecnica->Usos=="Medicinal")
-                                                <option selected disabled value="Medicinal">Medicinal</option>
+                                                <option selected  value="Medicinal">Medicinal</option>
                                                 @else
                                                 @if ($FichaTecnica->Usos=="Comestible")
-                                                <option selected disabled value="Comestible">Comestible</option>
+                                                <option selected  value="Comestible">Comestible</option>
                                                 @else
                                                 @if ($FichaTecnica->Usos=="Sombra")
-                                                <option selected disabled value="Sombra">Sombra</option>
+                                                <option selected  value="Sombra">Sombra</option>
                                                 @else
-                                                <option selected disabled value="Aromatico">Aromático</option>
+                                                <option selected  value="Aromatico">Aromático</option>
                                                 @endif
                                                 @endif
                                                 @endif
@@ -474,17 +474,17 @@
 
                                         <div class="col-md-8">
 
-                                            <select class="custom-select" id="EstadoCrecimiento" name="Ecrecimiento">
+                                            <select class="custom-select" id="Porte" name="Porte">
                                                 @if (is_null($FichaTecnica->Porte))
                                                 <option selected disabled>Sin Estado de porte registrado</option>
                                                 @else
                                                 @if ($FichaTecnica->Porte=="Chico")
-                                                <option selected disabled value="Chico">Chico</option>
+                                                <option selected  value="Chico">Chico</option>
                                                 @else
                                                 @if ($FichaTecnica->Porte=="Mediano")
-                                                <option selected disabled value="Mediano">Mediano</option>
+                                                <option selected  value="Mediano">Mediano</option>
                                                 @else
-                                                <option selected disabled value="Grande">Grande</option>
+                                                <option selected  value="Grande">Grande</option>
                                                 @endif
                                                 @endif
                                                 @endif
@@ -495,7 +495,7 @@
                                     @endif
 
                                     <x-typeInput labelFor="ClimaN" :isRequiered="true" typeInput="text"
-                                        label="Clima en hábitad  natural" isTextArea="true"
+                                        label="Clima en hábitat  natural" isTextArea="true"
                                         haveValue="{{$nuevo?false:true}}" value="{{$nuevo?false:$FichaTecnica->Clima}}"
                                         isReadOnly="{{boolval($isReO)}}">
                                     </x-typeInput>
@@ -610,13 +610,12 @@
                                         data-target="#Rechazar"
                                         onclick="pasarIdFichaTR({{$FichaTecnica->id}});">Rechazar</button>
                                 </div>
-                               <!--
+                               
                                 <div class="colum ">
-                                    <button type="button" class="btn btn-outline-primary btn-lg" data-toggle="modal"
-                                      
+                                    <button  class="btn btn-outline-primary btn-lg"  type="submit" value="Submit" 
                                      >Actualizar</button>
                                 </div>
-                            -->
+                        
                                 <div class="colum ">
                                     <button type="button" class="btn btn-success btn-lg" data-toggle="modal"
                                         data-target="#verificar"

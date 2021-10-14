@@ -27,7 +27,7 @@
             <p class="NombreComun">   {{$fichaTecnica->NombreComun}}/ {{$fichaTecnica->NombreComunIng}}</p>
             <div class="row justify-content-center ">
                 <div class="col-6 p-0">
-                    <p class="NombreCien">{{$NombreCienti[0]}} {{$NombreCienti[1]}},  </p> 
+                    <p class="NombreCien">{{$NombreCienti[0]}} {{$NombreCienti[1]}}, &nbsp; </p> 
                 </div>
                 <div class="col-6 p-0">
                     @for ($i = 2; $i < count($NombreCienti); $i++) 

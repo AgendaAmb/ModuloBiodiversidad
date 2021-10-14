@@ -10,10 +10,9 @@ use App\User;
 use Auth;
 use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use PDF;
-use Illuminate\Support\Facades\Log;
-
 
 class FichaTecnicaController extends Controller
 {
@@ -112,9 +111,9 @@ class FichaTecnicaController extends Controller
                 $Biblio->save();
             }
         }
-     
+
         $nombreEjemplar->save();
-        Log::info("El usuario con id ".Auth::id()." registro una nueva ficha tecnica con id ".$Ficha_Tecnica->id);
+        Log::info("El usuario con id " . Auth::id() . " registro una nueva ficha tecnica con id " . $Ficha_Tecnica->id);
         return back()->with('message', '¡¡¡Ficha Tecnica registrada con exito!!!');
     }
     private function saveImagen(String $directoryEspecie, $image, String $ClaveF, String $Tipo, $nombreEjemplar)
@@ -234,7 +233,7 @@ class FichaTecnicaController extends Controller
     }
     public function Imprimir(FichaTecnica $fichaTecnica, $id)
     {
-       
+
         $fichaTecnicaA = FichaTecnica::findorFail($id);
         $fichaTecnica = NombreEjemplar::findorFail($fichaTecnicaA->id);
         $Biblio = Bibliografia::where('ficha_tecnicas_id', '=', $id)->get();
@@ -248,13 +247,13 @@ class FichaTecnicaController extends Controller
             if ($fichaTecnicaA->Estado == "Verificacion" && Auth::check() || $fichaTecnicaA->Estado == "Rechazada" && Auth::check()) {
                 if (Auth::id() == $fichaTecnicaA->user_id || Auth::user()->hasAnyRole(['administrador', 'Coordinador'])) {
                     $data = compact('fichaTecnica', 'Biblio');
-                  
+
                     $pdf = PDF::loadView('FichasTecnicas.pdf', $data)->setPaper([0, 0, 612.00, 792.00]);
                     $pdf->getDomPDF()->set_option("enable_php", true);
                     $data = ['title' => 'Testing Page Number In Body'];
                     $pdfNombre = 'Ficha_Tecnica_' . $fichaTecnica->NombreComun . '.pdf';
-                  
-                    return $pdf->stream($pdfNombre,$data);
+
+                    return $pdf->stream($pdfNombre, $data);
                 }
             } else {
                 return \redirect()->back();
@@ -276,7 +275,7 @@ class FichaTecnicaController extends Controller
         $FichaTecnica->save();
         $User = User::findorFail($FichaTecnica->user_id);
         $User->notify(new VerificacionNotification($FichaTecnica->id, "FichaTecnica", false));
-        Log::info("El usuario con id ".Auth::id()." Autorizo una nueva ficha tecnica con id ".$Ficha_Tecnica->id);
+        Log::info("El usuario con id " . Auth::id() . " Autorizo una nueva ficha tecnica con id " . $Ficha_Tecnica->id);
         return back()->with('message', 'Se ha verificado la hoja de campo con exito');
 
     }
@@ -340,7 +339,14 @@ class FichaTecnicaController extends Controller
         $Ficha_Tecnica = FichaTecnica::findorFail($id);
         // dd($Ficha_Tecnica);
 
-        $this->saveImagenes($request, $Ficha_Tecnica, $nombreEjemplar, $directoryEspecie);
+        if ($request->file() != []) {
+            $this->saveImagenes($request, $Ficha_Tecnica, $nombreEjemplar, $directoryEspecie);
+        }
+        $Ficha_Tecnica->FechaRecoleccion = $request->FechaRecoleccion;
+        $Ficha_Tecnica->FechaFotografia = $request->FechaFotografia;
+        $Ficha_Tecnica->NombreRecolectorDatos = $request->NombreRecolectorD;
+        $Ficha_Tecnica->NombreRecolectorMuestra = $request->NombreRecolectorm;
+        $Ficha_Tecnica->NombreAutorFoto = $request->NombreAutorFoto;
         $Ficha_Tecnica->TPertenencia = $request->PermanenciaHojas;
         $Ficha_Tecnica->Fcrecimiento = $request->FormaCrecimiento;
         $Ficha_Tecnica->Origen = $request->Origen;
