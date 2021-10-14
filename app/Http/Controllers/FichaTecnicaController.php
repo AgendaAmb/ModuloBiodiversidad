@@ -12,6 +12,8 @@ use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use PDF;
+use Illuminate\Support\Facades\Log;
+
 
 class FichaTecnicaController extends Controller
 {
@@ -112,7 +114,7 @@ class FichaTecnicaController extends Controller
         }
 
         $nombreEjemplar->save();
-
+        Log::info("El usuario con id "+Auth::id()+"registro una nueva ficha tecnica con id"+$Ficha_Tecnica->id);
         return back()->with('message', '¡¡¡Ficha Tecnica registrada con exito!!!');
     }
     private function saveImagen(String $directoryEspecie, $image, String $ClaveF, String $Tipo, $nombreEjemplar)
