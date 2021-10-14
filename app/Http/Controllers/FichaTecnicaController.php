@@ -276,7 +276,7 @@ class FichaTecnicaController extends Controller
         $FichaTecnica->save();
         $User = User::findorFail($FichaTecnica->user_id);
         $User->notify(new VerificacionNotification($FichaTecnica->id, "FichaTecnica", false));
-
+        Log::info("El usuario con id "+Auth::id()+"Autorizo una nueva ficha tecnica con id"+$Ficha_Tecnica->id);
         return back()->with('message', 'Se ha verificado la hoja de campo con exito');
 
     }

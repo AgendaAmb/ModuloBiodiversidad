@@ -9,6 +9,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Rol;
+use Illuminate\Support\Facades\Log;
+
 class RegisterController extends Controller
 {
     /*
@@ -70,6 +72,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
         $user->roles()->attach(Rol::where('nombre', 'Ninguno')->first());
+        Log::info("El usuario con id "+ $user->id+"Se acaba de registrar.");
         return $user;
     }
 }
