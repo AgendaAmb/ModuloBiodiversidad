@@ -112,9 +112,9 @@ class FichaTecnicaController extends Controller
                 $Biblio->save();
             }
         }
-
+     
         $nombreEjemplar->save();
-        Log::info("El usuario con id "+Auth::id()+"registro una nueva ficha tecnica con id"+$Ficha_Tecnica->id);
+        Log::info("El usuario con id ".Auth::id()." registro una nueva ficha tecnica con id ".$Ficha_Tecnica->id);
         return back()->with('message', '¡¡¡Ficha Tecnica registrada con exito!!!');
     }
     private function saveImagen(String $directoryEspecie, $image, String $ClaveF, String $Tipo, $nombreEjemplar)
@@ -276,7 +276,7 @@ class FichaTecnicaController extends Controller
         $FichaTecnica->save();
         $User = User::findorFail($FichaTecnica->user_id);
         $User->notify(new VerificacionNotification($FichaTecnica->id, "FichaTecnica", false));
-        Log::info("El usuario con id "+Auth::id()+"Autorizo una nueva ficha tecnica con id"+$Ficha_Tecnica->id);
+        Log::info("El usuario con id ".Auth::id()." Autorizo una nueva ficha tecnica con id ".$Ficha_Tecnica->id);
         return back()->with('message', 'Se ha verificado la hoja de campo con exito');
 
     }
