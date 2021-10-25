@@ -19,7 +19,7 @@
             {{$urlPC=$Ejemplar->FichaTecnica->Url_PC}}
         </p>
         <div class="col mb-4">
-            <div class="card w-100 ">
+            <div class="card w-75 ">
                 <div class="card-body">
                     <a href="{{route('FichaTecnicaPublica',['id'=>$Ejemplar->id])}}">
                         <img class="card-img-top " id="{{$Ejemplar->id}}" src="{{ asset("storage$urlPC" )}}"

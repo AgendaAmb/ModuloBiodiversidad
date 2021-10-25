@@ -19,9 +19,15 @@
        
         {{$ApellidosMuestra=Str::of($fichaTecnica->FichaTecnica->NombreRecolectorMuestra)->explode(' ')}}
     </p>
-    <div class="row">
-        <div class="col-12 p-0" style="height: 75px;">
-            <img src="{{asset('/storage/Logos/LogoPdf.png')}}" alt="" style="width: auto;height:100%;" class="d-none">
+    <div class="row justify-content-end">
+        <div class="col-1 p-0 " >
+                                            
+                <a href="{{route('ImprimirFichaTecnica',['id'=>$fichaTecnica->id])}}"
+                    class="d-inline-block btn  btn-danger text-center" data-toggle="tooltip" data-placement="top" title="Ver PDF" target="blank">
+                    <i class="fas fa-file-pdf "  ></i>
+                    
+                </a>
+        
         </div>
         <div class="col-12 p-0 ">
             <p class="NombreComun">   {{$fichaTecnica->NombreComun}}/ {{$fichaTecnica->NombreComunIng}}</p>
