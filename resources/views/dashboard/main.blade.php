@@ -201,7 +201,7 @@
 
           <div class="info">
             <a href="{{route('home')}}" class="brand-link text-center pr-5" id="brandLink">
-              <span class="brand-text font-weight-bold text-white">Biodiversidad</span>
+              <span class="brand-text font-weight-bold text-white">Sistema universitario <br>de información  sobre <br> biodiversidad</span>
             </a>
           </div>
         </div>
