@@ -239,7 +239,7 @@ class FichaTecnicaController extends Controller
         $Biblio = Bibliografia::where('ficha_tecnicas_id', '=', $id)->get();
         if ($fichaTecnicaA->Estado == "Verificado") {
             $data = compact('fichaTecnica', 'Biblio');
-            $pdf = PDF::loadView('FichasTecnicas.pdf', $data)->setPaper([0, 0, 695.28, 1102.89]);
+            $pdf = PDF::loadView('FichasTecnicas.pdf', $data)->setPaper([0, 0, 612.00, 792.00]);
             $pdfNombre = 'Ficha_Tecnica_' . $fichaTecnica->NombreComun . '.pdf';
             return $pdf->stream($pdfNombre);
         } else {
