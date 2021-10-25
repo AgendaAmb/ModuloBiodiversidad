@@ -271,11 +271,11 @@ class FichaTecnicaController extends Controller
 
         $FichaTecnica->Estado = "Verificado";
         $FichaTecnica->NomVerificador = Auth::user()->name;
+        Log::info("El usuario con id " . Auth::id() . " Autorizo una nueva ficha tecnica con id " . $request->idFichaT);
 
         $FichaTecnica->save();
         $User = User::findorFail($FichaTecnica->user_id);
         $User->notify(new VerificacionNotification($FichaTecnica->id, "FichaTecnica", false));
-        Log::info("El usuario con id " . Auth::id() . " Autorizo una nueva ficha tecnica con id " . $Ficha_Tecnica->id);
         return back()->with('message', 'Se ha verificado la hoja de campo con exito');
 
     }
@@ -284,7 +284,7 @@ class FichaTecnicaController extends Controller
 
         $request->user()->authorizeRoles(['administrador', 'Coordinador']);
         $FichaTecnica = FichaTecnica::findorFail($request->idFichaT);
-
+        Log::info("El usuario con id " . Auth::id() . " Rechazo una nueva ficha tecnica con id " . $request->idFichaT);
         $FichaTecnica->Estado = "Rechazada";
         $FichaTecnica->NomVerificador = Auth::user()->name;
         $FichaTecnica->MotivoRechazo = $request->MRechazo;
