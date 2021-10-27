@@ -240,6 +240,7 @@ class FichaTecnicaController extends Controller
         if ($fichaTecnicaA->Estado == "Verificado") {
             $data = compact('fichaTecnica', 'Biblio');
             $pdf = PDF::loadView('FichasTecnicas.pdf', $data)->setPaper([0, 0, 612.00, 792.00]);
+            $pdf->getDomPDF()->set_option("enable_php", true);
             $pdfNombre = 'Ficha_Tecnica_' . $fichaTecnica->NombreComun . '.pdf';
             return $pdf->stream($pdfNombre);
         } else {
@@ -250,7 +251,7 @@ class FichaTecnicaController extends Controller
 
                     $pdf = PDF::loadView('FichasTecnicas.pdf', $data)->setPaper([0, 0, 612.00, 792.00]);
                     $pdf->getDomPDF()->set_option("enable_php", true);
-                    $data = ['title' => 'Testing Page Number In Body'];
+                  
                     $pdfNombre = 'Ficha_Tecnica_' . $fichaTecnica->NombreComun . '.pdf';
 
                     return $pdf->stream($pdfNombre, $data);
