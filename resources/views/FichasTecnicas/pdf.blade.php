@@ -261,8 +261,7 @@
     {{$urlPC2?$prefijo='_PC2_50.jpg':null}}
     {{$urlPC2?$urlPC2=$storage.$InicialesEspecia.$calidad.$Clave.$prefijo:null}}
       
-    {{}}
-    {{}}
+  
     <!--Variables para formar url de Follaje-->
     {{$urlF=$fichaTecnica->FichaTecnica->Url_F}}
     {{$prefijo='_F_50.jpg'}}
