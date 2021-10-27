@@ -252,6 +252,7 @@
     {{$InicialesEspecia = Str::of($fichaTecnica->NombreComun)->replace(' ', '_')}}
     {{$calidad='/50/'}}
     {{$Clave=$fichaTecnica->Clave}}
+   
     <!--Variables para formar url de planta completa-->
     {{$urlPC=$fichaTecnica->FichaTecnica->Url_PC}}
     {{$prefijo='_PC_50.jpg'}}
@@ -299,7 +300,7 @@
     {{$NombreMuestraInit=Str::of($fichaTecnica->FichaTecnica->NombreRecolectorMuestra)->studly()->split('/([a-zíú]+)/')}}
 
     {{$ApellidosMuestra=Str::of($fichaTecnica->FichaTecnica->NombreRecolectorMuestra)->explode(' ')}}
-
+   
 </p>
 
 <body>
@@ -324,8 +325,8 @@
             @for ($i = 2; $i < count($NombreCienti); $i++) {{$NombreCienti[$i]}} @endfor </p>
                 <div class="flex-container" style="height: 441px;">
                     <div class="imgCompleta1">
-
                         <img src="{{ public_path("$urlPC") }}" alt="..." class="imgCompleta1">
+                       
 
                     </div>
                     <div class="container1">
@@ -578,6 +579,7 @@
                     <div style="width: 100%;background-color: rgb(59, 155, 100);padding: 0px;height: 30px;">
                         <p class="titulos" style="margin: 0px;"> FUENTE DE CONSULTA</p>
                     </div>
+                   
                     @foreach ($Biblio as $item)
                     <p class="parrafos" style="color: black;text-align: left;  font-family: 'Myriad Pro';">
                         {{$item->Referencia}}</p>
@@ -585,12 +587,11 @@
                     <div style="width: 100%;background-color: rgb(59, 155, 100);padding: 5px;height: 30px;">
                         <p class="titulos" style="margin-top: 0px;margin-bottom: 0px;"> PARA CITAR ESTA FICHA</p>
                     </div>
-
+                  
+                   
                     <p class="parrafos" style="color: black;text-align: left;font-family: 'Myriad Pro';height: 30px;">
-                        Ramos-Palacios C.R. y {{$NombreMuestraInit[0]
-                        }}.{{$NombreMuestraInit[1]}}.&nbsp;{{$ApellidosMuestra[2]}}-{{$ApellidosMuestra[3]}} (2021).
-                        Ficha técnica de <span class="NombreCien2">{{$NombreCienti[0]}}
-                            {{$NombreCienti[1]}}.&nbsp;</span>
+                        Ramos-Palacios C.R. y {{$NombreMuestraInit[0]}}.{{$NombreMuestraInit[1]}}.&nbsp;{{$ApellidosMuestra[2]}}-{{$ApellidosMuestra[3]}} (2021).
+                        Ficha técnica de <span class="NombreCien2">{{$NombreCienti[0]}}{{$NombreCienti[1]}}.&nbsp;</span>
                         <q>Inventario de especies de flora del Programa Universitario de Biodiversidad</q>.&nbsp;Agenda
                         Ambiental, Universidad Autónoma de San Luis Potosí.&nbsp;Base de datos del Programa
                         Universitario de Biodiversidad-UASLP, {{$fichaTecnica->Clave}}-1. &nbsp;México, S.L.P. <br>
@@ -608,6 +609,7 @@
                     <br>
                     <span>Revisión y autorización:</span>&nbsp; Dr. Carlos Renato Ramos Palacios
                     <br>
+                   
                     <span>Fotografías:</span>&nbsp; {{$fichaTecnica->FichaTecnica->NombreAutorFoto}}
                     <br>
                     @if($fichaTecnica->FichaTecnica->NombreRecolectorMuestra==$fichaTecnica->FichaTecnica->NombreRecolectorDatos)
@@ -631,7 +633,7 @@
                     <br>
                     San Luis Potosí, S.L.P.,México.
                     <br>
-
+                   
                     Fecha de elaboración: &nbsp; {{
                     Carbon\Carbon::parse($fichaTecnica->FichaTecnica->FechaRecoleccion)->locale('es')->isoFormat('DD
                     MMMM YYYY')}}
