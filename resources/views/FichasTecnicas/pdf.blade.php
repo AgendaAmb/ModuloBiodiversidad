@@ -257,12 +257,10 @@
     {{$prefijo='_PC_50.jpg'}}
     {{ $urlPC=$storage.$InicialesEspecia.$calidad.$Clave.$prefijo}}
     <!--Variables para formar url de planta completa 2-->
-    {{$urlPC2=$fichaTecnica->FichaTecnica->Url_PC2
-        if ($urlPC2) {
-            $prefijo='_PC2_50.jpg'
-            $urlPC2=$storage.$InicialesEspecia.$calidad.$Clave.$prefijo
-        }
-    }}
+    {{$urlPC2=$fichaTecnica->FichaTecnica->Url_PC2}}
+    {{$urlPC2?$prefijo='_PC2_50.jpg';$urlPC2=$storage.$InicialesEspecia.$calidad.$Clave.$prefijo:null}}
+    
+      
     {{}}
     {{}}
     <!--Variables para formar url de Follaje-->
