@@ -135,6 +135,7 @@ class FichaTecnicaController extends Controller
             if ($request->fileImg0 == $image) {
                 $this->saveImagen($directoryEspecie, $image, 'PC', "Planta Completa", $nombreEjemplar);
                 $Ficha_Tecnica->Url_PC = $this->urlFoto;
+                
             } else
             if ($request->fileImg1 == $image) {
                 $this->saveImagen($directoryEspecie, $image, 'F', "Follaje", $nombreEjemplar);
