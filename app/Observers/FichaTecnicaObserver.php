@@ -33,6 +33,7 @@ class FichaTecnicaObserver
     public function updated(FichaTecnica $fichaTecnica)
     {
         $User=User::all();
+      
         foreach ($User as $key => $value) {
            if ($value->hasARole(['administrador', 'Coordinador'])&&$fichaTecnica->Estado=="Verificacion") {
                 $value->notify(new FichaTecnicaNotification($fichaTecnica->id));
