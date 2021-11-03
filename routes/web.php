@@ -24,6 +24,7 @@ Auth::routes();
 Auth::routes(['verify' => false]);
 
 Route::get('/usuario', 'HomeController@verificar')->name('UXV');
+Route::post('/ConvertirFoto', 'FichaTecnicaController@ConvertirFoto')->name('ConvertirFoto');
 
 Route::get('/Ejemplares', 'NombreEjemplarController@indexPublic')->name('EjemplaresP');
 

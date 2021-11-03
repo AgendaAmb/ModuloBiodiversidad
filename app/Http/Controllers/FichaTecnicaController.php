@@ -425,4 +425,26 @@ class FichaTecnicaController extends Controller
     {
         //
     }
+
+    public function ConvertirFoto(Request $request){
+     
+  
+        $image = Image::make('storage'.$request->urlFoto)->encode('jpg');
+        $NombreFoto=Str::of($request->urlFoto)->explode('/');
+       
+        $headers = [
+            'Content-Type' => 'image/jpg',
+            'Content-Disposition' => 'attachment; filename=imagen',
+        ];
+
+        $image->save(public_path($request->Calidad.'_'.$NombreFoto[3]), $request->Calidad);
+        return response()->download(public_path($request->Calidad.'_'.$NombreFoto[3]))->deleteFileAfterSend();
+
+/*
+        return response()->stream(function() use ($image) {
+            echo $image;
+        }, 200, $headers);
+        */
+    }
+   
 }

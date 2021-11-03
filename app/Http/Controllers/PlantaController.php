@@ -470,15 +470,15 @@ class PlantaController extends Controller
     }
     public function verificar(Request $request)
     {
-        //dd($request);
+       
         $request->user()->authorizeRoles(['administrador', 'Coordinador']);
         $Planta = Planta::findorFail($request->idPlanta);
 
         $Planta->Verificado = true;
         $Planta->NomVerificador = Auth::user()->name;
         $Planta->save();
-        $User = User::findorFail($FichaTecnica->user_id);
-        $User->notify(new VerificacionNotification($FichaTecnica->id, "HojaCampo", false));
+        $User = User::findorFail($Planta->user_id);
+        $User->notify(new VerificacionNotification($Planta->id, "HojaCampo", false));
         return back()->with('message', 'Se ha verificado la hoja de campo con exito');
 
     }

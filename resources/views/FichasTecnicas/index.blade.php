@@ -20,7 +20,7 @@
 
 
 <body>
-  
+
     <div class="container-fluid justify-content-between p-0" id="appp">
         <div class="container mb-4">
             <div class="row">
@@ -36,6 +36,49 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+
+        <div class="modal fade" id="ModalFoto" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog ">
+                <div class="modal-content ">
+                    <div class="modal-header text-center  justify-content-center">
+                        <h5 class="modal-title " id="exampleModalLabel"> @{{wasClick?archivos[idImg].parteP:false}}</h5>
+
+                    </div>
+
+                    <div class="modal-body px-5 text-center" v-if="wasClick">
+
+
+                        <form action="{{route('ConvertirFoto')}}" method="post">
+                            @csrf
+                            <div class="row justify-content-start">
+                                <div class="col-6 px-0">
+                                    <img class="w-100 text-center" :id="archivos[idImg].nombre"
+                                        :src="'{{asset('storage/')}}'+archivos[idImg].imagen" alt="Card image cap">
+                                </div>
+                                <input type="hidden" name="urlFoto" :value="archivos[idImg].imagen">
+                                <div class="col-6 text-left">
+                                    <label for="Calidad">Calidad</label>
+                                    <select class="form-control" id="Calidad" v-model="Calidad" name="Calidad">
+                                        <option value="100">Alta</option>
+                                        <option value="80">Media</option>
+                                        <option value="40">Baja</option>
+
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                              
+                                <input class="btn btn-primary" type="submit" value="Descargar" >
+                                <!--<a class="btn btn-primary" href="#" role="button" @click="ConvertirFoto()">Link</a>-->
+                            </div>
+                    </div>
+                   
+                </form>
+                </div>
             </div>
         </div>
         <div id="nosotros">
@@ -92,17 +135,18 @@
                     @csrf
                     <div class="row row-cols-1 row-cols-xl-4 row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
                         <div class="col mb-4 " v-for="(a, index) in archivos">
-                            <div class="card w-100 ">
+                            <div class="card " >
                                 <h5 class="card-title text-center">@{{a.parteP}} </h5>
                                 @if ($nuevo)
-                                <div class="card-body">
+                                <div class="card-body px-5">
                                     <img class="card-img-top " v-if="a.imagen!=''" :id="a.nombre" :src="a.imagen"
-                                        alt="Card image cap">
+                                        alt="Card image cap" style="max-width: 200px;">
                                 </div>
                                 @else
-                                <div class="card-body">
-                                    <img class="card-img-top " v-if="a.imagen!=''" :id="a.nombre"
-                                        :src="'{{asset('storage/')}}'+a.imagen" alt="Card image cap">
+                                <div class="card-body px-5 text-center">
+                                    <img class="card-img-top" v-if="a.imagen!=''" :id="a.nombre"
+                                        :src="'{{asset('storage/')}}'+a.imagen" alt="Card image cap"
+                                        @click="AbreImagen(index)"  style="max-width: 200px;">
                                 </div>
                                 @endif
 
@@ -174,8 +218,8 @@
                                 @endforeach
                             </p>
                             <div class="form-group row g-3 was-validated">
-                                <label for="NombreC"
-                                    class="col-md-4 col-form-label text-md-left">{{ __('Nombre común') }}</label>
+                                <label for="NombreC" class="col-md-4 col-form-label text-md-left">{{ __('Nombre común')
+                                    }}</label>
                                 <div class="col-md-7">
                                     <input id="NombreC" readonly type="text"
                                         class="form-control @error('NombreCientifico') is-invalid @enderror"
@@ -190,8 +234,8 @@
                             </div>
                             @else
                             <div class="form-group row  was-validated">
-                                <label for="NombreC"
-                                    class="col-md-4 col-form-label text-md-left pr-0">{{ __('Nombre común') }}</label>
+                                <label for="NombreC" class="col-md-4 col-form-label text-md-left pr-0">{{ __('Nombre
+                                    común') }}</label>
                                 <div class="col-md-8">
                                     <select class="custom-select" id="NombreC" name="NombreC" v-model="NombreC"
                                         @change="Ncientifico()" required>
@@ -204,13 +248,13 @@
 
                             @if (!$nuevo)
                             <div class="form-group row g-3 was-validated">
-                                <label for="NombreCientifico"
-                                    class="col-md-4 col-form-label text-md-left">{{ __('Nombre científico') }}</label>
+                                <label for="NombreCientifico" class="col-md-4 col-form-label text-md-left">{{ __('Nombre
+                                    científico') }}</label>
                                 <div class="col-md-7">
                                     <input id="NombreCientifico" readonly type="text"
                                         class="form-control @error('NombreCientifico') is-invalid @enderror"
-                                        name="NombreCientifico" value="{{$NombC}}"
-                                        autocomplete="NombreCientifico" autofocus>
+                                        name="NombreCientifico" value="{{$NombC}}" autocomplete="NombreCientifico"
+                                        autofocus>
                                     @error('NombreCientifico')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -220,8 +264,8 @@
                             </div>
                             @else
                             <div class="form-group row  was-validated">
-                                <label for="NombreCientifico"
-                                    class="col-md-4 col-form-label text-md-left ">{{ __('Nombre científico') }}</label>
+                                <label for="NombreCientifico" class="col-md-4 col-form-label text-md-left ">{{
+                                    __('Nombre científico') }}</label>
                                 <div class="col-md-8 ">
                                     <input id="NombreCientifico" v-model="NCientifico" readonly type="text"
                                         class="form-control @error('NombreCientifico') is-invalid @enderror"
@@ -249,11 +293,11 @@
                                 <div class="col-xl-6 ">
 
 
-                                 
+
                                     @if ($nuevo)
                                     <div class="form-group row g-3  was-validated">
-                                        <label for="FormaCrecimiento"
-                                            class="col-md-4 col-form-label text-md-left">{{ __('Forma de crecimiento') }}</label>
+                                        <label for="FormaCrecimiento" class="col-md-4 col-form-label text-md-left">{{
+                                            __('Forma de crecimiento') }}</label>
 
                                         <div class="col-md-8">
                                             <select class="custom-select" id="FormaCrecimiento" name="FormaCrecimiento">
@@ -268,8 +312,8 @@
                                     </div>
                                     @else
                                     <div class="form-group row g-3">
-                                        <label for="FormaCrecimiento"
-                                        class="col-md-4 col-form-label text-md-left">{{ __('Forma de crecimiento') }}</label>
+                                        <label for="FormaCrecimiento" class="col-md-4 col-form-label text-md-left">{{
+                                            __('Forma de crecimiento') }}</label>
 
                                         <div class="col-md-8">
 
@@ -278,18 +322,18 @@
                                                 <option selected disabled>Sin Estado de uso registrado</option>
                                                 @else
                                                 @if ($FichaTecnica->Fcrecimiento=="Herbacea")
-                                                <option selected  value="Herbacea">Herbacea</option>
+                                                <option selected value="Herbacea">Herbacea</option>
                                                 @else
                                                 @if ($FichaTecnica->Fcrecimiento=="Arbustiva")
-                                                <option selected  value="Arbustiva">Arbustiva</option>
+                                                <option selected value="Arbustiva">Arbustiva</option>
                                                 @else
                                                 @if ($FichaTecnica->Fcrecimiento=="Arborescente")
-                                                <option selected  value="Arborescente">Arborescente</option>
+                                                <option selected value="Arborescente">Arborescente</option>
                                                 @else
                                                 @if ($FichaTecnica->Fcrecimiento=="Arbórea")
-                                                <option selected  value="Arbórea">Arbórea</option>
+                                                <option selected value="Arbórea">Arbórea</option>
                                                 @else
-                                                <option selected  value="Columnar">Columnar</option>
+                                                <option selected value="Columnar">Columnar</option>
                                                 @endif
                                                 @endif
                                                 @endif
@@ -322,11 +366,11 @@
                                         isReadOnly="{{boolval($isReO)}}">
                                     </x-typeInput>
 
-                                      
+
                                     @if ($nuevo)
                                     <div class="form-group row g-3  was-validated">
-                                        <label for="EstatusConser"
-                                            class="col-md-4 col-form-label text-md-left">{{ __('Estatus de conservación') }}</label>
+                                        <label for="EstatusConser" class="col-md-4 col-form-label text-md-left">{{
+                                            __('Estatus de conservación') }}</label>
 
                                         <div class="col-md-8">
                                             <select class="custom-select" id="EstatusConser" name="EstatusConser">
@@ -341,8 +385,8 @@
                                     </div>
                                     @else
                                     <div class="form-group row g-3">
-                                        <label for="EstatusConser"
-                                        class="col-md-4 col-form-label text-md-left">{{ __('Estatus de conservación') }}</label>
+                                        <label for="EstatusConser" class="col-md-4 col-form-label text-md-left">{{
+                                            __('Estatus de conservación') }}</label>
 
                                         <div class="col-md-8">
 
@@ -351,18 +395,19 @@
                                                 <option selected disabled>Sin Estado de uso registrado</option>
                                                 @else
                                                 @if ($FichaTecnica->EstatusConv=="Peligro de extinción")
-                                                <option selected  value="Peligro de extinción">Peligro de extinción</option>
+                                                <option selected value="Peligro de extinción">Peligro de extinción
+                                                </option>
                                                 @else
                                                 @if ($FichaTecnica->EstatusConv=="Amenaza")
-                                                <option selected  value="Amenaza">Amenaza</option>
+                                                <option selected value="Amenaza">Amenaza</option>
                                                 @else
                                                 @if ($FichaTecnica->EstatusConv=="Vulnerable")
-                                                <option selected  value="Vulnerable">Vulnerable</option>
+                                                <option selected value="Vulnerable">Vulnerable</option>
                                                 @else
                                                 @if ($FichaTecnica->EstatusConv=="Menor preocupación")
-                                                <option selected  value="Menor preocupación">Menor preocupación</option>
+                                                <option selected value="Menor preocupación">Menor preocupación</option>
                                                 @else
-                                                <option selected  value="Sin problema">Sin problema</option>
+                                                <option selected value="Sin problema">Sin problema</option>
                                                 @endif
                                                 @endif
                                                 @endif
@@ -373,7 +418,7 @@
                                         </div>
                                     </div>
                                     @endif
-                                  
+
                                     <x-typeInput labelFor="Altura" typeInput="number" :isRequiered="true"
                                         label="Altura en estado natural (m)" haveValue="{{$nuevo?false:true}}"
                                         value="{{$nuevo?null:$FichaTecnica->Altura}}" isReadOnly="{{boolval($isReO)}}">
@@ -404,8 +449,8 @@
                                     </x-typeInput>
                                     @if ($nuevo)
                                     <div class="form-group row g-3  was-validated">
-                                        <label for="Usos"
-                                            class="col-md-4 col-form-label text-md-left">{{ __('Usos') }}</label>
+                                        <label for="Usos" class="col-md-4 col-form-label text-md-left">{{ __('Usos')
+                                            }}</label>
 
                                         <div class="col-md-8">
                                             <select class="custom-select" id="Usos" name="Usos">
@@ -420,8 +465,8 @@
                                     </div>
                                     @else
                                     <div class="form-group row g-3">
-                                        <label for="EstadoCrecimiento"
-                                            class="col-md-4 col-form-label text-md-left">{{ __('Usos') }}</label>
+                                        <label for="EstadoCrecimiento" class="col-md-4 col-form-label text-md-left">{{
+                                            __('Usos') }}</label>
 
                                         <div class="col-md-8">
 
@@ -430,18 +475,18 @@
                                                 <option selected disabled>Sin Estado de uso registrado</option>
                                                 @else
                                                 @if ($FichaTecnica->Usos=="Estetico")
-                                                <option selected  value="Estetico">Ornamental(estético)</option>
+                                                <option selected value="Estetico">Ornamental(estético)</option>
                                                 @else
                                                 @if ($FichaTecnica->Usos=="Medicinal")
-                                                <option selected  value="Medicinal">Medicinal</option>
+                                                <option selected value="Medicinal">Medicinal</option>
                                                 @else
                                                 @if ($FichaTecnica->Usos=="Comestible")
-                                                <option selected  value="Comestible">Comestible</option>
+                                                <option selected value="Comestible">Comestible</option>
                                                 @else
                                                 @if ($FichaTecnica->Usos=="Sombra")
-                                                <option selected  value="Sombra">Sombra</option>
+                                                <option selected value="Sombra">Sombra</option>
                                                 @else
-                                                <option selected  value="Aromatico">Aromático</option>
+                                                <option selected value="Aromatico">Aromático</option>
                                                 @endif
                                                 @endif
                                                 @endif
@@ -455,8 +500,8 @@
 
                                     @if ($nuevo)
                                     <div class="form-group row g-3  was-validated">
-                                        <label for="Porte"
-                                            class="col-md-4 col-form-label text-md-left">{{ __('Porte') }}</label>
+                                        <label for="Porte" class="col-md-4 col-form-label text-md-left">{{ __('Porte')
+                                            }}</label>
 
                                         <div class="col-md-8">
                                             <select class="custom-select" id="Porte" name="Porte">
@@ -469,8 +514,8 @@
                                     </div>
                                     @else
                                     <div class="form-group row g-3">
-                                        <label for="EstadoCrecimiento"
-                                            class="col-md-4 col-form-label text-md-left">{{ __('Estado de crecimiento') }}</label>
+                                        <label for="EstadoCrecimiento" class="col-md-4 col-form-label text-md-left">{{
+                                            __('Estado de crecimiento') }}</label>
 
                                         <div class="col-md-8">
 
@@ -479,12 +524,12 @@
                                                 <option selected disabled>Sin Estado de porte registrado</option>
                                                 @else
                                                 @if ($FichaTecnica->Porte=="Chico")
-                                                <option selected  value="Chico">Chico</option>
+                                                <option selected value="Chico">Chico</option>
                                                 @else
                                                 @if ($FichaTecnica->Porte=="Mediano")
-                                                <option selected  value="Mediano">Mediano</option>
+                                                <option selected value="Mediano">Mediano</option>
                                                 @else
-                                                <option selected  value="Grande">Grande</option>
+                                                <option selected value="Grande">Grande</option>
                                                 @endif
                                                 @endif
                                                 @endif
@@ -518,39 +563,43 @@
                                         isReadOnly="{{boolval($isReO)}}">
                                     </x-typeInput>
                                     <div class="form-group row g-3">
-                                        <label for="Interferecia"
-                                            class="col-md-4 col-form-label text-md-left">{{ __('Interferencia aparente con instalaciones inmediatas') }}</label>
-                                
+                                        <label for="Interferecia" class="col-md-4 col-form-label text-md-left">{{
+                                            __('Interferencia aparente con instalaciones inmediatas') }}</label>
+
                                         <div class="col-md-6">
                                             <div class="form-check form-check-inline">
                                                 <!--checked-->
                                                 <input class="form-check-input" type="checkbox" id="CBCableado"
                                                     {{($nuevo?null:json_decode($FichaTecnica->Interfencia)->Sena)!=null?'checked':''}}
-                                                    value="CBCableado" name="CBCableado" {{$nuevo?null:'disabled'}}>
+                                                value="CBCableado" name="CBCableado" {{$nuevo?null:'disabled'}}>
                                                 <label class="form-check-label" for="CBCableado">Cableado aéreo</label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="CBInfra" value="CBInfra"
+                                                <input class="form-check-input" type="checkbox" id="CBInfra"
+                                                    value="CBInfra"
                                                     {{($nuevo?null:json_decode($FichaTecnica->Interfencia)->Edifi)!=null?'checked':''}}
-                                                    {{$nuevo?null:'disabled'}} name="CBInfra">
+                                                {{$nuevo?null:'disabled'}} name="CBInfra">
                                                 <label class="form-check-label" for="CBInfra">Infraestructura</label>
                                             </div>
                                             <div class="form-check form-check-inline ">
-                                                <input class="form-check-input" type="checkbox" id="CBMobili" value="CBMobili"
+                                                <input class="form-check-input" type="checkbox" id="CBMobili"
+                                                    value="CBMobili"
                                                     {{($nuevo?null:json_decode($FichaTecnica->Interfencia)->Infra)!=null?'checked':''}}
-                                                    {{$nuevo?null:'disabled'}} name="CBMobili">
+                                                {{$nuevo?null:'disabled'}} name="CBMobili">
                                                 <label class="form-check-label" for="CBMobili">Mobiliario urbano</label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="CBSena" value="CBSena"
+                                                <input class="form-check-input" type="checkbox" id="CBSena"
+                                                    value="CBSena"
                                                     {{($nuevo?null:json_decode($FichaTecnica->Interfencia)->Mobili!=null)?'checked':''}}
-                                                    name="CBSena" {{$nuevo?null:'disabled'}}>
+                                                name="CBSena" {{$nuevo?null:'disabled'}}>
                                                 <label class="form-check-label" for="CBSena">Señalamientos</label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="CBEdifi" value="CBEdifi"
+                                                <input class="form-check-input" type="checkbox" id="CBEdifi"
+                                                    value="CBEdifi"
                                                     {{($nuevo?null:json_decode($FichaTecnica->Interfencia)->Cableado)!=null?'checked':''}}
-                                                    name="CBEdifi" {{$nuevo?null:'disabled'}}>
+                                                name="CBEdifi" {{$nuevo?null:'disabled'}}>
                                                 <label class="form-check-label" for="CBEdifi">Edificación</label>
                                             </div>
                                         </div>
@@ -565,8 +614,8 @@
                         <div class="col-xl-6 pr-xl-3  pr-lg-3 ">
 
                             <div class="form-group row g-3" v-show={{$nuevo}}>
-                                <label for="Bibliografía"
-                                    class="col-md-4 col-form-label text-md-left">{{ __('Bibliografía') }}</label>
+                                <label for="Bibliografía" class="col-md-4 col-form-label text-md-left">{{
+                                    __('Bibliografía') }}</label>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control px-xl-0" v-model="nuevo"
                                         placeholder="Bibliografia">
@@ -610,18 +659,18 @@
                                         data-target="#Rechazar"
                                         onclick="pasarIdFichaTR({{$FichaTecnica->id}});">Rechazar</button>
                                 </div>
-                               
+
                                 <div class="colum ">
-                                    <button  class="btn btn-outline-primary btn-lg"  type="submit" value="Submit" 
-                                     >Actualizar</button>
+                                    <button class="btn btn-outline-primary btn-lg" type="submit"
+                                        value="Submit">Actualizar</button>
                                 </div>
-                        
+
                                 <div class="colum ">
                                     <button type="button" class="btn btn-success btn-lg" data-toggle="modal"
                                         data-target="#verificar"
                                         onclick="pasarIdFichaT({{$FichaTecnica->id}});">Verificar</button>
                                 </div>
-                               
+
                             </div>
 
                         </div>
@@ -669,12 +718,17 @@
     Nombres:[],
     NombreC:'',
     Referencias:[],
-    nuevo: ""
+    nuevo: "",
+    idImg:0,
+    wasClick:false,
+    Calidad:'',
+    urlImgDownload:''
   },
   mounted:
   function() {
     this.$nextTick(
           function () {
+             
      @foreach($Ejemplar as $E)
                 this.Nombres.push({
                     "id":'{{$E->id}}',
@@ -684,6 +738,7 @@
                 });
     @endforeach
     @if (!$nuevo) {
+        this.idImg=0,
                 this.archivos.push(
                     {
                     "imagen":'{{$FichaTecnica->Url_PC}}',
@@ -794,6 +849,17 @@
       
   },
   methods:{
+   
+    AbreImagen:function(id){
+      
+        this.idImg=id;
+        this.urlImgDownload=this.archivos[id].imagen;
+        $('#ModalFoto').modal('show');
+        this.wasClick=true;
+      
+
+      
+    },
     Ncientifico:function(){
         this.Nombres.map((n) => {
             if(document.getElementById('NombreC').value==n.id){
