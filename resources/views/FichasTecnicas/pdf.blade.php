@@ -517,10 +517,46 @@
                             <p class="titulos" style="margin-top: 0px;margin-bottom: 0px;color: black;">USOS</p>
                             <div style="height: 187px; margin: 0px 0px;">
                                 <div style="width: 100%; margin:0%;">
+                                    @if (is_array(json_decode($fichaTecnica->FichaTecnica->Usos)))
+                                        @for ($i = 0; $i < count(json_decode($fichaTecnica->FichaTecnica->Usos)); $i++)
+                                        <p style="font-size: 9pt;color: black;text-align: justify;">
+                                            {{json_decode($fichaTecnica->FichaTecnica->Usos)[$i]}}</p> 
+                                        @endfor
+                                    @else
                                     <p style="font-size: 9pt;color: black;text-align: justify;">
                                         {{$fichaTecnica->FichaTecnica->Usos}}</p>
+                                    @endif
+                                  
+                                  
+                                  
                                 </div>
+                                @if (is_array(json_decode($fichaTecnica->FichaTecnica->Usos)))
+                                @for ($i = 0; $i < count(json_decode($fichaTecnica->FichaTecnica->Usos)); $i++)
+                                @if (json_decode($fichaTecnica->FichaTecnica->Usos)[$i]=='Ornamental(estético)')
+                                <img style="margin-top: 0px;" src="{{public_path("storage/Logos/FichasTecnicas/Usos/Ornamental.png")}}" height="50" width="50"
+                                    alt="">
 
+                                @else
+                                @if (json_decode($fichaTecnica->FichaTecnica->Usos)[$i]=='Medicinal')
+                                <img style="margin: 0%;" src="{{public_path("storage/Logos/FichasTecnicas/Usos/Medicinal.png")}}" height="50" width="50"
+                                    alt="">
+                                @else
+                                @if (json_decode($fichaTecnica->FichaTecnica->Usos)[$i]=='Comestible')
+
+                                <img style="margin: 0%;" src="{{public_path("storage/Logos/FichasTecnicas/Usos/Comestible.png")}}" height="50" width="50"
+                                    alt="">
+                                @else
+                                @if (json_decode($fichaTecnica->FichaTecnica->Usos)[$i]=='Sombra')
+                                <img style="margin: 0%;" src="{{public_path("storage/Logos/FichasTecnicas/Usos/Sombra.png")}}" height="50" width="50" alt="">
+                                @else
+                                <img style="margin: 0%;" src="{{public_path("storage/Logos/FichasTecnicas/Usos/Aromático.png")}}" height="50" width="50"
+                                    alt="">
+                                @endif
+                                @endif
+                                @endif
+                                @endif
+                                @endfor
+                                @else
                                 <div style="width: 100%;margin: 0% 0% 0% 0%;">
                                     @if ($fichaTecnica->FichaTecnica->Usos=='Ornamental(estético)')
                                     <img style="margin-top: 0px;" src="{{public_path("storage/Logos/FichasTecnicas/Usos/Ornamental.png")}}" height="50" width="50"
@@ -528,7 +564,7 @@
 
                                     @else
                                     @if ($fichaTecnica->FichaTecnica->Usos=='Medicinal')
-                                    <img style="margin: 0%;" src="{{public_path("storage/Logos/FichasTecnicas/Usos/Medicinal.png")}}" height="30" width="30"
+                                    <img style="margin: 0%;" src="{{public_path("storage/Logos/FichasTecnicas/Usos/Medicinal.png")}}" height="30" width="50"
                                         alt="">
                                     @else
                                     @if ($fichaTecnica->FichaTecnica->Usos=='Comestible')
@@ -537,15 +573,17 @@
                                         alt="">
                                     @else
                                     @if ($fichaTecnica->FichaTecnica->Usos=='Sombra')
-                                    <img style="margin: 0%;" src="{{public_path("storage/Logos/FichasTecnicas/Usos/Sombra.png")}}" height="30" width="30" alt="">
+                                    <img style="margin: 0%;" src="{{public_path("storage/Logos/FichasTecnicas/Usos/Sombra.png")}}" height="50" width="50" alt="">
                                     @else
-                                    <img style="margin: 0%;" src="{{public_path("storage/Logos/FichasTecnicas/Usos/Aromático.png")}}" height="30" width="30"
+                                    <img style="margin: 0%;" src="{{public_path("storage/Logos/FichasTecnicas/Usos/Aromático.png")}}" height="50" width="50"
                                         alt="">
                                     @endif
                                     @endif
                                     @endif
                                     @endif
                                 </div>
+                                @endif
+                             
                             </div>
 
                         </div>
