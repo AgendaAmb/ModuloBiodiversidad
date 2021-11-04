@@ -42,6 +42,7 @@ class CreateFichaTecnicasTable extends Migration
             $table->string('MotivoRechazo')->nullable();
             $table->string('NomVerificador')->nullable();
             $table->string('Url_PC');
+            $table->string('Url_PC2')->nullable();
             $table->string('Url_F');
             $table->string('Url_H');
             $table->string('Url_FL');

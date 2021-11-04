@@ -3,6 +3,12 @@
 
 <head>
     @include('head')
+    @push('styles')
+
+
+    <link rel="stylesheet" href="{{asset('Dash/plugins/select2/css/select2.min.css')}}">
+    <link rel="stylesheet" href="{{asset('Dash/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+    @endpush
 </head>
 @extends('dashboard.main')
 
@@ -71,13 +77,13 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                              
-                                <input class="btn btn-primary" type="submit" value="Descargar" >
+
+                                <input class="btn btn-primary" type="submit" value="Descargar">
                                 <!--<a class="btn btn-primary" href="#" role="button" @click="ConvertirFoto()">Link</a>-->
                             </div>
                     </div>
-                   
-                </form>
+
+                    </form>
                 </div>
             </div>
         </div>
@@ -135,7 +141,7 @@
                     @csrf
                     <div class="row row-cols-1 row-cols-xl-4 row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
                         <div class="col mb-4 " v-for="(a, index) in archivos">
-                            <div class="card " >
+                            <div class="card ">
                                 <h5 class="card-title text-center">@{{a.parteP}} </h5>
                                 @if ($nuevo)
                                 <div class="card-body px-5">
@@ -146,12 +152,12 @@
                                 <div class="card-body px-5 text-center">
                                     <img class="card-img-top" v-if="a.imagen!=''" :id="a.nombre"
                                         :src="'{{asset('storage/')}}'+a.imagen" alt="Card image cap"
-                                        @click="AbreImagen(index)"  style="max-width: 200px;">
+                                        @click="AbreImagen(index)" style="max-width: 200px;">
                                 </div>
                                 @endif
 
 
-                                <div class="card-footer pl-5">
+                                <div class="card-footer pl-5 text-center">
                                     @if ($nuevo)
                                     <small class="text-muted">
                                         <input type="file" accept="image/png,image/jpeg" :id="'fileImg'+index"
@@ -220,7 +226,7 @@
                             <div class="form-group row g-3 was-validated">
                                 <label for="NombreC" class="col-md-4 col-form-label text-md-left">{{ __('Nombre común')
                                     }}</label>
-                                <div class="col-md-7">
+                                <div class="col-md-8">
                                     <input id="NombreC" readonly type="text"
                                         class="form-control @error('NombreCientifico') is-invalid @enderror"
                                         name="NombreCientifico" maxlength="40" value={{$Nomb}} required
@@ -250,7 +256,7 @@
                             <div class="form-group row g-3 was-validated">
                                 <label for="NombreCientifico" class="col-md-4 col-form-label text-md-left">{{ __('Nombre
                                     científico') }}</label>
-                                <div class="col-md-7">
+                                <div class="col-md-8">
                                     <input id="NombreCientifico" readonly type="text"
                                         class="form-control @error('NombreCientifico') is-invalid @enderror"
                                         name="NombreCientifico" value="{{$NombC}}" autocomplete="NombreCientifico"
@@ -453,8 +459,9 @@
                                             }}</label>
 
                                         <div class="col-md-8">
-                                            <select class="custom-select" id="Usos" name="Usos">
-                                                <option selected disabled value="">Usos</option>
+                                            <select class="select2 w-100" name="Usos[]" multiple id="usos"
+                                                data-placeholder="Selecciona los usos" size="3">
+                                                <option disabled value="">Usos</option>
                                                 <option value="Ornamental(estético)">Ornamental(estético)</option>
                                                 <option value="Medicinal">Medicinal</option>
                                                 <option value="Comestible">Comestible</option>
@@ -465,12 +472,33 @@
                                     </div>
                                     @else
                                     <div class="form-group row g-3">
-                                        <label for="EstadoCrecimiento" class="col-md-4 col-form-label text-md-left">{{
-                                            __('Usos') }}</label>
+                                        <label for="EstadoCrecimiento"
+                                            class="col-md-4 col-form-label text-md-left">{{__('Usos') }}</label>
 
                                         <div class="col-md-8">
-
-                                            <select class="custom-select" id="Usos" name="Usos">
+                                            <select class="select2 w-100" name="Usos[]" multiple id="usos"
+                                                data-placeholder="Selecciona los usos" size="3">
+                                                @if (is_Array(json_decode($FichaTecnica->Usos)))
+                                                @for ($i = 0; $i < count(json_decode($FichaTecnica->Usos)); $i++)
+                                                    @if (json_decode($FichaTecnica->Usos)[$i]=="Ornamental(estético)")
+                                                    <option selected value="Estetico">Ornamental(estético)</option>
+                                                    @else
+                                                    @if (json_decode($FichaTecnica->Usos)[$i]=="Medicinal")
+                                                    <option selected value="Medicinal">Medicinal</option>
+                                                    @else
+                                                    @if (json_decode($FichaTecnica->Usos)[$i]=="Comestible")
+                                                    <option selected value="Comestible">Comestible</option>
+                                                    @else
+                                                    @if (json_decode($FichaTecnica->Usos)[$i]=="Sombra")
+                                                    <option selected value="Sombra">Sombra</option>
+                                                    @else
+                                                    <option selected value="Aromatico">Aromático</option>
+                                                    @endif
+                                                    @endif
+                                                    @endif
+                                                    @endif
+                                                @endfor
+                                                @else
                                                 @if (is_null($FichaTecnica->Usos))
                                                 <option selected disabled>Sin Estado de uso registrado</option>
                                                 @else
@@ -492,8 +520,9 @@
                                                 @endif
                                                 @endif
                                                 @endif
-                                            </select>
+                                                @endif
 
+                                            </select>
                                         </div>
                                     </div>
                                     @endif
@@ -514,8 +543,8 @@
                                     </div>
                                     @else
                                     <div class="form-group row g-3">
-                                        <label for="EstadoCrecimiento" class="col-md-4 col-form-label text-md-left">{{
-                                            __('Estado de crecimiento') }}</label>
+                                        <label for="Porte" class="col-md-4 col-form-label text-md-left">{{__('Porte')
+                                            }}</label>
 
                                         <div class="col-md-8">
 
@@ -709,6 +738,20 @@
 
 
 @push('scripts')
+<!-- DataTables  & Plugins -->
+<script src="{{asset('Dash/plugins/select2/js/select2.full.min.js')}}"></script>
+<script>
+    $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2({
+    maximumSelectionLength:2, // need to override the changed default
+   
+    });
+
+ 
+    
+  })
+</script>
 <script>
     var app = new Vue({
   el: '#appp',

@@ -57,7 +57,7 @@ class FichaTecnicaController extends Controller
      */
     public function store(Request $request)
     {
-
+        //dd($request);
         $nombreEjemplar = NombreEjemplar::findorFail($request->NombreC);
         $directoryEspecie = '/FichasTecnicas/' . Str::of($nombreEjemplar->NombreComun)->replace(' ', '_');
         $Ficha_Tecnica = new FichaTecnica();
@@ -82,7 +82,7 @@ class FichaTecnicaController extends Controller
         $Ficha_Tecnica->TipoC = $request->TipoC;
         $Ficha_Tecnica->TipoR = $request->TipoR;
         $Ficha_Tecnica->RaicesObs = $request->RaicesObs;
-        $Ficha_Tecnica->Usos = $request->Usos;
+        $Ficha_Tecnica->Usos =  json_encode($request->Usos);
         $Ficha_Tecnica->Clima = $request->ClimaN;
         $Ficha_Tecnica->Porte = $request->Porte;
         // $Ficha_Tecnica->SistemR = $request->SistemaRa;
@@ -384,7 +384,7 @@ class FichaTecnicaController extends Controller
         $Ficha_Tecnica->TipoC = $request->TipoC;
         $Ficha_Tecnica->TipoR = $request->TipoR;
         $Ficha_Tecnica->RaicesObs = $request->RaicesObs;
-        $Ficha_Tecnica->Usos = $request->Usos;
+        $Ficha_Tecnica->Usos =  json_encode($request->Usos);
         $Ficha_Tecnica->Clima = $request->ClimaN;
         $Ficha_Tecnica->Porte = $request->Porte;
         //$Ficha_Tecnica->SistemR = $request->SistemaRa;
@@ -440,11 +440,7 @@ class FichaTecnicaController extends Controller
         $image->save(public_path($request->Calidad.'_'.$NombreFoto[3]), $request->Calidad);
         return response()->download(public_path($request->Calidad.'_'.$NombreFoto[3]))->deleteFileAfterSend();
 
-/*
-        return response()->stream(function() use ($image) {
-            echo $image;
-        }, 200, $headers);
-        */
+
     }
    
 }
