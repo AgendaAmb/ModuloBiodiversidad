@@ -47,13 +47,30 @@
         CargarMapa:function () {
             let t = this;
                 mapOptions = {
-                    center: new google.maps.LatLng(parseFloat('22.1455389'), parseFloat('-101.0139005')),
                     zoom: 15,
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
                 map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
-                var myLatlng = null;
-                var marker = null;
+
+                // Obtener la ubicación del usuario
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                        var userLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                        map.setCenter(userLatLng); // Centrar el mapa en la ubicación del usuario
+                        placeMarker(userLatLng); // Colocar un marcador en la ubicación del usuario
+                    });
+                } else {
+                    // Manejar el caso en el que la geolocalización no está disponible
+                    console.log("Geolocalización no está disponible en este navegador.");
+                }
+
+                function placeMarker(location) {
+                    // Crear un marcador en la ubicación del usuario
+                    marker = new google.maps.Marker({
+                        position: location,
+                        map: map
+                    });
+                }
                 
     
                 t.prospectos.map((n) => {

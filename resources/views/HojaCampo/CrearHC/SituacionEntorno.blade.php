@@ -74,33 +74,31 @@
 
     </div>
     <div class="form-group row was-validated">
-        <label for="Coordenadageográfica"
-            class="col-md-4 col-form-label text-md-left">{{ __('Coordenada geográfica') }}<br></label>
-        <div class="col-md-8">
-            <input id="Latitud" type="text" class="form-control  @error('Latitud') is-invalid @enderror" name="Latitud" required
-                value="{{$nuevo?old('Latitud'):$Planta->SituacionEntorno->Latitud}}" {{$isReO? "readonly":""}}
-                autocomplete="Latitud" autofocus data-toggle="tooltip" data-placement="top" placeholder="Latitud" >
-                <span class="invalid-feedback" id="LatitudOK"></span>
-                @error('Latitud')
+    <label for="Coordenadageográfica" class="col-md-4 col-form-label text-md-left">{{ __('Coordenada geográfica') }}<br></label>
+    <div class="col-md-8">
+        <input id="Latitud" type="text" class="form-control  @error('Latitud') is-invalid @enderror" name="Latitud" required 
+        value="{{$nuevo ? old('Latitud') : $Planta->SituacionEntorno->Latitud}}" {{$isReO ? "readonly":""}} 
+        autocomplete="Latitud" autofocus data-toggle="tooltip" data-placement="top" placeholder="Latitud" oninput="updateMap()">
+        <span class="invalid-feedback" id="LatitudOK"></span>
+        @error('Latitud')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
+
+        <div class="col-md-12 p-0 pt-1">
+            <input id="Longitud" type="text" class="form-control  @error('longitud') is-invalid @enderror" name="longitud" 
+            value="{{$nuevo ? old('longitud') : $Planta->SituacionEntorno->Altitud}}" required {{$isReO ? "readonly":""}} 
+            autocomplete="longitud" autofocus data-toggle="tooltip" data-placement="top" placeholder="Longitud" oninput="updateMap()">
+            <span class="invalid-feedback" id="longitudOK"></span>
+            @error('longitud')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
-            <div class="col-md-12 p-0 pt-1">
-                <input id="longitud" type="text" class="form-control  @error('longitud') is-invalid @enderror"
-                    name="longitud" value="{{$nuevo?old('longitud'):$Planta->SituacionEntorno->Altitud}}" required
-                    {{$isReO? "readonly":""}} autocomplete="longitud" autofocus data-toggle="tooltip"
-                    data-placement="top" placeholder="Longuitud">
-                    <span class="invalid-feedback" id="longitudOK"></span>
-                @error('longitud')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-
-            </div>
         </div>
     </div>
+</div>
 
     @if ($nuevo)
     <div class="form-group row g-3">
@@ -217,3 +215,39 @@
     </div>
     <hr>
 </div>
+
+@push('scripts')
+<script>
+    var app = new Vue({
+      el: '#fondo',
+      data: {
+        message: 'Hola Vue!',
+        prospectos:[]
+      },
+      methods: {
+        CargarCoordenadas:function () {
+            // Obtener la ubicación del usuario y establecer la latitud y longitud iniciales
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var userLatitud = position.coords.latitude;
+                    var userLongitud = position.coords.longitude;
+                    
+                    // Establecer los valores de latitud y longitud en los campos de entrada
+                    document.getElementById("Latitud").value = userLatitud;
+                    document.getElementById("Longitud").value = userLongitud;
+                    
+                    // También puedes llamar a la función updateMap aquí si deseas hacer algo con las coordenadas
+                });
+            } else {
+                console.log("Geolocalización no está disponible en este navegador.");
+            }
+        }
+      },
+      mounted: function() {
+        this.$nextTick(function () {
+            this.CargarCoordenadas();
+        });
+      }
+    });
+</script>
+@endpush
