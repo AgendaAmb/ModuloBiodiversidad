@@ -88,3 +88,5 @@ Route::group(['prefix' => 'Sistema', 'middleware' => 'auth'], function () {
 
     });
 });
+
+Route::get('/abrirCamara', 'CamaraController@abrirCamara')->name('abrirCamara');

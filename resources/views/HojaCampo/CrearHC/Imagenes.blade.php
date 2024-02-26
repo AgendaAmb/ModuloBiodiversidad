@@ -21,7 +21,7 @@
                 </small>
                 <!-- Botón para abrir la cámara -->
                 <label for="cameraInput" class="text-muted">
-                    <input type="button" id="cameraInput" class="d-none" @click="abrirCamara">
+                    <input type="button" id="cameraInput" class="d-none" @click="abrirVentanaEmergente">
                     <i class="fas fa-camera"></i> Abrir Cámara
                 </label>
                 <!-- Fin del botón -->
@@ -38,7 +38,7 @@
     </b>
 </div>
 
-@push('scripts')
+<!-- @push('scripts')
 <script>
     var app = new Vue({
       el: '#fondo',
@@ -67,7 +67,7 @@
         }
     });
 </script>
-@endpush
+@endpush -->
 
 <!-- @push('scripts')
 <script>
