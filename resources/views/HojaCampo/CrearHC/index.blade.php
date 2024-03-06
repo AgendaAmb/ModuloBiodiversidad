@@ -85,6 +85,7 @@
                 @include('HojaCampo.CrearHC.ReconocimientoE')
                 @include('HojaCampo.CrearHC.Morfologia')
                 @include('HojaCampo.CrearHC.SituacionEntorno')
+                @include('HojaCampo.CrearHC.camara')
                 @if ($nuevo)
                 <div class="container mb-3">
                     <div class="row justify-content-center">
@@ -304,6 +305,15 @@
   
 }, 
 methods:{
+<<<<<<< HEAD
+=======
+    
+    abrirVentanaEmergente() {
+                // Abrir la ventana emergente que maneja la cámara
+                const ventanaEmergente = window.open('', 'camara', 'width=800,height=600');
+                ventanaEmergente.location.href = '/abrirCamara';
+    },
+>>>>>>> d47101ec715bb564ba6e5fc2239247122641275c
 
     cargarImagen: function(e,index){
         let t = this;

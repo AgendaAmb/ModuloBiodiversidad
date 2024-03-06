@@ -92,3 +92,4 @@ Route::group(['prefix' => 'Sistema', 'middleware' => 'auth'], function () {
 
 Route::get('/welcome', [WebcamController::class, 'index']);
 Route::post('webcam-capture', [WebcamController::class, 'store'])->name('webcam.capture');
+//Route::get('/abrirCamara', 'CamaraController@abrirCamara')->name('abrirCamara');
