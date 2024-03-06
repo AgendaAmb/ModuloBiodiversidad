@@ -304,41 +304,6 @@
   
 }, 
 methods:{
-    
-    abrirCamara() {
-         // Abrir la ventana emergente y especificar el tamaño
-            const ventanaEmergente = window.open('', 'Camara', 'width=800,height=600');
-
-        // Solicitar acceso a la cámara
-        navigator.mediaDevices.getUserMedia({ video: true })
-            .then(stream => {
-                // Muestra la vista previa de la cámara en la nueva ventana
-                ventanaEmergente.document.write('<html><body style="margin:0;">');
-                ventanaEmergente.document.write('<video id="video" autoplay playsinline style="width:100%; height:100%;"></video>');
-                ventanaEmergente.document.write('</body></html>');
-
-                const video = ventanaEmergente.document.getElementById('video');
-                video.srcObject = stream;
-
-                // Agregar un botón para cerrar la cámara
-                const botonCerrar = ventanaEmergente.document.createElement('button');
-                botonCerrar.textContent = 'Cerrar Cámara';
-                botonCerrar.onclick = () => {
-                    // Detiene el stream de video
-                    stream.getTracks().forEach(track => track.stop());
-                    // Cierra la ventana emergente
-                    ventanaEmergente.close();
-                };
-                ventanaEmergente.document.body.appendChild(botonCerrar);
-            })
-            .catch(error => {
-                console.error('Error al abrir la cámara:', error);
-                // Muestra un mensaje de error al usuario
-                alert('No se pudo acceder a la cámara. Por favor, asegúrate de permitir el acceso a la cámara.');
-                // Cierra la ventana emergente si hay un error
-                ventanaEmergente.close();
-            });
-    },
 
     cargarImagen: function(e,index){
         let t = this;

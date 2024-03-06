@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WebcamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,3 +89,6 @@ Route::group(['prefix' => 'Sistema', 'middleware' => 'auth'], function () {
 
     });
 });
+
+Route::get('/welcome', [WebcamController::class, 'index']);
+Route::post('webcam-capture', [WebcamController::class, 'store'])->name('webcam.capture');

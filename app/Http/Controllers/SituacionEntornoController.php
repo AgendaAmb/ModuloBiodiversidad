@@ -82,4 +82,5 @@ class SituacionEntornoController extends Controller
     {
         //
     }
+
 }
