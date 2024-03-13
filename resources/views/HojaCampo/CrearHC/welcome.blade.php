@@ -237,6 +237,7 @@
     <style>
         #results { font-size: 14px; padding: 10px; margin: 20px; border: 1px solid; }
         video { width: 100%; max-width: 490px; height: auto; }
+        #snapshot { margin-top: 20px; }
     </style>
 </head>
 <body>
@@ -249,6 +250,7 @@
             <button id="take_snapshot">Take Snapshot</button>
             <input type="hidden" name="image" class="image-tag">
             <div id="results">Your captured image will appear here...</div>
+            <div id="snapshot"></div> 
             <br/>
             <button class="btn btn-primary" id="submit_button" disabled>Submit</button>
         </div>
@@ -293,11 +295,16 @@
             function detectObjects() {
                 detector.detect(video)
                 .then(function(predictions) {
-                    // Filtrar predicciones para mostrar solo las personas
-                    var peoplePredictions = predictions.filter(prediction => prediction.class === 'person');
-                    
-                    // Dibujar cuadros delimitadores alrededor de las personas detectadas
-                    drawBoundingBoxes(peoplePredictions);
+                    // Filtrar predicciones para mostrar solo personas y vegetación
+                    var allPredictions = predictions;
+                    // Dibujar cuadros delimitadores alrededor de todas las clases detectadas
+                    drawBoundingBoxes(allPredictions);
+                    // var peopleAndVegetationPredictions = predictions.filter(prediction => {
+                    //     return prediction.class === 'person' || prediction.class === 'tree' || prediction.class === 'plant';
+                    // });
+
+                    // // Dibujar cuadros delimitadores alrededor de las personas y vegetación detectadas
+                    // drawBoundingBoxes(peopleAndVegetationPredictions);
 
                     // Llamar de nuevo a la función detectObjects() para detectar objetos continuamente
                     requestAnimationFrame(detectObjects);
@@ -308,9 +315,13 @@
             }
 
             function drawBoundingBoxes(predictions) {
-                var ctx = video.getContext('2d');
-                ctx.clearRect(0, 0, video.width, video.height);
-                ctx.drawImage(video, 0, 0, video.width, video.height);
+                var canvas = document.createElement('canvas');
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                var ctx = canvas.getContext('2d');
+
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
                 ctx.font = '16px Arial';
 
                 predictions.forEach(function(prediction) {
@@ -319,13 +330,18 @@
                     var width = prediction.bbox[2];
                     var height = prediction.bbox[3];
 
-                    // Dibujar un cuadro delimitador alrededor de la persona detectada
-                    ctx.strokeStyle = '#00FF00';
+                    // Dibujar un cuadro delimitador alrededor del objeto detectado
+                    ctx.strokeStyle = '#00FF00'; // Color verde
                     ctx.lineWidth = 2;
                     ctx.strokeRect(x, y, width, height);
                     ctx.fillStyle = '#00FF00';
-                    ctx.fillText(prediction.class, x, y - 5);
+                    ctx.fillText(prediction.class, x, y - 5); // Etiqueta de clase sobre el cuadro
                 });
+
+                // Mostrar el canvas en lugar del video
+                var resultsDiv = document.getElementById('results');
+                resultsDiv.innerHTML = '';
+                resultsDiv.appendChild(canvas);
             }
 
             takeSnapshotButton.addEventListener('click', function() {
@@ -340,28 +356,28 @@
                 ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
                 var data_uri = canvas.toDataURL('image/jpeg');
                 $(".image-tag").val(data_uri);
-                document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
+                
+                // Mostrar la foto capturada debajo del cuadro de detección de objetos
+                var snapshotDiv = document.getElementById('snapshot');
+                snapshotDiv.innerHTML = '<img src="'+data_uri+'"/>';
+
+                // Enviar la imagen capturada al escucha en la ventana principal
+                // Enviar la imagen capturada al escucha en la ventana principal
+                window.opener.postMessage({ image: data_uri, imageId: 'imagen_capturada' }, '*');
+                //window.opener.postMessage({ image: imageData, imageId: cardId }, '*');
+                //window.opener.postMessage({ image: data_uri, imageId: cardId }, '*');
             }
 
+            
             submitButton.addEventListener('click', function() {
-                var image = $(".image-tag").val();
-                var formData = new FormData();
-                formData.append("image", image);
+                // Código para hacer lo que sea necesario antes de cerrar la ventana emergente
 
-                $.ajax({
-                    type: "POST",
-                    url: "{{ route('webcam.capture') }}",
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function(response) {
-                        console.log(response);
-                    },
-                    error: function(error) {
-                        console.log(error);
-                    }
-                });
+                // Enviar un mensaje al escucha en la ventana principal
+                window.opener.postMessage({ message: "Se ha cerrado la ventana emergente" }, '*');
+
+                window.close(); // Esto cerrará la ventana emergente
             });
+
         });
     </script>
 </body>
