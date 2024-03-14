@@ -490,7 +490,7 @@ Abre ventana emergente, toma foto, y se muestra en la ventana principal -->
         // });
     </script>
 </body>
-</html> -->
+</html>
 
 <!-- Detection of person and vegetation, webcam up, detection center, image down -->
 <!-- <!DOCTYPE html>
@@ -967,7 +967,7 @@ Abre ventana emergente, toma foto, y se muestra en la ventana principal -->
 </html> -->
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>Laravel Webcam Capture</title>
@@ -1119,4 +1119,4 @@ Abre ventana emergente, toma foto, y se muestra en la ventana principal -->
         });
     </script>
 </body>
-</html>
+</html> -->
