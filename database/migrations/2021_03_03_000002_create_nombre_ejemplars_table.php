@@ -19,7 +19,7 @@ class CreateNombreEjemplarsTable extends Migration
             $table->string('NombreComunIng')->nullable();
             $table->string('NombreCientifico')->nullable();
             $table->string('Clave');
-            $table->string('NombreComunIng')->nullable();
+            $table->string('NombreComunIng1')->nullable();
             $table->unsignedBigInteger('ficha_tecnicas_id')->nullable();
             $table->timestamps();
 

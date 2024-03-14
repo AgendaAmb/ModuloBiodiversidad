@@ -19,7 +19,7 @@
                 @if ($nuevo)
                 <small class="text-muted">
                     <input type="file" accept="image/png,image/jpeg" :id="'fileImg'+index" :name="'fileImg'+index" class="inp"
-                        @change="cargarImagen($event)" />
+                        @change="cargarImagen($event, index)" />
                 </small>
                 <button class="btn btn-secondary btn-sm ml-3" onclick="openWelcomePopup()">Abrir Cámara</button>
                 @else
@@ -152,7 +152,7 @@ se muestra dos imagenes desde ventana emergente -->
                     console.error("No se encontró el bloque card-body");
                 }
             }
-        }
+        });
     });
 </script> -->
 
