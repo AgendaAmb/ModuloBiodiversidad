@@ -398,25 +398,28 @@ Abre ventana emergente, toma foto, y se muestra en la ventana principal -->
                 });
             }
 
+            // Función para solicitar permisos de ventana emergente
+            function requestPopupPermission() {
+                // Preguntar al usuario si desea abrir la ventana emergente
+                if (window.confirm('¿Quieres abrir la ventana con la dirección URL especificada?')) {
+                    // Abrir la dirección URL especificada en una nueva ventana
+                    window.open('http://127.0.0.1:8000/Ejemplares', '_blank');
+                }
+            }
+
             function detectObjects() {
                 detector.detect(video)
                 .then(function(predictions) {
+                    //console.log("Detecciones realizadas:", predictions);
                     // Filtrar predicciones para mostrar solo personas y vegetación
                     var allPredictions = predictions;
                     // Dibujar cuadros delimitadores alrededor de todas las clases detectadas
                     drawBoundingBoxes(allPredictions);
-                    // var peopleAndVegetationPredictions = predictions.filter(prediction => {
-                    //     return prediction.class === 'person' || prediction.class === 'tree' || prediction.class === 'plant';
-                    // });
-
-                    // // Dibujar cuadros delimitadores alrededor de las personas y vegetación detectadas
-                    // drawBoundingBoxes(peopleAndVegetationPredictions);
-
                     // Llamar de nuevo a la función detectObjects() para detectar objetos continuamente
                     requestAnimationFrame(detectObjects);
                 })
                 .catch(function(error) {
-                    console.error('Error detecting objects:', error);
+                    console.error('Error detectando objetos:', error);
                 });
             }
 
@@ -430,6 +433,9 @@ Abre ventana emergente, toma foto, y se muestra en la ventana principal -->
                 ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
                 ctx.font = '16px Arial';
 
+                // Agregar evento de clic en el canvas
+                
+
                 predictions.forEach(function(prediction) {
                     var x = prediction.bbox[0];
                     var y = prediction.bbox[1];
@@ -442,6 +448,22 @@ Abre ventana emergente, toma foto, y se muestra en la ventana principal -->
                     ctx.strokeRect(x, y, width, height);
                     ctx.fillStyle = '#00FF00';
                     ctx.fillText(prediction.class, x, y - 5); // Etiqueta de clase sobre el cuadro
+
+                    canvas.addEventListener('click', function(event) {
+                        console.log("Evento de clic en el canvas detectado.");
+                        var rect = canvas.getBoundingClientRect();
+                        var clickX = event.clientX - rect.left;
+                        var clickY = event.clientY - rect.top;
+
+                        // Verificar si el clic está dentro del cuadro delimitador actual
+                        if (clickX >= x && clickX <= x + width && clickY >= y && clickY <= y + height) {
+                            // Solicitar permisos de ventana emergente
+                            //requestPopupPermission();
+                            window.open('http://127.0.0.1:8000/Ejemplares');
+                        }
+                    });
+
+                    
                 });
 
                 // Mostrar el canvas en lugar del video
@@ -449,6 +471,299 @@ Abre ventana emergente, toma foto, y se muestra en la ventana principal -->
                 resultsDiv.innerHTML = '';
                 resultsDiv.appendChild(canvas);
             }
+
+            // Iniciar la detección de objetos
+            detectObjects();
+            // function detectObjects() {
+            //     detector.detect(video)
+            //     .then(function(predictions) {
+            //         console.log("Detecciones realizadas:", predictions);
+            //         // Filtrar predicciones para mostrar solo personas y vegetación
+            //         var allPredictions = predictions;
+            //         // Dibujar cuadros delimitadores alrededor de todas las clases detectadas
+            //         drawBoundingBoxes(allPredictions);
+            //         // Llamar de nuevo a la función detectObjects() para detectar objetos continuamente
+            //         requestAnimationFrame(detectObjects);
+            //     })
+            //     .catch(function(error) {
+            //         console.error('Error detectando objetos:', error);
+            //     });
+            // }
+
+            // function drawBoundingBoxes(predictions) {
+            //     var canvas = document.createElement('canvas');
+            //     canvas.width = video.videoWidth;
+            //     canvas.height = video.videoHeight;
+            //     var ctx = canvas.getContext('2d');
+
+            //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+            //     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            //     ctx.font = '16px Arial';
+
+            //     predictions.forEach(function(prediction) {
+            //         var x = prediction.bbox[0];
+            //         var y = prediction.bbox[1];
+            //         var width = prediction.bbox[2];
+            //         var height = prediction.bbox[3];
+
+            //         // Dibujar un cuadro delimitador alrededor del objeto detectado
+            //         ctx.strokeStyle = '#00FF00'; // Color verde
+            //         ctx.lineWidth = 2;
+            //         ctx.strokeRect(x, y, width, height);
+            //         ctx.fillStyle = '#00FF00';
+            //         ctx.fillText(prediction.class, x, y - 5); // Etiqueta de clase sobre el cuadro
+
+            //         // Agregar evento de clic en el canvas
+            //         canvas.addEventListener('click', function(event) {
+            //             console.log("Evento de clic en el canvas detectado.");
+            //             var rect = canvas.getBoundingClientRect();
+            //             var clickX = event.clientX - rect.left;
+            //             var clickY = event.clientY - rect.top;
+
+            //             // Verificar si el clic está dentro del cuadro delimitador actual
+            //             if (clickX >= x && clickX <= x + width && clickY >= y && clickY <= y + height) {
+            //                 // Preguntar al usuario si desea abrir la ventana
+            //                 if (window.confirm('¿Quieres abrir la ventana con la dirección URL especificada?')) {
+            //                     // Abrir la dirección URL especificada en una nueva ventana
+            //                     window.open('http://127.0.0.1:8000/Ejemplares', '_blank');
+            //                 }
+            //             }
+            //         });
+            //     });
+
+            //     // Mostrar el canvas en lugar del video
+            //     var resultsDiv = document.getElementById('results');
+            //     resultsDiv.innerHTML = '';
+            //     resultsDiv.appendChild(canvas);
+            // }
+
+            // // Iniciar la detección de objetos
+            // detectObjects();
+            // function detectObjects() {
+            //     detector.detect(video)
+            //     .then(function(predictions) {
+            //         // Filtrar predicciones para mostrar solo personas y vegetación
+            //         var allPredictions = predictions;
+            //         // Dibujar cuadros delimitadores alrededor de todas las clases detectadas
+            //         drawBoundingBoxes(allPredictions);
+            //         // Llamar de nuevo a la función detectObjects() para detectar objetos continuamente
+            //         requestAnimationFrame(detectObjects);
+            //     })
+            //     .catch(function(error) {
+            //         console.error('Error detecting objects:', error);
+            //     });
+            // }
+
+            // function drawBoundingBoxes(predictions) {
+            //     var canvas = document.createElement('canvas');
+            //     canvas.width = video.videoWidth;
+            //     canvas.height = video.videoHeight;
+            //     var ctx = canvas.getContext('2d');
+
+            //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+            //     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            //     ctx.font = '16px Arial';
+
+            //     predictions.forEach(function(prediction) {
+            //         var x = prediction.bbox[0];
+            //         var y = prediction.bbox[1];
+            //         var width = prediction.bbox[2];
+            //         var height = prediction.bbox[3];
+
+            //         // Dibujar un cuadro delimitador alrededor del objeto detectado
+            //         ctx.strokeStyle = '#00FF00'; // Color verde
+            //         ctx.lineWidth = 2;
+            //         ctx.strokeRect(x, y, width, height);
+            //         ctx.fillStyle = '#00FF00';
+            //         ctx.fillText(prediction.class, x, y - 5); // Etiqueta de clase sobre el cuadro
+
+            //         // Agregar evento de clic en el canvas
+            //         canvas.addEventListener('click', function(event) {
+            //             var rect = canvas.getBoundingClientRect();
+            //             var clickX = event.clientX - rect.left;
+            //             var clickY = event.clientY - rect.top;
+
+            //             // Verificar si el clic está dentro del cuadro delimitador actual
+            //             if (clickX >= x && clickX <= x + width && clickY >= y && clickY <= y + height) {
+            //                 // Preguntar al usuario si desea abrir la ventana
+            //                 if (window.confirm('¿Quieres abrir la ventana con la dirección URL especificada?')) {
+            //                     // Abrir la dirección URL especificada en una nueva ventana
+            //                     window.open('http://127.0.0.1:8000/Ejemplares', '_blank');
+            //                 }
+            //             }
+            //         });
+            //     });
+
+            //     // Mostrar el canvas en lugar del video
+            //     var resultsDiv = document.getElementById('results');
+            //     resultsDiv.innerHTML = '';
+            //     resultsDiv.appendChild(canvas);
+            // }
+            // function detectObjects() {
+            //     detector.detect(video)
+            //     .then(function(predictions) {
+            //         // Filtrar predicciones para mostrar solo personas y vegetación
+            //         var allPredictions = predictions;
+            //         // Dibujar cuadros delimitadores alrededor de todas las clases detectadas
+            //         drawBoundingBoxes(allPredictions);
+            //         // Llamar de nuevo a la función detectObjects() para detectar objetos continuamente
+            //         requestAnimationFrame(detectObjects);
+            //     })
+            //     .catch(function(error) {
+            //         console.error('Error detecting objects:', error);
+            //     });
+            // }
+
+            // function drawBoundingBoxes(predictions) {
+            //     var canvas = document.createElement('canvas');
+            //     canvas.width = video.videoWidth;
+            //     canvas.height = video.videoHeight;
+            //     var ctx = canvas.getContext('2d');
+
+            //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+            //     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            //     ctx.font = '16px Arial';
+
+            //     predictions.forEach(function(prediction) {
+            //         var x = prediction.bbox[0];
+            //         var y = prediction.bbox[1];
+            //         var width = prediction.bbox[2];
+            //         var height = prediction.bbox[3];
+
+            //         // Dibujar un cuadro delimitador alrededor del objeto detectado
+            //         ctx.strokeStyle = '#00FF00'; // Color verde
+            //         ctx.lineWidth = 2;
+            //         ctx.strokeRect(x, y, width, height);
+            //         ctx.fillStyle = '#00FF00';
+            //         ctx.fillText(prediction.class, x, y - 5); // Etiqueta de clase sobre el cuadro
+
+            //         // Agregar evento de clic en el canvas
+            //         canvas.addEventListener('click', function(event) {
+            //             var rect = canvas.getBoundingClientRect();
+            //             var clickX = event.clientX - rect.left;
+            //             var clickY = event.clientY - rect.top;
+
+            //             // Verificar si el clic está dentro del cuadro delimitador actual
+            //             if (clickX >= x && clickX <= x + width && clickY >= y && clickY <= y + height) {
+            //                 // Abrir la dirección URL especificada en una nueva ventana
+            //                 window.open('http://127.0.0.1:8000/Ejemplares', '_blank');
+            //             }
+            //         });
+            //     });
+
+            //     // Mostrar el canvas en lugar del video
+            //     var resultsDiv = document.getElementById('results');
+            //     resultsDiv.innerHTML = '';
+            //     resultsDiv.appendChild(canvas);
+            // }
+            // function detectObjects() {
+            //     detector.detect(video)
+            //     .then(function(predictions) {
+            //         // Filtrar predicciones para mostrar solo personas y vegetación
+            //         var allPredictions = predictions;
+            //         // Dibujar cuadros delimitadores alrededor de todas las clases detectadas
+            //         drawBoundingBoxes(allPredictions);
+            //         // Llamar de nuevo a la función detectObjects() para detectar objetos continuamente
+            //         requestAnimationFrame(detectObjects);
+            //     })
+            //     .catch(function(error) {
+            //         console.error('Error detecting objects:', error);
+            //     });
+            // }
+
+            // function drawBoundingBoxes(predictions) {
+            //     var canvas = document.createElement('canvas');
+            //     canvas.width = video.videoWidth;
+            //     canvas.height = video.videoHeight;
+            //     var ctx = canvas.getContext('2d');
+
+            //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+            //     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            //     ctx.font = '16px Arial';
+
+            //     predictions.forEach(function(prediction) {
+            //         var x = prediction.bbox[0];
+            //         var y = prediction.bbox[1];
+            //         var width = prediction.bbox[2];
+            //         var height = prediction.bbox[3];
+
+            //         // Dibujar un cuadro delimitador alrededor del objeto detectado
+            //         ctx.strokeStyle = '#00FF00'; // Color verde
+            //         ctx.lineWidth = 2;
+            //         ctx.strokeRect(x, y, width, height);
+            //         ctx.fillStyle = '#00FF00';
+            //         ctx.fillText(prediction.class, x, y - 5); // Etiqueta de clase sobre el cuadro
+
+            //         // Agregar evento de clic en el canvas
+            //         canvas.addEventListener('click', function(event) {
+            //             var rect = canvas.getBoundingClientRect();
+            //             var clickX = event.clientX - rect.left;
+            //             var clickY = event.clientY - rect.top;
+
+            //             // Verificar si el clic está dentro del cuadro delimitador actual
+            //             if (clickX >= x && clickX <= x + width && clickY >= y && clickY <= y + height) {
+            //                 // Abrir la dirección URL especificada en una nueva ventana
+            //                 window.open('http://127.0.0.1:8000/Ejemplares');
+            //             }
+            //         });
+            //     });
+
+            //     // Mostrar el canvas en lugar del video
+            //     var resultsDiv = document.getElementById('results');
+            //     resultsDiv.innerHTML = '';
+            //     resultsDiv.appendChild(canvas);
+            // }
+            // function detectObjects() {
+            //     detector.detect(video)
+            //     .then(function(predictions) {
+            //         // Filtrar predicciones para mostrar solo personas y vegetación
+            //         var allPredictions = predictions;
+            //         // Dibujar cuadros delimitadores alrededor de todas las clases detectadas
+            //         drawBoundingBoxes(allPredictions);
+            //         // var peopleAndVegetationPredictions = predictions.filter(prediction => {
+            //         //     return prediction.class === 'person' || prediction.class === 'tree' || prediction.class === 'plant';
+            //         // });
+
+            //         // // Dibujar cuadros delimitadores alrededor de las personas y vegetación detectadas
+            //         // drawBoundingBoxes(peopleAndVegetationPredictions);
+
+            //         // Llamar de nuevo a la función detectObjects() para detectar objetos continuamente
+            //         requestAnimationFrame(detectObjects);
+            //     })
+            //     .catch(function(error) {
+            //         console.error('Error detecting objects:', error);
+            //     });
+            // }
+
+            // function drawBoundingBoxes(predictions) {
+            //     var canvas = document.createElement('canvas');
+            //     canvas.width = video.videoWidth;
+            //     canvas.height = video.videoHeight;
+            //     var ctx = canvas.getContext('2d');
+
+            //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+            //     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            //     ctx.font = '16px Arial';
+
+            //     predictions.forEach(function(prediction) {
+            //         var x = prediction.bbox[0];
+            //         var y = prediction.bbox[1];
+            //         var width = prediction.bbox[2];
+            //         var height = prediction.bbox[3];
+
+            //         // Dibujar un cuadro delimitador alrededor del objeto detectado
+            //         ctx.strokeStyle = '#00FF00'; // Color verde
+            //         ctx.lineWidth = 2;
+            //         ctx.strokeRect(x, y, width, height);
+            //         ctx.fillStyle = '#00FF00';
+            //         ctx.fillText(prediction.class, x, y - 5); // Etiqueta de clase sobre el cuadro
+            //     });
+
+            //     // Mostrar el canvas en lugar del video
+            //     var resultsDiv = document.getElementById('results');
+            //     resultsDiv.innerHTML = '';
+            //     resultsDiv.appendChild(canvas);
+            // }
 
             // takeSnapshotButton.addEventListener('click', function() {
             //     take_snapshot();
